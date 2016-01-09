@@ -58,6 +58,7 @@ android {
 }
 
 ext.daggerVersion = '2.0.2'
+ext.icepickVersion = '3.1.0'
 ext.okhttpVersion = '3.0.0-RC1'
 ext.retrofitVersion = '2.0.0-beta3'
 ext.supportVersion = '23.1.1'
@@ -84,6 +85,9 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton.timber:timber:4.1.0'
+
+    compile "frankiesardo:icepick:$icepickVersion"
+    provided "frankiesardo:icepick-processor:$icepickVersion"
 
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Core -->
     <string name="app_name">Droidcon Tunisia 2016</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
+    <!-- Drawer Activity -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="drawer_header_headline">Droidcon Tunisia</string>
+    <string name="drawer_header_subheadline">5/6th of March 2016</string>
+    <string name="drawer_nav_schedule">My schedule</string>
+    <string name="drawer_nav_speakers">Speakers</string>
+    <string name="drawer_nav_venue">Venue</string>
+    <string name="drawer_nav_settings">Settings</string>
 </resources>
