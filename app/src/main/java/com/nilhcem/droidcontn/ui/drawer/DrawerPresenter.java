@@ -12,6 +12,7 @@ import com.nilhcem.droidcontn.ui.speakers.SpeakersFragment;
 import com.nilhcem.droidcontn.ui.venue.VenueFragment;
 
 import icepick.State;
+import lombok.SneakyThrows;
 
 public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
 
@@ -36,22 +37,23 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
     }
 
     @Override
+    @SneakyThrows
     public void onNavigationItemSelected(@IdRes int itemId) {
         switch (itemId) {
             case R.id.drawer_nav_schedule:
-                mView.showFragment(new ScheduleFragment());
+                mView.showFragment(ScheduleFragment.class.newInstance());
                 mToolbarTitle = R.string.drawer_nav_schedule;
                 break;
             case R.id.drawer_nav_speakers:
-                mView.showFragment(new SpeakersFragment());
+                mView.showFragment(SpeakersFragment.class.newInstance());
                 mToolbarTitle = R.string.drawer_nav_speakers;
                 break;
             case R.id.drawer_nav_venue:
-                mView.showFragment(new VenueFragment());
+                mView.showFragment(VenueFragment.class.newInstance());
                 mToolbarTitle = R.string.drawer_nav_venue;
                 break;
             case R.id.drawer_nav_settings:
-                mView.showFragment(new SettingsFragment());
+                mView.showFragment(SettingsFragment.class.newInstance());
                 mToolbarTitle = R.string.drawer_nav_settings;
                 break;
             default:
