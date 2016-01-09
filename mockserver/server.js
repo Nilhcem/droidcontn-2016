@@ -14,14 +14,14 @@ function replaceUrl(data, req) {
     return data.replace(/http:\/\/localhost:8080/g, host);
 }
 
-/* Agenda */
-app.get('/model/agenda.json', function(req, res) {
+/* Schedule */
+app.get('/schedule', function(req, res) {
     res.type('application/json; charset=' + defaultCharset);
-    res.status(200).send(fs.readFileSync('data/agenda.json', defaultCharset));
+    res.status(200).send(fs.readFileSync('data/schedule.json', defaultCharset));
 });
 
 /* Speakers */
-app.get('/model/speakers.json', function(req, res) {
+app.get('/speakers', function(req, res) {
     res.type('application/json; charset=' + defaultCharset);
     res.status(200).send(fs.readFileSync('data/speakers.json', defaultCharset));
 });
