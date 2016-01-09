@@ -70,27 +70,28 @@ dependencies {
 
     compile 'org.projectlombok:lombok:1.16.6'
 
-    compile "com.google.dagger:dagger:$daggerVersion"
-    apt "com.google.dagger:dagger-compiler:$daggerVersion"
-
-    compile "com.squareup.okhttp3:okhttp:$okhttpVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
-
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.1'
-
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
-    compile 'com.squareup.moshi:moshi:1.0.0'
-
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton.timber:timber:4.1.0'
+    compile 'com.squareup.moshi:moshi:1.0.0'
 
     compile "frankiesardo:icepick:$icepickVersion"
     provided "frankiesardo:icepick-processor:$icepickVersion"
 
+    compile "com.google.dagger:dagger:$daggerVersion"
+    apt "com.google.dagger:dagger-compiler:$daggerVersion"
+
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
+
+    compile "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.1'
 
     testCompile 'junit:junit:4.12'
 }
