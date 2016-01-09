@@ -1,0 +1,368 @@
+[{
+	"id": 1,
+	"dayId": 1,
+	"fromTime": "08:00",
+	"toTime": "09:00",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Mew Opens",
+		"description": null
+	}]
+}, {
+	"id": 2,
+	"dayId": 1,
+	"fromTime": "09:00",
+	"toTime": "09:15",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": null,
+		"title": "Opening",
+		"description": null
+	}]
+}, {
+	"id": 3,
+	"dayId": 1,
+	"fromTime": "09:15",
+	"toTime": "10:00",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [1],
+		"title": "Nothing but the truth about Meoow",
+		"description": "Catnipsum dolor sit amet catnipsum purrfection fluffy shorthair."
+	}, {
+		"roomId": 2,
+		"speakersId": [7],
+		"title": "Implementing Material Meow",
+		"description": "Grooming whiskers there's a kitten on my head tiger a cat may look at a king."
+	}]
+}, {
+	"id": 4,
+	"dayId": 1,
+	"fromTime": "10:10",
+	"toTime": "10:55",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [6],
+		"title": "Managing Runtime Meow",
+		"description": "Boots grooming precious cat in a hat shorthair happy kitty ginger precious."
+	}, {
+		"roomId": 2,
+		"speakersId": [2],
+		"title": "The 2015 Android Developer Meow",
+		"description": "Patch cat got your tounge paws sniffing."
+	}]
+}, {
+	"id": 5,
+	"dayId": 1,
+	"fromTime": "10:55",
+	"toTime": "11:15",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Coffee meow",
+		"description": null
+	}]
+}, {
+	"id": 6,
+	"dayId": 1,
+	"fromTime": "11:15",
+	"toTime": "12:00",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [4],
+		"title": "Material Design Custom Meows",
+		"description": "Tail raowwwww chartreux catnip climbing."
+	}, {
+		"roomId": 2,
+		"speakersId": [3],
+		"title": "App Meows for Android",
+		"description": "Soft fur milo bowl collar european shorthair."
+	}]
+}, {
+	"id": 7,
+	"dayId": 1,
+	"fromTime": "12:10",
+	"toTime": "12:40",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [5],
+		"title": "Facts and meows.",
+		"description": "American longhair simba shorthair molly stuck in a tree felix toy soft kitty pussy cat, pussy cat."
+	}, {
+		"roomId": 2,
+		"speakersId": [7],
+		"title": "Power of Android Meow",
+		"description": "Hiss oliver pussy cat, pussy cat look what the cat dragged in catnipsum fur purr purr purr cat and mouse act sunbathe."
+	}]
+}, {
+	"id": 8,
+	"dayId": 1,
+	"fromTime": "12:40",
+	"toTime": "14:00",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Meow break",
+		"description": null
+	}]
+}, {
+	"id": 9,
+	"dayId": 1,
+	"fromTime": "14:00",
+	"toTime": "14:30",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [3],
+		"title": "Clean meow",
+		"description": "Kittens fighting on the chairs miaow american longhair rowwrrr purr purr purr misty felix."
+	}, {
+		"roomId": 2,
+		"speakersId": [4],
+		"title": "Striptease of The Meow",
+		"description": "Shadow charlie cat simba sunbathe catnip catnip burmilla kitty-litter. Clawing fur ball meaaaawww sunbathe."
+	}]
+}, {
+	"id": 10,
+	"dayId": 1,
+	"fromTime": "14:40",
+	"toTime": "15:25",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [4],
+		"title": "Deep dive into Meowing",
+		"description": "Chase balls of string max cat shadow."
+	}, {
+		"roomId": 2,
+		"speakersId": [7],
+		"title": "Unit test via Meow",
+		"description": "Cheshire happy kitty jingle-bells pussy cat, pussy cat purr purr purr midnight little ball of fur."
+	}]
+}, {
+	"id": 11,
+	"dayId": 1,
+	"fromTime": "15:25",
+	"toTime": "15:45",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Coffee meow",
+		"description": null
+	}]
+}, {
+	"id": 12,
+	"dayId": 1,
+	"fromTime": "15:45",
+	"toTime": "16:30",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [2],
+		"title": "I'm not trying to meow you off",
+		"description": "Leap cat i've been to london mrow."
+	}, {
+		"roomId": 2,
+		"speakersId": [4],
+		"title": "Meow quality tips for Android",
+		"description": "Puss catnipsum shorthair little ball of fur ginger mouse dreamy bed miioo-oo-oo."
+	}]
+}, {
+	"id": 13,
+	"dayId": 1,
+	"fromTime": "16:40",
+	"toTime": "17:10",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [1],
+		"title": "How to move faster from an idea to full-fledged meow?",
+		"description": "Catnipsum catnipsum there's a kitten in my shoe max ragdoll charlie ragdoll cat got your tounge."
+	}, {
+		"roomId": 2,
+		"speakersId": [5],
+		"title": "How to live with Meow",
+		"description": "Kittens kittens everywhere kittens tumbling down the stairs where have u been burmilla rrrow-mawww soft kitty little ball of fur miioo-oo-oo."
+	}]
+}, {
+	"id": 14,
+	"dayId": 1,
+	"fromTime": "17:10",
+	"toTime": "17:30",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": null,
+		"title": "Closing Meow 1",
+		"description": null
+	}]
+}, {
+	"id": 15,
+	"dayId": 1,
+	"fromTime": "19:00",
+	"toTime": "22:00",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Aftermeowy",
+		"description": "Molly toy tiger simba kitty catnip tail boots catnip."
+	}]
+}, {
+	"id": 16,
+	"dayId": 2,
+	"fromTime": "08:00",
+	"toTime": "10:00",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Opening Meow 2",
+		"description": null
+	}]
+}, {
+	"id": 17,
+	"dayId": 2,
+	"fromTime": "10:00",
+	"toTime": "10:30",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [2, 3],
+		"title": "Secure Development with Meow",
+		"description": "Climbing european shorthair treats rrrow-mawww."
+	}, {
+		"roomId": 2,
+		"speakersId": [5],
+		"title": "Using Meow to create the best UX with #IOT",
+		"description": "Kittens kittens everywhere stretching there's a kitten on my head catnipsum curiosity killed the cat catnipsum."
+	}]
+}, {
+	"id": 18,
+	"dayId": 2,
+	"fromTime": "10:40",
+	"toTime": "11:25",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [1],
+		"title": "Android Reactive Programming with RxMeow",
+		"description": "Catnip catnipsum string purrfection catnip catnip."
+	}, {
+		"roomId": 2,
+		"speakersId": [6],
+		"title": "Android Meowing API",
+		"description": "American longhair american longhair catnipsum i've been to london oliver rawwww sassy."
+	}]
+}, {
+	"id": 19,
+	"dayId": 2,
+	"fromTime": "11:25",
+	"toTime": "11:45",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Coffee meow",
+		"description": null
+	}]
+}, {
+	"id": 20,
+	"dayId": 2,
+	"fromTime": "11:45",
+	"toTime": "12:30",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [5],
+		"title": "Kotlin in a real-world Android meow",
+		"description": "Toy catnip tabby curly mrow meow ginger."
+	}, {
+		"roomId": 2,
+		"speakersId": [3],
+		"title": "Recipes in RxMeow for Android",
+		"description": "Catnipsum i smell a rat catnip catnip clawing."
+	}]
+}, {
+	"id": 21,
+	"dayId": 2,
+	"fromTime": "12:40",
+	"toTime": "13:10",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [1],
+		"title": "Protocols and communication in the Meow world",
+		"description": "Paws purrfection long thin tail catnip catnipsum to look at the queen smokey."
+	}, {
+		"roomId": 2,
+		"speakersId": [2],
+		"title": "MeowOS to Andromeow",
+		"description": "Catnip feed me rolling catnip grooming mmeww."
+	}]
+}, {
+	"id": 22,
+	"dayId": 2,
+	"fromTime": "13:10",
+	"toTime": "14:30",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Lunch meow",
+		"description": null
+	}]
+}, {
+	"id": 23,
+	"dayId": 2,
+	"fromTime": "14:30",
+	"toTime": "15:00",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [4],
+		"title": "Motion recognition and creating fitness meows",
+		"description": "Bobtail hellcat purr purr purr smokey kittens climbing up my jeans scratching meeow siamese catnip."
+	}, {
+		"roomId": 2,
+		"speakersId": [6],
+		"title": "It's always your meow.",
+		"description": "Fur ball curly max there's a kitten on each shoulder catnip raining cats and dogs mrowwwww stretching mmeww."
+	}]
+}, {
+	"id": 24,
+	"dayId": 2,
+	"fromTime": "15:15",
+	"toTime": "16:00",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": [5],
+		"title": "20 tips for building better meows",
+		"description": "Missy precious licking mouse molly ragdoll."
+	}]
+}, {
+	"id": 25,
+	"dayId": 2,
+	"fromTime": "16:00",
+	"toTime": "16:20",
+	"sessions": [{
+		"roomId": 0,
+		"speakersId": null,
+		"title": "Meow break",
+		"description": null
+	}]
+}, {
+	"id": 26,
+	"dayId": 2,
+	"fromTime": "16:20",
+	"toTime": "18:00",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": null,
+		"title": "Barmeow",
+		"description": null
+	}, {
+		"roomId": 2,
+		"speakersId": null,
+		"title": "Meowcamp",
+		"description": null
+	}]
+}, {
+	"id": 27,
+	"dayId": 2,
+	"fromTime": "18:00",
+	"toTime": "18:30",
+	"sessions": [{
+		"roomId": 1,
+		"speakersId": null,
+		"title": "Closing Meow 2",
+		"description": null
+	}]
+}]

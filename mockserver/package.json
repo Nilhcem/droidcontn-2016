@@ -1,0 +1,9 @@
+{
+  "name": "droidcontn2016-mock-server",
+  "description": "Droidcon Tunisia 2016 Mock Server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.13.3"
+  }
+}
