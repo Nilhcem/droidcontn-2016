@@ -18,7 +18,7 @@ http://localhost:8990/
 
 ## Acknowledgements
 
-This project took some inspiration from the amazing work done for the [Droidcon PL 2015 mobile app][] and the [Google IO app][]
+This project took some inspiration from the amazing work done for the [Droidcon PL 2015 mobile app][] and the [Google I/O app][]
 
 [Droidcon PL 2015 mobile app]: https://github.com/droidconpl/droidcon-2015-mobile-app
-[Google IO app]: https://github.com/google/iosched
+[Google I/O app]: https://github.com/google/iosched
