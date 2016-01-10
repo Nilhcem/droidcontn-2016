@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.model;
+package com.nilhcem.droidcontn.data.model;
 
 import lombok.Value;
 

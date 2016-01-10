@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Core -->
-    <string name="app_name">Droidcon Tunisia 2016</string>
+    <string name="core_app_name">Droidcon Tunisia 2016</string>
 
     <!-- Drawer Activity -->
     <string name="drawer_open">Open navigation drawer</string>

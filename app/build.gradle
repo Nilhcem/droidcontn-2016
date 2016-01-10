@@ -23,7 +23,6 @@ android {
     buildToolsVersion '23.0.2'
 
     defaultConfig {
-        applicationId 'com.nilhcem.droidcontn'
         versionCode 1
         versionName '1.0'
 
@@ -33,24 +32,31 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix '.dev'
+            versionNameSuffix '-dev'
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
     productFlavors {
-        prod {
-            buildConfigField 'String', 'API_ENDPOINT', '"https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/api/"'
+        internal {
+            applicationId 'com.nilhcem.droidcontn.internal'
         }
-
-        mock {
-            buildConfigField 'String', 'API_ENDPOINT', '"http://' + getLocalIp() + ':8990/"'
+        production {
+            applicationId 'com.nilhcem.droidcontn'
         }
     }
 
-    lintOptions {
-        abortOnError false
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     packagingOptions {
@@ -59,11 +65,6 @@ android {
         exclude 'META-INF/license.txt'
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/services/javax.annotation.processing.Processor'
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -74,11 +75,27 @@ ext.retrofitVersion = '2.0.0-beta3'
 ext.supportVersion = '23.1.1'
 
 dependencies {
+    compile "com.android.support:support-v4:$supportVersion"
+    compile "com.android.support:support-annotations:$supportVersion"
     compile "com.android.support:appcompat-v7:$supportVersion"
-    compile "com.android.support:design:$supportVersion"
     compile "com.android.support:recyclerview-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
 
     compile 'org.projectlombok:lombok:1.16.6'
+
+    compile "com.google.dagger:dagger:$daggerVersion"
+    apt "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    compile "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.1'
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
 
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton.timber:timber:4.1.0'
@@ -87,34 +104,12 @@ dependencies {
     compile "frankiesardo:icepick:$icepickVersion"
     provided "frankiesardo:icepick-processor:$icepickVersion"
 
-    compile "com.google.dagger:dagger:$daggerVersion"
-    apt "com.google.dagger:dagger-compiler:$daggerVersion"
-
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'io.reactivex:rxjava:1.1.0'
-
-    compile "com.squareup.okhttp3:okhttp:$okhttpVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
-
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
-
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.1'
-
     testCompile 'junit:junit:4.12'
 }
 
-def getLocalIp() {
-    for (NetworkInterface iface : NetworkInterface.networkInterfaces) {
-        for (InetAddress addr : iface.inetAddresses) {
-            if (!addr.isLoopbackAddress()) {
-                def ip = addr.hostAddress
-                if (ip.startsWith('192.')) {
-                    return ip
-                }
-            }
-        }
-    }
+// print build finish time
+gradle.buildFinished { buildResult ->
+    def buildFinishDate = new Date()
+    def formattedDate = buildFinishDate.format('yyyy-MM-dd HH:mm:ss')
+    println "Build finished: ${formattedDate}"
 }
