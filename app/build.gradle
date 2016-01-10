@@ -39,6 +39,16 @@ android {
         }
     }
 
+    productFlavors {
+        prod {
+            buildConfigField 'String', 'API_ENDPOINT', '"https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/api/"'
+        }
+
+        mock {
+            buildConfigField 'String', 'API_ENDPOINT', '"http://' + getLocalIp() + ':8990/"'
+        }
+    }
+
     lintOptions {
         abortOnError false
     }
@@ -94,4 +104,17 @@ dependencies {
     compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.1'
 
     testCompile 'junit:junit:4.12'
+}
+
+def getLocalIp() {
+    for (NetworkInterface iface : NetworkInterface.networkInterfaces) {
+        for (InetAddress addr : iface.inetAddresses) {
+            if (!addr.isLoopbackAddress()) {
+                def ip = addr.hostAddress
+                if (ip.startsWith('192.')) {
+                    return ip
+                }
+            }
+        }
+    }
 }
