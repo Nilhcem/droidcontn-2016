@@ -105,6 +105,7 @@ dependencies {
     compile "frankiesardo:icepick:$icepickVersion"
     provided "frankiesardo:icepick-processor:$icepickVersion"
 
+    internalCompile 'jp.wasabeef:takt:1.0.2'
     internalCompile "com.facebook.stetho:stetho:$stethoVersion"
     internalCompile("com.facebook.stetho:stetho-timber:$stethoVersion") {
         exclude group: 'com.jakewharton.timber'
