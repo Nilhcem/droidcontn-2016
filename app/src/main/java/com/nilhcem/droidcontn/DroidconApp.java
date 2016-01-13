@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.nilhcem.droidcontn.core.dagger.AppComponent;
 
+import timber.log.Timber;
+
 public class DroidconApp extends Application {
 
     private AppComponent mComponent;
@@ -17,6 +19,7 @@ public class DroidconApp extends Application {
     public void onCreate() {
         super.onCreate();
         initGraph();
+        initLogger();
     }
 
     public AppComponent component() {
@@ -25,5 +28,9 @@ public class DroidconApp extends Application {
 
     private void initGraph() {
         mComponent = AppComponent.Initializer.init(this);
+    }
+
+    private void initLogger() {
+        Timber.plant(new Timber.DebugTree());
     }
 }
