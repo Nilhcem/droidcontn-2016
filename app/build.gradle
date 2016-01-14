@@ -70,7 +70,7 @@ android {
 
 ext.daggerVersion = '2.0.2'
 ext.icepickVersion = '3.1.0'
-ext.okhttpVersion = '3.0.0-RC1'
+ext.okhttpVersion = '3.0.0'
 ext.retrofitVersion = '2.0.0-beta3'
 ext.stethoVersion = '1.2.0'
 ext.supportVersion = '23.1.1'
