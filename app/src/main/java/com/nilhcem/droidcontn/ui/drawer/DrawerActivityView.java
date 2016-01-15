@@ -13,4 +13,6 @@ public interface DrawerActivityView {
     void updateToolbarTitle(@StringRes int resId);
 
     void showFragment(BaseFragment fragment);
+
+    void selectFirstDrawerEntry();
 }

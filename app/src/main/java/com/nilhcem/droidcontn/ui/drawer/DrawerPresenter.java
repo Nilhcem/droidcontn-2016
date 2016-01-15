@@ -68,6 +68,10 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
         if (mView.isNavigationDrawerOpen()) {
             mView.closeNavigationDrawer();
             return true;
+        } else if (mToolbarTitle != R.string.drawer_nav_schedule) {
+            onNavigationItemSelected(R.id.drawer_nav_schedule);
+            mView.selectFirstDrawerEntry();
+            return true;
         }
         return false;
     }

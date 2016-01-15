@@ -63,7 +63,8 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
                 .flatMap(Observable::<Speaker>from)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(speaker -> {},
+                .subscribe(speaker -> {
+                        },
                         throwable -> Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show(),
                         () -> Toast.makeText(this, "Completed", Toast.LENGTH_SHORT).show());
     }
@@ -88,5 +89,10 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.drawer_fragments_container, fragment)
                 .commit();
+    }
+
+    @Override
+    public void selectFirstDrawerEntry() {
+        mNavigationView.setCheckedItem(R.id.drawer_nav_schedule);
     }
 }
