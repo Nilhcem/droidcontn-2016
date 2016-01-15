@@ -189,13 +189,13 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Lance-Gleason.jpg"
 }, {
 	"id": 22,
-	"name": "Dhrumil Shah",
-	"title": "Lead Android App Developer at Bugle Technologies Pvt. Ltd.",
-	"bio": "Dhrumil Shah, The Co-Organizer of GDG Ahmedabad, Lead Android App Developer at Bugle Technologies Pvt. Ltd. Dhrumil Shah has completed his masters in Computer engineering specialize in Wireless & Mobile Computing. Being a techno freak, his interest lies in developing apps, sharing knowledge by delivering talk, workshop and doing research.",
-	"website": "https://about.me/dhuma1981",
-	"twitter": "dhuma1981",
-	"github": "dhuma1981",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Dhrumil-Shah.jpg"
+	"name": "Hans-Christoph Steiner",
+	"title": "Guardian Project, Researcher and Hacker",
+	"bio": "Hans-Christoph Steiner is a researcher and hacker with Guardian Project working to make private-by-design easy for all to achieve. He spends his time making software as private as possible yet usable by everyone, designing digital interactions focused on perceptual capabilities, and composing music with computers. With an emphasis on collaboration, he works in many forms, including free software for mobile and embedded devices, responsive sound environments, free wireless networks that build community, musical robots that listen, programming environments to let you play with math, and a jet-powered fish that you can ride. To further his research, he teaches and works at various community centers and organizes open, collaborative hacklabs and open barcamp conferences. He is currently focused on building the most flexible, private, and secure app store as well as teaching digital security, interaction design, and media programming at workshops around and universities around the world.",
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Hans-Christoph-Steiner.jpg"
 }, {
 	"id": 23,
 	"name": "Houssem Dellai",
@@ -234,15 +234,6 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Prajyot-Mainkar.jpg"
 }, {
 	"id": 27,
-	"name": "Hans-Christoph Steiner",
-	"title": "Guardian Project, Researcher and Hacker",
-	"bio": "Hans-Christoph Steiner is a researcher and hacker with Guardian Project working to make private-by-design easy for all to achieve. He spends his time making software as private as possible yet usable by everyone, designing digital interactions focused on perceptual capabilities, and composing music with computers. With an emphasis on collaboration, he works in many forms, including free software for mobile and embedded devices, responsive sound environments, free wireless networks that build community, musical robots that listen, programming environments to let you play with math, and a jet-powered fish that you can ride. To further his research, he teaches and works at various community centers and organizes open, collaborative hacklabs and open barcamp conferences. He is currently focused on building the most flexible, private, and secure app store as well as teaching digital security, interaction design, and media programming at workshops around and universities around the world.",
-	"website": null,
-	"twitter": null,
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Hans-Christoph-Steiner.jpg"
-}, {
-	"id": 28,
 	"name": "Azzen Abidi",
 	"title": "Univers Libre, Web Developer",
 	"bio": "Azzen Abidi, a 23 year old  student and web developer since 2013, an active member of the free software community since 2012. I am also a member of the translation team of the geany project, a tester with the xubuntu community, a DB & linux server admin and an IT consultant. I was one of RMS conferences organizers and eventually the Devbox project founder.",
