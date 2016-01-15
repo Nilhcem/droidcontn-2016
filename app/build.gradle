@@ -23,6 +23,7 @@ android {
     buildToolsVersion '23.0.2'
 
     defaultConfig {
+        applicationId 'com.nilhcem.droidcontn'
         versionCode 1
         versionName '1.0'
 
@@ -47,10 +48,9 @@ android {
 
     productFlavors {
         internal {
-            applicationId 'com.nilhcem.droidcontn.internal'
+            applicationIdSuffix '.internal'
         }
         production {
-            applicationId 'com.nilhcem.droidcontn'
         }
     }
 
