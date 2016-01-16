@@ -5,6 +5,7 @@ import com.nilhcem.droidcontn.BuildConfig;
 import org.junit.Test;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.TruthJUnit.assume;
 
 public class AppUtilsTest {
 
@@ -38,6 +39,7 @@ public class AppUtilsTest {
     @Test
     public void should_return_formatted_string_version() {
         // Given
+        assume().withFailureMessage("Do not test internal builds").that(BuildConfig.INTERNAL_BUILD).isFalse();
         String expected = BuildConfig.VERSION_NAME + " (#" + BuildConfig.VERSION_CODE + ")";
 
         // When
