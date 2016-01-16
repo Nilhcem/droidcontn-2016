@@ -13,6 +13,14 @@
     <string name="drawer_nav_venue">Venue</string>
     <string name="drawer_nav_settings">Settings</string>
 
+    <!-- Venue -->
+    <string name="venue_see_location">Locate on map</string>
+    <string name="venue_see_location_error">Error opening map.\nDo you have Google Maps installed?</string>
+    <string name="venue_medina_title">Medina Mediterranea Venue</string>
+    <string name="venue_medina_content"> In the heart of the seaside resort Yasmine Hammamet, 656 feet (200 meters) from the seashore, Medina Mediterranea is one magic city dedicated to culture and leisure on over more than 25 acres.\nA real open-sky museum, Medina was established in homage of the Arab-Andalusia culture, referring many times over to the Mediterranean architecture ; all built according to ancestral techniques combining traditional charm with the comfort of the 21st century.\n\nSurrounded by authentic medieval ramparts, we discover it behind the majestic doors with evocative names such as Damas and Mehdia giving homage to the Mediterranean civilization. The maze of alleys, the abundance of the domes, patios and alcoves will take you from Algier to Ispahan, from Cordova or Sidi Bou Said to Fes… </string>
+    <string name="venue_convention_title">Medina Convention Center</string>
+    <string name="venue_convention_content">Integrated within the Medina Mediterranean, the Medina Convention Center offers a full range of rooms equipped with modern audiovisual equipment, making it the ideal please for events, conferences, seminars, incentives…\n\nThe Convention Center Medina offers a wide selection of spaces: 6000m² of workspace, exhibition space, amphitheaters, sub-commission rooms, etc.</string>
+
     <!-- Settings -->
     <string name="settings_notifications">Notifications</string>
     <string name="settings_notify_about_my_sessions">Notify me about selected sessions</string>

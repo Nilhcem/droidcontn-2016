@@ -49,7 +49,7 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
                 mToolbarTitle = R.string.drawer_nav_speakers;
                 break;
             case R.id.drawer_nav_venue:
-                mView.showFragment(VenueFragment.class.newInstance());
+                mView.showFragment(VenueFragment.newInstance());
                 mToolbarTitle = R.string.drawer_nav_venue;
                 break;
             case R.id.drawer_nav_settings:

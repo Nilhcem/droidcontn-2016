@@ -16,7 +16,16 @@ public final class Intents {
         throw new UnsupportedOperationException();
     }
 
-    public static void openExternalUrl(@NonNull Context context, @NonNull String url) {
+    public static boolean startUri(@NonNull Context context, @NonNull String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+            return true;
+        }
+        return false;
+    }
+
+    public static void startExternalUrl(@NonNull Context context, @NonNull String url) {
         int primaryColor = ContextCompat.getColor(context, R.color.primary);
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 

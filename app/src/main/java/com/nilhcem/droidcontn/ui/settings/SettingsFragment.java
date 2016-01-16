@@ -59,7 +59,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
 
     private void initPreferenceLink(@StringRes int resId) {
         findPreference(resId).setOnPreferenceClickListener(preference -> {
-            Intents.openExternalUrl(getContext(), preference.getSummary().toString());
+            Intents.startExternalUrl(getContext(), preference.getSummary().toString());
             return true;
         });
     }
