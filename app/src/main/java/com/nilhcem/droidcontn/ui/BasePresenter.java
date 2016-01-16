@@ -1,10 +1,10 @@
 package com.nilhcem.droidcontn.ui;
 
-public abstract class BaseFragmentPresenter<V> {
+public abstract class BasePresenter<V> {
 
     protected final V mView;
 
-    public BaseFragmentPresenter(V view) {
+    public BasePresenter(V view) {
         mView = view;
     }
 }

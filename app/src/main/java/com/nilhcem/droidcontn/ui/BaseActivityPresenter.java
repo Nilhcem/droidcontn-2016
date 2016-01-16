@@ -5,12 +5,10 @@ import android.support.annotation.IdRes;
 
 import icepick.Icepick;
 
-public abstract class BaseActivityPresenter<V> {
-
-    protected final V mView;
+public abstract class BaseActivityPresenter<V> extends BasePresenter<V> {
 
     public BaseActivityPresenter(V view) {
-        mView = view;
+        super(view);
     }
 
     public void onPostCreate(Bundle savedInstanceState) {

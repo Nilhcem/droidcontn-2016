@@ -23,7 +23,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         bindPreferences();
-        initPresenter(savedInstanceState, rootKey);
+        initPresenter();
         mNotifySessions.setOnPreferenceChangeListener((preference, newValue) ->
                 mPresenter.onNotifySessionsChange((Boolean) newValue));
     }
@@ -38,10 +38,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
         mAppVersion.setSummary(version);
     }
 
-    private void initPresenter(Bundle savedInstanceState, String rootKey) {
+    private void initPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
         mPresenter = new SettingsPresenter(this);
-        mPresenter.onCreatePreferences(savedInstanceState, rootKey);
+        mPresenter.onCreate();
     }
 
     private void bindPreferences() {

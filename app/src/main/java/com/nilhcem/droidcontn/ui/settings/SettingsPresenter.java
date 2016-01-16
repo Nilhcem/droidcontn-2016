@@ -1,17 +1,15 @@
 package com.nilhcem.droidcontn.ui.settings;
 
-import android.os.Bundle;
-
-import com.nilhcem.droidcontn.ui.BaseFragmentPresenter;
+import com.nilhcem.droidcontn.ui.BasePresenter;
 import com.nilhcem.droidcontn.utils.AppUtils;
 
-public class SettingsPresenter extends BaseFragmentPresenter<SettingsView> {
+public class SettingsPresenter extends BasePresenter<SettingsView> {
 
     public SettingsPresenter(SettingsView view) {
         super(view);
     }
 
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    public void onCreate() {
         mView.setAppVersion(AppUtils.getVersion());
     }
 
