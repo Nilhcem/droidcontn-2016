@@ -43,6 +43,9 @@ public class AppDumperPlugin implements DumperPlugin {
         String commandName = (args.isEmpty()) ? "" : args.remove(0);
 
         switch (commandName) {
+            case "appInfo":
+                displayAppInfo(writer);
+                break;
             case "endpoint":
                 changeEndpoint(writer, args);
                 break;
@@ -91,6 +94,7 @@ public class AppDumperPlugin implements DumperPlugin {
         writer.println("usage: dumpapp [arg]");
         writer.println();
         writer.println("arg:");
+        writer.println("* appInfo: Display current app build info");
         writer.println("* endpoint get: Display current api endpoint");
         writer.println("* endpoint set (PROD|MOCK|\"https?://<url>\"): Change api endpoint");
     }
