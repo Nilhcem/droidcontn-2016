@@ -18,6 +18,8 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.jakewharton.hugo'
 
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+
 android {
     compileSdkVersion 23
     buildToolsVersion '23.0.2'
@@ -30,6 +32,8 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         resConfigs 'en'
+
+        buildConfigField 'String', 'GIT_SHA', "\"${gitSha}\""
     }
 
     buildTypes {
