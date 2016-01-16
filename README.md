@@ -2,6 +2,13 @@
 
 Sample app for the "2016 Android Developer Toolbox" talk at droidcon tunisia
 
+## Run Unit Tests
+
+```bash
+./scripts/run-tests-unit.sh
+```
+
+
 ## Run Mock Server
 
 ```bash
