@@ -25,6 +25,7 @@
             android:title="@string/settings_about_developer_title"/>
 
         <Preference
+            android:enabled="false"
             android:key="@string/settings_version_key"
             android:title="@string/settings_about_version"/>
     </PreferenceCategory>
