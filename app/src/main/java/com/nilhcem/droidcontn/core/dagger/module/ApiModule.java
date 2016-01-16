@@ -1,5 +1,8 @@
 package com.nilhcem.droidcontn.core.dagger.module;
 
+import android.app.Application;
+
+import com.nilhcem.droidcontn.data.api.ApiEndpoint;
 import com.nilhcem.droidcontn.data.api.DroidconService;
 import com.squareup.moshi.Moshi;
 
@@ -16,14 +19,14 @@ import retrofit2.RxJavaCallAdapterFactory;
 @Module
 public final class ApiModule {
 
-    @Provides @Singleton HttpUrl provideBaseUrl() {
-        return HttpUrl.parse("https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/api/");
+    @Provides @Singleton ApiEndpoint provideApiEndpoint(Application context) {
+        return ApiEndpoint.get(context);
     }
 
-    @Provides @Singleton Retrofit provideRetrofit(HttpUrl baseUrl, OkHttpClient client, Moshi moshi) {
+    @Provides @Singleton Retrofit provideRetrofit(OkHttpClient client, Moshi moshi, ApiEndpoint endpoint) {
         return new Retrofit.Builder()
                 .client(client)
-                .baseUrl(baseUrl)
+                .baseUrl(endpoint.url)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();

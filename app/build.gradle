@@ -34,6 +34,7 @@ android {
         resConfigs 'en'
 
         buildConfigField 'String', 'GIT_SHA', "\"${gitSha}\""
+        buildConfigField 'String', 'API_ENDPOINT', "\"https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/api/\""
     }
 
     buildTypes {
@@ -53,6 +54,8 @@ android {
     productFlavors {
         internal {
             applicationIdSuffix '.internal'
+
+            buildConfigField 'String', 'MOCK_ENDPOINT', "\"http://" + getLocalIp() + ":8990/\""
         }
         production {
         }
@@ -110,6 +113,7 @@ dependencies {
     provided "frankiesardo:icepick-processor:$icepickVersion"
 
     internalCompile 'jp.wasabeef:takt:1.0.2'
+    internalCompile 'com.jakewharton:process-phoenix:1.0.2'
     internalCompile "com.facebook.stetho:stetho:$stethoVersion"
     internalCompile("com.facebook.stetho:stetho-timber:$stethoVersion") {
         exclude group: 'com.jakewharton.timber'
@@ -123,4 +127,19 @@ gradle.buildFinished { buildResult ->
     def buildFinishDate = new Date()
     def formattedDate = buildFinishDate.format('yyyy-MM-dd HH:mm:ss')
     println "Build finished: ${formattedDate}"
+}
+
+// get current computer's ip
+// this method was simplified for example sake, but only works on 192.*.*.* ips. Need to be generic.
+def getLocalIp() {
+    for (NetworkInterface iface : NetworkInterface.networkInterfaces) {
+        for (InetAddress addr : iface.inetAddresses) {
+            if (!addr.isLoopbackAddress()) {
+                def ip = addr.hostAddress
+                if (ip.startsWith('192.')) {
+                    return ip
+                }
+            }
+        }
+    }
 }

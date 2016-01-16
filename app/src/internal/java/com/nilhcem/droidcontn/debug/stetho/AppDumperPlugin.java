@@ -1,18 +1,34 @@
 package com.nilhcem.droidcontn.debug.stetho;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+
 import com.facebook.stetho.dumpapp.DumpException;
 import com.facebook.stetho.dumpapp.DumperContext;
 import com.facebook.stetho.dumpapp.DumperPlugin;
+import com.jakewharton.processphoenix.ProcessPhoenix;
+import com.nilhcem.droidcontn.BuildConfig;
+import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.api.ApiEndpoint;
+import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
+import com.nilhcem.droidcontn.utils.Threads;
 
 import java.io.PrintStream;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
 public class AppDumperPlugin implements DumperPlugin {
 
+    private final Context mContext;
+    private final ApiEndpoint mEndpoint;
+
     @Inject
-    public AppDumperPlugin() {
+    public AppDumperPlugin(Application app, ApiEndpoint endpoint) {
+        mContext = app;
+        mEndpoint = endpoint;
     }
 
     @Override
@@ -27,8 +43,8 @@ public class AppDumperPlugin implements DumperPlugin {
         String commandName = (args.isEmpty()) ? "" : args.remove(0);
 
         switch (commandName) {
-            case "hello":
-                displayHello(writer);
+            case "endpoint":
+                changeEndpoint(writer, args);
                 break;
             default:
                 doUsage(writer);
@@ -36,14 +52,56 @@ public class AppDumperPlugin implements DumperPlugin {
         }
     }
 
-    private void displayHello(PrintStream writer) {
-        writer.println("Hello!");
+    private void displayAppInfo(PrintStream writer) {
+        writer.println(String.format(Locale.US, "%s (version %s #%d) - commit %s",
+                mContext.getString(R.string.app_name),
+                BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, BuildConfig.GIT_SHA));
+    }
+
+    private void changeEndpoint(PrintStream writer, List<String> args) {
+        if (args.size() < 1) {
+            doUsage(writer);
+        } else {
+            switch (args.get(0)) {
+                case "get":
+                    writer.println(String.format(Locale.US, "Endpoint: %s", mEndpoint));
+                    break;
+                case "set":
+                    if (args.size() < 2) {
+                        doUsage(writer);
+                    } else {
+                        String arg = args.get(1);
+
+                        try {
+                            ApiEndpoint endpoint = ApiEndpoint.valueOf(arg.toUpperCase(Locale.US));
+                            ApiEndpoint.persist(mContext, endpoint);
+                        } catch (IllegalArgumentException e) {
+                            ApiEndpoint.persist(mContext, arg);
+                        }
+                        restartApp(writer);
+                    }
+                    break;
+                default:
+                    throw new IllegalArgumentException();
+            }
+        }
     }
 
     private void doUsage(PrintStream writer) {
         writer.println("usage: dumpapp [arg]");
         writer.println();
         writer.println("arg:");
-        writer.println("* hello: Display hello (polite plugin is polite)");
+        writer.println("* endpoint get: Display current api endpoint");
+        writer.println("* endpoint set (PROD|MOCK|\"https?://<url>\"): Change api endpoint");
+    }
+
+    private void restartApp(PrintStream writer) {
+        writer.println("Restarting app...");
+
+        // Restart app after a few delay to make sure stetho can print the previous message.
+        new Thread(() -> {
+            Threads.silentSleep(500);
+            ProcessPhoenix.triggerRebirth(mContext, new Intent(mContext, DrawerActivity.class));
+        }).start();
     }
 }

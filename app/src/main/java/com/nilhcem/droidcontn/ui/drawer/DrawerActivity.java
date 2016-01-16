@@ -61,10 +61,10 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
         DroidconApp.get(this).component().inject(this);
         mService.loadSpeakers()
                 .flatMap(Observable::<Speaker>from)
+                .first()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(speaker -> {
-                        },
+                .subscribe(speaker -> Toast.makeText(this, speaker.getName(), Toast.LENGTH_SHORT).show(),
                         throwable -> Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show(),
                         () -> Toast.makeText(this, "Completed", Toast.LENGTH_SHORT).show());
     }
