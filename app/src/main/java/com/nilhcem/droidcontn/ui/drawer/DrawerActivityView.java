@@ -1,8 +1,7 @@
 package com.nilhcem.droidcontn.ui.drawer;
 
 import android.support.annotation.StringRes;
-
-import com.nilhcem.droidcontn.ui.BaseFragment;
+import android.support.v4.app.Fragment;
 
 public interface DrawerActivityView {
 
@@ -12,7 +11,7 @@ public interface DrawerActivityView {
 
     void updateToolbarTitle(@StringRes int resId);
 
-    void showFragment(BaseFragment fragment);
+    void showFragment(Fragment fragment);
 
     void selectFirstDrawerEntry();
 }

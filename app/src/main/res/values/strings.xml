@@ -12,4 +12,14 @@
     <string name="drawer_nav_speakers">Speakers</string>
     <string name="drawer_nav_venue">Venue</string>
     <string name="drawer_nav_settings">Settings</string>
+
+    <!-- Settings -->
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notify_about_my_sessions">Notify me about selected sessions</string>
+    <string name="settings_notify_about_my_sessions_description">Display a notification when selected sessions are about to begin</string>
+    <string name="settings_about">About</string>
+    <string name="settings_about_version">Version</string>
+    <string name="settings_about_conf_title">Droidcon Tunisia</string>
+    <string name="settings_about_sources_title">Source code</string>
+    <string name="settings_about_developer_title">Homemade by </string>
 </resources>

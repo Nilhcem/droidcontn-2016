@@ -53,7 +53,7 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
                 mToolbarTitle = R.string.drawer_nav_venue;
                 break;
             case R.id.drawer_nav_settings:
-                mView.showFragment(SettingsFragment.class.newInstance());
+                mView.showFragment(SettingsFragment.newInstance());
                 mToolbarTitle = R.string.drawer_nav_settings;
                 break;
             default:

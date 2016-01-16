@@ -55,9 +55,11 @@ android {
         internal {
             applicationIdSuffix '.internal'
 
+            buildConfigField 'boolean', 'INTERNAL_BUILD', "true"
             buildConfigField 'String', 'MOCK_ENDPOINT', "\"http://" + getLocalIp() + ":8990/\""
         }
         production {
+            buildConfigField 'boolean', 'INTERNAL_BUILD', "false"
         }
     }
 
@@ -87,6 +89,7 @@ dependencies {
     compile "com.android.support:support-annotations:$supportVersion"
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:recyclerview-v7:$supportVersion"
+    compile "com.android.support:preference-v14:$supportVersion"
     compile "com.android.support:design:$supportVersion"
 
     compile 'org.projectlombok:lombok:1.16.6'

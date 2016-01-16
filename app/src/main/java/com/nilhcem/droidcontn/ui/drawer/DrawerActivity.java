@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,7 +16,6 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.api.DroidconService;
 import com.nilhcem.droidcontn.data.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseActivity;
-import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -85,7 +85,7 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
     }
 
     @Override
-    public void showFragment(BaseFragment fragment) {
+    public void showFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.drawer_fragments_container, fragment)
                 .commit();

@@ -8,10 +8,10 @@ import com.facebook.stetho.dumpapp.DumpException;
 import com.facebook.stetho.dumpapp.DumperContext;
 import com.facebook.stetho.dumpapp.DumperPlugin;
 import com.jakewharton.processphoenix.ProcessPhoenix;
-import com.nilhcem.droidcontn.BuildConfig;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.api.ApiEndpoint;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
+import com.nilhcem.droidcontn.utils.AppUtils;
 import com.nilhcem.droidcontn.utils.Threads;
 
 import java.io.PrintStream;
@@ -56,9 +56,7 @@ public class AppDumperPlugin implements DumperPlugin {
     }
 
     private void displayAppInfo(PrintStream writer) {
-        writer.println(String.format(Locale.US, "%s (version %s #%d) - commit %s",
-                mContext.getString(R.string.app_name),
-                BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, BuildConfig.GIT_SHA));
+        writer.println(mContext.getString(R.string.app_name) + " " + AppUtils.getVersion());
     }
 
     private void changeEndpoint(PrintStream writer, List<String> args) {
