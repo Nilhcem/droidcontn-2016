@@ -18,11 +18,12 @@ import com.nilhcem.droidcontn.data.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import lombok.val;
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -42,6 +43,9 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
         return new DrawerPresenter(this);
     }
 
+    // TODO: Remove all these
+    public List<Speaker> mSpeakers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,13 +64,12 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
         // Testing injection. TODO: Remove
         DroidconApp.get(this).component().inject(this);
         mService.loadSpeakers()
-                .flatMap(Observable::<Speaker>from)
-                .first()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(speaker -> Toast.makeText(this, speaker.getName(), Toast.LENGTH_SHORT).show(),
-                        throwable -> Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show(),
-                        () -> Toast.makeText(this, "Completed", Toast.LENGTH_SHORT).show());
+                .subscribe(speakers -> {
+                    mSpeakers = speakers;
+                    Toast.makeText(this, "data loaded", Toast.LENGTH_SHORT).show();
+                });
     }
 
     @Override

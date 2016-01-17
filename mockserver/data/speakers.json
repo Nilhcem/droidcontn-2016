@@ -7,7 +7,7 @@
       "website": "https://medium.com/@hamen",
       "twitter": "hamen",
       "github": "hamen",
-      "photo": "img/people/cat1.jpg"
+      "photo": "http://localhost:8080/img/people/cat1.jpg"
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
       "website": null,
       "twitter": "Nilhcem",
       "github": "Nilhcem",
-      "photo": "img/people/cat2.jpg"
+      "photo": "http://localhost:8080/img/people/cat2.jpg"
     },
     {
       "id": 3,
@@ -27,7 +27,7 @@
       "website": "http://alterego.solutions/",
       "twitter": "sasa_sekulic",
       "github": "mrsasha",
-      "photo": "img/people/cat3.jpg"
+      "photo": "http://localhost:8080/img/people/cat3.jpg"
     },
     {
       "id": 4,
@@ -37,7 +37,7 @@
       "website": "http://www.tasomaniac.com/",
       "twitter": "tasomaniac",
       "github": "tasomaniac/",
-      "photo": "img/people/cat4.jpg"
+      "photo": "http://localhost:8080/img/people/cat4.jpg"
     },
     {
       "id": 5,
@@ -47,7 +47,7 @@
       "website": "http://kotlin4android.com/",
       "twitter": "AntonRutkevich",
       "github": null,
-      "photo": "img/people/cat5.jpg"
+      "photo": "http://localhost:8080/img/people/cat5.jpg"
     },
     {
       "id": 6,
@@ -57,7 +57,7 @@
       "website": "http://hotchemi.tumblr.com",
       "twitter": "hotchemi",
       "github": "hotchemi",
-      "photo": "img/people/cat6.jpg"
+      "photo": "http://localhost:8080/img/people/cat6.jpg"
     },
     {
       "id": 7,
@@ -67,6 +67,6 @@
       "website": null,
       "twitter": "magdazadara",
       "github": null,
-      "photo": "img/people/cat7.jpg"
+      "photo": "http://localhost:8080/img/people/cat7.jpg"
     }
 ]

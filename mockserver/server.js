@@ -14,6 +14,17 @@ function replaceUrl(data, req) {
     return data.replace(/http:\/\/localhost:8080/g, host);
 }
 
+/* Gets a list of speakers, replacing urls  */
+function getSpeakersFromFile(fileName, req) {
+    var data = fs.readFileSync(fileName, defaultCharset);
+    var speakers = JSON.parse(data);
+
+    for (var i in speakers) {
+	speakers[i].photo = replaceUrl(speakers[i].photo, req);
+    }
+    return JSON.stringify(speakers);
+}
+
 /* Schedule */
 app.get('/schedule', function(req, res) {
     res.type('application/json; charset=' + defaultCharset);
@@ -23,7 +34,7 @@ app.get('/schedule', function(req, res) {
 /* Speakers */
 app.get('/speakers', function(req, res) {
     res.type('application/json; charset=' + defaultCharset);
-    res.status(200).send(fs.readFileSync('data/speakers.json', defaultCharset));
+    res.status(200).send(getSpeakersFromFile('data/speakers.json', req));
 });
 
 /* Default (home page) */

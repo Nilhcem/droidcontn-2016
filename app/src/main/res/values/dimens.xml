@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Core -->
+    <dimen name="item_margin">4dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
+
+    <!-- Speakers -->
+    <dimen name="speakers_entry_width">180dp</dimen>
+    <dimen name="speakers_entry_height">160dp</dimen>
 </resources>
