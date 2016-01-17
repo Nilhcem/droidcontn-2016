@@ -12,10 +12,12 @@ public class SpeakersListAdapter extends RecyclerView.Adapter<SpeakersListEntry>
 
     private final List<Speaker> mSpeakers;
     private final Picasso mPicasso;
+    private final SpeakersListView mView;
 
-    public SpeakersListAdapter(List<Speaker> speakers, Picasso picasso) {
+    public SpeakersListAdapter(List<Speaker> speakers, Picasso picasso, SpeakersListView view) {
         mSpeakers = speakers;
         mPicasso = picasso;
+        mView = view;
     }
 
     @Override
@@ -26,6 +28,7 @@ public class SpeakersListAdapter extends RecyclerView.Adapter<SpeakersListEntry>
     @Override
     public void onBindViewHolder(SpeakersListEntry holder, int position) {
         holder.bindSpeaker(mSpeakers.get(position));
+        holder.itemView.setOnClickListener(v -> mView.showSpeakerDetail(mSpeakers.get(position)));
     }
 
     @Override

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_margin">
+
+        <ImageView
+            android:id="@+id/speakers_detail_photo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@color/primary_dark"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/speakers_detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingBottom="6dp"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                tools:text="Gautier Nilhcem"/>
+
+            <TextView
+                android:id="@+id/speakers_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="Software Craftsman"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/speakers_detail_links_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingEnd="@dimen/activity_margin"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingTop="0dp">
+
+        <com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailLinkIcon
+            android:id="@+id/speakers_detail_twitter"
+            style="@style/Speaker.Details.Link"
+            android:padding="3dp"
+            android:src="@drawable/speaker_detail_twitter"
+            tools:visibility="visible"/>
+
+        <com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailLinkIcon
+            android:id="@+id/speakers_detail_github"
+            style="@style/Speaker.Details.Link"
+            android:padding="3dp"
+            android:src="@drawable/speaker_detail_github"
+            tools:visibility="visible"/>
+
+        <com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailLinkIcon
+            android:id="@+id/speakers_detail_website"
+            style="@style/Speaker.Details.Link"
+            android:padding="1dp"
+            android:src="@drawable/speaker_detail_website"
+            tools:visibility="visible"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/speakers_detail_bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_margin"
+            android:textColor="@color/primary_text"
+            android:textSize="15sp"
+            tools:text="Gautier is a YOLO developer based in Paris"/>
+    </ScrollView>
+</LinearLayout>

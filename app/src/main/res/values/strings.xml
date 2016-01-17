@@ -13,6 +13,9 @@
     <string name="drawer_nav_venue">Venue</string>
     <string name="drawer_nav_settings">Settings</string>
 
+    <!-- Speakers details -->
+    <string name="speakers_details_hide">Hide</string>
+
     <!-- Venue -->
     <string name="venue_see_location">Locate on map</string>
     <string name="venue_see_location_error">Error opening map.\nDo you have Google Maps installed?</string>
