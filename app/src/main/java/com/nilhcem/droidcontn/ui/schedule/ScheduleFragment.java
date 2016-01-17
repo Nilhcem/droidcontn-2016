@@ -12,12 +12,21 @@ import com.nilhcem.droidcontn.ui.BaseFragment;
 
 import lombok.val;
 
-public class ScheduleFragment extends BaseFragment {
+public class ScheduleFragment extends BaseFragment<SchedulePresenter> {
+
+    public static ScheduleFragment newInstance() {
+        return new ScheduleFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         val view = new FrameLayout(getContext());
         view.setBackgroundColor(Color.MAGENTA);
         return view;
+    }
+
+    @Override
+    protected SchedulePresenter newPresenter() {
+        return null;
     }
 }

@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
+import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.ui.BaseFragment;
+import com.nilhcem.droidcontn.ui.BasePresenter;
 import com.nilhcem.droidcontn.utils.Intents;
 import com.nilhcem.droidcontn.utils.Views;
 
@@ -28,6 +30,11 @@ public class VenueFragment extends BaseFragment {
     }
 
     @Bind(R.id.venue_image) ImageView mPhoto;
+
+    @Override
+    protected BasePresenter newPresenter() {
+        return null;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
