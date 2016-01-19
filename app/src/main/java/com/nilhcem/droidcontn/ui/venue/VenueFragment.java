@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
-import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.BasePresenter;
