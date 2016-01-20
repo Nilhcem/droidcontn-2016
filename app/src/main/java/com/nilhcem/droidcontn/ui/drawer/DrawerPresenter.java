@@ -15,11 +15,11 @@ import icepick.State;
 
 public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
 
+    @State @StringRes int mToolbarTitle;
+
     public DrawerPresenter(DrawerActivityView view) {
         super(view);
     }
-
-    @State @StringRes int mToolbarTitle;
 
     @Override
     public void onPostCreate(Bundle savedInstanceState) {
