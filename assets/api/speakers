@@ -36,24 +36,6 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/avatar-home-500px.jpg"
 }, {
 	"id": 5,
-	"name": "Adnen Hamdouni",
-	"title": "Software engineer, Squeezer Software",
-	"bio": "I am a software developer from Sfax (Tunisia). I love everything that is related to mobile development, web programming and embedded systems. Specializing in software development, computer engineering graduate with experience developing innovative and creative software solutions. I’m passionate about mobile development especially on the Android platform.",
-	"website": null,
-	"twitter": null,
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Adnen-Hamdouni-1.jpg"
-}, {
-	"id": 6,
-	"name": "Maciej Górski",
-	"title": "Clean Code Evangelist & Android Developer, EL Passion",
-	"bio": "Maciej is a passionate Android developer. He cares about writing clean code and less of it. He is spending time to automate things to save even more time. He also bikes a lot and would love to be able to code while doing it… using only mind controlled wearables or bikeables.",
-	"website": "http://mg6.pl/",
-	"twitter": "mg6maciej",
-	"github": "mg6maciej",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Maciej-G%C3%B3rski-700x700.jpg"
-}, {
-	"id": 7,
 	"name": "Paresh Mayani",
 	"title": "Technical Lead, Android @ LetsNurture India",
 	"bio": "Paresh is a mobile application developer with 5 years of apps development experience, has been working on android application development since Cupcake. Currently he works at LetsNurture, India as Technical Lead (Android) in Enterprise mobile solutions department. He is a frequent speaker at conferences such as Android Developer Days (Droidcon Ankara), DevFest and NitroDroid, on topics ranging from android development best practices, Android BLE. He has been actively leading Google Developers Group in Ahmedabad since last 4 years. He is very active in supporting Android developers community in India and worldwide be it through his tech blog TechnoTalkative (published >150 articles) or through StackOverflow (holder of >60,000 reputation).",
@@ -62,16 +44,16 @@
 	"github": "PareshMayani",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Paresh-Mayani.jpeg"
 }, {
-	"id": 8,
-	"name": "Collin Raddatz",
-	"title": "PEY GmbH, CTO",
-	"bio": "M.Sc. at University Augsburg with focus on multi-agent systems. Software Engineer at 1&1 AG, Software Engineer Lead at Capgemini. Co-founder and CTO at PEY GmbH",
+	"id": 6,
+	"name": "Adnen Hamdouni",
+	"title": "Software engineer, Squeezer Software",
+	"bio": "I am a software developer from Sfax (Tunisia). I love everything that is related to mobile development, web programming and embedded systems. Specializing in software development, computer engineering graduate with experience developing innovative and creative software solutions. I’m passionate about mobile development especially on the Android platform.",
 	"website": null,
-	"twitter": "col_rad",
+	"twitter": null,
 	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Collin-Raddatz-700x700.jpg"
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Adnen-Hamdouni-1.jpg"
 }, {
-	"id": 9,
+	"id": 7,
 	"name": "Fakher Hakim",
 	"title": "Android Developer at Telnet-Holding",
 	"bio": "I am a 25 years old, a software engineer. I studied at Esprit I love developing and especially with Java and Android. I contribute on a google sample project in Github. I also developed application on play store",
@@ -80,16 +62,7 @@
 	"github": "Fakher-Hakim",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Fakher-Hakim.jpg"
 }, {
-	"id": 10,
-	"name": "Sebastian Witalec",
-	"title": "Telerik / Technical Evangelist",
-	"bio": "Sebastian Witalec is a Technical Evangelist for Telerik with over 8 years of experience in software engineering and architecture. Sebastian has passion for all types of technologies. He is always happy to learn about the new stuff and to pass the knowledge as far as his voice (or the wire) can take him. Sebastian is based in London, UK actively working with various Dev communities in the area. When not acting techie he is a massive football fan/player (probably bigger at heart than skills).",
-	"website": null,
-	"twitter": "sebawita",
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Sebastian-Witalec-700x549.jpeg"
-}, {
-	"id": 11,
+	"id": 8,
 	"name": "Iñaki Villar",
 	"title": "Synchronoss – Software Engineer",
 	"bio": "Mobile Software Engineer with deep passion in android development. Currently working in Ireland. Previously worked with Bank apps in Spain and tourism apps. Google Developer Expert, I enjoy with all development related with Android",
@@ -98,25 +71,16 @@
 	"github": "cdsap",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/I%C3%B1aki-Villar.jpg"
 }, {
-	"id": 12,
-	"name": "Aleksander Piotrowski",
-	"title": "Code monkey at applause.com",
-	"bio": "Used to be backend developer. Started with PHP, moved to C and later on to Python and Django. Luckly fell in love with Android so didn’t have to learn CSS and all those hipster Javascript frameworks that are popular nowadays. Serial hackathon winner, or at least contender 😉",
+	"id": 9,
+	"name": "Collin Raddatz",
+	"title": "PEY GmbH, CTO",
+	"bio": "M.Sc. at University Augsburg with focus on multi-agent systems. Software Engineer at 1&1 AG, Software Engineer Lead at Capgemini. Co-founder and CTO at PEY GmbH",
 	"website": null,
-	"twitter": "pelotasplus",
-	"github": "pelotasplus",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Aleksander-Piotrowski.jpg"
+	"twitter": "col_rad",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Collin-Raddatz-700x700.jpg"
 }, {
-	"id": 13,
-	"name": "Douraid Arfaoui",
-	"title": "Android Developer",
-	"bio": "I’m recently graduated engineer in computer sciences and telecommunications, working as a freelance software developer, programming and technology addicted and trying to be active in the opensource community.",
-	"website": null,
-	"twitter": null,
-	"github": "douraid",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Douraid-Arfaoui.jpg"
-}, {
-	"id": 14,
+	"id": 10,
 	"name": "Enrique López Mañas",
 	"title": "Telerik / Technical Evangelist",
 	"bio": "Enrique is a Google Developer Expert, and Freelance Mobile Engineer normally based in Munich, Germany (although is hard to catch him up there for more than a few weeks). He develops software and writes about it for money and fun. He spends his free time developing OpenSource code, writing articles, learning languages or taking photographies. He loves nature, beer, traveling, and talking about him in third person.",
@@ -125,7 +89,7 @@
 	"github": "kikoso",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Enrique-L%C3%B3pez-Ma%C3%B1as.jpg"
 }, {
-	"id": 15,
+	"id": 11,
 	"name": "Gautier Mechling",
 	"title": "Software Craftsman at happn",
 	"bio": "Gautier is an aspiring Software Craftsman at happn in Paris, France. Agile thinker passionate in Android Development, he creates and maintains some FOSS tools to improve productivity. Talk to him about Kotlin, Clean Code, or Free Software and you will see his eyes light up.",
@@ -134,25 +98,16 @@
 	"github": "Nilhcem",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Gautier-Mechling.jpg"
 }, {
-	"id": 16,
-	"name": "Sangsoo Nam",
-	"title": "Spotify / Android Engineer",
-	"bio": "I am passionate about learning, discussing, and solving interesting problems. In the past, I worked as a full stack developer in the start-up industry. These days, I’m focusing on the Android development at Spotify. As we know, software industry is changed really rapidly. I strongly believe that everyone is solving their problem creatively. I look forward to opportunities to share my lessons and listen to lessons from others.",
+	"id": 12,
+	"name": "Sebastian Witalec",
+	"title": "Telerik / Technical Evangelist",
+	"bio": "Sebastian Witalec is a Technical Evangelist for Telerik with over 8 years of experience in software engineering and architecture. Sebastian has passion for all types of technologies. He is always happy to learn about the new stuff and to pass the knowledge as far as his voice (or the wire) can take him. Sebastian is based in London, UK actively working with various Dev communities in the area. When not acting techie he is a massive football fan/player (probably bigger at heart than skills).",
 	"website": null,
-	"twitter": null,
+	"twitter": "sebawita",
 	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Sangsoo-Nam-700x700.jpg"
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Sebastian-Witalec-700x549.jpeg"
 }, {
-	"id": 17,
-	"name": "Houssem Yahiaoui",
-	"title": "Freelance Web Developer / Hybrid Apps trainer",
-	"bio": "I’m a student and freelancer, a GDG Technical Manager, interesting in the Web 2.0 technologies so i work mainly with NODEJS/AngularJS and i work and create build tool generator and i’m a Hybrid Apps Cross Cross Trainer and conference speaker, in love with GITHUB code sharing and i believe that sharing is caring therefore i manage internal and external workshops and talks about the cloud integration with Firebase and I create articles series on Angular, Ionic and Firebase and Nodejs.",
-	"website": null,
-	"twitter": null,
-	"github": "houssem-yahiaoui",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Houssem-Yahiaoui.jpg"
-}, {
-	"id": 18,
+	"id": 13,
 	"name": "Wilfried Mbouenda Mbogne",
 	"title": "LYT – android developer",
 	"bio": "Wilfried is a passionate Android developer since 2011. He is also a Hackathon enthusiast and an occasional blogger. When he isn’t coding, he enjoys reading, writing, doing sports and poetry recitation.",
@@ -161,25 +116,25 @@
 	"github": null,
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Wilfried-Mbouenda-Mbogne.jpeg"
 }, {
-	"id": 19,
-	"name": "Oussama Bouthouri",
-	"title": "Lead developer at Firstak",
-	"bio": "Oussama Bouthouri is a passionate mobile developer. His interest in mobile applications began with his first introduction to the field in 2011. From that date, he started making his own projects to discover the various possibilities that it can offer. This passion took a more distinct shape when he fused it with his fondness of the image-processing field, and as a result of this combination, he created many applications and games using virtual and augmented reality. To attain his goals, he used different tools such as Vuforia, robots, and Google Cardboard. His belief that the knowledge should always be shared with everyone who’s interested, in gratuitous and open way, made him an active trainer in Tunisia and worldwide, and encouraged him to found and preside many university clubs and associations treating the new technologies’ related topics, such as T3alem, Google ISAMM Club and the official Unity User Group.",
+	"id": 14,
+	"name": "Houssem Yahiaoui",
+	"title": "Freelance Web Developer / Hybrid Apps trainer",
+	"bio": "I’m a student and freelancer, a GDG Technical Manager, interesting in the Web 2.0 technologies so i work mainly with NODEJS/AngularJS and i work and create build tool generator and i’m a Hybrid Apps Cross Cross Trainer and conference speaker, in love with GITHUB code sharing and i believe that sharing is caring therefore i manage internal and external workshops and talks about the cloud integration with Firebase and I create articles series on Angular, Ionic and Firebase and Nodejs.",
 	"website": null,
 	"twitter": null,
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Oussema-Bouthouri-700x700.jpg"
+	"github": "houssem-yahiaoui",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Houssem-Yahiaoui.jpg"
 }, {
-	"id": 20,
-	"name": "Mennouchi Islam Azeddine",
-	"title": "Free Security Consultant",
-	"bio": "Mennouchi Islam Azeddine OWASP Algeria Chapter leader more than 4 years as a free security consultant and a security researcher found vulnerabilities in major companies websites and platforms (AutoDesk, BlackBerry, Gallery Project …). Professional experience in web and Mobile development as a developer and Consultant. Founder of Dalil project an object detection and navigation system for visually impaired people an Open Source Contributor and Google Summer of Code Mentor for 2 years. Entrepreneurship activist in Algeria and Africa through several projects (Startup Academy, Startup Pirates, mentor at the VC4Africa platform …)",
+	"id": 15,
+	"name": "Douraid Arfaoui",
+	"title": "Android Developer",
+	"bio": "I’m recently graduated engineer in computer sciences and telecommunications, working as a freelance software developer, programming and technology addicted and trying to be active in the opensource community.",
 	"website": null,
 	"twitter": null,
-	"github": "islamoc",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Mennouchi-Islam-Azeddine.jpg"
+	"github": "douraid",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Douraid-Arfaoui.jpg"
 }, {
-	"id": 21,
+	"id": 16,
 	"name": "Lance Gleason",
 	"title": "Polyglot Programming LLC/ Founder CEO",
 	"bio": "Lance Gleason has been a computer nut ever since his dad bought him his first computer when he was a kid. After getting a BS and MS in Computer Science, he worked on a number of large projects as a Java developer/architect for companies like Kodak, CNN, and GE. These days he is the founder and CEO of Polyglot Programming, LLC, a software consulting firm that focuses on mobile and wearable development. Lance regularly speaks about mobile/wearable development at conferences around the world and is co-organizer of the Atlanta Sensors and Startups Meetup, Ruby DCamp ZA and Rubyfuza (the only Ruby conference in Africa). He’s known to practice interspecies pair (“purr”) programming with his orange tabby, Allie, and when he’s not writing code, you’ll find him diving with sharks, trekking through Chernobyl, sampling wine, cheering on the Springboks, or perfecting his biltong recipe.",
@@ -188,25 +143,25 @@
 	"github": "lgleasain",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Lance-Gleason.jpg"
 }, {
-	"id": 22,
-	"name": "Hans-Christoph Steiner",
-	"title": "Guardian Project, Researcher and Hacker",
-	"bio": "Hans-Christoph Steiner is a researcher and hacker with Guardian Project working to make private-by-design easy for all to achieve. He spends his time making software as private as possible yet usable by everyone, designing digital interactions focused on perceptual capabilities, and composing music with computers. With an emphasis on collaboration, he works in many forms, including free software for mobile and embedded devices, responsive sound environments, free wireless networks that build community, musical robots that listen, programming environments to let you play with math, and a jet-powered fish that you can ride. To further his research, he teaches and works at various community centers and organizes open, collaborative hacklabs and open barcamp conferences. He is currently focused on building the most flexible, private, and secure app store as well as teaching digital security, interaction design, and media programming at workshops around and universities around the world.",
+	"id": 17,
+	"name": "Mennouchi Islam Azeddine",
+	"title": "Free Security Consultant",
+	"bio": "Mennouchi Islam Azeddine OWASP Algeria Chapter leader more than 4 years as a free security consultant and a security researcher found vulnerabilities in major companies websites and platforms (AutoDesk, BlackBerry, Gallery Project …). Professional experience in web and Mobile development as a developer and Consultant. Founder of Dalil project an object detection and navigation system for visually impaired people an Open Source Contributor and Google Summer of Code Mentor for 2 years. Entrepreneurship activist in Algeria and Africa through several projects (Startup Academy, Startup Pirates, mentor at the VC4Africa platform …)",
+	"website": null,
+	"twitter": null,
+	"github": "islamoc",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Mennouchi-Islam-Azeddine.jpg"
+}, {
+	"id": 18,
+	"name": "Sangsoo Nam",
+	"title": "Spotify / Android Engineer",
+	"bio": "I am passionate about learning, discussing, and solving interesting problems. In the past, I worked as a full stack developer in the start-up industry. These days, I’m focusing on the Android development at Spotify. As we know, software industry is changed really rapidly. I strongly believe that everyone is solving their problem creatively. I look forward to opportunities to share my lessons and listen to lessons from others.",
 	"website": null,
 	"twitter": null,
 	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Hans-Christoph-Steiner.jpg"
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Sangsoo-Nam-700x700.jpg"
 }, {
-	"id": 23,
-	"name": "Houssem Dellai",
-	"title": "Application Development Lead, IntilaQ",
-	"bio": "Houssem Dellai is a software engineer enjoying blogging, speaking and sharing his knowledge with developers. He spent the last three years building mobile applications using multiple platforms. He also was one of only two awarded developers to be a Microsoft MVP in Tunisia.",
-	"website": "http://www.houssemdellai.net/",
-	"twitter": "HoussemDellai",
-	"github": "HoussemDellai",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Houssem-Dellai.jpg"
-}, {
-	"id": 24,
+	"id": 19,
 	"name": "Hasan Hosgel",
 	"title": "Kitchen Stories, Senior Android Engineer",
 	"bio": "Hasan Hoşgel is a dedicated Android developer with more then ten years of professional programming. Since 2010 also developing Android applications. Continuous improvement of the architecture and also quality are his interest. He is also co-organizer of the “GDG Berlin Android”. Now working for Kitchen Stories and before that more then seven years for ImmobilienScout24.",
@@ -215,16 +170,25 @@
 	"github": "alosdev",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Hasan-Hosgel.jpeg"
 }, {
-	"id": 25,
-	"name": "Walid Sultan Midani",
-	"title": "DigitalMania – CEO & Founder",
-	"bio": "Walid gets his computer engineering degree from the private college of engineering and technology of Tunis (ESPRIT) in July 2008 and began his career in the field of video games. In 2004, he co-founded startup Tunisia games that organised the Electronic Sports Tunisian Cup from 2005 to 2009. He also took part in the organisation board of the “Electronic Sports World Cup – ESWC” in Paris 2005 to 2007 and in California on 2008. He launched the first video game studio in Tunisia: DigitalMania in 2011 of which he is the CEO. He is also actually the co-founder of a Tunisian accelerator, Boost, and the co-director & co-founder of the Tunisian branch of the world’s largest entrepreneur training and startup launch program, The Founder Institute.",
-	"website": "http://digitalmaniastudio.com/",
-	"twitter": "sultanwalid",
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Walid-Sultan-Midani.jpg"
+	"id": 20,
+	"name": "Houssem Dellai",
+	"title": "Application Development Lead, IntilaQ",
+	"bio": "Houssem Dellai is a software engineer enjoying blogging, speaking and sharing his knowledge with developers. He spent the last three years building mobile applications using multiple platforms. He also was one of only two awarded developers to be a Microsoft MVP in Tunisia.",
+	"website": "http://www.houssemdellai.net/",
+	"twitter": "HoussemDellai",
+	"github": "HoussemDellai",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Houssem-Dellai.jpg"
 }, {
-	"id": 26,
+	"id": 21,
+	"name": "Oussama Bouthouri",
+	"title": "Lead developer at Firstak",
+	"bio": "Oussama Bouthouri is a passionate mobile developer. His interest in mobile applications began with his first introduction to the field in 2011. From that date, he started making his own projects to discover the various possibilities that it can offer. This passion took a more distinct shape when he fused it with his fondness of the image-processing field, and as a result of this combination, he created many applications and games using virtual and augmented reality. To attain his goals, he used different tools such as Vuforia, robots, and Google Cardboard. His belief that the knowledge should always be shared with everyone who’s interested, in gratuitous and open way, made him an active trainer in Tunisia and worldwide, and encouraged him to found and preside many university clubs and associations treating the new technologies’ related topics, such as T3alem, Google ISAMM Club and the official Unity User Group.",
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Oussema-Bouthouri-700x700.jpg"
+}, {
+	"id": 22,
 	"name": "Prajyot Mainkar",
 	"title": "Androcid, director",
 	"bio": "Director at Androcid Media Pvt. Ltd, an app engineering firm based out of India. He is the manager of Google’s Developer Group – GAUG ( Goa Android users Group), which is one of the oldest GDGs in Goa. He is an android developer himself and has spoken at several conferences including Droidcon India, Droidcon Greece, Android Developer Days- Turkey, Silicon India Mobile Conference and many more. Prajyot has been active in the Android community and been assisting Android developers build new, compelling and well-received apps.",
@@ -233,7 +197,25 @@
 	"github": null,
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Prajyot-Mainkar.jpg"
 }, {
-	"id": 27,
+	"id": 23,
+	"name": "Walid Sultan Midani",
+	"title": "DigitalMania – CEO & Founder",
+	"bio": "Walid gets his computer engineering degree from the private college of engineering and technology of Tunis (ESPRIT) in July 2008 and began his career in the field of video games. In 2004, he co-founded startup Tunisia games that organised the Electronic Sports Tunisian Cup from 2005 to 2009. He also took part in the organisation board of the “Electronic Sports World Cup – ESWC” in Paris 2005 to 2007 and in California on 2008. He launched the first video game studio in Tunisia: DigitalMania in 2011 of which he is the CEO. He is also actually the co-founder of a Tunisian accelerator, Boost, and the co-director & co-founder of the Tunisian branch of the world’s largest entrepreneur training and startup launch program, The Founder Institute.",
+	"website": "http://digitalmaniastudio.com/",
+	"twitter": "sultanwalid",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Walid-Sultan-Midani.jpg"
+}, {
+	"id": 24,
+	"name": "Hans-Christoph Steiner",
+	"title": "Guardian Project, Researcher and Hacker",
+	"bio": "Hans-Christoph Steiner is a researcher and hacker with Guardian Project working to make private-by-design easy for all to achieve. He spends his time making software as private as possible yet usable by everyone, designing digital interactions focused on perceptual capabilities, and composing music with computers. With an emphasis on collaboration, he works in many forms, including free software for mobile and embedded devices, responsive sound environments, free wireless networks that build community, musical robots that listen, programming environments to let you play with math, and a jet-powered fish that you can ride. To further his research, he teaches and works at various community centers and organizes open, collaborative hacklabs and open barcamp conferences. He is currently focused on building the most flexible, private, and secure app store as well as teaching digital security, interaction design, and media programming at workshops around and universities around the world.",
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Hans-Christoph-Steiner.jpg"
+}, {
+	"id": 25,
 	"name": "Azzen Abidi",
 	"title": "Univers Libre, Web Developer",
 	"bio": "Azzen Abidi, a 23 year old  student and web developer since 2013, an active member of the free software community since 2012. I am also a member of the translation team of the geany project, a tester with the xubuntu community, a DB & linux server admin and an IT consultant. I was one of RMS conferences organizers and eventually the Devbox project founder.",
@@ -241,4 +223,22 @@
 	"twitter": "azzenovic",
 	"github": "azzenovic",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Azzen-Abidi.jpg"
+}, {
+	"id": 26,
+	"name": "Carlos E. Jiménez-Gómez",
+	"title": "Chair, IEEE Government",
+	"bio": "MSc. on Information and Knowledge Society (research master thesis on eGovernment Interoperability), Postgraduate degree on Information Systems Management, and Computer Engineer. His main interests include e-Justice, open & smart government or interoperability. He has been civil servant of the Spanish Ministry of Justice since 1991; nowadays he is specialized in eGovernment, and he forms part of the team in charge of the e-Justice project of the Autonomous Government of Catalonia, Spain, project awarded in Spain in 2010, 2011 and 2012. He is as well an independent consultant. He has carried out international training, research and consulting work",
+	"website": "https://about.me/estratic",
+	"twitter": "estratic",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Carlos-E.-Jimenez.png"
+}, {
+	"id": 27,
+	"name": "Saif Elhak Awainia",
+	"title": "Embedded systems consultant",
+	"bio": "Saif is an embedded and mobile apps freelancer, holding a M. Sc degree in embedded systems he used to develop and integrate solutions in the field of Automotive, embedded, IoT and Cross platform Apps for customers around the world, in November 2015 he participated in Ultrahack event organized in Finland (part of the biggest hackathon in Europe), Saif was rewarded by the Finnish patent office and a UI automotive company during the Ultrahack.\nHe used to work on Qt as main framework for desktop and mobile application development since Qt 4.8 days, active member at Qt Forum, participating in open source projects in Github, he would be happy sharing with other coders and geeks about Android related knowledge.",
+	"website": "https://www.freelancer.com/u/Saifelhak.html",
+	"twitter": null,
+	"github": "kornava",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Saif-Elhak-Awainia.jpg"
 }]
