@@ -21,14 +21,14 @@ import butterknife.OnClick;
 
 public class VenueFragment extends BaseFragment {
 
+    @Bind(R.id.venue_image) ImageView mPhoto;
+
     private static final float PHOTO_RATIO = 0.404f;
     private static final String COORDINATES_URI = "geo:36.369198,10.534286?q=" + Uri.encode("Medina Yasmine Hammamet, Tunisia");
 
     public static VenueFragment newInstance() {
         return new VenueFragment();
     }
-
-    @Bind(R.id.venue_image) ImageView mPhoto;
 
     @Override
     protected BasePresenter newPresenter() {

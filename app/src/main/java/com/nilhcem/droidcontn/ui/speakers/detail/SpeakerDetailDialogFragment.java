@@ -29,16 +29,6 @@ import butterknife.ButterKnife;
 
 public class SpeakerDetailDialogFragment extends AppCompatDialogFragment {
 
-    private static final String EXTRA_SPEAKER = "mSpeaker";
-
-    public static void show(@NonNull Speaker speaker, @NonNull FragmentManager fm) {
-        Bundle args = new Bundle();
-        args.putParcelable(EXTRA_SPEAKER, speaker);
-        SpeakerDetailDialogFragment fragment = new SpeakerDetailDialogFragment();
-        fragment.setArguments(args);
-        fragment.show(fm, SpeakerDetailDialogFragment.class.getSimpleName());
-    }
-
     @Inject Picasso mPicasso;
 
     @Bind(R.id.speakers_detail_name) TextView mName;
@@ -49,6 +39,16 @@ public class SpeakerDetailDialogFragment extends AppCompatDialogFragment {
     @Bind(R.id.speakers_detail_twitter) ImageView mTwitter;
     @Bind(R.id.speakers_detail_github) ImageView mGithub;
     @Bind(R.id.speakers_detail_website) ImageView mWebsite;
+
+    private static final String EXTRA_SPEAKER = "mSpeaker";
+
+    public static void show(@NonNull Speaker speaker, @NonNull FragmentManager fm) {
+        Bundle args = new Bundle();
+        args.putParcelable(EXTRA_SPEAKER, speaker);
+        SpeakerDetailDialogFragment fragment = new SpeakerDetailDialogFragment();
+        fragment.setArguments(args);
+        fragment.show(fm, SpeakerDetailDialogFragment.class.getSimpleName());
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

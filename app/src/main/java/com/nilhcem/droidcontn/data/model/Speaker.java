@@ -8,6 +8,16 @@ import lombok.Value;
 @Value
 public class Speaker implements Parcelable {
 
+    public static final Parcelable.Creator<Speaker> CREATOR = new Parcelable.Creator<Speaker>() {
+        public Speaker createFromParcel(Parcel source) {
+            return new Speaker(source);
+        }
+
+        public Speaker[] newArray(int size) {
+            return new Speaker[size];
+        }
+    };
+
     int id;
     String name;
     String title;
@@ -16,6 +26,17 @@ public class Speaker implements Parcelable {
     String twitter;
     String github;
     String photo;
+
+    protected Speaker(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        title = in.readString();
+        bio = in.readString();
+        website = in.readString();
+        twitter = in.readString();
+        github = in.readString();
+        photo = in.readString();
+    }
 
     @Override
     public int describeContents() {
@@ -33,25 +54,4 @@ public class Speaker implements Parcelable {
         dest.writeString(github);
         dest.writeString(photo);
     }
-
-    protected Speaker(Parcel in) {
-        id = in.readInt();
-        name = in.readString();
-        title = in.readString();
-        bio = in.readString();
-        website = in.readString();
-        twitter = in.readString();
-        github = in.readString();
-        photo = in.readString();
-    }
-
-    public static final Parcelable.Creator<Speaker> CREATOR = new Parcelable.Creator<Speaker>() {
-        public Speaker createFromParcel(Parcel source) {
-            return new Speaker(source);
-        }
-
-        public Speaker[] newArray(int size) {
-            return new Speaker[size];
-        }
-    };
 }

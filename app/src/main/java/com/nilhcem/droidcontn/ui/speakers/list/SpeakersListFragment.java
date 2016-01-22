@@ -22,15 +22,15 @@ import butterknife.Bind;
 
 public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> implements SpeakersListView {
 
-    public static SpeakersListFragment newInstance() {
-        return new SpeakersListFragment();
-    }
-
     @Inject Picasso mPicasso;
 
     @Bind(R.id.speakers_list_recyclerview) RecyclerView mRecyclerView;
 
     private SpeakersListAdapter mAdapter;
+
+    public static SpeakersListFragment newInstance() {
+        return new SpeakersListFragment();
+    }
 
     @Override
     protected SpeakersListPresenter newPresenter() {

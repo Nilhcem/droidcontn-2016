@@ -38,13 +38,13 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
     @Inject Picasso mPicasso;
     @Inject DroidconService mService;
 
+    // TODO: Remove all these
+    public List<Speaker> mSpeakers;
+
     @Override
     protected DrawerPresenter newPresenter() {
         return new DrawerPresenter(this);
     }
-
-    // TODO: Remove all these
-    public List<Speaker> mSpeakers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

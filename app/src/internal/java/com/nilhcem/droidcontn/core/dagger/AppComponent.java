@@ -17,16 +17,17 @@ public interface AppComponent extends InternalAppGraph {
      * An initializer that creates the internal graph from an application.
      */
     final class Initializer {
+
+        private Initializer() {
+            throw new UnsupportedOperationException();
+        }
+
         public static AppComponent init(DroidconApp app) {
             return DaggerAppComponent.builder()
                     .appModule(new AppModule(app))
                     .apiModule(new ApiModule())
                     .dataModule(new DataModule())
                     .build();
-        }
-
-        private Initializer() {
-            throw new UnsupportedOperationException();
         }
     }
 }

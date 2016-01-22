@@ -12,13 +12,13 @@ import com.nilhcem.droidcontn.utils.Intents;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SettingsView {
 
-    public static SettingsFragment newInstance() {
-        return new SettingsFragment();
-    }
-
     private SettingsPresenter mPresenter;
     private CheckBoxPreference mNotifySessions;
     private Preference mAppVersion;
+
+    public static SettingsFragment newInstance() {
+        return new SettingsFragment();
+    }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
