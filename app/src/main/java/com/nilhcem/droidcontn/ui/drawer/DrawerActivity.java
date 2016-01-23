@@ -3,8 +3,10 @@ package com.nilhcem.droidcontn.ui.drawer;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -17,7 +19,8 @@ import lombok.val;
 
 public class DrawerActivity extends BaseActivity<DrawerPresenter> implements DrawerActivityView {
 
-    @Bind(R.id.drawer_toolbar) Toolbar toolbar;
+    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.tab_layout) TabLayout tabLayout;
     @Bind(R.id.drawer_layout) DrawerLayout drawer;
     @Bind(R.id.drawer_navigation) NavigationView navigationView;
 
@@ -67,5 +70,14 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
     @Override
     public void selectFirstDrawerEntry() {
         navigationView.setCheckedItem(R.id.drawer_nav_schedule);
+    }
+
+    @Override
+    public void setTabLayoutVisibility(int visibility) {
+        tabLayout.setVisibility(visibility);
+    }
+
+    public void setupTabLayoutWithViewPager(ViewPager viewPager) {
+        tabLayout.setupWithViewPager(viewPager);
     }
 }

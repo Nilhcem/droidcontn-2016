@@ -14,4 +14,6 @@ public interface DrawerActivityView {
     void showFragment(Fragment fragment);
 
     void selectFirstDrawerEntry();
+
+    void setTabLayoutVisibility(int visibility);
 }
