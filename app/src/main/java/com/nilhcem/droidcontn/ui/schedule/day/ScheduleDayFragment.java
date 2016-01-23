@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.ui.schedule.item;
+package com.nilhcem.droidcontn.ui.schedule.day;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import com.nilhcem.droidcontn.ui.BaseFragment;
 
 import lombok.val;
 
-public class ScheduleItemFragment extends BaseFragment<ScheduleItemPresenter> implements ScheduleItemView {
+public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> implements ScheduleDayView {
 
     private static final String ARG_SCHEDULE_DAY = "scheduleDay";
 
@@ -21,10 +21,10 @@ public class ScheduleItemFragment extends BaseFragment<ScheduleItemPresenter> im
 
     private static boolean sTemporary;
 
-    public static ScheduleItemFragment newInstance(ScheduleDay scheduleDay) {
+    public static ScheduleDayFragment newInstance(ScheduleDay scheduleDay) {
         Bundle args = new Bundle();
         args.putParcelable(ARG_SCHEDULE_DAY, scheduleDay);
-        ScheduleItemFragment fragment = new ScheduleItemFragment();
+        ScheduleDayFragment fragment = new ScheduleDayFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,7 +45,7 @@ public class ScheduleItemFragment extends BaseFragment<ScheduleItemPresenter> im
     }
 
     @Override
-    protected ScheduleItemPresenter newPresenter() {
-        return new ScheduleItemPresenter(this);
+    protected ScheduleDayPresenter newPresenter() {
+        return new ScheduleDayPresenter(this);
     }
 }

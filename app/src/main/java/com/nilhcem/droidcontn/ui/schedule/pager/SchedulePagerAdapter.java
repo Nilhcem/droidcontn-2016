@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.nilhcem.droidcontn.data.model.ScheduleDay;
-import com.nilhcem.droidcontn.ui.schedule.item.ScheduleItemFragment;
+import com.nilhcem.droidcontn.ui.schedule.day.ScheduleDayFragment;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class SchedulePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return ScheduleItemFragment.newInstance(scheduleDays.get(position));
+        return ScheduleDayFragment.newInstance(scheduleDays.get(position));
     }
 
     @Override
