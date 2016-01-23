@@ -1,6 +1,7 @@
 package com.nilhcem.droidcontn.data.provider;
 
 import com.nilhcem.droidcontn.data.api.DroidconService;
+import com.nilhcem.droidcontn.data.model.ScheduleDay;
 import com.nilhcem.droidcontn.data.model.Speaker;
 
 import java.util.List;
@@ -17,7 +18,9 @@ public class DataProvider {
 
     private final DroidconService service;
     private final PublishSubject<List<Speaker>> speakersSubject = PublishSubject.create();
+    private final PublishSubject<List<ScheduleDay>> scheduleDaysSubject = PublishSubject.create();
     private List<Speaker> speakers;
+    private List<ScheduleDay> scheduleDays;
 
     @Inject
     public DataProvider(DroidconService service) {
@@ -35,6 +38,20 @@ public class DataProvider {
             return speakersSubject;
         } else {
             return Observable.just(speakers);
+        }
+    }
+
+    public Observable<List<ScheduleDay>> getScheduleDays() {
+        if (scheduleDays == null) {
+            service.loadSchedule()
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(scheduleDays -> {
+                        this.scheduleDays = scheduleDays;
+                        scheduleDaysSubject.onNext(scheduleDays);
+                    });
+            return scheduleDaysSubject;
+        } else {
+            return Observable.just(scheduleDays);
         }
     }
 }

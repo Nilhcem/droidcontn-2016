@@ -8,22 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.nilhcem.droidcontn.data.model.SessionDay;
+import com.nilhcem.droidcontn.data.model.ScheduleDay;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 
 import lombok.val;
 
 public class ScheduleItemFragment extends BaseFragment<ScheduleItemPresenter> implements ScheduleItemView {
 
-    private static final String ARG_DAY = "day";
+    private static final String ARG_SCHEDULE_DAY = "scheduleDay";
 
-    private SessionDay day;
+    private ScheduleDay scheduleDay;
 
     private static boolean sTemporary;
 
-    public static ScheduleItemFragment newInstance(SessionDay sessionDay) {
+    public static ScheduleItemFragment newInstance(ScheduleDay scheduleDay) {
         Bundle args = new Bundle();
-        args.putString(ARG_DAY, sessionDay.name());
+        args.putParcelable(ARG_SCHEDULE_DAY, scheduleDay);
         ScheduleItemFragment fragment = new ScheduleItemFragment();
         fragment.setArguments(args);
         return fragment;
@@ -32,7 +32,7 @@ public class ScheduleItemFragment extends BaseFragment<ScheduleItemPresenter> im
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        day = SessionDay.valueOf(getArguments().getString(ARG_DAY));
+        scheduleDay = getArguments().getParcelable(ARG_SCHEDULE_DAY);
     }
 
     @Nullable

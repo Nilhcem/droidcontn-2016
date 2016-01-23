@@ -1,6 +1,7 @@
 package com.nilhcem.droidcontn.core.dagger;
 
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
+import com.nilhcem.droidcontn.ui.schedule.pager.SchedulePagerFragment;
 import com.nilhcem.droidcontn.ui.settings.SettingsFragment;
 import com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailDialogFragment;
 import com.nilhcem.droidcontn.ui.speakers.list.SpeakersListFragment;
@@ -17,4 +18,6 @@ public interface AppGraph {
     void inject(SpeakerDetailDialogFragment fragment);
 
     void inject(SettingsFragment fragment);
+
+    void inject(SchedulePagerFragment fragment);
 }

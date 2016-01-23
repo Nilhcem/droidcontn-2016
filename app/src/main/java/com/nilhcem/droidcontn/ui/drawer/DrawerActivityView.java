@@ -15,5 +15,5 @@ public interface DrawerActivityView {
 
     void selectFirstDrawerEntry();
 
-    void setTabLayoutVisibility(int visibility);
+    void hideTabLayout();
 }

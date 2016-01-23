@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.ui.BaseActivity;
@@ -73,11 +74,12 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
     }
 
     @Override
-    public void setTabLayoutVisibility(int visibility) {
-        tabLayout.setVisibility(visibility);
+    public void hideTabLayout() {
+        tabLayout.setVisibility(View.GONE);
     }
 
     public void setupTabLayoutWithViewPager(ViewPager viewPager) {
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setVisibility(View.VISIBLE);
     }
 }

@@ -7,13 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.model.ScheduleDay;
+import com.nilhcem.droidcontn.data.provider.DataProvider;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 
 public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> implements SchedulePagerView {
+
+    @Inject DataProvider dataProvider;
 
     @Bind(R.id.schedule_viewpager) ViewPager viewPager;
 
@@ -22,19 +31,19 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
     }
 
     @Override
+    protected SchedulePagerPresenter newPresenter() {
+        DroidconApp.get(getContext()).component().inject(this);
+        return new SchedulePagerPresenter(this, dataProvider);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.schedule_pager, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        viewPager.setAdapter(new SchedulePagerAdapter(getChildFragmentManager()));
+    public void displaySchedule(List<ScheduleDay> scheduleDays) {
+        viewPager.setAdapter(new SchedulePagerAdapter(getChildFragmentManager(), scheduleDays));
         ((DrawerActivity) getActivity()).setupTabLayoutWithViewPager(viewPager);
-    }
-
-    @Override
-    protected SchedulePagerPresenter newPresenter() {
-        return new SchedulePagerPresenter(this);
     }
 }
