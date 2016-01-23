@@ -1,25 +1,26 @@
 package com.nilhcem.droidcontn.ui.schedule.day;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
+import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.model.ScheduleDay;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 
-import lombok.val;
+import butterknife.Bind;
 
 public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> implements ScheduleDayView {
 
     private static final String ARG_SCHEDULE_DAY = "scheduleDay";
 
-    private ScheduleDay scheduleDay;
+    @Bind(R.id.schedule_day_recyclerview) RecyclerView recyclerView;
 
-    private static boolean sTemporary;
+    private ScheduleDay scheduleDay;
 
     public static ScheduleDayFragment newInstance(ScheduleDay scheduleDay) {
         Bundle args = new Bundle();
@@ -35,13 +36,18 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
         scheduleDay = getArguments().getParcelable(ARG_SCHEDULE_DAY);
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        val view = new FrameLayout(getContext());
-        view.setBackgroundColor(sTemporary ? Color.MAGENTA : Color.GREEN);
-        sTemporary = !sTemporary;
-        return view;
+        return inflater.inflate(R.layout.schedule_day, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ScheduleDayAdapter adapter = new ScheduleDayAdapter(scheduleDay.getSlots(), this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
