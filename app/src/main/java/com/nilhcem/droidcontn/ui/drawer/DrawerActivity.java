@@ -8,32 +8,18 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
-import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.api.DroidconService;
-import com.nilhcem.droidcontn.data.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseActivity;
-
-import java.util.List;
-
-import javax.inject.Inject;
 
 import butterknife.Bind;
 import lombok.val;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class DrawerActivity extends BaseActivity<DrawerPresenter> implements DrawerActivityView {
 
     @Bind(R.id.drawer_toolbar) Toolbar toolbar;
     @Bind(R.id.drawer_layout) DrawerLayout drawer;
     @Bind(R.id.drawer_navigation) NavigationView navigationView;
-
-    // TODO: Remove all these
-    @Inject DroidconService service;
-    public List<Speaker> speakers;
 
     @Override
     protected DrawerPresenter newPresenter() {
@@ -54,16 +40,6 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
             presenter.onNavigationItemSelected(item.getItemId());
             return true;
         });
-
-        // Testing injection. TODO: Remove
-        DroidconApp.get(this).component().inject(this);
-        service.loadSpeakers()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(speakers -> {
-                    this.speakers = speakers;
-                    Toast.makeText(this, "data loaded", Toast.LENGTH_SHORT).show();
-                });
     }
 
     @Override

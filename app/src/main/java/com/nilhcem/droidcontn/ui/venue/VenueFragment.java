@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.ui.BaseFragment;
-import com.nilhcem.droidcontn.ui.BasePresenter;
+import com.nilhcem.droidcontn.ui.BaseFragmentPresenter;
 import com.nilhcem.droidcontn.utils.Intents;
 import com.nilhcem.droidcontn.utils.Views;
 
@@ -31,7 +31,7 @@ public class VenueFragment extends BaseFragment {
     }
 
     @Override
-    protected BasePresenter newPresenter() {
+    protected BaseFragmentPresenter newPresenter() {
         return null;
     }
 

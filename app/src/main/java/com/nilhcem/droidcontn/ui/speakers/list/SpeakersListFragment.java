@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.model.Speaker;
+import com.nilhcem.droidcontn.data.provider.DataProvider;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.core.recyclerview.MarginDecoration;
-import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailDialogFragment;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -23,6 +25,7 @@ import butterknife.Bind;
 public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> implements SpeakersListView {
 
     @Inject Picasso picasso;
+    @Inject DataProvider dataProvider;
 
     @Bind(R.id.speakers_list_recyclerview) RecyclerView recyclerView;
 
@@ -35,7 +38,7 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     @Override
     protected SpeakersListPresenter newPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
-        return new SpeakersListPresenter(this);
+        return new SpeakersListPresenter(this, dataProvider);
     }
 
     @Override
@@ -46,12 +49,15 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        adapter = new SpeakersListAdapter(((DrawerActivity) getActivity()).speakers, picasso, this);
-
+        adapter = new SpeakersListAdapter(picasso, this);
         recyclerView.addItemDecoration(new MarginDecoration(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void displaySpeakers(List<Speaker> speakers) {
+        adapter.setSpeakers(speakers);
     }
 
     @Override

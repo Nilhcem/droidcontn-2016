@@ -6,16 +6,16 @@ import android.view.ViewGroup;
 import com.nilhcem.droidcontn.data.model.Speaker;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SpeakersListAdapter extends RecyclerView.Adapter<SpeakersListEntry> {
 
-    private final List<Speaker> speakers;
+    private final List<Speaker> speakers = new ArrayList<>();
     private final Picasso picasso;
     private final SpeakersListView view;
 
-    public SpeakersListAdapter(List<Speaker> speakers, Picasso picasso, SpeakersListView view) {
-        this.speakers = speakers;
+    public SpeakersListAdapter(Picasso picasso, SpeakersListView view) {
         this.picasso = picasso;
         this.view = view;
     }
@@ -34,5 +34,11 @@ public class SpeakersListAdapter extends RecyclerView.Adapter<SpeakersListEntry>
     @Override
     public int getItemCount() {
         return speakers.size();
+    }
+
+    public void setSpeakers(List<Speaker> speakers) {
+        this.speakers.clear();
+        this.speakers.addAll(speakers);
+        notifyDataSetChanged();
     }
 }

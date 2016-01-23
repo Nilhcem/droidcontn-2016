@@ -7,7 +7,7 @@ import android.view.View;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
+public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Fragment {
 
     protected P presenter;
 
@@ -23,10 +23,16 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-    }
+        if (presenter != null) {
+            presenter.onViewCreated(view, savedInstanceState);
+        }
+   }
 
     @Override
     public void onDestroyView() {
+        if (presenter != null) {
+            presenter.onDestroyView();
+        }
         ButterKnife.unbind(this);
         super.onDestroyView();
     }
