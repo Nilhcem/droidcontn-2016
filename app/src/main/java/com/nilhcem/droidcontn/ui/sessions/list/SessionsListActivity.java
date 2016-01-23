@@ -9,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.model.Session;
 import com.nilhcem.droidcontn.data.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseActivity;
+import com.nilhcem.droidcontn.ui.sessions.detail.SessionDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -52,9 +54,14 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.schedule_browse_slot, day, slot.getFromTime()));
 
-        SessionsListAdapter adapter = new SessionsListAdapter(slot.getSessions(), picasso);
+        SessionsListAdapter adapter = new SessionsListAdapter(slot.getSessions(), picasso, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void startSessionDetail(Session session) {
+        startActivity(SessionDetailActivity.createIntent(this, session));
     }
 }

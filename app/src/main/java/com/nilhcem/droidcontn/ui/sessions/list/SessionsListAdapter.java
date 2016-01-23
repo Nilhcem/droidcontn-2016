@@ -12,10 +12,12 @@ public class SessionsListAdapter extends RecyclerView.Adapter<SessionsListEntry>
 
     private final List<Session> sessions;
     private final Picasso picasso;
+    private final SessionsListView listener;
 
-    public SessionsListAdapter(List<Session> sessions, Picasso picasso) {
+    public SessionsListAdapter(List<Session> sessions, Picasso picasso, SessionsListView listener) {
         this.sessions = sessions;
         this.picasso = picasso;
+        this.listener = listener;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class SessionsListAdapter extends RecyclerView.Adapter<SessionsListEntry>
     @Override
     public void onBindViewHolder(SessionsListEntry holder, int position) {
         holder.bindSession(sessions.get(position));
-//        holder.itemView.setOnClickListener(v -> view.showSpeakerDetail(speakers.get(position)));
+        holder.itemView.setOnClickListener(v -> listener.startSessionDetail(sessions.get(position)));
     }
 
     @Override

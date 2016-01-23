@@ -29,5 +29,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.drawer.DrawerActivity"/>
         </activity>
+
+        <activity
+            android:name=".ui.sessions.detail.SessionDetailActivity"
+            android:parentActivityName=".ui.drawer.DrawerActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.drawer.DrawerActivity"/>
+        </activity>
     </application>
 </manifest>
