@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/schedule_day_entry_text"
-    tools:text="Hello"/>
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_margin_fourth"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin_fourth">
+
+    <!-- Time -->
+    <TextView
+        android:id="@+id/schedule_day_entry_time"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_margin"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/secondary_text"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="09:00"/>
+
+    <!-- Slot -->
+    <TextView
+        android:id="@+id/schedule_day_entry_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textSize="16sp"
+        tools:background="@drawable/schedule_day_entry_free"
+        tools:text="@string/schedule_browse_sessions"
+        tools:textColor="?attr/colorPrimary"/>
+</LinearLayout>
