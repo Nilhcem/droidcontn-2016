@@ -21,5 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.sessions.list.SessionsListActivity"
+            android:parentActivityName=".ui.drawer.DrawerActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.drawer.DrawerActivity"/>
+        </activity>
     </application>
 </manifest>

@@ -10,16 +10,16 @@ import java.util.List;
 public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
 
     private final List<Slot> slots;
-    private final ScheduleDayView view;
+    private final ScheduleDayEntry.OnSessionClickListener listener;
 
-    public ScheduleDayAdapter(List<Slot> slots, ScheduleDayView view) {
+    public ScheduleDayAdapter(List<Slot> slots, ScheduleDayEntry.OnSessionClickListener listener) {
         this.slots = slots;
-        this.view = view;
+        this.listener = listener;
     }
 
     @Override
     public ScheduleDayEntry onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ScheduleDayEntry(parent);
+        return new ScheduleDayEntry(parent, listener);
     }
 
     @Override

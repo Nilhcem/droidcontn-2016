@@ -23,13 +23,19 @@
         tools:text="09:00"/>
 
     <!-- Slot -->
-    <TextView
-        android:id="@+id/schedule_day_entry_desc"
+    <FrameLayout
+        android:id="@+id/schedule_day_entry_slot_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:textSize="16sp"
-        tools:background="@drawable/schedule_day_entry_free"
-        tools:text="@string/schedule_browse_sessions"
-        tools:textColor="?attr/colorPrimary"/>
+        tools:background="@drawable/schedule_day_entry_free">
+
+        <TextView
+            android:id="@+id/schedule_day_entry_slot_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textSize="16sp"
+            tools:text="@string/schedule_browse_sessions"
+            tools:textColor="?attr/colorPrimary"/>
+    </FrameLayout>
 </LinearLayout>

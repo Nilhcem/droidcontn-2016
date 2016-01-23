@@ -1,7 +1,10 @@
 package com.nilhcem.droidcontn.ui.schedule.day;
 
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
@@ -16,11 +19,25 @@ import butterknife.Bind;
 
 public class ScheduleDayEntry extends BaseViewHolder {
 
-    @Bind(R.id.schedule_day_entry_time) TextView time;
-    @Bind(R.id.schedule_day_entry_desc) TextView desc;
+    public interface OnSessionClickListener {
+        void onFreeSlotClicked(Slot slot);
+    }
 
-    public ScheduleDayEntry(ViewGroup parent) {
+    @Bind(R.id.schedule_day_entry_time) TextView time;
+    @Bind(R.id.schedule_day_entry_slot_container) FrameLayout slotContainer;
+    @Bind(R.id.schedule_day_entry_slot_name) TextView slotName;
+
+    private final Drawable selectableItemBackground;
+    private final OnSessionClickListener listener;
+
+    public ScheduleDayEntry(ViewGroup parent, OnSessionClickListener listener) {
         super(parent, R.layout.schedule_day_entry);
+        this.listener = listener;
+
+        int[] attrs = new int[]{android.R.attr.selectableItemBackground};
+        TypedArray ta = itemView.getContext().obtainStyledAttributes(attrs);
+        selectableItemBackground = ta.getDrawable(0);
+        ta.recycle();
     }
 
     public void bindSlot(Slot slot) {
@@ -33,21 +50,27 @@ public class ScheduleDayEntry extends BaseViewHolder {
                 bindChosenSlot(session);
             }
         } else {
-            bindFreeSlot();
+            bindFreeSlot(slot);
         }
         time.setText(slot.getFromTime());
     }
 
-    private void bindFreeSlot() {
-        Views.setBackground(desc, R.drawable.schedule_day_entry_free);
-        desc.setText(R.string.schedule_browse_sessions);
-        desc.setTextColor(ContextCompat.getColor(desc.getContext(), R.color.primary));
+    private void bindFreeSlot(Slot slot) {
+        slotName.setText(R.string.schedule_browse_sessions);
+        slotName.setTextColor(ContextCompat.getColor(slotName.getContext(), R.color.primary));
+
+        Views.setBackground(slotContainer, R.drawable.schedule_day_entry_free);
+        slotContainer.setForeground(selectableItemBackground);
+        slotContainer.setOnClickListener(v -> listener.onFreeSlotClicked(slot));
     }
 
     private void bindBreakSlot(Session session) {
-        Views.setBackground(desc, R.drawable.schedule_day_entry_break);
-        desc.setText(session.getTitle());
-        desc.setTextColor(ContextCompat.getColor(desc.getContext(), R.color.primary_text));
+        slotName.setText(session.getTitle());
+        slotName.setTextColor(ContextCompat.getColor(slotName.getContext(), R.color.primary_text));
+
+        Views.setBackground(slotContainer, R.drawable.schedule_day_entry_break);
+        slotContainer.setForeground(null);
+        slotContainer.setOnClickListener(null);
     }
 
     private void bindChosenSlot(Session session) {

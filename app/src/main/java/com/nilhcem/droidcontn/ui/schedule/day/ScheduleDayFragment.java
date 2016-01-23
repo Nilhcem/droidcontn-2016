@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.model.ScheduleDay;
+import com.nilhcem.droidcontn.data.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseFragment;
+import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
 
 import butterknife.Bind;
 
-public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> implements ScheduleDayView {
+public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> implements ScheduleDayView, ScheduleDayEntry.OnSessionClickListener {
 
     private static final String ARG_SCHEDULE_DAY = "scheduleDay";
 
@@ -53,5 +55,10 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     @Override
     protected ScheduleDayPresenter newPresenter() {
         return new ScheduleDayPresenter(this);
+    }
+
+    @Override
+    public void onFreeSlotClicked(Slot slot) {
+        startActivity(SessionsListActivity.createIntent(getContext(), slot));
     }
 }
