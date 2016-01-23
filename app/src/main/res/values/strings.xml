@@ -15,6 +15,7 @@
 
     <!-- Schedule -->
     <string name="schedule_browse_sessions">Browse sessions</string>
+    <string name="schedule_browse_slot">%1$s: %2$s</string>
 
     <!-- Speakers details -->
     <string name="speakers_details_hide">Hide</string>

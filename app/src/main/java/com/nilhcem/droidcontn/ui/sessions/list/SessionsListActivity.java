@@ -11,12 +11,15 @@ import com.nilhcem.droidcontn.ui.BaseActivity;
 
 public class SessionsListActivity extends BaseActivity<SessionsListPresenter> implements SessionsListView {
 
+    private static final String EXTRA_DAY = "day";
     private static final String EXTRA_SLOT = "slot";
 
+    private String day;
     private Slot slot;
 
-    public static Intent createIntent(@NonNull Context context, @NonNull Slot slot) {
+    public static Intent createIntent(@NonNull Context context, @NonNull String day, @NonNull Slot slot) {
         return new Intent(context, SessionsListActivity.class)
+                .putExtra(EXTRA_DAY, day)
                 .putExtra(EXTRA_SLOT, slot);
     }
 
@@ -29,9 +32,10 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessions_list);
+        day = getIntent().getStringExtra(EXTRA_DAY);
         slot = getIntent().getParcelableExtra(EXTRA_SLOT);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("TODO");
+        getSupportActionBar().setTitle(getString(R.string.schedule_browse_slot, day, slot.getFromTime()));
     }
 }
