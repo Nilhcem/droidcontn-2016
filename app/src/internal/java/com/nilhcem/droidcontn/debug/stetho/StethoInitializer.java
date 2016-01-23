@@ -17,31 +17,31 @@ import timber.log.Timber;
 
 public class StethoInitializer implements DumperPluginsProvider {
 
-    private final Context mContext;
-    private final AppDumperPlugin mAppDumper;
+    private final Context context;
+    private final AppDumperPlugin appDumper;
 
     @Inject
     public StethoInitializer(Application application, AppDumperPlugin appDumper) {
-        mContext = application;
-        mAppDumper = appDumper;
+        this.context = application;
+        this.appDumper = appDumper;
     }
 
     public void init() {
         Timber.plant(new StethoTree());
         Stetho.initialize(
-                Stetho.newInitializerBuilder(mContext)
+                Stetho.newInitializerBuilder(context)
                         .enableDumpapp(this)
-                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(mContext))
+                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(context))
                         .build());
     }
 
     @Override
     public Iterable<DumperPlugin> get() {
         List<DumperPlugin> plugins = new ArrayList<>();
-        for (DumperPlugin plugin : Stetho.defaultDumperPluginsProvider(mContext).get()) {
+        for (DumperPlugin plugin : Stetho.defaultDumperPluginsProvider(context).get()) {
             plugins.add(plugin);
         }
-        plugins.add(mAppDumper);
+        plugins.add(appDumper);
         return plugins;
     }
 }

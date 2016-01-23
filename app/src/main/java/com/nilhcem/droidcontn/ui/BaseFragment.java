@@ -9,14 +9,14 @@ import butterknife.ButterKnife;
 
 public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
 
-    protected P mPresenter;
+    protected P presenter;
 
     protected abstract P newPresenter();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = newPresenter();
+        presenter = newPresenter();
     }
 
     @Override

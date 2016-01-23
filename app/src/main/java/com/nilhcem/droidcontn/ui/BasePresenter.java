@@ -2,9 +2,9 @@ package com.nilhcem.droidcontn.ui;
 
 public abstract class BasePresenter<V> {
 
-    protected final V mView;
+    protected final V view;
 
     public BasePresenter(V view) {
-        mView = view;
+        this.view = view;
     }
 }

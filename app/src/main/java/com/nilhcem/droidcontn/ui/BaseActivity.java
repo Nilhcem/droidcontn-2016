@@ -9,32 +9,32 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity<P extends BaseActivityPresenter> extends AppCompatActivity {
 
-    protected P mPresenter;
+    protected P presenter;
 
     protected abstract P newPresenter();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = newPresenter();
+        presenter = newPresenter();
     }
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        mPresenter.onPostCreate(savedInstanceState);
+        presenter.onPostCreate(savedInstanceState);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        mPresenter.onSaveInstanceState(outState);
+        presenter.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mPresenter.onRestoreInstanceState(savedInstanceState);
+        presenter.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
@@ -45,7 +45,7 @@ public abstract class BaseActivity<P extends BaseActivityPresenter> extends AppC
 
     @Override
     public void onBackPressed() {
-        if (mPresenter.onBackPressed()) {
+        if (presenter.onBackPressed()) {
             return;
         }
         super.onBackPressed();
@@ -53,7 +53,7 @@ public abstract class BaseActivity<P extends BaseActivityPresenter> extends AppC
 
     @Override
     protected void onDestroy() {
-        mPresenter = null;
+        presenter = null;
         super.onDestroy();
     }
 }

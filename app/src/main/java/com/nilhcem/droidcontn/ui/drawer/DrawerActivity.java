@@ -1,6 +1,5 @@
 package com.nilhcem.droidcontn.ui.drawer;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
@@ -16,7 +15,6 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.api.DroidconService;
 import com.nilhcem.droidcontn.data.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseActivity;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -29,17 +27,13 @@ import rx.schedulers.Schedulers;
 
 public class DrawerActivity extends BaseActivity<DrawerPresenter> implements DrawerActivityView {
 
-    @Bind(R.id.drawer_toolbar) Toolbar mToolbar;
-    @Bind(R.id.drawer_layout) DrawerLayout mDrawer;
-    @Bind(R.id.drawer_navigation) NavigationView mNavigationView;
-
-    // Testing injection. TODO: Remove all these
-    @Inject SharedPreferences mSharedPrefs;
-    @Inject Picasso mPicasso;
-    @Inject DroidconService mService;
+    @Bind(R.id.drawer_toolbar) Toolbar toolbar;
+    @Bind(R.id.drawer_layout) DrawerLayout drawer;
+    @Bind(R.id.drawer_navigation) NavigationView navigationView;
 
     // TODO: Remove all these
-    public List<Speaker> mSpeakers;
+    @Inject DroidconService service;
+    public List<Speaker> speakers;
 
     @Override
     protected DrawerPresenter newPresenter() {
@@ -50,24 +44,24 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer);
-        setSupportActionBar(mToolbar);
+        setSupportActionBar(toolbar);
 
-        val toggle = new ActionBarDrawerToggle(this, mDrawer, mToolbar, R.string.drawer_open, R.string.drawer_close);
-        mDrawer.setDrawerListener(toggle);
+        val toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
+        drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        mNavigationView.setNavigationItemSelectedListener(item -> {
-            mPresenter.onNavigationItemSelected(item.getItemId());
+        navigationView.setNavigationItemSelectedListener(item -> {
+            presenter.onNavigationItemSelected(item.getItemId());
             return true;
         });
 
         // Testing injection. TODO: Remove
         DroidconApp.get(this).component().inject(this);
-        mService.loadSpeakers()
+        service.loadSpeakers()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(speakers -> {
-                    mSpeakers = speakers;
+                    this.speakers = speakers;
                     Toast.makeText(this, "data loaded", Toast.LENGTH_SHORT).show();
                 });
     }
@@ -79,12 +73,12 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
 
     @Override
     public boolean isNavigationDrawerOpen() {
-        return mDrawer.isDrawerOpen(GravityCompat.START);
+        return drawer.isDrawerOpen(GravityCompat.START);
     }
 
     @Override
     public void closeNavigationDrawer() {
-        mDrawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(GravityCompat.START);
     }
 
     @Override
@@ -96,6 +90,6 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
 
     @Override
     public void selectFirstDrawerEntry() {
-        mNavigationView.setCheckedItem(R.id.drawer_nav_schedule);
+        navigationView.setCheckedItem(R.id.drawer_nav_schedule);
     }
 }

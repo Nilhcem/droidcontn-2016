@@ -21,7 +21,7 @@ import butterknife.OnClick;
 
 public class VenueFragment extends BaseFragment {
 
-    @Bind(R.id.venue_image) ImageView mPhoto;
+    @Bind(R.id.venue_image) ImageView photo;
 
     private static final float PHOTO_RATIO = 0.404f;
     private static final String COORDINATES_URI = "geo:36.369198,10.534286?q=" + Uri.encode("Medina Yasmine Hammamet, Tunisia");
@@ -57,14 +57,14 @@ public class VenueFragment extends BaseFragment {
     }
 
     private void initPhotoSize() {
-        mPhoto.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        photo.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                int width = mPhoto.getWidth();
+                int width = photo.getWidth();
                 if (width != 0) {
-                    Views.removeOnGlobalLayoutListener(mPhoto.getViewTreeObserver(), this);
-                    mPhoto.getLayoutParams().height = Math.round(width * PHOTO_RATIO);
-                    mPhoto.requestLayout();
+                    Views.removeOnGlobalLayoutListener(photo.getViewTreeObserver(), this);
+                    photo.getLayoutParams().height = Math.round(width * PHOTO_RATIO);
+                    photo.requestLayout();
                 }
             }
         });

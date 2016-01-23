@@ -29,18 +29,18 @@ import butterknife.ButterKnife;
 
 public class SpeakerDetailDialogFragment extends AppCompatDialogFragment {
 
-    @Inject Picasso mPicasso;
+    @Inject Picasso picasso;
 
-    @Bind(R.id.speakers_detail_name) TextView mName;
-    @Bind(R.id.speakers_detail_title) TextView mTitle;
-    @Bind(R.id.speakers_detail_bio) TextView mBio;
-    @Bind(R.id.speakers_detail_photo) ImageView mPhoto;
-    @Bind(R.id.speakers_detail_links_container) ViewGroup mLinksContainer;
-    @Bind(R.id.speakers_detail_twitter) ImageView mTwitter;
-    @Bind(R.id.speakers_detail_github) ImageView mGithub;
-    @Bind(R.id.speakers_detail_website) ImageView mWebsite;
+    @Bind(R.id.speakers_detail_name) TextView name;
+    @Bind(R.id.speakers_detail_title) TextView title;
+    @Bind(R.id.speakers_detail_bio) TextView bio;
+    @Bind(R.id.speakers_detail_photo) ImageView photo;
+    @Bind(R.id.speakers_detail_links_container) ViewGroup linksContainer;
+    @Bind(R.id.speakers_detail_twitter) ImageView twitter;
+    @Bind(R.id.speakers_detail_github) ImageView github;
+    @Bind(R.id.speakers_detail_website) ImageView website;
 
-    private static final String EXTRA_SPEAKER = "mSpeaker";
+    private static final String EXTRA_SPEAKER = "speaker";
 
     public static void show(@NonNull Speaker speaker, @NonNull FragmentManager fm) {
         Bundle args = new Bundle();
@@ -75,10 +75,10 @@ public class SpeakerDetailDialogFragment extends AppCompatDialogFragment {
     }
 
     private void bindSpeaker(Speaker speaker) {
-        mName.setText(speaker.getName());
-        mTitle.setText(speaker.getTitle());
-        mBio.setText(speaker.getBio());
-        mPicasso.load(speaker.getPhoto()).transform(new CircleTransformation()).into(mPhoto);
+        name.setText(speaker.getName());
+        title.setText(speaker.getTitle());
+        bio.setText(speaker.getBio());
+        picasso.load(speaker.getPhoto()).transform(new CircleTransformation()).into(photo);
         bindLinks(speaker);
     }
 
@@ -86,24 +86,24 @@ public class SpeakerDetailDialogFragment extends AppCompatDialogFragment {
         boolean hasLink = false;
 
         if (!TextUtils.isEmpty(speaker.getTwitter())) {
-            mTwitter.setVisibility(View.VISIBLE);
-            mTwitter.setOnClickListener(v -> openLink("https://www.twitter.com/#!/" + speaker.getTwitter()));
+            twitter.setVisibility(View.VISIBLE);
+            twitter.setOnClickListener(v -> openLink("https://www.twitter.com/#!/" + speaker.getTwitter()));
             hasLink = true;
         }
 
         if (!TextUtils.isEmpty(speaker.getGithub())) {
-            mGithub.setVisibility(View.VISIBLE);
-            mGithub.setOnClickListener(v -> openLink("https://www.github.com/" + speaker.getGithub()));
+            github.setVisibility(View.VISIBLE);
+            github.setOnClickListener(v -> openLink("https://www.github.com/" + speaker.getGithub()));
             hasLink = true;
         }
 
         if (!TextUtils.isEmpty(speaker.getWebsite())) {
-            mWebsite.setVisibility(View.VISIBLE);
-            mWebsite.setOnClickListener(v -> openLink(speaker.getWebsite()));
+            website.setVisibility(View.VISIBLE);
+            website.setOnClickListener(v -> openLink(speaker.getWebsite()));
             hasLink = true;
         }
 
-        mLinksContainer.setVisibility(hasLink ? View.VISIBLE : View.GONE);
+        linksContainer.setVisibility(hasLink ? View.VISIBLE : View.GONE);
     }
 
     private void openLink(String url) {

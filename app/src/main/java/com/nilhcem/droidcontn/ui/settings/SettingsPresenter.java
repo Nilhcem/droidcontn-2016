@@ -10,11 +10,11 @@ public class SettingsPresenter extends BasePresenter<SettingsView> {
     }
 
     public void onCreate() {
-        mView.setAppVersion(AppUtils.getVersion());
+        view.setAppVersion(AppUtils.getVersion());
     }
 
     public boolean onNotifySessionsChange(boolean checked) {
-        mView.setNotifySessionsCheckbox(checked);
+        view.setNotifySessionsCheckbox(checked);
         return true;
     }
 }

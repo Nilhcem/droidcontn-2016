@@ -10,29 +10,29 @@ import java.util.List;
 
 public class SpeakersListAdapter extends RecyclerView.Adapter<SpeakersListEntry> {
 
-    private final List<Speaker> mSpeakers;
-    private final Picasso mPicasso;
-    private final SpeakersListView mView;
+    private final List<Speaker> speakers;
+    private final Picasso picasso;
+    private final SpeakersListView view;
 
     public SpeakersListAdapter(List<Speaker> speakers, Picasso picasso, SpeakersListView view) {
-        mSpeakers = speakers;
-        mPicasso = picasso;
-        mView = view;
+        this.speakers = speakers;
+        this.picasso = picasso;
+        this.view = view;
     }
 
     @Override
     public SpeakersListEntry onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new SpeakersListEntry(parent, mPicasso);
+        return new SpeakersListEntry(parent, picasso);
     }
 
     @Override
     public void onBindViewHolder(SpeakersListEntry holder, int position) {
-        holder.bindSpeaker(mSpeakers.get(position));
-        holder.itemView.setOnClickListener(v -> mView.showSpeakerDetail(mSpeakers.get(position)));
+        holder.bindSpeaker(speakers.get(position));
+        holder.itemView.setOnClickListener(v -> view.showSpeakerDetail(speakers.get(position)));
     }
 
     @Override
     public int getItemCount() {
-        return mSpeakers.size();
+        return speakers.size();
     }
 }

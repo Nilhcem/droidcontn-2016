@@ -17,14 +17,14 @@ public class InternalDroidconApp extends DroidconApp {
      */
     private static final boolean DISPLAY_FPS = false;
 
-    @Inject StethoInitializer mStetho;
+    @Inject StethoInitializer stetho;
 
     @Override
     public void onCreate() {
         super.onCreate();
         AppComponent.Initializer.init(this).inject(this);
         displayFps(true);
-        mStetho.init();
+        stetho.init();
     }
 
 

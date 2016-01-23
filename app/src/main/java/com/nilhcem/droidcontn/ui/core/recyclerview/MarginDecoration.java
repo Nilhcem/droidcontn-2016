@@ -9,15 +9,15 @@ import com.nilhcem.droidcontn.R;
 
 public class MarginDecoration extends RecyclerView.ItemDecoration {
 
-    private int mMargin;
+    private int margin;
 
     public MarginDecoration(Context context) {
-        mMargin = context.getResources().getDimensionPixelSize(R.dimen.item_margin);
+        margin = context.getResources().getDimensionPixelSize(R.dimen.item_margin);
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
-        outRect.set(mMargin, mMargin, mMargin, mMargin);
+        outRect.set(margin, margin, margin, margin);
     }
 }

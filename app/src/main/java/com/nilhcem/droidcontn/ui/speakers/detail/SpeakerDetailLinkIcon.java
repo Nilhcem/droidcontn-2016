@@ -11,14 +11,14 @@ import com.nilhcem.droidcontn.R;
 
 public class SpeakerDetailLinkIcon extends ImageView {
 
-    private final int mDefaultColor;
-    private final int mPressedColor;
-    private Rect mRect;
+    private final int defaultColor;
+    private final int pressedColor;
+    private Rect rect;
 
     public SpeakerDetailLinkIcon(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mPressedColor = ContextCompat.getColor(context, R.color.primary_text);
-        mDefaultColor = ContextCompat.getColor(context, android.R.color.white);
+        pressedColor = ContextCompat.getColor(context, R.color.primary_text);
+        defaultColor = ContextCompat.getColor(context, android.R.color.white);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class SpeakerDetailLinkIcon extends ImageView {
                 break;
             case MotionEvent.ACTION_MOVE:
                 // User moved outside bounds
-                if (mRect != null && !mRect.contains(getLeft() + (int) event.getX(), getTop() + (int) event.getY())) {
+                if (rect != null && !rect.contains(getLeft() + (int) event.getX(), getTop() + (int) event.getY())) {
                     setDefaultColor();
                 }
                 break;
@@ -41,12 +41,12 @@ public class SpeakerDetailLinkIcon extends ImageView {
     }
 
     private void setDefaultColor() {
-        setColorFilter(mDefaultColor);
-        mRect = null;
+        setColorFilter(defaultColor);
+        rect = null;
     }
 
     private void setPressedColor() {
-        setColorFilter(mPressedColor);
-        mRect = new Rect(getLeft(), getTop(), getRight(), getBottom());
+        setColorFilter(pressedColor);
+        rect = new Rect(getLeft(), getTop(), getRight(), getBottom());
     }
 }

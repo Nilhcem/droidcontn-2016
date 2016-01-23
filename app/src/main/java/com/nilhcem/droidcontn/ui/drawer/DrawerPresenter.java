@@ -15,7 +15,7 @@ import icepick.State;
 
 public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
 
-    @State @StringRes int mToolbarTitle;
+    @State @StringRes int toolbarTitle;
 
     public DrawerPresenter(DrawerActivityView view) {
         super(view);
@@ -32,43 +32,43 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mView.updateToolbarTitle(mToolbarTitle);
+        view.updateToolbarTitle(toolbarTitle);
     }
 
     @Override
     public void onNavigationItemSelected(@IdRes int itemId) {
         switch (itemId) {
             case R.id.drawer_nav_schedule:
-                mView.showFragment(ScheduleFragment.newInstance());
-                mToolbarTitle = R.string.drawer_nav_schedule;
+                view.showFragment(ScheduleFragment.newInstance());
+                toolbarTitle = R.string.drawer_nav_schedule;
                 break;
             case R.id.drawer_nav_speakers:
-                mView.showFragment(SpeakersListFragment.newInstance());
-                mToolbarTitle = R.string.drawer_nav_speakers;
+                view.showFragment(SpeakersListFragment.newInstance());
+                toolbarTitle = R.string.drawer_nav_speakers;
                 break;
             case R.id.drawer_nav_venue:
-                mView.showFragment(VenueFragment.newInstance());
-                mToolbarTitle = R.string.drawer_nav_venue;
+                view.showFragment(VenueFragment.newInstance());
+                toolbarTitle = R.string.drawer_nav_venue;
                 break;
             case R.id.drawer_nav_settings:
-                mView.showFragment(SettingsFragment.newInstance());
-                mToolbarTitle = R.string.drawer_nav_settings;
+                view.showFragment(SettingsFragment.newInstance());
+                toolbarTitle = R.string.drawer_nav_settings;
                 break;
             default:
                 throw new IllegalArgumentException();
         }
-        mView.updateToolbarTitle(mToolbarTitle);
-        mView.closeNavigationDrawer();
+        view.updateToolbarTitle(toolbarTitle);
+        view.closeNavigationDrawer();
     }
 
     @Override
     public boolean onBackPressed() {
-        if (mView.isNavigationDrawerOpen()) {
-            mView.closeNavigationDrawer();
+        if (view.isNavigationDrawerOpen()) {
+            view.closeNavigationDrawer();
             return true;
-        } else if (mToolbarTitle != R.string.drawer_nav_schedule) {
+        } else if (toolbarTitle != R.string.drawer_nav_schedule) {
             onNavigationItemSelected(R.id.drawer_nav_schedule);
-            mView.selectFirstDrawerEntry();
+            view.selectFirstDrawerEntry();
             return true;
         }
         return false;

@@ -12,13 +12,13 @@ import dagger.Provides;
 @Module
 public final class AppModule {
 
-    private final DroidconApp mApp;
+    private final DroidconApp app;
 
     public AppModule(DroidconApp app) {
-        mApp = app;
+        this.app = app;
     }
 
-    @Provides @Singleton Application provideApplication() {
-        return mApp;
+    @Provides     @Singleton Application provideApplication() {
+        return app;
     }
 }

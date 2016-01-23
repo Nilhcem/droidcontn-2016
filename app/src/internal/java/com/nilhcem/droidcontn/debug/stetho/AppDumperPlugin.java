@@ -22,13 +22,13 @@ import javax.inject.Inject;
 
 public class AppDumperPlugin implements DumperPlugin {
 
-    private final Context mContext;
-    private final ApiEndpoint mEndpoint;
+    private final Context context;
+    private final ApiEndpoint endpoint;
 
     @Inject
     public AppDumperPlugin(Application app, ApiEndpoint endpoint) {
-        mContext = app;
-        mEndpoint = endpoint;
+        this.context = app;
+        this.endpoint = endpoint;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class AppDumperPlugin implements DumperPlugin {
     }
 
     private void displayAppInfo(PrintStream writer) {
-        writer.println(mContext.getString(R.string.app_name) + " " + AppUtils.getVersion());
+        writer.println(context.getString(R.string.app_name) + " " + AppUtils.getVersion());
     }
 
     private void changeEndpoint(PrintStream writer, List<String> args) {
@@ -65,7 +65,7 @@ public class AppDumperPlugin implements DumperPlugin {
         } else {
             switch (args.get(0)) {
                 case "get":
-                    writer.println(String.format(Locale.US, "Endpoint: %s", mEndpoint));
+                    writer.println(String.format(Locale.US, "Endpoint: %s", endpoint));
                     break;
                 case "set":
                     if (args.size() < 2) {
@@ -75,9 +75,9 @@ public class AppDumperPlugin implements DumperPlugin {
 
                         try {
                             ApiEndpoint endpoint = ApiEndpoint.valueOf(arg.toUpperCase(Locale.US));
-                            ApiEndpoint.persist(mContext, endpoint);
+                            ApiEndpoint.persist(context, endpoint);
                         } catch (IllegalArgumentException e) {
-                            ApiEndpoint.persist(mContext, arg);
+                            ApiEndpoint.persist(context, arg);
                         }
                         restartApp(writer);
                     }
@@ -103,7 +103,7 @@ public class AppDumperPlugin implements DumperPlugin {
         // Restart app after a few delay to make sure stetho can print the previous message.
         new Thread(() -> {
             Threads.silentSleep(500);
-            ProcessPhoenix.triggerRebirth(mContext, new Intent(mContext, DrawerActivity.class));
+            ProcessPhoenix.triggerRebirth(context, new Intent(context, DrawerActivity.class));
         }).start();
     }
 }

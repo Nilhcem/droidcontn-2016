@@ -26,11 +26,11 @@ import static com.google.common.truth.Truth.assertThat;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP, packageName = "com.nilhcem.droidcontn")
 public class IntentsTest {
 
-    private Activity mActivity;
+    private Activity activity;
 
     @Before
     public void setup() {
-        mActivity = Robolectric.setupActivity(Activity.class);
+        activity = Robolectric.setupActivity(Activity.class);
     }
 
     @Test
@@ -41,10 +41,10 @@ public class IntentsTest {
         rpm.addResolveInfoForIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)), ShadowResolveInfo.newResolveInfo("", "", ""));
 
         // When
-        boolean result = Intents.startUri(mActivity, url);
+        boolean result = Intents.startUri(activity, url);
 
         // Then
-        ShadowActivity shadowActivity = Shadows.shadowOf(mActivity);
+        ShadowActivity shadowActivity = Shadows.shadowOf(activity);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
         assertThat(result).isTrue();
@@ -60,10 +60,10 @@ public class IntentsTest {
         rpm.addResolveInfoForIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)), (ResolveInfo) null);
 
         // When
-        boolean result = Intents.startUri(mActivity, url);
+        boolean result = Intents.startUri(activity, url);
 
         // Then
-        ShadowActivity shadowActivity = Shadows.shadowOf(mActivity);
+        ShadowActivity shadowActivity = Shadows.shadowOf(activity);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
         assertThat(result).isFalse();
@@ -78,10 +78,10 @@ public class IntentsTest {
         rpm.addResolveInfoForIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)), ShadowResolveInfo.newResolveInfo("", "", ""));
 
         // When
-        Intents.startExternalUrl(mActivity, url);
+        Intents.startExternalUrl(activity, url);
 
         // Then
-        ShadowActivity shadowActivity = Shadows.shadowOf(mActivity);
+        ShadowActivity shadowActivity = Shadows.shadowOf(activity);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
         assertThat(startedIntent.getAction()).isEqualTo(Intent.ACTION_VIEW);

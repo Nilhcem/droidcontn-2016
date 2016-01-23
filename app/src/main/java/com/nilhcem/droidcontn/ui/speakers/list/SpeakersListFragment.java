@@ -22,11 +22,11 @@ import butterknife.Bind;
 
 public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> implements SpeakersListView {
 
-    @Inject Picasso mPicasso;
+    @Inject Picasso picasso;
 
-    @Bind(R.id.speakers_list_recyclerview) RecyclerView mRecyclerView;
+    @Bind(R.id.speakers_list_recyclerview) RecyclerView recyclerView;
 
-    private SpeakersListAdapter mAdapter;
+    private SpeakersListAdapter adapter;
 
     public static SpeakersListFragment newInstance() {
         return new SpeakersListFragment();
@@ -47,11 +47,11 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mAdapter = new SpeakersListAdapter(((DrawerActivity) getActivity()).mSpeakers, mPicasso, this);
+        adapter = new SpeakersListAdapter(((DrawerActivity) getActivity()).speakers, picasso, this);
 
-        mRecyclerView.addItemDecoration(new MarginDecoration(getContext()));
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setAdapter(mAdapter);
+        recyclerView.addItemDecoration(new MarginDecoration(getContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

@@ -12,9 +12,9 @@ import com.nilhcem.droidcontn.utils.Intents;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements SettingsView {
 
-    private SettingsPresenter mPresenter;
-    private CheckBoxPreference mNotifySessions;
-    private Preference mAppVersion;
+    private SettingsPresenter presenter;
+    private CheckBoxPreference notifySessions;
+    private Preference appVersion;
 
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -24,30 +24,30 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         bindPreferences();
         initPresenter();
-        mNotifySessions.setOnPreferenceChangeListener((preference, newValue) ->
-                mPresenter.onNotifySessionsChange((Boolean) newValue));
+        notifySessions.setOnPreferenceChangeListener((preference, newValue) ->
+                presenter.onNotifySessionsChange((Boolean) newValue));
     }
 
     @Override
     public void setNotifySessionsCheckbox(boolean checked) {
-        mNotifySessions.setChecked(checked);
+        notifySessions.setChecked(checked);
     }
 
     @Override
     public void setAppVersion(CharSequence version) {
-        mAppVersion.setSummary(version);
+        appVersion.setSummary(version);
     }
 
     private void initPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
-        mPresenter = new SettingsPresenter(this);
-        mPresenter.onCreate();
+        presenter = new SettingsPresenter(this);
+        presenter.onCreate();
     }
 
     private void bindPreferences() {
         addPreferencesFromResource(R.xml.settings);
-        mNotifySessions = findPreference(R.string.settings_notify_key);
-        mAppVersion = findPreference(R.string.settings_version_key);
+        notifySessions = findPreference(R.string.settings_notify_key);
+        appVersion = findPreference(R.string.settings_version_key);
         initPreferenceLink(R.string.settings_conf_key);
         initPreferenceLink(R.string.settings_github_key);
         initPreferenceLink(R.string.settings_developer_key);

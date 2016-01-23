@@ -9,7 +9,7 @@ import timber.log.Timber;
 
 public class DroidconApp extends Application {
 
-    private AppComponent mComponent;
+    private AppComponent component;
 
     public static DroidconApp get(Context context) {
         return (DroidconApp) context.getApplicationContext();
@@ -23,11 +23,11 @@ public class DroidconApp extends Application {
     }
 
     public AppComponent component() {
-        return mComponent;
+        return component;
     }
 
     private void initGraph() {
-        mComponent = AppComponent.Initializer.init(this);
+        component = AppComponent.Initializer.init(this);
     }
 
     private void initLogger() {

@@ -13,18 +13,18 @@ import butterknife.Bind;
 
 public class SpeakersListEntry extends BaseViewHolder {
 
-    @Bind(R.id.speakers_list_entry_photo) ImageView mPhoto;
-    @Bind(R.id.speakers_list_entry_name) TextView mName;
+    @Bind(R.id.speakers_list_entry_photo) ImageView photo;
+    @Bind(R.id.speakers_list_entry_name) TextView name;
 
-    private final Picasso mPicasso;
+    private final Picasso picasso;
 
     public SpeakersListEntry(ViewGroup parent, Picasso picasso) {
         super(parent, R.layout.speakers_list_entry);
-        mPicasso = picasso;
+        this.picasso = picasso;
     }
 
     public void bindSpeaker(Speaker speaker) {
-        mPicasso.load(speaker.getPhoto()).into(mPhoto);
-        mName.setText(speaker.getName());
+        picasso.load(speaker.getPhoto()).into(photo);
+        name.setText(speaker.getName());
     }
 }
