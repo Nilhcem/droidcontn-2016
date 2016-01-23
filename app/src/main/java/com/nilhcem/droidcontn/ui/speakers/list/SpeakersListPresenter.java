@@ -14,7 +14,7 @@ import rx.schedulers.Schedulers;
 public class SpeakersListPresenter extends BaseFragmentPresenter<SpeakersListView> {
 
     private final DataProvider dataProvider;
-    private Subscription mSpeakersSubscription;
+    private Subscription speakersSubscription;
 
     public SpeakersListPresenter(SpeakersListView view, DataProvider dataProvider) {
         super(view);
@@ -23,7 +23,7 @@ public class SpeakersListPresenter extends BaseFragmentPresenter<SpeakersListVie
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        mSpeakersSubscription = dataProvider.getSpeakers()
+        speakersSubscription = dataProvider.getSpeakers()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this.view::displaySpeakers);
@@ -31,7 +31,7 @@ public class SpeakersListPresenter extends BaseFragmentPresenter<SpeakersListVie
 
     @Override
     public void onDestroyView() {
-        mSpeakersSubscription.unsubscribe();
+        speakersSubscription.unsubscribe();
         super.onDestroyView();
     }
 }
