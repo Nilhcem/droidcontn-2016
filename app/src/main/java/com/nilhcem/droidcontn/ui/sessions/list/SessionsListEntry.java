@@ -1,18 +1,26 @@
 package com.nilhcem.droidcontn.ui.sessions.list;
 
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
+import com.nilhcem.droidcontn.ui.core.picasso.CircleTransformation;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import butterknife.Bind;
 
 public class SessionsListEntry extends BaseViewHolder {
 
-    @Bind(R.id.sessions_list_entry_label) TextView label;
+    @Bind(R.id.sessions_list_entry_photo) ImageView photo;
+    @Bind(R.id.sessions_list_entry_title) TextView title;
+    @Bind(R.id.sessions_list_entry_room) TextView room;
+    @Bind(R.id.sessions_list_entry_description) TextView description;
 
     private final Picasso picasso;
 
@@ -22,6 +30,13 @@ public class SessionsListEntry extends BaseViewHolder {
     }
 
     public void bindSession(Session session) {
-        label.setText(session.getTitle());
+        List<Speaker> speakers = session.getSpeakers();
+        if (speakers != null && !speakers.isEmpty()) {
+            picasso.load(speakers.get(0).getPhoto()).transform(new CircleTransformation()).into(photo);
+        }
+
+        title.setText(session.getTitle());
+        room.setText("Room #" + session.getRoomId());
+        description.setText(session.getDescription());
     }
 }
