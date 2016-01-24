@@ -1,6 +1,7 @@
 package com.nilhcem.droidcontn.core.dagger;
 
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
+import com.nilhcem.droidcontn.ui.schedule.day.ScheduleDayFragment;
 import com.nilhcem.droidcontn.ui.schedule.pager.SchedulePagerFragment;
 import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
 import com.nilhcem.droidcontn.ui.settings.SettingsFragment;
@@ -15,6 +16,8 @@ public interface AppGraph {
     void inject(DrawerActivity activity);
 
     void inject(SchedulePagerFragment fragment);
+
+    void inject(ScheduleDayFragment fragment);
 
     void inject(SessionsListActivity activity);
 

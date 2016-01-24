@@ -12,6 +12,7 @@ import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
 import com.nilhcem.droidcontn.utils.Views;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -28,10 +29,12 @@ public class ScheduleDayEntry extends BaseViewHolder {
     @Bind(R.id.schedule_day_entry_slot_name) TextView slotName;
 
     private final Drawable selectableItemBackground;
+    private final Picasso picasso;
     private final OnSessionClickListener listener;
 
-    public ScheduleDayEntry(ViewGroup parent, OnSessionClickListener listener) {
+    public ScheduleDayEntry(ViewGroup parent, Picasso picasso, OnSessionClickListener listener) {
         super(parent, R.layout.schedule_day_entry);
+        this.picasso = picasso;
         this.listener = listener;
 
         int[] attrs = new int[]{android.R.attr.selectableItemBackground};

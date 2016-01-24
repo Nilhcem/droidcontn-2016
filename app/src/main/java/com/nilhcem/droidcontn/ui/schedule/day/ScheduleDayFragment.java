@@ -8,17 +8,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
 import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
+import com.squareup.picasso.Picasso;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 
 public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> implements ScheduleDayView, ScheduleDayEntry.OnSessionClickListener {
 
     private static final String ARG_SCHEDULE_DAY = "scheduleDay";
+
+    @Inject Picasso picasso;
 
     @Bind(R.id.schedule_day_recyclerview) RecyclerView recyclerView;
 
@@ -39,6 +45,12 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     }
 
     @Override
+    protected ScheduleDayPresenter newPresenter() {
+        DroidconApp.get(getContext()).component().inject(this);
+        return new ScheduleDayPresenter(this);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.schedule_day, container, false);
     }
@@ -46,15 +58,10 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ScheduleDayAdapter adapter = new ScheduleDayAdapter(scheduleDay.getSlots(), this);
+        ScheduleDayAdapter adapter = new ScheduleDayAdapter(scheduleDay.getSlots(), picasso, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-    }
-
-    @Override
-    protected ScheduleDayPresenter newPresenter() {
-        return new ScheduleDayPresenter(this);
     }
 
     @Override
