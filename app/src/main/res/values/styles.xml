@@ -18,6 +18,35 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <!-- Session details -->
+    <style name="Session"/>
+
+    <style name="Session.Detail"/>
+
+    <style name="Session.Detail.Category">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:paddingLeft">@dimen/activity_margin</item>
+        <item name="android:paddingRight">@dimen/activity_margin</item>
+        <item name="android:textColor">?attr/colorPrimaryDark</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Speaker details -->
+    <style name="Speaker"/>
+
+    <style name="Speaker.Details"/>
+
+    <style name="Speaker.Details.Link">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginEnd">@dimen/activity_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_margin</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
     <!-- Venue -->
     <style name="Venue"/>
 
@@ -34,18 +63,4 @@
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:textSize">15sp</item>
     </style>
-
-    <!-- Speaker details -->
-    <style name="Speaker"/>
-
-    <style name="Speaker.Details"/>
-
-    <style name="Speaker.Details.Link">
-        <item name="android:layout_width">24dp</item>
-        <item name="android:layout_height">24dp</item>
-        <item name="android:layout_marginEnd">@dimen/activity_margin</item>
-        <item name="android:layout_marginRight">@dimen/activity_margin</item>
-        <item name="android:visibility">gone</item>
-    </style>
-
 </resources>

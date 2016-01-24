@@ -3,6 +3,7 @@ package com.nilhcem.droidcontn.core.dagger;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.ui.schedule.day.ScheduleDayFragment;
 import com.nilhcem.droidcontn.ui.schedule.pager.SchedulePagerFragment;
+import com.nilhcem.droidcontn.ui.sessions.detail.SessionDetailActivity;
 import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
 import com.nilhcem.droidcontn.ui.settings.SettingsFragment;
 import com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailDialogFragment;
@@ -22,6 +23,8 @@ public interface AppGraph {
     void inject(SessionsListActivity activity);
 
     void inject(SpeakersListFragment fragments);
+
+    void inject(SessionDetailActivity activity);
 
     void inject(SpeakerDetailDialogFragment fragment);
 

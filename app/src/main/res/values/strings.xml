@@ -17,6 +17,10 @@
     <string name="schedule_browse_sessions">Browse sessions</string>
     <string name="schedule_browse_slot">%1$s: %2$s</string>
 
+    <!-- Session detail -->
+    <string name="session_detail_description">Description</string>
+    <string name="session_detail_speakers">Speakers</string>
+
     <!-- Speakers details -->
     <string name="speakers_details_hide">Hide</string>
 
