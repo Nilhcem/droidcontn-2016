@@ -2,8 +2,8 @@ package com.nilhcem.droidcontn.core.dagger.module;
 
 import android.app.Application;
 
-import com.nilhcem.droidcontn.data.api.ApiEndpoint;
-import com.nilhcem.droidcontn.data.api.DroidconService;
+import com.nilhcem.droidcontn.data.network.ApiEndpoint;
+import com.nilhcem.droidcontn.data.network.DroidconService;
 import com.squareup.moshi.Moshi;
 
 import javax.inject.Singleton;

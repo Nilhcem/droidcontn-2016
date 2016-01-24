@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.data.model;
+package com.nilhcem.droidcontn.data.app.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -26,6 +26,17 @@ public class Speaker implements Parcelable {
     String twitter;
     String github;
     String photo;
+
+    public Speaker(int id, String name, String title, String bio, String website, String twitter, String github, String photo) {
+        this.id = id;
+        this.name = name;
+        this.title = title;
+        this.bio = bio;
+        this.website = website;
+        this.twitter = twitter;
+        this.github = github;
+        this.photo = photo;
+    }
 
     protected Speaker(Parcel in) {
         id = in.readInt();

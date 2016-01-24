@@ -9,7 +9,7 @@ import com.facebook.stetho.dumpapp.DumperContext;
 import com.facebook.stetho.dumpapp.DumperPlugin;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.api.ApiEndpoint;
+import com.nilhcem.droidcontn.data.network.ApiEndpoint;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.utils.AppUtils;
 import com.nilhcem.droidcontn.utils.Threads;

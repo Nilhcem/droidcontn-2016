@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.data.model;
+package com.nilhcem.droidcontn.data.app.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -20,12 +20,15 @@ public class ScheduleDay implements Parcelable {
         }
     };
 
-    int dayId;
     String day;
     List<Slot> slots;
 
+    public ScheduleDay(String day, List<Slot> slots) {
+        this.day = day;
+        this.slots = slots;
+    }
+
     protected ScheduleDay(Parcel in) {
-        dayId = in.readInt();
         day = in.readString();
         slots = in.createTypedArrayList(Slot.CREATOR);
     }
@@ -37,7 +40,6 @@ public class ScheduleDay implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(dayId);
         dest.writeString(day);
         dest.writeTypedList(slots);
     }

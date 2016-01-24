@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.Speaker;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.core.picasso.CircleTransformation;
 import com.nilhcem.droidcontn.utils.Intents;
 import com.squareup.picasso.Picasso;

@@ -1,9 +1,8 @@
-package com.nilhcem.droidcontn.data.model;
+package com.nilhcem.droidcontn.data.app.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Value;
@@ -22,14 +21,20 @@ public class Session implements Parcelable {
     };
 
     int roomId;
-    List<Integer> speakersId;
+    List<Speaker> speakers;
     String title;
     String description;
 
+    public Session(int roomId, List<Speaker> speakers, String title, String description) {
+        this.roomId = roomId;
+        this.speakers = speakers;
+        this.title = title;
+        this.description = description;
+    }
+
     protected Session(Parcel in) {
         roomId = in.readInt();
-        speakersId = new ArrayList<>();
-        in.readList(speakersId, List.class.getClassLoader());
+        speakers = in.createTypedArrayList(Speaker.CREATOR);
         title = in.readString();
         description = in.readString();
     }
@@ -42,7 +47,7 @@ public class Session implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(roomId);
-        dest.writeList(speakersId);
+        dest.writeTypedList(speakers);
         dest.writeString(title);
         dest.writeString(description);
     }

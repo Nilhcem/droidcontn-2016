@@ -4,32 +4,30 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.nilhcem.droidcontn.data.model.ScheduleDay;
+import com.nilhcem.droidcontn.data.app.model.Schedule;
 import com.nilhcem.droidcontn.ui.schedule.day.ScheduleDayFragment;
-
-import java.util.List;
 
 public class SchedulePagerAdapter extends FragmentPagerAdapter {
 
-    private final List<ScheduleDay> scheduleDays;
+    private final Schedule schedule;
 
-    public SchedulePagerAdapter(FragmentManager fm, List<ScheduleDay> scheduleDays) {
+    public SchedulePagerAdapter(FragmentManager fm, Schedule schedule) {
         super(fm);
-        this.scheduleDays = scheduleDays;
+        this.schedule = schedule;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return ScheduleDayFragment.newInstance(scheduleDays.get(position));
+        return ScheduleDayFragment.newInstance(schedule.get(position));
     }
 
     @Override
     public int getCount() {
-        return scheduleDays.size();
+        return schedule.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return scheduleDays.get(position).getDay();
+        return schedule.get(position).getDay();
     }
 }

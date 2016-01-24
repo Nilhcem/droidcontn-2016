@@ -3,7 +3,7 @@ package com.nilhcem.droidcontn.ui.sessions.list;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.nilhcem.droidcontn.data.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Session;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

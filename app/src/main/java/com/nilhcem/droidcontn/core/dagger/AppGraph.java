@@ -14,13 +14,13 @@ public interface AppGraph {
 
     void inject(DrawerActivity activity);
 
+    void inject(SchedulePagerFragment fragment);
+
+    void inject(SessionsListActivity activity);
+
     void inject(SpeakersListFragment fragments);
 
     void inject(SpeakerDetailDialogFragment fragment);
 
     void inject(SettingsFragment fragment);
-
-    void inject(SchedulePagerFragment fragment);
-
-    void inject(SessionsListActivity activity);
 }

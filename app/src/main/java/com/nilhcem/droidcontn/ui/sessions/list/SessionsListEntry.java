@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
 import com.squareup.picasso.Picasso;
 

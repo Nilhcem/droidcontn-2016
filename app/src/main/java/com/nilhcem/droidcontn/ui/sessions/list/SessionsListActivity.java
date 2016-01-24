@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.Session;
-import com.nilhcem.droidcontn.data.model.Slot;
+import com.nilhcem.droidcontn.data.app.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.sessions.detail.SessionDetailActivity;
 import com.squareup.picasso.Picasso;

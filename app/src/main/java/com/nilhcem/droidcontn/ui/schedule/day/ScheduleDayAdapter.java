@@ -3,7 +3,7 @@ package com.nilhcem.droidcontn.ui.schedule.day;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.nilhcem.droidcontn.data.model.Slot;
+import com.nilhcem.droidcontn.data.app.model.Slot;
 
 import java.util.List;
 

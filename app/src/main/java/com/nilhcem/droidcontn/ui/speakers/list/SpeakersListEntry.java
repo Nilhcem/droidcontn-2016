@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.Speaker;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
 import com.squareup.picasso.Picasso;
 

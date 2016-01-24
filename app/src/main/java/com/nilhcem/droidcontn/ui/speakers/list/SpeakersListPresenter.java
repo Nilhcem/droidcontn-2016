@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.nilhcem.droidcontn.data.provider.DataProvider;
+import com.nilhcem.droidcontn.data.app.DataProvider;
 import com.nilhcem.droidcontn.ui.BaseFragmentPresenter;
 
 import rx.Subscription;
@@ -23,7 +23,7 @@ public class SpeakersListPresenter extends BaseFragmentPresenter<SpeakersListVie
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        speakersSubscription = dataProvider.getSpeakers()
+        speakersSubscription = dataProvider.getSpeakerList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this.view::displaySpeakers);

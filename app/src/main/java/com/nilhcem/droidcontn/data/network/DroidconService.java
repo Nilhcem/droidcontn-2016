@@ -1,7 +1,7 @@
-package com.nilhcem.droidcontn.data.api;
+package com.nilhcem.droidcontn.data.network;
 
-import com.nilhcem.droidcontn.data.model.ScheduleDay;
-import com.nilhcem.droidcontn.data.model.Speaker;
+import com.nilhcem.droidcontn.data.network.model.ScheduleDay;
+import com.nilhcem.droidcontn.data.network.model.Speaker;
 
 import java.util.List;
 

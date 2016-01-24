@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.ScheduleDay;
-import com.nilhcem.droidcontn.data.model.Slot;
+import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
+import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
 

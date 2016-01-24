@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 
 import butterknife.Bind;

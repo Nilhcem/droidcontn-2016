@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.data.model;
+package com.nilhcem.droidcontn.data.app.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -24,6 +24,13 @@ public class Slot implements Parcelable {
     String fromTime;
     String toTime;
     List<Session> sessions;
+
+    public Slot(int id, String fromTime, String toTime, List<Session> sessions) {
+        this.id = id;
+        this.fromTime = fromTime;
+        this.toTime = toTime;
+        this.sessions = sessions;
+    }
 
     protected Slot(Parcel in) {
         id = in.readInt();

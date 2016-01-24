@@ -8,8 +8,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.Session;
-import com.nilhcem.droidcontn.data.model.Slot;
+import com.nilhcem.droidcontn.data.app.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
 import com.nilhcem.droidcontn.utils.Views;
 
@@ -44,7 +44,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         List<Session> sessions = slot.getSessions();
         if (sessions.size() == 1) {
             Session session = sessions.get(0);
-            if (session.getSpeakersId() == null) {
+            if (session.getSpeakers() == null) {
                 bindBreakSlot(session);
             } else {
                 bindChosenSlot(session);

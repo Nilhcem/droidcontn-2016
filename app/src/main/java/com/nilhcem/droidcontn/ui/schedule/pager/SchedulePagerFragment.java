@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.model.ScheduleDay;
-import com.nilhcem.droidcontn.data.provider.DataProvider;
+import com.nilhcem.droidcontn.data.app.model.Schedule;
+import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
+import com.nilhcem.droidcontn.data.app.DataProvider;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 
@@ -42,8 +43,8 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
     }
 
     @Override
-    public void displaySchedule(List<ScheduleDay> scheduleDays) {
-        viewPager.setAdapter(new SchedulePagerAdapter(getChildFragmentManager(), scheduleDays));
+    public void displaySchedule(Schedule schedule) {
+        viewPager.setAdapter(new SchedulePagerAdapter(getChildFragmentManager(), schedule));
         ((DrawerActivity) getActivity()).setupTabLayoutWithViewPager(viewPager);
     }
 }

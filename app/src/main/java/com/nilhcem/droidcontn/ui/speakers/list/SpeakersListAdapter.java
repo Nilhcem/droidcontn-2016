@@ -3,7 +3,7 @@ package com.nilhcem.droidcontn.ui.speakers.list;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.nilhcem.droidcontn.data.model.Speaker;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

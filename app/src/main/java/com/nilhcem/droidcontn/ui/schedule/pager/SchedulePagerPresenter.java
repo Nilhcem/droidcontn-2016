@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.nilhcem.droidcontn.data.provider.DataProvider;
+import com.nilhcem.droidcontn.data.app.DataProvider;
 import com.nilhcem.droidcontn.ui.BaseFragmentPresenter;
 
 import rx.Subscription;
@@ -14,7 +14,7 @@ import rx.schedulers.Schedulers;
 public class SchedulePagerPresenter extends BaseFragmentPresenter<SchedulePagerView> {
 
     private final DataProvider dataProvider;
-    private Subscription scheduleDaysSubscription;
+    private Subscription scheduleSubscription;
 
     public SchedulePagerPresenter(SchedulePagerView view, DataProvider dataProvider) {
         super(view);
@@ -23,7 +23,7 @@ public class SchedulePagerPresenter extends BaseFragmentPresenter<SchedulePagerV
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        scheduleDaysSubscription = dataProvider.getScheduleDays()
+        scheduleSubscription = dataProvider.getSchedule()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this.view::displaySchedule);
@@ -31,8 +31,7 @@ public class SchedulePagerPresenter extends BaseFragmentPresenter<SchedulePagerV
 
     @Override
     public void onDestroyView() {
-        scheduleDaysSubscription.unsubscribe();
+        scheduleSubscription.unsubscribe();
         super.onDestroyView();
     }
 }
-

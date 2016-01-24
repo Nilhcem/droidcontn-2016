@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.data.api;
+package com.nilhcem.droidcontn.data.network;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
