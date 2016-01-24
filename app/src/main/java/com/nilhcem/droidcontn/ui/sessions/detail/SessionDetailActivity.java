@@ -2,6 +2,7 @@ package com.nilhcem.droidcontn.ui.sessions.detail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseActivity;
+import com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailDialogFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -64,13 +66,25 @@ public class SessionDetailActivity extends BaseActivity<SessionDetailPresenter> 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        List<Speaker> speakers = session.getSpeakers();
-        if (speakers != null && !speakers.isEmpty()) {
-            picasso.load(speakers.get(0).getPhoto()).resize(600, 0).into(photo);
-        }
-
         title.setText(session.getTitle());
         subtitle.setText("May 29, 2015, 10:00 - 11:00 AM\nRoom 1 (L2)");
         description.setText(session.getDescription());
+
+        List<Speaker> speakers = session.getSpeakers();
+        if (speakers != null && !speakers.isEmpty()) {
+            Point screenSize = new Point();
+            getWindowManager().getDefaultDisplay().getSize(screenSize);
+            picasso.load(speakers.get(0).getPhoto()).resize(screenSize.x, 0).into(photo);
+
+            for (Speaker speaker : speakers) {
+                SessionDetailSpeaker view = new SessionDetailSpeaker(this, speaker, picasso);
+                view.setOnClickListener(v -> openSpeakerDetails(speaker));
+                speakersContainer.addView(view);
+            }
+        }
+    }
+
+    private void openSpeakerDetails(Speaker speaker) {
+        SpeakerDetailDialogFragment.show(speaker, getSupportFragmentManager());
     }
 }
