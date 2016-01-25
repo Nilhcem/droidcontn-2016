@@ -241,4 +241,22 @@
 	"twitter": null,
 	"github": "kornava",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Saif-Elhak-Awainia.jpg"
+}, {
+	"id": 28,
+	"name": "Jose Ugia Gonzalez",
+	"title": "Errand’s Boy @ LOCK8, Co-Founder & Head of Tech @ Momenta, Google Developer Expert",
+	"bio": "Entrepreneur with more than 10 years of fun in tech, product and business development. Passionate about building things and putting them out there. Author, wanna-be social entrepreneur and always free for long beer conversations.",
+	"website": "http://ugia.io",
+	"twitter": "jl_ugia",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Jose-Ugia-Gonzalez.jpg"
+}, {
+	"id": 29,
+	"name": "Damien Cavaillès",
+	"title": "Founder at jeCherCheUnDev.fr",
+	"bio": "Développeur Android depuis 6 ans, j’ai attrapé ce virus en école d’ingénieur, à peu près en même temps que celui des Startups. Depuis j’ai lancé 3 superbes projets qui ont été de beaux échecs. J’ai bossé en SSII, en agence mobile et dans une startup (Tripndrive). Aujourd’hui, j’accompagne des Startups sur leurs problématiques de go-to-market où le mobile est clé. J’ai lancé jeChercheUnDev.fr pour faciliter le freelancing pour les développeurs et je rassemble des gens fantastiques autour de Startup On Rails, un programme intensif pour les Startups.",
+	"website": "https://www.freelancer.com/u/Saifelhak.html",
+	"twitter": "TheDamfr",
+	"github": "TheDamfr",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Damien-Cavaill%C3%A8s.jpg"
 }]
