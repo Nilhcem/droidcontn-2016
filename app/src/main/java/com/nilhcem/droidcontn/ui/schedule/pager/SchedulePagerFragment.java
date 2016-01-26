@@ -42,6 +42,8 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
     @Override
     public void displaySchedule(Schedule schedule) {
         viewPager.setAdapter(new SchedulePagerAdapter(getChildFragmentManager(), schedule));
-        ((DrawerActivity) getActivity()).setupTabLayoutWithViewPager(viewPager);
+        if (schedule.size() > 1) {
+            ((DrawerActivity) getActivity()).setupTabLayoutWithViewPager(viewPager);
+        }
     }
 }
