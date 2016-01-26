@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.app.DataProvider;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.core.recyclerview.MarginDecoration;
 import com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailDialogFragment;

@@ -9,13 +9,10 @@ import android.view.ViewGroup;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.app.model.Schedule;
-import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
 import com.nilhcem.droidcontn.data.app.DataProvider;
+import com.nilhcem.droidcontn.data.app.model.Schedule;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
