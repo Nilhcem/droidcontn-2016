@@ -16,6 +16,10 @@ import java.util.Map;
 
 public class AppMapper {
 
+    private AppMapper() {
+        throw new UnsupportedOperationException();
+    }
+
     public static List<Speaker> mapSpeakers(@NonNull List<com.nilhcem.droidcontn.data.network.model.Speaker> from) {
         List<Speaker> speakers = new ArrayList<>(from.size());
         for (com.nilhcem.droidcontn.data.network.model.Speaker speaker : from) {
