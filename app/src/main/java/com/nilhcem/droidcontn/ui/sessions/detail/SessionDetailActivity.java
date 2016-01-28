@@ -36,6 +36,7 @@ public class SessionDetailActivity extends BaseActivity<SessionDetailPresenter> 
     @Bind(R.id.session_detail_title) TextView title;
     @Bind(R.id.session_detail_subtitle) TextView subtitle;
     @Bind(R.id.session_detail_description) TextView description;
+    @Bind(R.id.session_detail_speakers_title) TextView speakersTitle;
     @Bind(R.id.session_detail_speakers_container) ViewGroup speakersContainer;
 
     private Session session;
@@ -76,6 +77,7 @@ public class SessionDetailActivity extends BaseActivity<SessionDetailPresenter> 
             getWindowManager().getDefaultDisplay().getSize(screenSize);
             picasso.load(speakers.get(0).getPhoto()).resize(screenSize.x, 0).into(photo);
 
+            speakersTitle.setText(getResources().getQuantityString(R.plurals.session_detail_speakers, speakers.size()));
             for (Speaker speaker : speakers) {
                 SessionDetailSpeaker view = new SessionDetailSpeaker(this, speaker, picasso);
                 view.setOnClickListener(v -> openSpeakerDetails(speaker));

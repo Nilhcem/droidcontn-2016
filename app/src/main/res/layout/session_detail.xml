@@ -90,8 +90,9 @@
                 tools:text="Master your tools\nto build better apps"/>
 
             <TextView
+                android:id="@+id/session_detail_speakers_title"
                 style="@style/Session.Detail.Category"
-                android:text="@string/session_detail_speakers"/>
+                tools:text="Speakers"/>
 
             <LinearLayout
                 android:id="@+id/session_detail_speakers_container"

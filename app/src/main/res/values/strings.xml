@@ -19,7 +19,10 @@
 
     <!-- Session detail -->
     <string name="session_detail_description">Description</string>
-    <string name="session_detail_speakers">Speakers</string>
+    <plurals name="session_detail_speakers">
+        <item quantity="one">Speaker</item>
+        <item quantity="other">Speakers</item>
+    </plurals>
 
     <!-- Speakers details -->
     <string name="speakers_details_hide">Hide</string>
