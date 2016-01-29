@@ -13,7 +13,7 @@ import com.nilhcem.droidcontn.data.app.DataProvider;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.core.recyclerview.MarginDecoration;
-import com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailDialogFragment;
+import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -61,7 +61,7 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     }
 
     @Override
-    public void showSpeakerDetail(Speaker speaker) {
-        SpeakerDetailDialogFragment.show(speaker, getFragmentManager());
+    public void showSpeakerDetails(Speaker speaker) {
+        SpeakerDetailsDialogFragment.show(speaker, getFragmentManager());
     }
 }

@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.ui.sessions.detail;
+package com.nilhcem.droidcontn.ui.sessions.details;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseActivity;
-import com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailDialogFragment;
+import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -25,36 +25,36 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 
-public class SessionDetailActivity extends BaseActivity<SessionDetailPresenter> implements SessionDetailView {
+public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter> implements SessionDetailsView {
 
     private static final String EXTRA_SESSION = "session";
 
     @Inject Picasso picasso;
 
     @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.session_detail_photo) ImageView photo;
-    @Bind(R.id.session_detail_title) TextView title;
-    @Bind(R.id.session_detail_subtitle) TextView subtitle;
-    @Bind(R.id.session_detail_description) TextView description;
-    @Bind(R.id.session_detail_speakers_title) TextView speakersTitle;
-    @Bind(R.id.session_detail_speakers_container) ViewGroup speakersContainer;
+    @Bind(R.id.session_details_photo) ImageView photo;
+    @Bind(R.id.session_details_title) TextView title;
+    @Bind(R.id.session_details_subtitle) TextView subtitle;
+    @Bind(R.id.session_details_description) TextView description;
+    @Bind(R.id.session_details_speakers_title) TextView speakersTitle;
+    @Bind(R.id.session_details_speakers_container) ViewGroup speakersContainer;
 
     private Session session;
 
     public static Intent createIntent(@NonNull Context context, @NonNull Session session) {
-        return new Intent(context, SessionDetailActivity.class)
+        return new Intent(context, SessionDetailsActivity.class)
                 .putExtra(EXTRA_SESSION, session);
     }
 
     @Override
-    protected SessionDetailPresenter newPresenter() {
-        return new SessionDetailPresenter(this);
+    protected SessionDetailsPresenter newPresenter() {
+        return new SessionDetailsPresenter(this);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.session_detail);
+        setContentView(R.layout.session_details);
         setSupportActionBar(toolbar);
         DroidconApp.get(this).component().inject(this);
 
@@ -77,9 +77,9 @@ public class SessionDetailActivity extends BaseActivity<SessionDetailPresenter> 
             getWindowManager().getDefaultDisplay().getSize(screenSize);
             picasso.load(speakers.get(0).getPhoto()).resize(screenSize.x, 0).into(photo);
 
-            speakersTitle.setText(getResources().getQuantityString(R.plurals.session_detail_speakers, speakers.size()));
+            speakersTitle.setText(getResources().getQuantityString(R.plurals.session_details_speakers, speakers.size()));
             for (Speaker speaker : speakers) {
-                SessionDetailSpeaker view = new SessionDetailSpeaker(this, speaker, picasso);
+                SessionDetailsSpeaker view = new SessionDetailsSpeaker(this, speaker, picasso);
                 view.setOnClickListener(v -> openSpeakerDetails(speaker));
                 speakersContainer.addView(view);
             }
@@ -87,6 +87,6 @@ public class SessionDetailActivity extends BaseActivity<SessionDetailPresenter> 
     }
 
     private void openSpeakerDetails(Speaker speaker) {
-        SpeakerDetailDialogFragment.show(speaker, getSupportFragmentManager());
+        SpeakerDetailsDialogFragment.show(speaker, getSupportFragmentManager());
     }
 }

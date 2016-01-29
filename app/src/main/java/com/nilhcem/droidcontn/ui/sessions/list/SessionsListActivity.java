@@ -12,7 +12,7 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseActivity;
-import com.nilhcem.droidcontn.ui.sessions.detail.SessionDetailActivity;
+import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -61,7 +61,7 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
     }
 
     @Override
-    public void startSessionDetail(Session session) {
-        startActivity(SessionDetailActivity.createIntent(this, session));
+    public void startSessionDetails(Session session) {
+        startActivity(SessionDetailsActivity.createIntent(this, session));
     }
 }

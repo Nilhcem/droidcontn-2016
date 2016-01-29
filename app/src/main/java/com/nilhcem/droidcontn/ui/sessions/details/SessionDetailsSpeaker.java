@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.ui.sessions.detail;
+package com.nilhcem.droidcontn.ui.sessions.details;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -17,13 +17,13 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SessionDetailSpeaker extends LinearLayout {
+public class SessionDetailsSpeaker extends LinearLayout {
 
-    @Bind(R.id.session_detail_speaker_photo) ImageView photo;
-    @Bind(R.id.session_detail_speaker_name) TextView name;
-    @Bind(R.id.session_detail_speaker_title) TextView title;
+    @Bind(R.id.session_details_speaker_photo) ImageView photo;
+    @Bind(R.id.session_details_speaker_name) TextView name;
+    @Bind(R.id.session_details_speaker_title) TextView title;
 
-    public SessionDetailSpeaker(Context context, Speaker speaker, Picasso picasso) {
+    public SessionDetailsSpeaker(Context context, Speaker speaker, Picasso picasso) {
         super(context);
 
         setOrientation(HORIZONTAL);
@@ -37,7 +37,7 @@ public class SessionDetailSpeaker extends LinearLayout {
         int padding = context.getResources().getDimensionPixelSize(R.dimen.activity_margin);
         setPadding(padding, padding, padding, padding);
 
-        LayoutInflater.from(context).inflate(R.layout.session_detail_speaker, this);
+        LayoutInflater.from(context).inflate(R.layout.session_details_speaker, this);
         ButterKnife.bind(this, this);
         bind(speaker, picasso);
     }

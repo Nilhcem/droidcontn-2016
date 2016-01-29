@@ -28,7 +28,7 @@ public class SessionsListAdapter extends RecyclerView.Adapter<SessionsListEntry>
     @Override
     public void onBindViewHolder(SessionsListEntry holder, int position) {
         holder.bindSession(sessions.get(position));
-        holder.itemView.setOnClickListener(v -> listener.startSessionDetail(sessions.get(position)));
+        holder.itemView.setOnClickListener(v -> listener.startSessionDetails(sessions.get(position)));
     }
 
     @Override

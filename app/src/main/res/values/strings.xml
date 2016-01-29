@@ -17,9 +17,9 @@
     <string name="schedule_browse_sessions">Browse sessions</string>
     <string name="schedule_browse_slot">%1$s: %2$s</string>
 
-    <!-- Session detail -->
-    <string name="session_detail_description">Description</string>
-    <plurals name="session_detail_speakers">
+    <!-- Session details -->
+    <string name="session_details_description">Description</string>
+    <plurals name="session_details_speakers">
         <item quantity="one">Speaker</item>
         <item quantity="other">Speakers</item>
     </plurals>

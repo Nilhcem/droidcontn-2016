@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.ui.speakers.detail;
+package com.nilhcem.droidcontn.ui.speakers.details;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -9,13 +9,13 @@ import android.widget.ImageView;
 
 import com.nilhcem.droidcontn.R;
 
-public class SpeakerDetailLinkIcon extends ImageView {
+public class SpeakersDetailsLinkIcon extends ImageView {
 
     private final int defaultColor;
     private final int pressedColor;
     private Rect rect;
 
-    public SpeakerDetailLinkIcon(Context context, AttributeSet attrs) {
+    public SpeakersDetailsLinkIcon(Context context, AttributeSet attrs) {
         super(context, attrs);
         pressedColor = ContextCompat.getColor(context, R.color.primary_text);
         defaultColor = ContextCompat.getColor(context, android.R.color.white);

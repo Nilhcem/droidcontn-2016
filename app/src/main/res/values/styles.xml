@@ -21,9 +21,9 @@
     <!-- Session details -->
     <style name="Session"/>
 
-    <style name="Session.Detail"/>
+    <style name="Session.Details"/>
 
-    <style name="Session.Detail.Category">
+    <style name="Session.Details.Category">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">sans-serif-condensed</item>

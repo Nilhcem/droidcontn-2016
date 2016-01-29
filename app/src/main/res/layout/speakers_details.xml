@@ -14,7 +14,7 @@
         android:padding="@dimen/activity_margin">
 
         <ImageView
-            android:id="@+id/speakers_detail_photo"
+            android:id="@+id/speakers_details_photo"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@color/primary_dark"/>
@@ -27,7 +27,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/speakers_detail_name"
+                android:id="@+id/speakers_details_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
@@ -37,7 +37,7 @@
                 tools:text="Gautier Nilhcem"/>
 
             <TextView
-                android:id="@+id/speakers_detail_title"
+                android:id="@+id/speakers_details_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/speakers_detail_links_container"
+        android:id="@+id/speakers_details_links_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -57,25 +57,25 @@
         android:paddingStart="@dimen/activity_margin"
         android:paddingTop="0dp">
 
-        <com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailLinkIcon
-            android:id="@+id/speakers_detail_twitter"
+        <com.nilhcem.droidcontn.ui.speakers.details.SpeakersDetailsLinkIcon
+            android:id="@+id/speakers_details_twitter"
             style="@style/Speaker.Details.Link"
             android:padding="3dp"
-            android:src="@drawable/speaker_detail_twitter"
+            android:src="@drawable/speaker_details_twitter"
             tools:visibility="visible"/>
 
-        <com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailLinkIcon
-            android:id="@+id/speakers_detail_github"
+        <com.nilhcem.droidcontn.ui.speakers.details.SpeakersDetailsLinkIcon
+            android:id="@+id/speakers_details_github"
             style="@style/Speaker.Details.Link"
             android:padding="3dp"
-            android:src="@drawable/speaker_detail_github"
+            android:src="@drawable/speaker_details_github"
             tools:visibility="visible"/>
 
-        <com.nilhcem.droidcontn.ui.speakers.detail.SpeakerDetailLinkIcon
-            android:id="@+id/speakers_detail_website"
+        <com.nilhcem.droidcontn.ui.speakers.details.SpeakersDetailsLinkIcon
+            android:id="@+id/speakers_details_website"
             style="@style/Speaker.Details.Link"
             android:padding="1dp"
-            android:src="@drawable/speaker_detail_website"
+            android:src="@drawable/speaker_details_website"
             tools:visibility="visible"/>
     </LinearLayout>
 
@@ -84,7 +84,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/speakers_detail_bio"
+            android:id="@+id/speakers_details_bio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/activity_margin"

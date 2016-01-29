@@ -28,7 +28,7 @@ public class SpeakersListAdapter extends RecyclerView.Adapter<SpeakersListEntry>
     @Override
     public void onBindViewHolder(SpeakersListEntry holder, int position) {
         holder.bindSpeaker(speakers.get(position));
-        holder.itemView.setOnClickListener(v -> view.showSpeakerDetail(speakers.get(position)));
+        holder.itemView.setOnClickListener(v -> view.showSpeakerDetails(speakers.get(position)));
     }
 
     @Override

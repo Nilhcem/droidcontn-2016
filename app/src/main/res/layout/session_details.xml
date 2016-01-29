@@ -21,7 +21,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/session_detail_photo"
+                android:id="@+id/session_details_photo"
                 android:layout_width="wrap_content"
                 android:layout_height="180dp"
                 android:fitsSystemWindows="true"
@@ -48,7 +48,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/session_detail_header"
+                android:id="@+id/session_details_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary"
@@ -56,7 +56,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/session_detail_title"
+                    android:id="@+id/session_details_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
@@ -67,7 +67,7 @@
                     tools:text="The 2016 Android Developer Toolbox"/>
 
                 <TextView
-                    android:id="@+id/session_detail_subtitle"
+                    android:id="@+id/session_details_subtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
@@ -76,12 +76,12 @@
             </LinearLayout>
 
             <TextView
-                style="@style/Session.Detail.Category"
+                style="@style/Session.Details.Category"
                 android:paddingTop="16dp"
-                android:text="@string/session_detail_description"/>
+                android:text="@string/session_details_description"/>
 
             <TextView
-                android:id="@+id/session_detail_description"
+                android:id="@+id/session_details_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -90,12 +90,12 @@
                 tools:text="Master your tools\nto build better apps"/>
 
             <TextView
-                android:id="@+id/session_detail_speakers_title"
-                style="@style/Session.Detail.Category"
+                android:id="@+id/session_details_speakers_title"
+                style="@style/Session.Details.Category"
                 tools:text="Speakers"/>
 
             <LinearLayout
-                android:id="@+id/session_detail_speakers_container"
+                android:id="@+id/session_details_speakers_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -111,6 +111,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_dialog_email"
-        app:layout_anchor="@id/session_detail_header"
+        app:layout_anchor="@id/session_details_header"
         app:layout_anchorGravity="bottom|end"/>
 </android.support.design.widget.CoordinatorLayout>

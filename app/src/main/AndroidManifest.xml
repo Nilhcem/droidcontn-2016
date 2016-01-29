@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".ui.sessions.detail.SessionDetailActivity"
+            android:name=".ui.sessions.details.SessionDetailsActivity"
             android:parentActivityName=".ui.drawer.DrawerActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

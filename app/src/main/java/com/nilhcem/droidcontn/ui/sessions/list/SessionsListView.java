@@ -4,5 +4,5 @@ import com.nilhcem.droidcontn.data.app.model.Session;
 
 public interface SessionsListView {
 
-    void startSessionDetail(Session session);
+    void startSessionDetails(Session session);
 }

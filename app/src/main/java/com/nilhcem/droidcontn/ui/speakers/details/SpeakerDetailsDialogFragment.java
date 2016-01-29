@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.ui.speakers.detail;
+package com.nilhcem.droidcontn.ui.speakers.details;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -27,27 +27,27 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SpeakerDetailDialogFragment extends AppCompatDialogFragment {
+public class SpeakerDetailsDialogFragment extends AppCompatDialogFragment {
 
     @Inject Picasso picasso;
 
-    @Bind(R.id.speakers_detail_name) TextView name;
-    @Bind(R.id.speakers_detail_title) TextView title;
-    @Bind(R.id.speakers_detail_bio) TextView bio;
-    @Bind(R.id.speakers_detail_photo) ImageView photo;
-    @Bind(R.id.speakers_detail_links_container) ViewGroup linksContainer;
-    @Bind(R.id.speakers_detail_twitter) ImageView twitter;
-    @Bind(R.id.speakers_detail_github) ImageView github;
-    @Bind(R.id.speakers_detail_website) ImageView website;
+    @Bind(R.id.speakers_details_name) TextView name;
+    @Bind(R.id.speakers_details_title) TextView title;
+    @Bind(R.id.speakers_details_bio) TextView bio;
+    @Bind(R.id.speakers_details_photo) ImageView photo;
+    @Bind(R.id.speakers_details_links_container) ViewGroup linksContainer;
+    @Bind(R.id.speakers_details_twitter) ImageView twitter;
+    @Bind(R.id.speakers_details_github) ImageView github;
+    @Bind(R.id.speakers_details_website) ImageView website;
 
     private static final String EXTRA_SPEAKER = "speaker";
 
     public static void show(@NonNull Speaker speaker, @NonNull FragmentManager fm) {
         Bundle args = new Bundle();
         args.putParcelable(EXTRA_SPEAKER, speaker);
-        SpeakerDetailDialogFragment fragment = new SpeakerDetailDialogFragment();
+        SpeakerDetailsDialogFragment fragment = new SpeakerDetailsDialogFragment();
         fragment.setArguments(args);
-        fragment.show(fm, SpeakerDetailDialogFragment.class.getSimpleName());
+        fragment.show(fm, SpeakerDetailsDialogFragment.class.getSimpleName());
     }
 
     @Override
@@ -59,7 +59,7 @@ public class SpeakerDetailDialogFragment extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         @SuppressLint("InflateParams")
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.speakers_detail, null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.speakers_details, null);
         ButterKnife.bind(this, view);
         bindSpeaker(getArguments().getParcelable(EXTRA_SPEAKER));
         return new AlertDialog.Builder(getContext())

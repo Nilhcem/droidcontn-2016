@@ -8,5 +8,5 @@ public interface SpeakersListView {
 
     void displaySpeakers(List<Speaker> speakers);
 
-    void showSpeakerDetail(Speaker speaker);
+    void showSpeakerDetails(Speaker speaker);
 }
