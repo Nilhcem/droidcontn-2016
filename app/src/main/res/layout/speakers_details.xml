@@ -53,8 +53,8 @@
         android:background="?attr/colorPrimary"
         android:orientation="horizontal"
         android:paddingBottom="12dp"
-        android:paddingEnd="@dimen/activity_margin"
-        android:paddingStart="@dimen/activity_margin"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
         android:paddingTop="0dp">
 
         <com.nilhcem.droidcontn.ui.speakers.details.SpeakersDetailsLinkIcon
