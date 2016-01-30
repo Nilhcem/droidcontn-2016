@@ -35,7 +35,7 @@ public class SessionDetailsSpeaker extends LinearLayout {
         ta.recycle();
 
         int padding = context.getResources().getDimensionPixelSize(R.dimen.activity_margin);
-        setPadding(padding, padding, padding, padding);
+        setPadding(0, 0, 0, padding);
 
         LayoutInflater.from(context).inflate(R.layout.session_details_speaker, this);
         ButterKnife.bind(this, this);
