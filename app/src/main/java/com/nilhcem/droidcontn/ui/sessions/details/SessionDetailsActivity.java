@@ -2,12 +2,13 @@ package com.nilhcem.droidcontn.ui.sessions.details;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
+import com.nilhcem.droidcontn.utils.Views;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -32,7 +34,9 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Inject Picasso picasso;
 
     @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.collapsing_toolbar) CollapsingToolbarLayout collapsingToolbarLayout;
     @Bind(R.id.session_details_photo) ImageView photo;
+    @Bind(R.id.session_details_header) ViewGroup header;
     @Bind(R.id.session_details_title) TextView title;
     @Bind(R.id.session_details_subtitle) TextView subtitle;
     @Bind(R.id.session_details_description) TextView description;
@@ -55,13 +59,13 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.session_details);
-        setSupportActionBar(toolbar);
         DroidconApp.get(this).component().inject(this);
 
         session = getIntent().getParcelableExtra(EXTRA_SESSION);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -71,18 +75,37 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
         subtitle.setText("May 29, 2015, 10:00 - 11:00 AM\nRoom 1 (L2)");
         description.setText(session.getDescription());
 
+        header.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int height = header.getHeight();
+                if (height != 0) {
+                    Views.removeOnGlobalLayoutListener(header.getViewTreeObserver(), this);
+                    int toolbarHeight = height + Views.getActionBarSize(SessionDetailsActivity.this);
+                    toolbar.getLayoutParams().height = toolbarHeight;
+                    toolbar.requestLayout();
+                    collapsingToolbarLayout.getLayoutParams().height = Math.round(2.25f * (toolbarHeight));
+                    collapsingToolbarLayout.requestLayout();
+                    setHeaderPhoto(header.getWidth());
+                }
+            }
+        });
+
         List<Speaker> speakers = session.getSpeakers();
         if (speakers != null && !speakers.isEmpty()) {
-            Point screenSize = new Point();
-            getWindowManager().getDefaultDisplay().getSize(screenSize);
-            picasso.load(speakers.get(0).getPhoto()).resize(screenSize.x, 0).into(photo);
-
             speakersTitle.setText(getResources().getQuantityString(R.plurals.session_details_speakers, speakers.size()));
             for (Speaker speaker : speakers) {
                 SessionDetailsSpeaker view = new SessionDetailsSpeaker(this, speaker, picasso);
                 view.setOnClickListener(v -> openSpeakerDetails(speaker));
                 speakersContainer.addView(view);
             }
+        }
+    }
+
+    private void setHeaderPhoto(int headerWidth) {
+        List<Speaker> speakers = session.getSpeakers();
+        if (speakers != null && !speakers.isEmpty()) {
+            picasso.load(speakers.get(0).getPhoto()).resize(headerWidth, 0).into(photo);
         }
     }
 
