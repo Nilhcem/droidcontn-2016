@@ -38,9 +38,9 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Inject Picasso picasso;
     @Inject SelectedSessionsDao selectedSessionsDao;
 
-    @Bind(R.id.main_view) View mainView;
-    @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.collapsing_toolbar) CollapsingToolbarLayout collapsingToolbarLayout;
+    @Bind(R.id.session_details_layout) View layout;
+    @Bind(R.id.session_details_toolbar) Toolbar toolbar;
+    @Bind(R.id.session_details_toolbar_layout) CollapsingToolbarLayout toolbarLayout;
     @Bind(R.id.session_details_photo) ImageView photo;
     @Bind(R.id.session_details_header) ViewGroup header;
     @Bind(R.id.session_details_title) TextView title;
@@ -90,8 +90,8 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
                     int toolbarHeight = height + Views.getActionBarSize(SessionDetailsActivity.this);
                     toolbar.getLayoutParams().height = toolbarHeight;
                     toolbar.requestLayout();
-                    collapsingToolbarLayout.getLayoutParams().height = Math.round(2.25f * (toolbarHeight));
-                    collapsingToolbarLayout.requestLayout();
+                    toolbarLayout.getLayoutParams().height = Math.round(2.25f * (toolbarHeight));
+                    toolbarLayout.requestLayout();
                     setHeaderPhoto(header.getWidth());
                 }
             }
@@ -108,14 +108,14 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
         }
     }
 
-    @OnClick(R.id.fab)
+    @OnClick(R.id.session_details_fab)
     void onFloatingActionButtonClicked() {
         if (selectedSessionsDao.isSelected(session)) {
             selectedSessionsDao.unselect(session);
-            Snackbar.make(mainView, R.string.session_details_removed, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(layout, R.string.session_details_removed, Snackbar.LENGTH_SHORT).show();
         } else {
             selectedSessionsDao.select(session);
-            Snackbar.make(mainView, R.string.session_details_added, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(layout, R.string.session_details_added, Snackbar.LENGTH_SHORT).show();
         }
     }
 
