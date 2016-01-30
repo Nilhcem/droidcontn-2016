@@ -75,7 +75,7 @@ public class AppMapper {
     }
 
     private static Session mapSession(@NonNull com.nilhcem.droidcontn.data.network.model.Session from, @NonNull Map<Integer, Speaker> speakersMap) {
-        return new Session(from.getRoomId(), mapSpeakerIds(from.getSpeakersId(), speakersMap), from.getTitle(), from.getDescription());
+        return new Session(from.getRoomId(), from.getSessionId(), mapSpeakerIds(from.getSpeakersId(), speakersMap), from.getTitle(), from.getDescription());
     }
 
     private static List<Speaker> mapSpeakerIds(@Nullable List<Integer> speakerIds, @NonNull Map<Integer, Speaker> speakersMap) {

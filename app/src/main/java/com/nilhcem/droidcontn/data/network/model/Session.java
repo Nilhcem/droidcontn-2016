@@ -8,6 +8,7 @@ import lombok.Value;
 public class Session {
 
     int roomId;
+    int sessionId;
     List<Integer> speakersId;
     String title;
     String description;
