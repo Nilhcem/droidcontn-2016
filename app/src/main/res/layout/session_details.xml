@@ -89,8 +89,8 @@
                 android:text="@string/session_details_description"/>
 
             <TextView
-                style="@style/Session.Details.Content"
                 android:id="@+id/session_details_description"
+                style="@style/Session.Details.Content"
                 tools:text="Master your tools\nto build better apps"/>
 
             <TextView
@@ -99,8 +99,8 @@
                 tools:text="Speakers"/>
 
             <LinearLayout
-                style="@style/Session.Details.Content"
                 android:id="@+id/session_details_speakers_container"
+                style="@style/Session.Details.Content"
                 android:orientation="vertical"
                 tools:background="?attr/colorPrimaryDark"
                 tools:layout_height="48dp"/>
@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_margin"
-        android:src="@android:drawable/ic_dialog_email"
         app:layout_anchor="@id/session_details_header"
-        app:layout_anchorGravity="bottom|end"/>
+        app:layout_anchorGravity="bottom|end"
+        tools:src="@drawable/session_details_like_default"/>
 </android.support.design.widget.CoordinatorLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
+import com.nilhcem.droidcontn.utils.Animations;
 import com.nilhcem.droidcontn.utils.Views;
 import com.squareup.picasso.Picasso;
 
@@ -48,6 +50,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Bind(R.id.session_details_description) TextView description;
     @Bind(R.id.session_details_speakers_title) TextView speakersTitle;
     @Bind(R.id.session_details_speakers_container) ViewGroup speakersContainer;
+    @Bind(R.id.session_details_fab) FloatingActionButton fab;
 
     private Session session;
 
@@ -106,6 +109,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
                 speakersContainer.addView(view);
             }
         }
+        updateFabImage();
     }
 
     @OnClick(R.id.session_details_fab)
@@ -116,6 +120,17 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
         } else {
             selectedSessionsDao.select(session);
             Snackbar.make(layout, R.string.session_details_added, Snackbar.LENGTH_SHORT).show();
+        }
+
+        updateFabImage();
+        Animations.scale(fab, 0.8f, 1f, 600);
+    }
+
+    private void updateFabImage() {
+        if (selectedSessionsDao.isSelected(session)) {
+            fab.setImageDrawable(Views.getDrawable(this, R.drawable.session_details_like_selected));
+        } else {
+            fab.setImageDrawable(Views.getDrawable(this, R.drawable.session_details_like_default));
         }
     }
 

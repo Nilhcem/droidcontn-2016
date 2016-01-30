@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 import static android.os.Build.VERSION_CODES.JELLY_BEAN;
+import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public final class Views {
 
@@ -40,6 +41,16 @@ public final class Views {
             viewTreeObserver.removeOnGlobalLayoutListener(listener);
         } else {
             viewTreeObserver.removeGlobalOnLayoutListener(listener);
+        }
+    }
+
+    @TargetApi(LOLLIPOP)
+    @SuppressWarnings("deprecation")
+    public static Drawable getDrawable(Context context, @DrawableRes int id) {
+        if (AppUtils.isCompatible(LOLLIPOP)) {
+            return context.getDrawable(id);
+        } else {
+            return context.getResources().getDrawable(id);
         }
     }
 
