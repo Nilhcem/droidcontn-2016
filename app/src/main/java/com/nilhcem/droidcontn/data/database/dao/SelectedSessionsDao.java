@@ -41,13 +41,13 @@ public class SelectedSessionsDao {
     }
 
     public boolean isSelected(Session session) {
-        return session.getSessionId() == sessions.get(session.getSlotId());
+        return session.getId() == sessions.get(session.getSlotId());
     }
 
     public void select(Session session) {
         unselect(session);
-        sessions.put(session.getSlotId(), session.getSessionId());
-        database.insert(SelectedSession.TABLE, new SelectedSession.Builder().slotId(session.getSlotId()).sessionId(session.getSessionId()).build());
+        sessions.put(session.getSlotId(), session.getId());
+        database.insert(SelectedSession.TABLE, new SelectedSession.Builder().slotId(session.getSlotId()).sessionId(session.getId()).build());
     }
 
     public void unselect(Session session) {

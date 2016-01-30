@@ -11,31 +11,65 @@
     android:paddingTop="@dimen/activity_margin_fourth">
 
     <!-- Time -->
-    <TextView
-        android:id="@+id/schedule_day_entry_time"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
         android:layout_marginRight="@dimen/activity_margin"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/secondary_text"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="09:00"/>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/schedule_day_entry_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:textColor="@color/secondary_text"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            tools:ignore="SpUsage"
+            tools:text="09:00"/>
+
+        <ImageView
+            android:id="@+id/schedule_day_entry_slot_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginBottom="8dp"
+            tools:src="@color/primary_dark"/>
+    </LinearLayout>
 
     <!-- Slot -->
     <FrameLayout
         android:id="@+id/schedule_day_entry_slot_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         tools:background="@drawable/schedule_day_entry_free">
 
-        <TextView
-            android:id="@+id/schedule_day_entry_slot_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:textSize="16sp"
-            tools:text="@string/schedule_browse_sessions"
-            tools:textColor="?attr/colorPrimary"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/schedule_day_entry_slot_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                tools:text="@string/schedule_browse_sessions"
+                tools:textColor="?attr/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/schedule_day_entry_slot_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:textColor="@color/secondary_text"
+                android:textSize="14sp"
+                tools:text="Gautier Nilhcem\nRoom #2"/>
+        </LinearLayout>
     </FrameLayout>
 </LinearLayout>
