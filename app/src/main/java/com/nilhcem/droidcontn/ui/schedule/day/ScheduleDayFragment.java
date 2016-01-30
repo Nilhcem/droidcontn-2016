@@ -33,6 +33,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     @Bind(R.id.schedule_day_recyclerview) RecyclerView recyclerView;
 
     private ScheduleDay scheduleDay;
+    private ScheduleDayAdapter adapter;
 
     public static ScheduleDayFragment newInstance(ScheduleDay scheduleDay) {
         Bundle args = new Bundle();
@@ -62,10 +63,16 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ScheduleDayAdapter adapter = new ScheduleDayAdapter(scheduleDay.getSlots(), dao, picasso, this);
+        adapter = new ScheduleDayAdapter(scheduleDay.getSlots(), dao, picasso, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
