@@ -120,6 +120,8 @@ dependencies {
     compile "frankiesardo:icepick:$icepickVersion"
     provided "frankiesardo:icepick-processor:$icepickVersion"
 
+    compile 'com.squareup.sqlbrite:sqlbrite:0.5.0'
+
     internalCompile 'jp.wasabeef:takt:1.0.2'
     internalCompile 'com.jakewharton:process-phoenix:1.0.2'
     internalCompile "com.facebook.stetho:stetho:$stethoVersion"

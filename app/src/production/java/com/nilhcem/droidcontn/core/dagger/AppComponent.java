@@ -4,13 +4,14 @@ import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.core.dagger.module.ApiModule;
 import com.nilhcem.droidcontn.core.dagger.module.AppModule;
 import com.nilhcem.droidcontn.core.dagger.module.DataModule;
+import com.nilhcem.droidcontn.core.dagger.module.DatabaseModule;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 
 @Singleton
-@Component(modules = {AppModule.class, ApiModule.class, DataModule.class})
+@Component(modules = {AppModule.class, ApiModule.class, DataModule.class, DatabaseModule.class})
 public interface AppComponent extends AppGraph {
 
     /**
@@ -27,6 +28,7 @@ public interface AppComponent extends AppGraph {
                     .appModule(new AppModule(app))
                     .apiModule(new ApiModule())
                     .dataModule(new DataModule())
+                    .databaseModule(new DatabaseModule())
                     .build();
         }
     }

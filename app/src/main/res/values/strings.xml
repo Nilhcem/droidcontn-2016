@@ -19,6 +19,8 @@
 
     <!-- Session details -->
     <string name="session_details_description">Description</string>
+    <string name="session_details_added">Added to schedule</string>
+    <string name="session_details_removed">Removed from schedule</string>
     <plurals name="session_details_speakers">
         <item quantity="one">Speaker</item>
         <item quantity="other">Speakers</item>

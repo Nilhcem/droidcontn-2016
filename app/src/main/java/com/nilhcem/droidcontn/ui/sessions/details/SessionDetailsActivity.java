@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
+import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
 import com.nilhcem.droidcontn.utils.Views;
@@ -26,13 +29,16 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter> implements SessionDetailsView {
 
     private static final String EXTRA_SESSION = "session";
 
     @Inject Picasso picasso;
+    @Inject SelectedSessionsDao selectedSessionsDao;
 
+    @Bind(R.id.main_view) View mainView;
     @Bind(R.id.toolbar) Toolbar toolbar;
     @Bind(R.id.collapsing_toolbar) CollapsingToolbarLayout collapsingToolbarLayout;
     @Bind(R.id.session_details_photo) ImageView photo;
@@ -52,7 +58,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
 
     @Override
     protected SessionDetailsPresenter newPresenter() {
-        return new SessionDetailsPresenter(this);
+        return new SessionDetailsPresenter(this, selectedSessionsDao);
     }
 
     @Override
@@ -99,6 +105,17 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
                 view.setOnClickListener(v -> openSpeakerDetails(speaker));
                 speakersContainer.addView(view);
             }
+        }
+    }
+
+    @OnClick(R.id.fab)
+    void onFloatingActionButtonClicked() {
+        if (selectedSessionsDao.isSelected(session)) {
+            selectedSessionsDao.unselect(session);
+            Snackbar.make(mainView, R.string.session_details_removed, Snackbar.LENGTH_SHORT).show();
+        } else {
+            selectedSessionsDao.select(session);
+            Snackbar.make(mainView, R.string.session_details_added, Snackbar.LENGTH_SHORT).show();
         }
     }
 

@@ -20,13 +20,15 @@ public class Session implements Parcelable {
         }
     };
 
+    int slotId;
     int roomId;
     int sessionId;
     List<Speaker> speakers;
     String title;
     String description;
 
-    public Session(int roomId, int sessionId, List<Speaker> speakers, String title, String description) {
+    public Session(int slotId, int roomId, int sessionId, List<Speaker> speakers, String title, String description) {
+        this.slotId = slotId;
         this.roomId = roomId;
         this.sessionId = sessionId;
         this.speakers = speakers;
@@ -35,6 +37,7 @@ public class Session implements Parcelable {
     }
 
     protected Session(Parcel in) {
+        slotId = in.readInt();
         roomId = in.readInt();
         sessionId = in.readInt();
         speakers = in.createTypedArrayList(Speaker.CREATOR);
@@ -49,6 +52,7 @@ public class Session implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(slotId);
         dest.writeInt(roomId);
         dest.writeInt(sessionId);
         dest.writeTypedList(speakers);
