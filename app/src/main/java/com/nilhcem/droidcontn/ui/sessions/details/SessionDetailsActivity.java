@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,7 +31,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
-import butterknife.OnClick;
 
 public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter> implements SessionDetailsView {
 
@@ -52,8 +51,6 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Bind(R.id.session_details_speakers_container) ViewGroup speakersContainer;
     @Bind(R.id.session_details_fab) FloatingActionButton fab;
 
-    private Session session;
-
     public static Intent createIntent(@NonNull Context context, @NonNull Session session) {
         return new Intent(context, SessionDetailsActivity.class)
                 .putExtra(EXTRA_SESSION, session);
@@ -61,16 +58,15 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
 
     @Override
     protected SessionDetailsPresenter newPresenter() {
-        return new SessionDetailsPresenter(this, selectedSessionsDao);
+        DroidconApp.get(this).component().inject(this);
+        Session session = getIntent().getParcelableExtra(EXTRA_SESSION);
+        return new SessionDetailsPresenter(this, session, selectedSessionsDao);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.session_details);
-        DroidconApp.get(this).component().inject(this);
-
-        session = getIntent().getParcelableExtra(EXTRA_SESSION);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -78,8 +74,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     }
 
     @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
+    public void bindSessionDetails(Session session) {
         title.setText(session.getTitle());
         subtitle.setText("May 29, 2015, 10:00 - 11:00 AM\nRoom 1 (L2)");
         description.setText(session.getDescription());
@@ -95,7 +90,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
                     toolbar.requestLayout();
                     toolbarLayout.getLayoutParams().height = Math.round(2.25f * (toolbarHeight));
                     toolbarLayout.requestLayout();
-                    setHeaderPhoto(header.getWidth());
+                    bindHeaderPhoto(session, header.getWidth());
                 }
             }
         });
@@ -109,32 +104,29 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
                 speakersContainer.addView(view);
             }
         }
-        updateFabImage();
+
+        fab.setOnClickListener(v -> presenter.onFloatingActionButtonClicked());
     }
 
-    @OnClick(R.id.session_details_fab)
-    void onFloatingActionButtonClicked() {
-        if (selectedSessionsDao.isSelected(session)) {
-            selectedSessionsDao.unselect(session);
-            Snackbar.make(layout, R.string.session_details_removed, Snackbar.LENGTH_SHORT).show();
-        } else {
-            selectedSessionsDao.select(session);
-            Snackbar.make(layout, R.string.session_details_added, Snackbar.LENGTH_SHORT).show();
+    @Override
+    public void updateFabButton(boolean isSelected, boolean animate) {
+        if (animate) {
+            Animations.scale(fab, 0.8f, 1f, 600);
         }
 
-        updateFabImage();
-        Animations.scale(fab, 0.8f, 1f, 600);
-    }
-
-    private void updateFabImage() {
-        if (selectedSessionsDao.isSelected(session)) {
+        if (isSelected) {
             fab.setImageDrawable(Views.getDrawable(this, R.drawable.session_details_like_selected));
         } else {
             fab.setImageDrawable(Views.getDrawable(this, R.drawable.session_details_like_default));
         }
     }
 
-    private void setHeaderPhoto(int headerWidth) {
+    @Override
+    public void showSnackbarMessage(@StringRes int resId) {
+        Snackbar.make(layout, resId, Snackbar.LENGTH_SHORT).show();
+    }
+
+    private void bindHeaderPhoto(Session session, int headerWidth) {
         List<Speaker> speakers = session.getSpeakers();
         if (speakers != null && !speakers.isEmpty()) {
             picasso.load(speakers.get(0).getPhoto()).resize(headerWidth, 0).into(photo);
