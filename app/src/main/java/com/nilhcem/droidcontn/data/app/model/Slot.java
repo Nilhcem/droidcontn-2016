@@ -3,6 +3,8 @@ package com.nilhcem.droidcontn.data.app.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.threeten.bp.LocalDateTime;
+
 import java.util.List;
 
 import lombok.Value;
@@ -21,11 +23,11 @@ public class Slot implements Parcelable {
     };
 
     int id;
-    String fromTime;
-    String toTime;
+    LocalDateTime fromTime;
+    LocalDateTime toTime;
     List<Session> sessions;
 
-    public Slot(int id, String fromTime, String toTime, List<Session> sessions) {
+    public Slot(int id, LocalDateTime fromTime, LocalDateTime toTime, List<Session> sessions) {
         this.id = id;
         this.fromTime = fromTime;
         this.toTime = toTime;
@@ -34,8 +36,8 @@ public class Slot implements Parcelable {
 
     protected Slot(Parcel in) {
         id = in.readInt();
-        fromTime = in.readString();
-        toTime = in.readString();
+        fromTime = (LocalDateTime) in.readSerializable();
+        toTime = (LocalDateTime) in.readSerializable();
         sessions = in.createTypedArrayList(Session.CREATOR);
     }
 
@@ -47,8 +49,8 @@ public class Slot implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(fromTime);
-        dest.writeString(toTime);
+        dest.writeSerializable(fromTime);
+        dest.writeSerializable(toTime);
         dest.writeTypedList(sessions);
     }
 }

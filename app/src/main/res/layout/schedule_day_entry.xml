@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/activity_margin_fourth"
     android:paddingLeft="@dimen/activity_margin"
@@ -27,10 +27,10 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:textColor="@color/secondary_text"
-            android:textSize="16dp"
             android:textStyle="bold"
             tools:ignore="SpUsage"
-            tools:text="09:00"/>
+            tools:text="14:00"
+            android:textSize="16dp"/>
 
         <ImageView
             android:id="@+id/schedule_day_entry_slot_image"
@@ -44,13 +44,14 @@
     <FrameLayout
         android:id="@+id/schedule_day_entry_slot_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         tools:background="@drawable/schedule_day_entry_free">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical"
             android:padding="12dp">
 

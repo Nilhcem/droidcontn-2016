@@ -27,8 +27,4 @@ public class ScheduleDayPresenter extends BaseFragmentPresenter<ScheduleDayView>
         super.onResume();
         view.refreshSlotsList();
     }
-
-    public String getDay() {
-        return scheduleDay.getDay();
-    }
 }

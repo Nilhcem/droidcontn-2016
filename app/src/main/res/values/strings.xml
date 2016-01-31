@@ -15,7 +15,8 @@
 
     <!-- Schedule -->
     <string name="schedule_browse_sessions">Browse sessions</string>
-    <string name="schedule_browse_slot">%1$s: %2$s</string>
+    <string name="schedule_browse_sessions_title_pattern">%1$s, %2$s</string>
+    <string name="schedule_pager_day_pattern">EEEE dd</string>
 
     <!-- Session details -->
     <string name="session_details_description">Description</string>

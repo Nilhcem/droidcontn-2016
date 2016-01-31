@@ -3,6 +3,7 @@ package com.nilhcem.droidcontn.ui.schedule.day;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -17,12 +18,16 @@ import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
 import com.nilhcem.droidcontn.utils.Views;
 import com.squareup.picasso.Picasso;
 
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.FormatStyle;
+
 import butterknife.Bind;
 
 public class ScheduleDayEntry extends BaseViewHolder {
 
     public interface OnSessionClickListener {
         void onFreeSlotClicked(Slot slot);
+
         void onSelectedSessionClicked(Session session);
     }
 
@@ -57,7 +62,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         slotContainer.setOnClickListener(v -> listener.onFreeSlotClicked(slot));
 
         slotImage.setVisibility(View.GONE);
-        time.setText(slot.getFromTime());
+        bindTime(slot);
     }
 
     public void bindBreakSlot(Slot slot, Session session) {
@@ -70,7 +75,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         slotContainer.setOnClickListener(null);
 
         slotImage.setVisibility(View.GONE);
-        time.setText(slot.getFromTime());
+        bindTime(slot);
     }
 
     public void bindSelectedSession(Slot slot, Session session) {
@@ -85,6 +90,12 @@ public class ScheduleDayEntry extends BaseViewHolder {
 
         picasso.load(session.getSpeakers().get(0).getPhoto()).transform(new CircleTransformation()).into(slotImage);
         slotImage.setVisibility(View.VISIBLE);
-        time.setText(slot.getFromTime());
+        bindTime(slot);
+    }
+
+    private void bindTime(Slot slot) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
+        String timeStr = slot.getFromTime().format(formatter);
+        time.setText(timeStr);
     }
 }

@@ -9,6 +9,9 @@ import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,19 +54,21 @@ public class AppMapper {
     }
 
     private static ScheduleDay mapScheduleDay(@NonNull com.nilhcem.droidcontn.data.network.model.ScheduleDay day, @NonNull Map<Integer, Speaker> speakersMap) {
-        return new ScheduleDay(day.getDay(), mapSlots(day.getSlots(), speakersMap));
+        return new ScheduleDay(day.getDay(), mapSlots(day.getDay(), day.getSlots(), speakersMap));
     }
 
-    private static List<Slot> mapSlots(@NonNull List<com.nilhcem.droidcontn.data.network.model.Slot> from, @NonNull Map<Integer, Speaker> speakersMap) {
+    private static List<Slot> mapSlots(@NonNull LocalDate date, @NonNull List<com.nilhcem.droidcontn.data.network.model.Slot> from, @NonNull Map<Integer, Speaker> speakersMap) {
         List<Slot> slots = new ArrayList<>(from.size());
         for (com.nilhcem.droidcontn.data.network.model.Slot slot : from) {
-            slots.add(mapSlot(slot, speakersMap));
+            slots.add(mapSlot(date, slot, speakersMap));
         }
         return slots;
     }
 
-    private static Slot mapSlot(@NonNull com.nilhcem.droidcontn.data.network.model.Slot from, @NonNull Map<Integer, Speaker> speakersMap) {
-        return new Slot(from.getId(), from.getFromTime(), from.getToTime(), mapSessions(from.getId(), from.getSessions(), speakersMap));
+    private static Slot mapSlot(@NonNull LocalDate date, @NonNull com.nilhcem.droidcontn.data.network.model.Slot from, @NonNull Map<Integer, Speaker> speakersMap) {
+        LocalDateTime fromTime = LocalDateTime.of(date, from.getFromTime());
+        LocalDateTime toTime = LocalDateTime.of(date, from.getToTime());
+        return new Slot(from.getId(), fromTime, toTime, mapSessions(from.getId(), from.getSessions(), speakersMap));
     }
 
     private static List<Session> mapSessions(int slotId, @NonNull List<com.nilhcem.droidcontn.data.network.model.Session> from, @NonNull Map<Integer, Speaker> speakersMap) {

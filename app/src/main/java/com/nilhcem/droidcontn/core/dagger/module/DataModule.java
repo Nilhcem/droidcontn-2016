@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.nilhcem.droidcontn.core.dagger.OkHttpModule;
+import com.nilhcem.droidcontn.core.moshi.LocalDateAdapter;
+import com.nilhcem.droidcontn.core.moshi.LocalTimeAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.picasso.Picasso;
 
@@ -30,7 +32,10 @@ public final class DataModule {
     }
 
     @Provides @Singleton Moshi provideMoshi() {
-        return new Moshi.Builder().build();
+        return new Moshi.Builder()
+                .add(new LocalDateAdapter())
+                .add(new LocalTimeAdapter())
+                .build();
     }
 
     @Provides @Singleton OkHttpClient.Builder provideOkHttpClientBuilder(Application app) {

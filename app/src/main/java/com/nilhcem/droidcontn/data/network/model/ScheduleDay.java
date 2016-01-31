@@ -1,5 +1,7 @@
 package com.nilhcem.droidcontn.data.network.model;
 
+import org.threeten.bp.LocalDate;
+
 import java.util.List;
 
 import lombok.Value;
@@ -8,6 +10,6 @@ import lombok.Value;
 public class ScheduleDay {
 
     int dayId;
-    String day;
+    LocalDate day;
     List<Slot> slots;
 }

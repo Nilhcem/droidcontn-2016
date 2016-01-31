@@ -3,6 +3,7 @@ package com.nilhcem.droidcontn;
 import android.app.Application;
 import android.content.Context;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.nilhcem.droidcontn.core.dagger.AppComponent;
 
 import timber.log.Timber;
@@ -18,6 +19,7 @@ public class DroidconApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AndroidThreeTen.init(this);
         initGraph();
         initLogger();
     }

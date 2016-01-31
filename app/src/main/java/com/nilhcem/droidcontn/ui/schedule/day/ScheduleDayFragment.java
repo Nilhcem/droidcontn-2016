@@ -71,7 +71,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     @Override
     public void onFreeSlotClicked(Slot slot) {
-        startActivity(SessionsListActivity.createIntent(getContext(), presenter.getDay(), slot));
+        startActivity(SessionsListActivity.createIntent(getContext(), slot));
     }
 
     @Override

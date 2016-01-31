@@ -15,46 +15,47 @@ import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.Bind;
 
 public class SessionsListActivity extends BaseActivity<SessionsListPresenter> implements SessionsListView {
 
-    private static final String EXTRA_DAY = "day";
     private static final String EXTRA_SLOT = "slot";
 
     @Inject Picasso picasso;
 
     @Bind(R.id.sessions_list_recyclerview) RecyclerView recyclerView;
 
-    private String day;
-    private Slot slot;
-
-    public static Intent createIntent(@NonNull Context context, @NonNull String day, @NonNull Slot slot) {
+    public static Intent createIntent(@NonNull Context context, @NonNull Slot slot) {
         return new Intent(context, SessionsListActivity.class)
-                .putExtra(EXTRA_DAY, day)
                 .putExtra(EXTRA_SLOT, slot);
     }
 
     @Override
     protected SessionsListPresenter newPresenter() {
-        return new SessionsListPresenter(this);
+        DroidconApp.get(this).component().inject(this);
+        Slot slot = getIntent().getParcelableExtra(EXTRA_SLOT);
+        return new SessionsListPresenter(this, this, slot);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessions_list);
-        DroidconApp.get(this).component().inject(this);
+    }
 
-        day = getIntent().getStringExtra(EXTRA_DAY);
-        slot = getIntent().getParcelableExtra(EXTRA_SLOT);
-
+    @Override
+    public void initToobar(String title) {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(getString(R.string.schedule_browse_slot, day, slot.getFromTime()));
+        getSupportActionBar().setTitle(title);
+    }
 
-        SessionsListAdapter adapter = new SessionsListAdapter(slot.getSessions(), picasso, this);
+    @Override
+    public void initSessionsList(List<Session> sessions) {
+        SessionsListAdapter adapter = new SessionsListAdapter(sessions, picasso, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);

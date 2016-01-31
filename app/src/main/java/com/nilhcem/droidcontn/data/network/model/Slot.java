@@ -1,5 +1,7 @@
 package com.nilhcem.droidcontn.data.network.model;
 
+import org.threeten.bp.LocalTime;
+
 import java.util.List;
 
 import lombok.Value;
@@ -8,7 +10,7 @@ import lombok.Value;
 public class Slot {
 
     int id;
-    String fromTime;
-    String toTime;
+    LocalTime fromTime;
+    LocalTime toTime;
     List<Session> sessions;
 }

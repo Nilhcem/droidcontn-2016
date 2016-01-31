@@ -3,6 +3,8 @@ package com.nilhcem.droidcontn.data.app.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.threeten.bp.LocalDate;
+
 import java.util.List;
 
 import lombok.Value;
@@ -20,16 +22,16 @@ public class ScheduleDay implements Parcelable {
         }
     };
 
-    String day;
+    LocalDate day;
     List<Slot> slots;
 
-    public ScheduleDay(String day, List<Slot> slots) {
+    public ScheduleDay(LocalDate day, List<Slot> slots) {
         this.day = day;
         this.slots = slots;
     }
 
     protected ScheduleDay(Parcel in) {
-        day = in.readString();
+        day = (LocalDate) in.readSerializable();
         slots = in.createTypedArrayList(Slot.CREATOR);
     }
 
@@ -40,7 +42,7 @@ public class ScheduleDay implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(day);
+        dest.writeSerializable(day);
         dest.writeTypedList(slots);
     }
 }
