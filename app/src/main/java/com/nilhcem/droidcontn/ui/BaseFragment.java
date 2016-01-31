@@ -26,7 +26,15 @@ public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Frag
         if (presenter != null) {
             presenter.onViewCreated(view, savedInstanceState);
         }
-   }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (presenter != null) {
+            presenter.onResume();
+        }
+    }
 
     @Override
     public void onDestroyView() {

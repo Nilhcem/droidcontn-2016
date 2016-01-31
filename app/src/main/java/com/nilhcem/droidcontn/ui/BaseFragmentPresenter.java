@@ -17,4 +17,8 @@ public abstract class BaseFragmentPresenter<V> extends BasePresenter<V> {
     public void onDestroyView() {
         // Nothing to do by default
     }
+
+    public void onResume() {
+
+    }
 }

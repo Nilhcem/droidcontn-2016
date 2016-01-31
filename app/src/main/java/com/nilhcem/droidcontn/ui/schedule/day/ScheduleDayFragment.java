@@ -19,6 +19,8 @@ import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
 import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.Bind;
@@ -32,7 +34,6 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     @Bind(R.id.schedule_day_recyclerview) RecyclerView recyclerView;
 
-    private ScheduleDay scheduleDay;
     private ScheduleDayAdapter adapter;
 
     public static ScheduleDayFragment newInstance(ScheduleDay scheduleDay) {
@@ -44,15 +45,10 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        scheduleDay = getArguments().getParcelable(ARG_SCHEDULE_DAY);
-    }
-
-    @Override
     protected ScheduleDayPresenter newPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
-        return new ScheduleDayPresenter(this);
+        ScheduleDay scheduleDay = getArguments().getParcelable(ARG_SCHEDULE_DAY);
+        return new ScheduleDayPresenter(this, scheduleDay);
     }
 
     @Override
@@ -61,23 +57,21 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        adapter = new ScheduleDayAdapter(scheduleDay.getSlots(), dao, picasso, this);
+    public void initSlotsList(List<Slot> slots) {
+        adapter = new ScheduleDayAdapter(slots, dao, picasso, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void refreshSlotsList() {
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public void onFreeSlotClicked(Slot slot) {
-        startActivity(SessionsListActivity.createIntent(getContext(), scheduleDay.getDay(), slot));
+        startActivity(SessionsListActivity.createIntent(getContext(), presenter.getDay(), slot));
     }
 
     @Override
