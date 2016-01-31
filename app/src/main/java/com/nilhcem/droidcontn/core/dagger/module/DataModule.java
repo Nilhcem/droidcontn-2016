@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
+import com.nilhcem.droidcontn.core.dagger.OkHttpModule;
 import com.squareup.moshi.Moshi;
 import com.squareup.picasso.Picasso;
 
@@ -18,7 +19,7 @@ import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import timber.log.Timber;
 
-@Module
+@Module(includes = OkHttpModule.class)
 public final class DataModule {
 
     private static final String PREFS_NAME = "preferences";
@@ -32,10 +33,10 @@ public final class DataModule {
         return new Moshi.Builder().build();
     }
 
-    @Provides @Singleton OkHttpClient provideOkHttpClient(Application app) {
+    @Provides @Singleton OkHttpClient.Builder provideOkHttpClientBuilder(Application app) {
         File cacheDir = new File(app.getCacheDir(), "http");
         Cache cache = new Cache(cacheDir, DISK_CACHE_SIZE);
-        return new OkHttpClient.Builder().cache(cache).build();
+        return new OkHttpClient.Builder().cache(cache);
     }
 
     @Provides @Singleton Picasso providePicasso(Application app, OkHttpClient client) {
