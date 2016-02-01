@@ -3,7 +3,6 @@ package com.nilhcem.droidcontn.ui.schedule.day;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Slot;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.core.picasso.CircleTransformation;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
 import com.nilhcem.droidcontn.utils.Views;
@@ -81,8 +81,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
     public void bindSelectedSession(Slot slot, Session session) {
         slotName.setText(session.getTitle());
         slotName.setTextColor(ContextCompat.getColor(slotName.getContext(), R.color.primary_text));
-        slotDesc.setText("Room #2\n" + session.getSpeakers().get(0).getName()); // TODO
-        slotDesc.setVisibility(View.VISIBLE);
+        bindDescription(session);
 
         Views.setBackground(slotContainer, R.drawable.schedule_day_entry_free);
         slotContainer.setForeground(selectableItemBackground);
@@ -91,6 +90,28 @@ public class ScheduleDayEntry extends BaseViewHolder {
         picasso.load(session.getSpeakers().get(0).getPhoto()).transform(new CircleTransformation()).into(slotImage);
         slotImage.setVisibility(View.VISIBLE);
         bindTime(slot);
+    }
+
+    private void bindDescription(Session session) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(session.getRoom()).append("\n");
+        String separator = null;
+
+        boolean addSeparator = false;
+        for (Speaker speaker : session.getSpeakers()) {
+            if (addSeparator) {
+                if (separator == null) {
+                    separator = itemView.getContext().getString(R.string.schedule_speakers_separator);
+                }
+                sb.append(separator);
+            } else {
+                addSeparator = true;
+            }
+            sb.append(speaker.getName());
+        }
+
+        slotDesc.setText(sb.toString());
+        slotDesc.setVisibility(View.VISIBLE);
     }
 
     private void bindTime(Slot slot) {
