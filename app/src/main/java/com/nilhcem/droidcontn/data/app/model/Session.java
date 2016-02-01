@@ -22,15 +22,15 @@ public class Session implements Parcelable {
 
     int id;
     int slotId;
-    int roomId;
+    String room;
     List<Speaker> speakers;
     String title;
     String description;
 
-    public Session(int id, int slotId, int roomId, List<Speaker> speakers, String title, String description) {
+    public Session(int id, int slotId, String room, List<Speaker> speakers, String title, String description) {
         this.id = id;
         this.slotId = slotId;
-        this.roomId = roomId;
+        this.room = room;
         this.speakers = speakers;
         this.title = title;
         this.description = description;
@@ -39,7 +39,7 @@ public class Session implements Parcelable {
     protected Session(Parcel in) {
         id = in.readInt();
         slotId = in.readInt();
-        roomId = in.readInt();
+        room = in.readString();
         speakers = in.createTypedArrayList(Speaker.CREATOR);
         title = in.readString();
         description = in.readString();
@@ -54,7 +54,7 @@ public class Session implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeInt(slotId);
-        dest.writeInt(roomId);
+        dest.writeString(room);
         dest.writeTypedList(speakers);
         dest.writeString(title);
         dest.writeString(description);

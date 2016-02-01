@@ -36,7 +36,7 @@ public class SessionsListEntry extends BaseViewHolder {
         }
 
         title.setText(session.getTitle());
-        room.setText("Room #" + session.getRoomId());
+        room.setText(session.getRoom());
         description.setText(session.getDescription());
     }
 }

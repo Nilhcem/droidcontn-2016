@@ -3,6 +3,7 @@ package com.nilhcem.droidcontn.data.app;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.nilhcem.droidcontn.data.app.model.Room;
 import com.nilhcem.droidcontn.data.app.model.Schedule;
 import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
 import com.nilhcem.droidcontn.data.app.model.Session;
@@ -80,7 +81,7 @@ public class AppMapper {
     }
 
     private static Session mapSession(int slotId, @NonNull com.nilhcem.droidcontn.data.network.model.Session from, @NonNull Map<Integer, Speaker> speakersMap) {
-        return new Session(from.getSessionId(), slotId, from.getRoomId(), mapSpeakerIds(from.getSpeakersId(), speakersMap), from.getTitle(), from.getDescription());
+        return new Session(from.getSessionId(), slotId, Room.getFromId(from.getRoomId()).name, mapSpeakerIds(from.getSpeakersId(), speakersMap), from.getTitle(), from.getDescription());
     }
 
     private static List<Speaker> mapSpeakerIds(@Nullable List<Integer> speakerIds, @NonNull Map<Integer, Speaker> speakersMap) {

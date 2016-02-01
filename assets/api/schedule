@@ -387,7 +387,7 @@
 			"title": "Blockchain in depth",
 			"description": "To fully grasp Bitcoin and it’s possibilities a deep understanding of the blockchain is necessary. With this talk I’d like to answer questions like: How are bitcoins exactly ‘created’, what does a wallets balance exactly mean. How does the bitcoin ‘Script’ language work and what are the possible applications of p2sh (pay to script hash). How do Sidechains work and how they link to the original Blockchain. What are HD-Wallets and how do you build them."
 		}, {
-			"roomId": 3,
+			"roomId": 2,
 			"sessionId": 33,
 			"speakersId": [16],
 			"title": "Taking Wearable Development beyond Android",
