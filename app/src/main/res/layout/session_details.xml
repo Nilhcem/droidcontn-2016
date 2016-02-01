@@ -63,7 +63,7 @@
                     tools:text="The 2016 Android Developer Toolbox"/>
 
                 <TextView
-                    android:id="@+id/session_details_subtitle"
+                    android:id="@+id/session_details_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"

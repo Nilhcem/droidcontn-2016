@@ -23,8 +23,12 @@ import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
 import com.nilhcem.droidcontn.utils.Animations;
+import com.nilhcem.droidcontn.utils.Strings;
 import com.nilhcem.droidcontn.utils.Views;
 import com.squareup.picasso.Picasso;
+
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.FormatStyle;
 
 import java.util.List;
 
@@ -45,7 +49,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Bind(R.id.session_details_photo) ImageView photo;
     @Bind(R.id.session_details_header) ViewGroup header;
     @Bind(R.id.session_details_title) TextView title;
-    @Bind(R.id.session_details_subtitle) TextView subtitle;
+    @Bind(R.id.session_details_info) TextView talkInfo;
     @Bind(R.id.session_details_description) TextView description;
     @Bind(R.id.session_details_speakers_title) TextView speakersTitle;
     @Bind(R.id.session_details_speakers_container) ViewGroup speakersContainer;
@@ -76,7 +80,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Override
     public void bindSessionDetails(Session session) {
         title.setText(session.getTitle());
-        subtitle.setText("May 29, 2015, 10:00 - 11:00 AM\nRoom 1 (L2)");
+        bindTalkInfo(session);
         description.setText(session.getDescription());
 
         header.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -124,6 +128,15 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Override
     public void showSnackbarMessage(@StringRes int resId) {
         Snackbar.make(layout, resId, Snackbar.LENGTH_SHORT).show();
+    }
+
+    private void bindTalkInfo(Session session) {
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
+        String day = session.getFromTime().format(DateTimeFormatter.ofPattern(getString(R.string.session_details_talk_info_date_pattern)));
+        String fromTime = session.getFromTime().format(timeFormatter);
+        String toTime = session.getToTime().format(timeFormatter);
+        String room = session.getRoom();
+        talkInfo.setText(Strings.capitalizeFirstLetter(getString(R.string.session_details_talk_info, day, fromTime, toTime, room)));
     }
 
     private void bindHeaderPhoto(Session session, int headerWidth) {

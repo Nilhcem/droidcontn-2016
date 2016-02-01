@@ -3,6 +3,8 @@ package com.nilhcem.droidcontn.data.app.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.threeten.bp.LocalDateTime;
+
 import java.util.List;
 
 import lombok.Value;
@@ -26,14 +28,18 @@ public class Session implements Parcelable {
     List<Speaker> speakers;
     String title;
     String description;
+    LocalDateTime fromTime;
+    LocalDateTime toTime;
 
-    public Session(int id, int slotId, String room, List<Speaker> speakers, String title, String description) {
+    public Session(int id, int slotId, String room, List<Speaker> speakers, String title, String description, LocalDateTime fromTime, LocalDateTime toTime) {
         this.id = id;
         this.slotId = slotId;
         this.room = room;
         this.speakers = speakers;
         this.title = title;
         this.description = description;
+        this.fromTime = fromTime;
+        this.toTime = toTime;
     }
 
     protected Session(Parcel in) {
@@ -43,6 +49,8 @@ public class Session implements Parcelable {
         speakers = in.createTypedArrayList(Speaker.CREATOR);
         title = in.readString();
         description = in.readString();
+        fromTime = (LocalDateTime) in.readSerializable();
+        toTime = (LocalDateTime) in.readSerializable();
     }
 
     @Override
@@ -58,5 +66,7 @@ public class Session implements Parcelable {
         dest.writeTypedList(speakers);
         dest.writeString(title);
         dest.writeString(description);
+        dest.writeSerializable(fromTime);
+        dest.writeSerializable(toTime);
     }
 }

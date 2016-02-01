@@ -20,6 +20,8 @@
     <string name="schedule_speakers_separator">", "</string>
 
     <!-- Session details -->
+    <string name="session_details_talk_info">%1$s, %2$s - %3$s\n%4$s</string>
+    <string name="session_details_talk_info_date_pattern">MMM dd YYYY</string>
     <string name="session_details_description">Description</string>
     <string name="session_details_added">Added to schedule</string>
     <string name="session_details_removed">Removed from schedule</string>

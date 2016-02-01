@@ -69,19 +69,19 @@ public class AppMapper {
     private static Slot mapSlot(@NonNull LocalDate date, @NonNull com.nilhcem.droidcontn.data.network.model.Slot from, @NonNull Map<Integer, Speaker> speakersMap) {
         LocalDateTime fromTime = LocalDateTime.of(date, from.getFromTime());
         LocalDateTime toTime = LocalDateTime.of(date, from.getToTime());
-        return new Slot(from.getId(), fromTime, toTime, mapSessions(from.getId(), from.getSessions(), speakersMap));
+        return new Slot(from.getId(), fromTime, toTime, mapSessions(from.getId(), from.getSessions(), speakersMap, fromTime, toTime));
     }
 
-    private static List<Session> mapSessions(int slotId, @NonNull List<com.nilhcem.droidcontn.data.network.model.Session> from, @NonNull Map<Integer, Speaker> speakersMap) {
+    private static List<Session> mapSessions(int slotId, @NonNull List<com.nilhcem.droidcontn.data.network.model.Session> from, @NonNull Map<Integer, Speaker> speakersMap, LocalDateTime fromTime, LocalDateTime toTime) {
         List<Session> sessions = new ArrayList<>(from.size());
         for (com.nilhcem.droidcontn.data.network.model.Session session : from) {
-            sessions.add(mapSession(slotId, session, speakersMap));
+            sessions.add(mapSession(slotId, session, speakersMap, fromTime, toTime));
         }
         return sessions;
     }
 
-    private static Session mapSession(int slotId, @NonNull com.nilhcem.droidcontn.data.network.model.Session from, @NonNull Map<Integer, Speaker> speakersMap) {
-        return new Session(from.getSessionId(), slotId, Room.getFromId(from.getRoomId()).name, mapSpeakerIds(from.getSpeakersId(), speakersMap), from.getTitle(), from.getDescription());
+    private static Session mapSession(int slotId, @NonNull com.nilhcem.droidcontn.data.network.model.Session from, @NonNull Map<Integer, Speaker> speakersMap, LocalDateTime fromTime, LocalDateTime toTime) {
+        return new Session(from.getSessionId(), slotId, Room.getFromId(from.getRoomId()).name, mapSpeakerIds(from.getSpeakersId(), speakersMap), from.getTitle(), from.getDescription(), fromTime, toTime);
     }
 
     private static List<Speaker> mapSpeakerIds(@Nullable List<Integer> speakerIds, @NonNull Map<Integer, Speaker> speakersMap) {

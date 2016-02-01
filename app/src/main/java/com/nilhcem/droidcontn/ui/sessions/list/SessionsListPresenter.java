@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseActivityPresenter;
+import com.nilhcem.droidcontn.utils.Strings;
 
 import org.threeten.bp.LocalDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
@@ -37,8 +38,6 @@ public class SessionsListPresenter extends BaseActivityPresenter<SessionsListVie
         String formatted = context.getString(R.string.schedule_browse_sessions_title_pattern,
                 dateTime.format(dayFormatter),
                 dateTime.format(timeFormatter));
-
-        // Capitalize first letter
-        return formatted.substring(0, 1).toUpperCase(Locale.getDefault()) + formatted.substring(1);
+        return Strings.capitalizeFirstLetter(formatted);
     }
 }
