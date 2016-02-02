@@ -26,9 +26,6 @@ out.map
 local.properties
 project.properties
 
-# Proguard
-proguard/
-
 # IntelliJ
 *.iml
 *.iws
