@@ -15,3 +15,9 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-printmapping mappings.txt
+-keepattributes SourceFile,LineNumberTable
+
+# Keep the BuildConfig
+-keep class com.nilhcem.droidcontn.BuildConfig { *; }

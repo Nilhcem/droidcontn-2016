@@ -21,7 +21,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.jakewharton.hugo'
-apply from: rootProject.file('gradle/sonarqube.gradle')
+apply from: rootProject.file('settings/gradle/sonarqube.gradle')
 
 def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
 
@@ -50,8 +50,21 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            minifyEnabled false
-            shrinkResources false
+            minifyEnabled true
+            shrinkResources true
+
+            proguardFile rootProject.file('settings/proguard/butterknife.pro')
+            proguardFile rootProject.file('settings/proguard/icepick.pro')
+            proguardFile rootProject.file('settings/proguard/lombok.pro')
+            proguardFile rootProject.file('settings/proguard/okhttp3.pro')
+            proguardFile rootProject.file('settings/proguard/okio.pro')
+            proguardFile rootProject.file('settings/proguard/picasso.pro')
+            proguardFile rootProject.file('settings/proguard/retrofit2.pro')
+            proguardFile rootProject.file('settings/proguard/retrolambda.pro')
+            proguardFile rootProject.file('settings/proguard/rx-java.pro')
+            proguardFile rootProject.file('settings/proguard/support-design.pro')
+            proguardFile rootProject.file('settings/proguard/support-v4.pro')
+            proguardFile rootProject.file('settings/proguard/support-v7-appcompat.pro')
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -97,7 +110,7 @@ dependencies {
     compile "com.android.support:preference-v14:$supportVersion"
     compile "com.android.support:design:$supportVersion"
 
-    compile 'org.projectlombok:lombok:1.16.6'
+    provided 'org.projectlombok:lombok:1.16.6'
 
     compile "com.google.dagger:dagger:$daggerVersion"
     apt "com.google.dagger:dagger-compiler:$daggerVersion"
