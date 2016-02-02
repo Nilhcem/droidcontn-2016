@@ -1,7 +1,7 @@
 package com.nilhcem.droidcontn.ui.settings;
 
 import com.nilhcem.droidcontn.ui.BasePresenter;
-import com.nilhcem.droidcontn.utils.AppUtils;
+import com.nilhcem.droidcontn.utils.App;
 
 public class SettingsPresenter extends BasePresenter<SettingsView> {
 
@@ -10,6 +10,6 @@ public class SettingsPresenter extends BasePresenter<SettingsView> {
     }
 
     public void onCreate() {
-        view.setAppVersion(AppUtils.getVersion());
+        view.setAppVersion(App.getVersion());
     }
 }

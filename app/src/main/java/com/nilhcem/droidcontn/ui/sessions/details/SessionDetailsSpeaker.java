@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.core.picasso.CircleTransformation;
-import com.nilhcem.droidcontn.utils.AppUtils;
+import com.nilhcem.droidcontn.utils.App;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
@@ -29,7 +29,7 @@ public class SessionDetailsSpeaker extends LinearLayout {
         setOrientation(HORIZONTAL);
         int[] attrs = new int[]{android.R.attr.selectableItemBackground};
         TypedArray ta = context.obtainStyledAttributes(attrs);
-        if (AppUtils.isCompatible(Build.VERSION_CODES.M)) {
+        if (App.isCompatible(Build.VERSION_CODES.M)) {
             setForeground(ta.getDrawable(0));
         }
         ta.recycle();

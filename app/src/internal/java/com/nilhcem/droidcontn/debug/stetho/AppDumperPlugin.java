@@ -11,7 +11,7 @@ import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
-import com.nilhcem.droidcontn.utils.AppUtils;
+import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Threads;
 
 import java.io.PrintStream;
@@ -56,7 +56,7 @@ public class AppDumperPlugin implements DumperPlugin {
     }
 
     private void displayAppInfo(PrintStream writer) {
-        writer.println(context.getString(R.string.app_name) + " " + AppUtils.getVersion());
+        writer.println(context.getString(R.string.app_name) + " " + App.getVersion());
     }
 
     private void changeEndpoint(PrintStream writer, List<String> args) {

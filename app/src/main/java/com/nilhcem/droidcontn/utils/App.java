@@ -4,9 +4,9 @@ import com.nilhcem.droidcontn.BuildConfig;
 
 import java.util.Locale;
 
-public final class AppUtils {
+public final class App {
 
-    private AppUtils() {
+    private App() {
         throw new UnsupportedOperationException();
     }
 

@@ -7,7 +7,7 @@ import org.junit.Test;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.TruthJUnit.assume;
 
-public class AppUtilsTest {
+public class AppTest {
 
     @Test
     public void should_return_true_when_api_is_compatible() {
@@ -16,8 +16,8 @@ public class AppUtilsTest {
         int apiLevelBelow = android.os.Build.VERSION.SDK_INT - 1;
 
         // When
-        boolean result1 = AppUtils.isCompatible(apiLevelCompatible);
-        boolean result2 = AppUtils.isCompatible(apiLevelBelow);
+        boolean result1 = App.isCompatible(apiLevelCompatible);
+        boolean result2 = App.isCompatible(apiLevelBelow);
 
         // Then
         assertThat(result1).isTrue();
@@ -30,7 +30,7 @@ public class AppUtilsTest {
         int apiLevelIncompatible = android.os.Build.VERSION.SDK_INT + 1;
 
         // When
-        boolean result = AppUtils.isCompatible(apiLevelIncompatible);
+        boolean result = App.isCompatible(apiLevelIncompatible);
 
         // Then
         assertThat(result).isFalse();
@@ -43,7 +43,7 @@ public class AppUtilsTest {
         String expected = BuildConfig.VERSION_NAME + " (#" + BuildConfig.VERSION_CODE + ")";
 
         // When
-        String version = AppUtils.getVersion();
+        String version = App.getVersion();
 
         // Then
         assertThat(version).isEqualTo(expected);

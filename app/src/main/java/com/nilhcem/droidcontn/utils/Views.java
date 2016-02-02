@@ -28,7 +28,7 @@ public final class Views {
     @TargetApi(JELLY_BEAN)
     @SuppressWarnings("deprecation")
     public static void setBackground(View view, Drawable drawable) {
-        if (AppUtils.isCompatible(JELLY_BEAN)) {
+        if (App.isCompatible(JELLY_BEAN)) {
             view.setBackground(drawable);
         } else {
             view.setBackgroundDrawable(drawable);
@@ -37,7 +37,7 @@ public final class Views {
 
     @TargetApi(JELLY_BEAN)
     public static void removeOnGlobalLayoutListener(ViewTreeObserver viewTreeObserver, ViewTreeObserver.OnGlobalLayoutListener listener) {
-        if (AppUtils.isCompatible(JELLY_BEAN)) {
+        if (App.isCompatible(JELLY_BEAN)) {
             viewTreeObserver.removeOnGlobalLayoutListener(listener);
         } else {
             viewTreeObserver.removeGlobalOnLayoutListener(listener);
@@ -47,7 +47,7 @@ public final class Views {
     @TargetApi(LOLLIPOP)
     @SuppressWarnings("deprecation")
     public static Drawable getDrawable(Context context, @DrawableRes int id) {
-        if (AppUtils.isCompatible(LOLLIPOP)) {
+        if (App.isCompatible(LOLLIPOP)) {
             return context.getDrawable(id);
         } else {
             return context.getResources().getDrawable(id);
