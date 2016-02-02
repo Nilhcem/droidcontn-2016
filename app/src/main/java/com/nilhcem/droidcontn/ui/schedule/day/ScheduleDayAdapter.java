@@ -60,7 +60,7 @@ public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
         Session selectedSession = null;
         int selectedSessionId = dao.get(slotId);
 
-        if (selectedSessionId != 0) {
+        if (selectedSessionId != -1) {
             for (Session session : slotSessions) {
                 if (session.getId() == selectedSessionId) {
                     selectedSession = session;

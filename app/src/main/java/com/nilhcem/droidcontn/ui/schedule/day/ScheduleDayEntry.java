@@ -21,6 +21,8 @@ import com.squareup.picasso.Picasso;
 import org.threeten.bp.format.DateTimeFormatter;
 import org.threeten.bp.format.FormatStyle;
 
+import java.util.List;
+
 import butterknife.Bind;
 
 public class ScheduleDayEntry extends BaseViewHolder {
@@ -87,7 +89,10 @@ public class ScheduleDayEntry extends BaseViewHolder {
         slotContainer.setForeground(selectableItemBackground);
         slotContainer.setOnClickListener(v -> listener.onSelectedSessionClicked(session));
 
-        picasso.load(session.getSpeakers().get(0).getPhoto()).transform(new CircleTransformation()).into(slotImage);
+        List<Speaker> speakers = session.getSpeakers();
+        if (speakers != null && ! speakers.isEmpty()) {
+            picasso.load(speakers.get(0).getPhoto()).transform(new CircleTransformation()).into(slotImage);
+        }
         slotImage.setVisibility(View.VISIBLE);
         bindTime(slot);
     }
@@ -97,17 +102,20 @@ public class ScheduleDayEntry extends BaseViewHolder {
         sb.append(session.getRoom()).append("\n");
         String separator = null;
 
-        boolean addSeparator = false;
-        for (Speaker speaker : session.getSpeakers()) {
-            if (addSeparator) {
-                if (separator == null) {
-                    separator = itemView.getContext().getString(R.string.schedule_speakers_separator);
+        List<Speaker> speakers = session.getSpeakers();
+        if (speakers != null) {
+            boolean addSeparator = false;
+            for (Speaker speaker : speakers) {
+                if (addSeparator) {
+                    if (separator == null) {
+                        separator = itemView.getContext().getString(R.string.schedule_speakers_separator);
+                    }
+                    sb.append(separator);
+                } else {
+                    addSeparator = true;
                 }
-                sb.append(separator);
-            } else {
-                addSeparator = true;
+                sb.append(speaker.getName());
             }
-            sb.append(speaker.getName());
         }
 
         slotDesc.setText(sb.toString());

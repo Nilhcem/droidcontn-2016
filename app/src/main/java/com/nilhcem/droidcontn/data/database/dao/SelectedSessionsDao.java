@@ -41,7 +41,7 @@ public class SelectedSessionsDao {
     }
 
     public boolean isSelected(Session session) {
-        return session.getId() == sessions.get(session.getSlotId());
+        return session.getId() == sessions.get(session.getSlotId(), -1);
     }
 
     public void select(Session session) {
@@ -56,6 +56,6 @@ public class SelectedSessionsDao {
     }
 
     public int get(int slotId) {
-        return sessions.get(slotId);
+        return sessions.get(slotId, -1);
     }
 }
