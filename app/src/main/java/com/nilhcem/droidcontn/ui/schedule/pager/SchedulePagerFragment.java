@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
@@ -22,6 +23,7 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
 
     @Inject DataProvider dataProvider;
 
+    @Bind(R.id.schedule_loading) ProgressBar loading;
     @Bind(R.id.schedule_viewpager) ViewPager viewPager;
 
     public static SchedulePagerFragment newInstance() {
@@ -45,5 +47,8 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
         if (schedule.size() > 1) {
             ((DrawerActivity) getActivity()).setupTabLayoutWithViewPager(viewPager);
         }
+
+        loading.setVisibility(View.GONE);
+        viewPager.setVisibility(View.VISIBLE);
     }
 }
