@@ -5,4 +5,6 @@ import com.nilhcem.droidcontn.data.app.model.Schedule;
 public interface SchedulePagerView {
 
     void displaySchedule(Schedule schedule);
+
+    void displayLoadingError(Throwable error);
 }

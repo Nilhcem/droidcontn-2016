@@ -2,6 +2,7 @@ package com.nilhcem.droidcontn.ui.schedule.pager;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,5 +51,11 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
 
         loading.setVisibility(View.GONE);
         viewPager.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void displayLoadingError(Throwable error) {
+        loading.setVisibility(View.GONE);
+        Snackbar.make(loading, error.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
     }
 }

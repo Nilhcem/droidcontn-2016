@@ -59,16 +59,16 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     }
 
     @Override
-    public void displayLoadingError(Throwable error) {
-        loading.setVisibility(View.GONE);
-        Snackbar.make(loading, error.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-    }
-
-    @Override
     public void displaySpeakers(List<Speaker> speakers) {
         adapter.setSpeakers(speakers);
         loading.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void displayLoadingError(Throwable error) {
+        loading.setVisibility(View.GONE);
+        Snackbar.make(loading, error.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
     }
 
     @Override

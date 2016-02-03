@@ -26,7 +26,7 @@ public class SchedulePagerPresenter extends BaseFragmentPresenter<SchedulePagerV
         scheduleSubscription = dataProvider.getSchedule()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this.view::displaySchedule);
+                .subscribe(this.view::displaySchedule, this.view::displayLoadingError);
     }
 
     @Override
