@@ -33,6 +33,7 @@ app.get('/schedule', function(req, res) {
 
 /* Speakers */
 app.get('/speakers', function(req, res) {
+    sleep(400);
     res.type('application/json; charset=' + defaultCharset);
     res.status(200).send(getSpeakersFromFile('data/speakers.json', req));
 });
@@ -45,6 +46,14 @@ app.get('^*$', function(req, res) {
     res.type('text/html; charset=' + defaultCharset);
     res.status(200).send(data);
 });
+
+/* Sleep for ${durationMillis} ms (only for testing a slow network call) */
+function sleep(durationMillis) {
+    var now = new Date().getTime();
+    while(new Date().getTime() < now + durationMillis) {
+	// do nothing
+    }
+}
 
 /* Starts server */
 app.listen(port, function () {
