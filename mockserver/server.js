@@ -1,6 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var app = express();
+var util = require('util');
 
 app.set('port', process.env.PORT || 8990);
 app.use(express.static(__dirname + '/public'));
@@ -27,12 +28,14 @@ function getSpeakersFromFile(fileName, req) {
 
 /* Schedule */
 app.get('/schedule', function(req, res) {
+    util.log("GET /schedule");
     res.type('application/json; charset=' + defaultCharset);
     res.status(200).send(fs.readFileSync('data/schedule.json', defaultCharset));
 });
 
 /* Speakers */
 app.get('/speakers', function(req, res) {
+    util.log("GET /speakers");
     sleep(400);
     res.type('application/json; charset=' + defaultCharset);
     res.status(200).send(getSpeakersFromFile('data/speakers.json', req));
@@ -57,5 +60,5 @@ function sleep(durationMillis) {
 
 /* Starts server */
 app.listen(port, function () {
-    console.log('Express server listening on port ' + port);
+    util.log('Express server listening on port ' + port);
 });
