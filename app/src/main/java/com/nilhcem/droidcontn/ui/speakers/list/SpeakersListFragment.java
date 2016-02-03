@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
@@ -27,6 +28,7 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     @Inject Picasso picasso;
     @Inject DataProvider dataProvider;
 
+    @Bind(R.id.speakers_list_loading) ProgressBar loading;
     @Bind(R.id.speakers_list_recyclerview) RecyclerView recyclerView;
 
     private SpeakersListAdapter adapter;
@@ -58,6 +60,8 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     @Override
     public void displaySpeakers(List<Speaker> speakers) {
         adapter.setSpeakers(speakers);
+        loading.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
     }
 
     @Override
