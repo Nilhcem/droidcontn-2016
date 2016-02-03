@@ -26,7 +26,7 @@ public class SpeakersListPresenter extends BaseFragmentPresenter<SpeakersListVie
         speakersSubscription = dataProvider.getSpeakerList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this.view::displaySpeakers);
+                .subscribe(this.view::displaySpeakers, this.view::displayLoadingError);
     }
 
     @Override

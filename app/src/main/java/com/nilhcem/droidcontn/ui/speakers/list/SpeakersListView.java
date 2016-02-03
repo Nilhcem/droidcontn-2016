@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface SpeakersListView {
 
+    void displayLoadingError(Throwable error);
+
     void displaySpeakers(List<Speaker> speakers);
 
     void showSpeakerDetails(Speaker speaker);

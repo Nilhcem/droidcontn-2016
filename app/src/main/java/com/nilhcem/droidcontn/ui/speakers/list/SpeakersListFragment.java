@@ -2,6 +2,7 @@ package com.nilhcem.droidcontn.ui.speakers.list;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,12 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
         recyclerView.addItemDecoration(new MarginDecoration(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void displayLoadingError(Throwable error) {
+        loading.setVisibility(View.GONE);
+        Snackbar.make(loading, error.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
     }
 
     @Override
