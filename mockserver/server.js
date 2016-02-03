@@ -26,11 +26,11 @@ function getSpeakersFromFile(fileName, req) {
     return JSON.stringify(speakers);
 }
 
-/* Schedule */
-app.get('/schedule', function(req, res) {
-    util.log("GET /schedule");
+/* Sessions list */
+app.get('/sessions', function(req, res) {
+    util.log("GET /sessions");
     res.type('application/json; charset=' + defaultCharset);
-    res.status(200).send(fs.readFileSync('data/schedule.json', defaultCharset));
+    res.status(200).send(fs.readFileSync('data/sessions.json', defaultCharset));
 });
 
 /* Speakers */
