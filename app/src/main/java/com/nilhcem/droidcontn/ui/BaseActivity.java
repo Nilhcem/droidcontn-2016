@@ -1,5 +1,6 @@
 package com.nilhcem.droidcontn.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -49,6 +50,12 @@ public abstract class BaseActivity<P extends BaseActivityPresenter> extends AppC
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Intent upIntent = NavUtils.getParentActivityIntent(this);
+                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+                    NavUtils.navigateUpFromSameTask(this);
+                } else {
+                    onBackPressed();
+                }
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
         }
