@@ -3,21 +3,23 @@ package com.nilhcem.droidcontn.ui.schedule.day;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.squareup.picasso.Picasso;
+
+import org.threeten.bp.LocalDateTime;
 
 import java.util.List;
 
 public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
 
-    private final List<Slot> slots;
+    private final List<ScheduleSlot> slots;
     private final SelectedSessionsDao dao;
     private final Picasso picasso;
     private final ScheduleDayEntry.OnSessionClickListener listener;
 
-    public ScheduleDayAdapter(List<Slot> slots, SelectedSessionsDao dao, Picasso picasso, ScheduleDayEntry.OnSessionClickListener listener) {
+    public ScheduleDayAdapter(List<ScheduleSlot> slots, SelectedSessionsDao dao, Picasso picasso, ScheduleDayEntry.OnSessionClickListener listener) {
         this.slots = slots;
         this.dao = dao;
         this.picasso = picasso;
@@ -31,9 +33,9 @@ public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
 
     @Override
     public void onBindViewHolder(ScheduleDayEntry holder, int position) {
-        Slot slot = slots.get(position);
+        ScheduleSlot slot = slots.get(position);
         List<Session> slotSessions = slot.getSessions();
-        Session selectedSession = findSelectedSession(slot.getId(), slotSessions);
+        Session selectedSession = findSelectedSession(slot.getTime(), slotSessions);
 
         if (selectedSession == null) {
             if (slotSessions.size() > 1) {
@@ -56,11 +58,11 @@ public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
         return slots.size();
     }
 
-    private Session findSelectedSession(int slotId, List<Session> slotSessions) {
+    private Session findSelectedSession(LocalDateTime slotTime, List<Session> slotSessions) {
         Session selectedSession = null;
-        int selectedSessionId = dao.get(slotId);
+        Integer selectedSessionId = dao.get(slotTime);
 
-        if (selectedSessionId != -1) {
+        if (selectedSessionId != null) {
             for (Session session : slotSessions) {
                 if (session.getId() == selectedSessionId) {
                     selectedSession = session;

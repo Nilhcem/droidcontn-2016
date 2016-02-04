@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.app.model.Slot;
+import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.ui.BaseActivityPresenter;
 import com.nilhcem.droidcontn.utils.Strings;
 
@@ -16,12 +16,12 @@ import java.util.Locale;
 
 public class SessionsListPresenter extends BaseActivityPresenter<SessionsListView> {
 
-    private final Slot slot;
+    private final ScheduleSlot slot;
 
-    public SessionsListPresenter(Context context, SessionsListView view, Slot slot) {
+    public SessionsListPresenter(Context context, SessionsListView view, ScheduleSlot slot) {
         super(view);
         this.slot = slot;
-        this.view.initToobar(formatDateTime(context, slot.getFromTime()));
+        this.view.initToobar(formatDateTime(context, slot.getTime()));
     }
 
     @Override

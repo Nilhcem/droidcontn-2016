@@ -26,8 +26,8 @@ public class DataProvider {
 
     public Observable<Schedule> getSchedule() {
         selectedSessionsDao.init();
-        return Observable.combineLatest(getSpeakers(), getScheduleDays(), (speakers, scheduleDays) ->
-                AppMapper.mapSchedule(scheduleDays, AppMapper.speakersToMap(speakers)));
+        return Observable.combineLatest(getSpeakers(), getSessions(), (speakers, sessions) ->
+                AppMapper.toSchedule(sessions, AppMapper.speakersToMap(speakers)));
     }
 
     public Observable<List<Speaker>> getSpeakerList() {
@@ -39,16 +39,16 @@ public class DataProvider {
 
         // Get from network
         return service.loadSpeakers()
-                .flatMap(Observable::<com.nilhcem.droidcontn.data.network.model.Speaker>from)
+                .flatMap(Observable::from)
                 .toList();
     }
 
-    private Observable<List<com.nilhcem.droidcontn.data.network.model.ScheduleDay>> getScheduleDays() {
+    private Observable<List<com.nilhcem.droidcontn.data.network.model.Session>> getSessions() {
         // Get from db || file
 
         // Get from network
-        return service.loadSchedule()
-                .flatMap(Observable::<com.nilhcem.droidcontn.data.network.model.ScheduleDay>from)
+        return service.loadSessions()
+                .flatMap(Observable::from)
                 .toList();
     }
 }

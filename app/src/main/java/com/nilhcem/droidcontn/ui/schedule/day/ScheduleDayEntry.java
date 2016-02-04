@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.core.picasso.CircleTransformation;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
@@ -28,7 +28,7 @@ import butterknife.Bind;
 public class ScheduleDayEntry extends BaseViewHolder {
 
     public interface OnSessionClickListener {
-        void onFreeSlotClicked(Slot slot);
+        void onFreeSlotClicked(ScheduleSlot slot);
 
         void onSelectedSessionClicked(Session session);
     }
@@ -54,7 +54,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         ta.recycle();
     }
 
-    public void bindFreeSlot(Slot slot) {
+    public void bindFreeSlot(ScheduleSlot slot) {
         slotName.setText(R.string.schedule_browse_sessions);
         slotName.setTextColor(ContextCompat.getColor(slotName.getContext(), R.color.primary));
         slotDesc.setVisibility(View.GONE);
@@ -67,7 +67,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         bindTime(slot);
     }
 
-    public void bindBreakSlot(Slot slot, Session session) {
+    public void bindBreakSlot(ScheduleSlot slot, Session session) {
         slotName.setText(session.getTitle());
         slotName.setTextColor(ContextCompat.getColor(slotName.getContext(), R.color.primary_text));
         slotDesc.setVisibility(View.GONE);
@@ -80,7 +80,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         bindTime(slot);
     }
 
-    public void bindSelectedSession(Slot slot, Session session) {
+    public void bindSelectedSession(ScheduleSlot slot, Session session) {
         slotName.setText(session.getTitle());
         slotName.setTextColor(ContextCompat.getColor(slotName.getContext(), R.color.primary_text));
         bindDescription(session);
@@ -122,9 +122,9 @@ public class ScheduleDayEntry extends BaseViewHolder {
         slotDesc.setVisibility(View.VISIBLE);
     }
 
-    private void bindTime(Slot slot) {
+    private void bindTime(ScheduleSlot slot) {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
-        String timeStr = slot.getFromTime().format(formatter);
+        String timeStr = slot.getTime().format(formatter);
         time.setText(timeStr);
     }
 }

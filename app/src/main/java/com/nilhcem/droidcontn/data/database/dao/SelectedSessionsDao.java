@@ -1,10 +1,14 @@
 package com.nilhcem.droidcontn.data.database.dao;
 
-import android.util.SparseIntArray;
-
+import com.nilhcem.droidcontn.core.moshi.LocalDateTimeAdapter;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.database.model.SelectedSession;
 import com.squareup.sqlbrite.BriteDatabase;
+
+import org.threeten.bp.LocalDateTime;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -16,22 +20,24 @@ import rx.schedulers.Schedulers;
 public class SelectedSessionsDao {
 
     private final BriteDatabase database;
+    private final LocalDateTimeAdapter adapter;
 
-    // key = slotId, value = sessionId
-    private SparseIntArray sessions;
+    // Format: [Slot Time][Session Id]
+    private Map<LocalDateTime, Integer> sessions;
 
     @Inject
-    public SelectedSessionsDao(BriteDatabase database) {
+    public SelectedSessionsDao(BriteDatabase database, LocalDateTimeAdapter adapter) {
         this.database = database;
+        this.adapter = adapter;
     }
 
     public void init() {
         database.createQuery(SelectedSession.TABLE, "SELECT * FROM " + SelectedSession.TABLE)
                 .mapToList(SelectedSession.MAPPER)
                 .map(selectedSessions -> {
-                    SparseIntArray sessions = new SparseIntArray();
+                    Map<LocalDateTime, Integer> sessions = new HashMap<>();
                     for (SelectedSession session : selectedSessions) {
-                        sessions.put(session.slotId, session.sessionId);
+                        sessions.put(adapter.fromText(session.slotTime), session.sessionId);
                     }
                     return sessions;
                 })
@@ -41,21 +47,24 @@ public class SelectedSessionsDao {
     }
 
     public boolean isSelected(Session session) {
-        return session.getId() == sessions.get(session.getSlotId(), -1);
+        Integer selectedSessionId = sessions.get(session.getFromTime());
+        return selectedSessionId != null && selectedSessionId == session.getId();
     }
 
     public void select(Session session) {
+        // TODO: NOT ON MAIN THREAD
         unselect(session);
-        sessions.put(session.getSlotId(), session.getId());
-        database.insert(SelectedSession.TABLE, new SelectedSession.Builder().slotId(session.getSlotId()).sessionId(session.getId()).build());
+        sessions.put(session.getFromTime(), session.getId());
+        database.insert(SelectedSession.TABLE, new SelectedSession.Builder().slotTime(adapter.toText(session.getFromTime())).sessionId(session.getId()).build());
     }
 
     public void unselect(Session session) {
-        sessions.delete(session.getSlotId());
-        database.delete(SelectedSession.TABLE, SelectedSession.SLOT_ID + "=?", Integer.toString(session.getSlotId()));
+        // TODO: NOT ON MAIN THREAD
+        sessions.remove(session.getFromTime());
+        database.delete(SelectedSession.TABLE, SelectedSession.SLOT_TIME + "=?", adapter.toText(session.getFromTime()));
     }
 
-    public int get(int slotId) {
-        return sessions.get(slotId, -1);
+    public Integer get(LocalDateTime slotTime) {
+        return sessions.get(slotTime);
     }
 }

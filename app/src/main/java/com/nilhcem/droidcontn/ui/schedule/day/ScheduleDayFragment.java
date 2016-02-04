@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
+import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
@@ -57,7 +57,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     }
 
     @Override
-    public void initSlotsList(List<Slot> slots) {
+    public void initSlotsList(List<ScheduleSlot> slots) {
         adapter = new ScheduleDayAdapter(slots, dao, picasso, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
@@ -70,7 +70,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     }
 
     @Override
-    public void onFreeSlotClicked(Slot slot) {
+    public void onFreeSlotClicked(ScheduleSlot slot) {
         startActivity(SessionsListActivity.createIntent(getContext(), slot));
     }
 

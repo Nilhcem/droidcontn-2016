@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.app.model.Slot;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
 import com.squareup.picasso.Picasso;
@@ -29,7 +29,7 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
 
     @Bind(R.id.sessions_list_recyclerview) RecyclerView recyclerView;
 
-    public static Intent createIntent(@NonNull Context context, @NonNull Slot slot) {
+    public static Intent createIntent(@NonNull Context context, @NonNull ScheduleSlot slot) {
         return new Intent(context, SessionsListActivity.class)
                 .putExtra(EXTRA_SLOT, slot);
     }
@@ -37,7 +37,7 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
     @Override
     protected SessionsListPresenter newPresenter() {
         DroidconApp.get(this).component().inject(this);
-        Slot slot = getIntent().getParcelableExtra(EXTRA_SLOT);
+        ScheduleSlot slot = getIntent().getParcelableExtra(EXTRA_SLOT);
         return new SessionsListPresenter(this, this, slot);
     }
 

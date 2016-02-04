@@ -26,7 +26,8 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     private void createSelectedSessionsTable(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + SelectedSession.TABLE + " (" +
-                SelectedSession.SESSION_ID + " INTEGER PRIMARY KEY," +
-                SelectedSession.SLOT_ID + " INTEGER);");
+                SelectedSession.ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                SelectedSession.SLOT_TIME + " VARCHAR," +
+                SelectedSession.SESSION_ID + " INTEGER);");
     }
 }

@@ -23,16 +23,16 @@ public class ScheduleDay implements Parcelable {
     };
 
     LocalDate day;
-    List<Slot> slots;
+    List<ScheduleSlot> slots;
 
-    public ScheduleDay(LocalDate day, List<Slot> slots) {
+    public ScheduleDay(LocalDate day, List<ScheduleSlot> slots) {
         this.day = day;
         this.slots = slots;
     }
 
     protected ScheduleDay(Parcel in) {
         day = (LocalDate) in.readSerializable();
-        slots = in.createTypedArrayList(Slot.CREATOR);
+        slots = in.createTypedArrayList(ScheduleSlot.CREATOR);
     }
 
     @Override
