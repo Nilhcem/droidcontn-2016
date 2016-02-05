@@ -1,0 +1,361 @@
+[{
+	"id": 1,
+	"startAt": "2016-03-05 08:00",
+	"duration": 55,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Registration Opens",
+	"description": null
+}, {
+	"id": 2,
+	"startAt": "2016-03-05 09:00",
+	"duration": 10,
+	"roomId": 1,
+	"speakersId": null,
+	"title": "Opening",
+	"description": null
+}, {
+	"id": 3,
+	"startAt": "2016-03-05 09:15",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [29],
+	"title": "Nearables : The Eddystone Quest",
+	"description": "The door for the IoT world has been quickly opened by iBeacon. But this was a door slamming at your face each time you get to close of it. Eddystones are the new way to connect the physician world. They are the path to the nearable world. Eddystone allow you to connect your Android Apps with places and objects surrounding you. We will be also quickly speaking about brillo and what it means for the interaction between apps and IoT."
+}, {
+	"id": 4,
+	"startAt": "2016-03-05 09:15",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [28],
+	"title": "Beauty Treatment for your Mobile Application",
+	"description": "Android Apps are ugly. They are slow. I know, you have heard a lot of that in the last years. Enough of it! It is now time to get your revenge back and take advantage of the new tools to draw and animate, design guidelines and a few tricks and recipes to make your Android application stand out from the rest. Join me to speak about how to make your application stand out by adding subtle effects that are appealing to the eye and the overall experience of your users. Come ready to get your hands dirty with animations, updating layouts on scrolling events, and playing with shapes. You shall not regret it !"
+}, {
+	"id": 5,
+	"startAt": "2016-03-05 10:10",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [18],
+	"title": "Avoiding Pitfalls Collaboratively",
+	"description": "High-quality software is important for tech companies. It is getting challenged because hundreds of engineers are working on the shared big code base. Unit testing, automation testing and static analysis are very helpful to create error-free code. Static analysis is a technique to detect software errors by analyzing existing codes without running. However, there are pitfalls which cannot be detected by existing tools. Some pitfalls could be related with company coding standards or how to use third-party libraries. For example, string resources should be sorted alphabetically by a string key. In this talk, we suggest a way to avoid those pitfalls collaboratively by utilizing Android custom lint, which is a one of static analysis tool. With Android custom lint, developers easily avoid pitfalls with a nice explanation such as which line and why."
+}, {
+	"id": 6,
+	"startAt": "2016-03-05 10:10",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [29],
+	"title": "Android Auto : Rolling Droid Gather No Moss",
+	"description": "Android Auto is a new horizon for Android. Android everywhere and now in your car. Android Auto has a cool background story and is really a game changer in our lives. Also it should be there pretty quickly. Manufacturer like Ford announced that every 2017 models will be equipped.This is an exhaustive overview of what is going to be the in-car experience with Android Auto and how your app is going to take advantage of it. Also we will see a real world (aka. prod) usecase of Android Auto integration."
+}, {
+	"id": 7,
+	"startAt": "2016-03-05 10:55",
+	"duration": 20,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Coffee break",
+	"description": null
+}, {
+	"id": 8,
+	"startAt": "2016-03-05 11:15",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [10],
+	"title": "Secure your Android App",
+	"description": "Developing a functional application is the first step, doing it securely is the second and effective one. Do you prevent hackers of going into your source code? How can you prevent Man in the Middle attacks in your application? Do you know how easy is to make code injections in an already existing application?\n\nThis talk with explore some of the common attacks an Android application can suffer, and it will introduce measures to mitigate the risk. If you are worried about how to cover the weak point of your application, come to this talk!"
+}, {
+	"id": 9,
+	"startAt": "2016-03-05 11:15",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [12],
+	"title": "Introduction to NativeScript",
+	"description": "NativeScript is a free and open source JavaScript framework for building native iOS, Android, and (soon) Windows Phone apps. But I know what you’re thinking: another way of building apps? What makes NativeScript special? Here are a few cool things:\n\n– Direct access to native APIs—no plugins required. Want to create a file on Android? Run new java.io.File()—in JavaScript!\n– Completely native performance through the use of a JavaScript bridge natively available on all three mobile platforms.\n– Cross-platform libraries for common use cases. Need to call a JSON API? Run http.getJSON\n– Style native apps using CSS. Yep, that’s actually a thing.\n\nCurious about how it all works? Come learn! Architectures will be explained; apps will be built; and fun will be had by all."
+}, {
+	"id": 10,
+	"startAt": "2016-03-05 12:10",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": [22],
+	"title": "Gaining the app visibility that matters",
+	"description": "You’ve spent a lot of time in building an app that provides a better experience for users accessing your content from their android smartphones, but what if target users fail to discover your awesome app? This talk will discuss some of the latest trends and results of experiments that will help app developers to gain more visibility of their app.\n\nTalk Coverage:\n- Optimize Your Google Play Store App Listing: which will talk about App icon, creating app screenshots that make the app sell, app description, keywords and more\n- App Indexing: The effective connect between Your Website and App\n- Did you localize? speaking on how developers should strategist in building target global audience and prepare their app to reach new users.\n- Leveraging Deep Links for Discoverability: covering how deep linking could assist developers to connect people with content deep inside their apps"
+}, {
+	"id": 11,
+	"startAt": "2016-03-05 12:10",
+	"duration": 30,
+	"roomId": 2,
+	"speakersId": [23],
+	"title": "Is VR the future of gaming ?",
+	"description": "VR was the one of trending words of 2015. And it’s closely associated to gaming and new kind of experiences in gaming. Facebook is leading the industry through Oculus. But all the big manufacturers are working on their own headsets and glasses. So is it really the next big thing in the gaming industry ? How to be an early developer/adopter ? What is already working on VR ? What is already the big fails of VR ? Are the customers ready for VR ? Is there any opportunity for startups ? from emerging countries ? We ll try to discuss all this together based on facts numbers and some announcements."
+}, {
+	"id": 12,
+	"startAt": "2016-03-05 12:40",
+	"duration": 20,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Lunch break",
+	"description": null
+}, {
+	"id": 13,
+	"startAt": "2016-03-05 14:00",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": [25],
+	"title": "Disability in the time of the Matrix",
+	"description": "Disabled people are always hidden in the shadows especially in developing countries like Tunisia . Seeking Liberty is a challenge for them ; having your own apartment or driving your own car seems like some kind of delusion indeed.Nevertheless, with the rise of internet of things, everything is about to change. Stick to my talk in order to see how !"
+}, {
+	"id": 14,
+	"startAt": "2016-03-05 14:00",
+	"duration": 30,
+	"roomId": 2,
+	"speakersId": [24],
+	"title": "Making secure, worldwide app distribution easy",
+	"description": "As app developers, we want to focus on making our apps better. It is easy to delay thinking about security. But exploits are now targeting developers, for example, XCodeGhost had a massive impact. The F-Droid free developer tools make a secure process vastly easier, and with little change to your workflow, while providing automated uploading to Google Play and F-Droid when posting new apps, releases, their descriptions, and the translations.\n\nThere are also many things that can make it hard to get apps to users. Google Play is blocked in some places, regional app stores are often cesspools of malware. The internet can be disabled or even just plain expensive. People turn to getting apps from websites, email, bluetooth, SD Cards, or any other method they can figure out. In China, the internet is ubiquitous but heavily filtered and monitored; but “collateral freedom” techniques have proven effective. In Vietnam, swapping apps with Bluetooth is widespread. In Cuba, people get apps via mesh networks and by buying “La Paquete”. These techniques work in many places, but none work in all, and it is very difficult to keep track of them all. This requires users, developers, companies, and organizations to be fluent in many technical details in order to effectively get and distribute mobile apps and media around the world.\n\nF-Droid includes all these techniques in system that is easy for developers to plug into. we are focused on providing a simple, smooth user experience, with three use cases in mind:\n- The end user gets a familiar app store experience, regardless of the complexity behind it all\n- The developer is in control of a simple set of commands that automate the entire distribution workflow for easily making highly secure builds, then getting apps out through all possible channels, including Google Play\n- Non-technical organizations and people can use these tools to publish curated collections of apps and media, without getting caught up in the technical details of the whole process."
+}, {
+	"id": 15,
+	"startAt": "2016-03-05 14:40",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [24],
+	"title": "Deliver private, secure apps with ease",
+	"description": "Mobile phones have become central to our private lives, full of intimate messages, private pictures, and a huge amount of details of our personal lives. This private information can easily leak out in so many different ways, yet the user experience feels very private. When we look at our mobile screens, it feels like no one else can see what we are seeing unless we show them. Unfortunately, it is difficult for app developers to deliver on this implicit promise made to users.\n\nFor companies, we see that data about people can be very lucrative business. It is also increasingly apparent that having too much data about users can destroy your business if that information gets hacked and dumped onto the internet.\n\nBuilding apps that can securely contain private can be hard to do, but it does not have to be. Guardian Project’s central goal is to make it as easy as possible. We take cutting edge security research and bundle it up into free, easy to use libraries. These libraries make it very easy to protect precious data on the device and over the internet. These libraries use APIs that developers already know (e.g. android.database.*, java.io.*) so the ramp up time for developers is really fast. This workshop will give an overview of our suite of libraries, including SQLCipher-for-Android, private file stores, and hardened network connections. Then we will help you start incorporating them in your own apps, providing a wealth of examples including sample code, real world apps that use these libraries, and UI/UX patterns that work well."
+}, {
+	"id": 16,
+	"startAt": "2016-03-05 14:40",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [14],
+	"title": "Xamarin Forms for native cross platform development",
+	"description": "This talk will introduce Xamarin Forms as a platform for building native cross platform mobile applications. It will cover the following three points:\n1. Pros and cons of Xamarin compared to HTML5 technologies especially Cordova and Ionic (performance, UX, development environment & costs).\n2. Demoing a Xamarin Forms application using C# and Visual Studio/Xamarin Studio (developing a sample application that contains the basic user controls).\n3. Xamarin communities (Xamarin MVP / Student Ambassador) and advantages (Xamarin University, Free licenses). At the end, attendees will be able to know the perfect cases to use Xamarin and when not to use it."
+}, {
+	"id": 17,
+	"startAt": "2016-03-05 15:25",
+	"duration": 20,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Coffee break",
+	"description": null
+}, {
+	"id": 18,
+	"startAt": "2016-03-05 15:45",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [21],
+	"title": "Virtual and Augmented reality on android",
+	"description": "Have you ever loved a game so much that you want to live in it? Have you ever thought about bringing a virtual creation into our world?\n\nWith your smartphone, Mixed Reality is a magic window; a window that takes you to places beyond your reach and lets you step into the future.\n\nImage processing field has never been this simple to be understood as it is nowadays; no complex algorithm to be learnt, just one tool to make all these happen. All it takes is an android device and a little bit of work to transform your smartphone into an intelligent device that can detect and figure out what it captures, assimilate your movement and enhance your senses. With your smartphone you can make such a great achievement.\n\nIn this workshop, we will learn how to use Unity3D to create virtual and augmented reality experiences. Using the Vuforia and Google Cardboard SDK, it has never been easier to create such application. We will learn how to use them in the best way possible and more importantly how to make a combination of both of them so we create the best mixed reality experience.\n\nThis workshop will bring to your mobile device the power and control of many years of research and complex algorithm, which were previously available only for researchers. Now with these simple tools, you can make your environment interactive, modify it and a lot more…\n\nYour smartphone will take you to another world with Unity3D; It’s mixed reality, any time, anywhere."
+}, {
+	"id": 19,
+	"startAt": "2016-03-05 15:45",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [19],
+	"title": "#PERFMATTERS for Android",
+	"description": "The slogan ‘#PERFMATTERS’ by Colt McAnlis is one of the most important statements, which an Android developer should follow. A well performing application makes the difference between a nice looking application and one, which gets successful. You, as an Android developer, have the responsibility to delight your users, so they don’t feel how much work your application has to burden to fulfill the user’s needs. This session will show you some easy optimizations and how to avoid glitches in the application. A lot of developers would shout, that this is premature optimization. In contrary it is preventive. With a small amount of work while developing you can avoid a lot of pitfalls. You will hopefully have a better understanding of the underlying system afterwards. During the session some tools and frameworks will be presented for helping you to fulfill your mission."
+}, {
+	"id": 20,
+	"startAt": "2016-03-05 16:40",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": [17],
+	"title": "OWASP TOP 10 Security for Mobile",
+	"description": "TOP 10 Security threats in Mobile Platforms\nin this talk we will focus on security checks for your mobile apps. If you are a Pentester or an organization which develops mobile apps, then this checklist is what you should consider as BaseLine for your mobile apps\nthis list is based on statistics for vulnerabilities in the field of mobile apps\nwe will be presenting the mobile threat model that this list is based on and also present secure mobile apps development guidelines with each threat or risk"
+}, {
+	"id": 21,
+	"startAt": "2016-03-05 16:40",
+	"duration": 30,
+	"roomId": 2,
+	"speakersId": [3],
+	"title": "Kick-off with Successful android Business apps",
+	"description": "Apps can do just about anything, but a mobile strategy is essential to determine how a mobile app could best serve your needs. Identify an issue or opportunity first, then think about how mobile may be able to solve it.\n\nWe all know that the Management is the most important elements of the success of major companies and entrepreneurial,and it represents a significant proportion in this path.\nThrough our tech-talk session, we will talk about the development of mobile applications under the concept of successful management mechanisms, also we’ll make lights on marketing strategy, and how can find the best revenue models for our mobile apps, also we have some of these topics. Here is what’s covered:\n– Build Your Personal Online Presence\n– Validate Your Idea\n– Choose Your Revenue Model\n– Choose The Right Name & Branding.\n– Start Marketing Within Your App\n– Build Your App’s Online Presence\n– Get Feedback\n– Localize\n– Do App Store Optimization\n– Get Your App Reviewed\n– Market Your App With Video\n– Do “Real-life” Marketing?\n– Cross-Promote Your App\n– Kill It On Launch Day!\n– Improve Engagement With Push Notifications\n– Choose The Right Promotion Campaigns\n– Measure, Improve & Keep On Marketing\n– Native vs Cross-Platform Development\n– Choose Your First Platform Wisely\n– Client Retention Secrets\n– Find a co-founder."
+}, {
+	"id": 22,
+	"startAt": "2016-03-05 17:10",
+	"duration": 20,
+	"roomId": 1,
+	"speakersId": null,
+	"title": "Closing Day 1",
+	"description": null
+}, {
+	"id": 23,
+	"startAt": "2016-03-05 19:00",
+	"duration": 180,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Afterparty",
+	"description": null
+}, {
+	"id": 24,
+	"startAt": "2016-03-06 08:00",
+	"duration": 120,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Opening Day 2",
+	"description": null
+}, {
+	"id": 25,
+	"startAt": "2016-03-06 10:00",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": [14],
+	"title": "Go Real Time with Firebase",
+	"description": "Firebase was even before the google integration the new thing, my session aim to show how to integrate the Firebase api from RealTime storage to Authentication to Role Based Security, this session will take all the platform as a starting point and go from the creating a plain Firebase application to real world integration, firebase is widely supported in all major well known platform, so Android, Ios, Windows Phone, and through this session the principles, rules and working steps are applied in the Native world, and definitely in the Hybrids ide.this talk is a beginner to intermediate level developers since firebase in its totality is a fun and really easy to get up and running with, but it hold one of the most wanted features in the modern Web/Mobile development."
+}, {
+	"id": 26,
+	"startAt": "2016-03-06 10:00",
+	"duration": 30,
+	"roomId": 2,
+	"speakersId": [13],
+	"title": "Let’s your users share your App with Friends: App Invites for Android",
+	"description": "Thinking about free marketing ? Want to give the opportunity to your user to share your app with their friends ? maybe you just need more downloads ? Not sure where to start? Android App Invite is one of the answer you were looking for.\nYou will learn more about app invite is all about and why you need to care about.\nThis talk will teach you exactly what you need to know to integrate app invite in your application.\nAt the end of this class, you will learn:\n-why you need app invite in your app\n-how to integrate app invite in your app\n-how to manage invites tracking using Google Analytics API"
+}, {
+	"id": 27,
+	"startAt": "2016-03-06 10:40",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [13],
+	"title": "Firebase: A Great Backend Service for Android Application",
+	"description": "Today the world is all about connected devices, social media and internet. Building a mobile app also means think about a back-end. Sometime ago, mobile developers need to build their own back-end providing data storage, user authentication and some REST API. Nowadays back-end as service like Firebase can handle server side tasks and give interesting features to Mobile Applications.\n\nIn this talk we will explore Firebase for mobile applications. Then, after a brief explanation of the Firebase Structure, we will move into the technical part of the talk, where attendees will see how easy it is to integrate Firebase in Android Applications.\nFinally The talk provides some Android Firebase examples about authentication, using data storage, security and working offline."
+}, {
+	"id": 28,
+	"startAt": "2016-03-06 10:40",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [14],
+	"title": "Firebase for Mobile – The How To ?",
+	"description": "In this workshop we will try to leverage the power of firebase, and learn how we can apply all the basic configuration and step to build a Hybrid app that exploit the power of Ionic Framework and Firebase in the process of building a social media app with authentication and authorization and real time data storage and everything in beyond, and before all that we will introduce the Hybrid Apps approach and capabilities and also talk about the Firebase how-to from the ground up, till we can build something really interesting using, firebase is a really interesting and mind blowing platform that makes building Real Time application with the power of configuration over implementation a total easy process, knowing that firebase if present in all major platforms, like Android, IOS, Web and more."
+}, {
+	"id": 29,
+	"startAt": "2016-03-06 11:25",
+	"duration": 20,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Coffee break",
+	"description": null
+}, {
+	"id": 30,
+	"startAt": "2016-03-06 11:45",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [2, 6],
+	"title": "Event Based Architecture",
+	"description": "When you implement your app, you will find yourself implementing a lot of listeners and callbacks to manage all the communication stuff between your app components (activities, fragments, views….) and a lot of classes become difficult to read and maintain.\nTo avoid all the headache, we can enhance our app architecture by adopting an event based architecture. During this talk, we will present how this can be implemented and which open source libraries can we use to easily integrate such an architecture."
+}, {
+	"id": 31,
+	"startAt": "2016-03-06 11:45",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [12],
+	"title": "NativeScript Extensibility",
+	"description": "The NativeScript framework comes equipped with a platform-agnostic abstraction layer that allows you to call Native APIs without the need to learn iOS, Android, and Windows Phone APIs; we call it the NativeScript Modules Layer.\n\nNativeScript is extremely extensible, so you are never limited to what you get out of the box—”the sky is the limit”, and in some cases not even that.\n\nIn this session you’ll see how to use a NativeScript Module, and most importantly, you will learn how simple it is to build one. We’ll finish with something more challenging: a NativeScript Module that uses 3rd-party native components.\n\nYou can expect real life examples, cool ideas, and some apps that could save your life if you are ever lost at sea."
+}, {
+	"id": 32,
+	"startAt": "2016-03-06 12:40",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": [11],
+	"title": "The 2016 Android Developer Toolbox",
+	"description": "Developing for Android has drastically changed over the last few years.\nWe now have a gigantic toolbox we can benefit from to improve our productivity and build better applications.\n\nDuring this presentation I will introduce some of the tools we use daily at happn, a multi-million users French dating application.\n\nI will talk about many tools that help us to:\n– Simulate a laggy/instable HTTP(s) connection\n– Interact with our application to analyze logs, views, and modify any data (inc. memory / shared preferences / database) in real time\n– Change our application’s backend server without recompiling\n– Better understand our technical debt\n– Create a REST mock server in a few seconds to anticipate the development of a feature when the backend is not developed yet\n– Measure the performance (cpu/memory) of our application\n– Decompile our application to better understand and analyze its security\n– Alter a server response and check whether the application behaves properly\n– and many more tips…"
+}, {
+	"id": 33,
+	"startAt": "2016-03-06 12:40",
+	"duration": 30,
+	"roomId": 2,
+	"speakersId": [15],
+	"title": "Cleandroid: a cleaner and faster android native development",
+	"description": "The main aims of this talk is to present the Cleandroid opensource framework which i recently developed to make android native development much easier and faster. Cleandroid is framework based on a powerful container and that provides a set of features and components such as dependency injection, form handling via FormModel (original concept), simpler HTTP handling, JPA-like ORM, validation engine,…etc. The very first project version (1.0-beta) is hosted on github (https://github.com/douraid/cleandroid/tree/v1.0-beta), also there’s a short documentation wrote on the wiki section (https://github.com/douraid/cleandroid/wiki)."
+}, {
+	"id": 34,
+	"startAt": "2016-03-06 13:10",
+	"duration": 80,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Lunch break",
+	"description": null
+}, {
+	"id": 35,
+	"startAt": "2016-03-06 14:30",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": [8],
+	"title": "State of Android Testing Support Library",
+	"description": "Testing in the Android Platform used to be hard, but not now.\nThe Android Testing Support Library provides an extensive framework for testing Android apps. In this talk we will go through the main features like the new instrumentation test runner. Then we will cover Espresso and advanced topics like espresso-intents and idling resources. Finally we will see UI Automator, testing framework suitable for cross-app functional UI testing across system and installed apps"
+}, {
+	"id": 36,
+	"startAt": "2016-03-06 14:30",
+	"duration": 30,
+	"roomId": 2,
+	"speakersId": [1],
+	"title": "AOSP – Hack your own Android ROM",
+	"description": "Enough with Android apps, now let’s build our own custom ROM! Ever wondered how to modify and compile the Android Open Source Project (AOSP)?\n\nWant to build you own custom app, or use it for an embedded device?\n\nHow to start, where to modify, how the work is done. This lecture is a hands on that will explain all the basics and how to continue on your own."
+}, {
+	"id": 37,
+	"startAt": "2016-03-06 15:15",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [6, 2],
+	"title": "Android Marshmallow New system permissions",
+	"description": "Android Marshmallow came with a huge change for developers, and now, we, developers, should manage how we (our applications in fact) ask for a system permission. Also, We have to adapt our apps if a mandatory permission is declined by user.\nDuring this talk, we will discuss the permissions impacted by this new system and we will present the best way to ask for a permission as defined by google design guidelines."
+}, {
+	"id": 38,
+	"startAt": "2016-03-06 15:15",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [5],
+	"title": "Engineering android apps for Performance and Delight",
+	"description": "There are thousand of apps being developed and published by thousands of android developers each day but result is frustrating when you do code review, architecture review and check performance. Couple of apps you would find are either developed haphazardly just to achieve the deadline or didn’t followed standard practices or such other reasons.\n\nThere are best practices which can help android developers to engineer android applications the right way. I will cover some of the best practices like:\n1. Gradle best practices\n2. Architecture best practices for engineering scalable android apps\n3. Practices for improving performance\n4. Practices for hunting down memory leaks\n5. Practices for designing android apps\n6. Practices for testing android apps. Why, what and how to test android apps!\n7. Practices – Getting and managing crash reports\n8. and many other such practices!"
+}, {
+	"id": 39,
+	"startAt": "2016-03-06 16:00",
+	"duration": 20,
+	"roomId": 0,
+	"speakersId": null,
+	"title": "Coffee break",
+	"description": null
+}, {
+	"id": 40,
+	"startAt": "2016-03-06 16:20",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [7],
+	"title": "Bluetooth Low Energy in Android",
+	"description": "a presentation on Bluetooth Low Energy (smart bluetooth) and a tutorial on developing Android application using BLE. than a workshop to develop an application with iBeacon"
+}, {
+	"id": 41,
+	"startAt": "2016-03-06 16:20",
+	"duration": 45,
+	"roomId": 2,
+	"speakersId": [27],
+	"title": "Write once deploy everywhere, get started with the Open source cross platform framework Qt",
+	"description": "Lately, Making native looking applications throughout cross-platform tools becomes a reality.\n\nDeploying to multiple platforms(roughly a dozen) and gaining the C++ performance in your application are not the only pros of the Qt cross-platform framework, you can take profit from a more reduced time to market, possible through the new Qt Quick module.\n\nWith the new Qt QML language, your most common app features are made in a record time, it even permit you to write your app entirely in a declarative language including easy to use animation, 3D and all the JavaScript power and simplicity, in the most simple way.\n\nYou can’t have a special application unless you have a powerful back-end, the 20 years old mature framework will help you make your app a distinctive and useful piece of software, the C++ methods from sensor management to image recognition are on your disposal to make the heavy treatments part.\n\nYou can always use your Java intimate snippets in consistency with the other parts of your Qt Android application.\n\nWhatever you’re an old school C++ programmer or newbie JS integrator, this talk will help you get started with the Qt tools and framework to make your android application."
+}, {
+	"id": 42,
+	"startAt": "2016-03-06 17:15",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [4],
+	"title": "Android Library A-Z",
+	"description": "In almost every Android app project, you use a variety of libraries. This talk covers some of the most used libraries. While developing an Android app, you rely on loads of 3rd party libraries to make your life easier. Need persistence? No problem. Need to access a REST API? No problem. Need to handle images in your app? No problem. There’s a library for almost any common task that Android developers will face. In this talk, I will show examples of some of the most common Android libraries that are out there."
+}, {
+	"id": 43,
+	"startAt": "2016-03-06 17:15",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [9],
+	"title": "Blockchain in depth",
+	"description": "To fully grasp Bitcoin and it’s possibilities a deep understanding of the blockchain is necessary. With this talk I’d like to answer questions like: How are bitcoins exactly ‘created’, what does a wallets balance exactly mean. How does the bitcoin ‘Script’ language work and what are the possible applications of p2sh (pay to script hash). How do Sidechains work and how they link to the original Blockchain. What are HD-Wallets and how do you build them."
+}, {
+	"id": 44,
+	"startAt": "2016-03-06 17:15",
+	"duration": 45,
+	"roomId": 1,
+	"speakersId": [16],
+	"title": "Taking Wearable Development beyond Android",
+	"description": "As Android developers, we’re able to easily create applications for wearable devices such as Android Wear and Google Glass. But, what happens when we need to create an app or custom device simply to get data or functionality that a phone, tablet, or smartwatch doesn’t provide? Prototyping such types of wearable devices used to be something that required specialized skills in embedded development as well as electrical and mechanical engineering. Today, thanks to the maker revolution, we can combine our programming knowledge with basic electronics, soldering skills, and access to a 3-D printer in order to create useful devices. More importantly, there are now boards available that allow developers to interact with them without having to create custom Bluetooth drivers or write C++ firmware.\n\nIn this session, we’ll take a quick tour of some of the options, and then do a deep dive into creating a wearable prototype through code and live demos that use two different approaches:\n\n1. An Arduino board using an Android SDK and a smidgen of C++\n2. The MbientLab MetaWear board using only an Android SDK\n\nBy the end, you’ll have enough information to begin developing your own wearable devices."
+}, {
+	"id": 45,
+	"startAt": "2016-03-06 18:00",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": null,
+	"title": "Closing Day 2",
+	"description": null
+}]
