@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.nilhcem.droidcontn.data.database.model.SelectedSession;
+import com.nilhcem.droidcontn.data.database.model.Session;
 import com.nilhcem.droidcontn.data.database.model.Speaker;
 
 public class DbOpenHelper extends SQLiteOpenHelper {
@@ -19,6 +20,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         createSpeakersTable(db);
+        createSessionsTable(db);
         createSelectedSessionsTable(db);
     }
 
@@ -36,6 +38,17 @@ public class DbOpenHelper extends SQLiteOpenHelper {
                 Speaker.TWITTER + " VARCHAR," +
                 Speaker.GITHUB + " VARCHAR," +
                 Speaker.PHOTO + " VARCHAR);");
+    }
+
+    private void createSessionsTable(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE " + Session.TABLE + " (" +
+                Session.ID + " INTEGER PRIMARY KEY," +
+                Session.START_AT + " VARCHAR," +
+                Session.DURATION + " INTEGER," +
+                Session.ROOM_ID + " INTEGER," +
+                Session.SPEAKERS_IDS + " VARCHAR," +
+                Session.TITLE + " VARCHAR," +
+                Session.DESCRIPTION + " VARCHAR);");
     }
 
     private void createSelectedSessionsTable(SQLiteDatabase db) {

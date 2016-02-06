@@ -4,6 +4,7 @@ import com.nilhcem.droidcontn.data.app.model.Schedule;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.database.DbMapper;
 import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
+import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
 import com.nilhcem.droidcontn.data.database.dao.SpeakersDao;
 import com.nilhcem.droidcontn.data.network.DroidconService;
 
@@ -18,14 +19,18 @@ import rx.Subscriber;
 @Singleton
 public class DataProvider {
 
+    private final DbMapper dbMapper;
     private final DroidconService service;
     private final SpeakersDao speakersDao;
+    private final SessionsDao sessionsDao;
     private final SelectedSessionsDao selectedSessionsDao;
 
     @Inject
-    public DataProvider(DroidconService service, SpeakersDao speakersDao, SelectedSessionsDao selectedSessionsDao) {
+    public DataProvider(DbMapper dbMapper, DroidconService service, SpeakersDao speakersDao, SessionsDao sessionsDao, SelectedSessionsDao selectedSessionsDao) {
+        this.dbMapper = dbMapper;
         this.service = service;
         this.speakersDao = speakersDao;
+        this.sessionsDao = sessionsDao;
         this.selectedSessionsDao = selectedSessionsDao;
     }
 
@@ -44,7 +49,7 @@ public class DataProvider {
         return Observable.create(subscriber -> {
             // Get from Database
             speakersDao.getSpeakers()
-                    .map(DbMapper::toNetworkSpeaker)
+                    .map(dbMapper::toNetworkSpeaker)
                     .subscribe(dbSpeakers -> {
                         if (dbSpeakers.isEmpty()) {
                             // TODO: get from embedded json
@@ -55,7 +60,7 @@ public class DataProvider {
                         if (!subscriber.isUnsubscribed()) {
                             getSpeakersFromNetwork(subscriber);
                         }
-                    });
+                    }, subscriber::onError);
         });
     }
 
@@ -63,16 +68,34 @@ public class DataProvider {
         service.loadSpeakers()
                 .subscribe(networkSpeakers -> {
                     subscriber.onNext(networkSpeakers);
-                    speakersDao.saveSpeakers(DbMapper.fromNetworkSpeakers(networkSpeakers));
+                    speakersDao.saveSpeakers(dbMapper.fromNetworkSpeakers(networkSpeakers));
                 }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
     }
 
     private Observable<List<com.nilhcem.droidcontn.data.network.model.Session>> getSessions() {
-        // Get from db || file
+        return Observable.create(subscriber -> {
+            // Get from Database
+            sessionsDao.getSessions()
+                    .map(dbMapper::toNetworkSession)
+                    .subscribe(dbSessions -> {
+                        if (dbSessions.isEmpty()) {
+                            // TODO: get from embedded json
+                        } else {
+                            subscriber.onNext(dbSessions);
+                        }
 
-        // Get from network
-        return service.loadSessions()
-                .flatMap(Observable::from)
-                .toList();
+                        if (!subscriber.isUnsubscribed()) {
+                            getSessionsFromNetwork(subscriber);
+                        }
+                    }, subscriber::onError);
+        });
+    }
+
+    private void getSessionsFromNetwork(Subscriber<? super List<com.nilhcem.droidcontn.data.network.model.Session>> subscriber) {
+        service.loadSessions()
+                .subscribe(networkSessions -> {
+                    subscriber.onNext(networkSessions);
+                    sessionsDao.saveSessions(dbMapper.fromNetworkSessions(networkSessions));
+                }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
     }
 }
