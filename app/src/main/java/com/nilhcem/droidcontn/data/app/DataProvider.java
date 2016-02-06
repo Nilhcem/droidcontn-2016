@@ -47,7 +47,6 @@ public class DataProvider {
 
     private Observable<List<com.nilhcem.droidcontn.data.network.model.Speaker>> getSpeakers() {
         return Observable.create(subscriber -> {
-            // Get from Database
             speakersDao.getSpeakers()
                     .map(dbMapper::toNetworkSpeaker)
                     .subscribe(dbSpeakers -> {
@@ -74,7 +73,6 @@ public class DataProvider {
 
     private Observable<List<com.nilhcem.droidcontn.data.network.model.Session>> getSessions() {
         return Observable.create(subscriber -> {
-            // Get from Database
             sessionsDao.getSessions()
                     .map(dbMapper::toNetworkSession)
                     .subscribe(dbSessions -> {
