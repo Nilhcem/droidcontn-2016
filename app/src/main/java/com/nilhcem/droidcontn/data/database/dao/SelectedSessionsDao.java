@@ -34,6 +34,7 @@ public class SelectedSessionsDao {
     public void init() {
         database.createQuery(SelectedSession.TABLE, "SELECT * FROM " + SelectedSession.TABLE)
                 .mapToList(SelectedSession.MAPPER)
+                .first()
                 .map(selectedSessions -> {
                     Map<LocalDateTime, Integer> sessions = new HashMap<>();
                     for (SelectedSession session : selectedSessions) {

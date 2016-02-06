@@ -52,52 +52,16 @@ public class Speaker {
         return new Speaker(id, name, title, bio, website, twitter, github, photo);
     };
 
-    public static final class Builder {
-
-        private final ContentValues values = new ContentValues();
-
-        public Builder id(int id) {
-            values.put(ID, id);
-            return this;
-        }
-
-        public Builder name(String name) {
-            values.put(NAME, name);
-            return this;
-        }
-
-        public Builder title(String title) {
-            values.put(TITLE, title);
-            return this;
-        }
-
-        public Builder bio(String bio) {
-            values.put(BIO, bio);
-            return this;
-        }
-
-        public Builder website(String website) {
-            values.put(WEBSITE, website);
-            return this;
-        }
-
-        public Builder twitter(String twitter) {
-            values.put(TWITTER, twitter);
-            return this;
-        }
-
-        public Builder github(String github) {
-            values.put(GITHUB, github);
-            return this;
-        }
-
-        public Builder photo(String photo) {
-            values.put(PHOTO, photo);
-            return this;
-        }
-
-        public ContentValues build() {
-            return values;
-        }
+    public static ContentValues createContentValues(Speaker speaker) {
+        ContentValues values = new ContentValues();
+        values.put(ID, speaker.id);
+        values.put(NAME, speaker.name);
+        values.put(TITLE, speaker.title);
+        values.put(BIO, speaker.bio);
+        values.put(WEBSITE, speaker.website);
+        values.put(TWITTER, speaker.twitter);
+        values.put(GITHUB, speaker.github);
+        values.put(PHOTO, speaker.photo);
+        return values;
     }
 }
