@@ -8,9 +8,14 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.service.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.utils.Intents;
 
+import javax.inject.Inject;
+
 public class SettingsFragment extends PreferenceFragmentCompat implements SettingsView {
+
+    @Inject SessionsReminder sessionsReminder;
 
     private SettingsPresenter presenter;
     private CheckBoxPreference notifySessions;
@@ -40,7 +45,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
 
     private void initPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
-        presenter = new SettingsPresenter(this);
+        presenter = new SettingsPresenter(this, sessionsReminder);
         presenter.onCreate();
     }
 

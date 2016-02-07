@@ -1,5 +1,9 @@
 package com.nilhcem.droidcontn.utils;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.os.Build;
+
 import com.nilhcem.droidcontn.BuildConfig;
 
 import java.util.Locale;
@@ -20,5 +24,13 @@ public final class App {
             version = String.format(Locale.US, "%s — commit %s", version, BuildConfig.GIT_SHA);
         }
         return version;
+    }
+
+    public static void setExactAlarm(AlarmManager alarmManager, long triggerAtMillis, PendingIntent operation) {
+        if (isCompatible(Build.VERSION_CODES.KITKAT)) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerAtMillis, operation);
+        } else {
+            alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAtMillis, operation);
+        }
     }
 }

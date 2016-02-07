@@ -9,6 +9,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -20,6 +21,7 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
+import com.nilhcem.droidcontn.service.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
 import com.nilhcem.droidcontn.utils.Animations;
@@ -41,6 +43,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     private static final String EXTRA_SESSION = "session";
 
     @Inject Picasso picasso;
+    @Inject SessionsReminder sessionsReminder;
     @Inject SelectedSessionsDao selectedSessionsDao;
 
     @Bind(R.id.session_details_layout) View layout;
@@ -64,7 +67,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     protected SessionDetailsPresenter newPresenter() {
         DroidconApp.get(this).component().inject(this);
         Session session = getIntent().getParcelableExtra(EXTRA_SESSION);
-        return new SessionDetailsPresenter(this, session, selectedSessionsDao);
+        return new SessionDetailsPresenter(this, session, selectedSessionsDao, sessionsReminder);
     }
 
     @Override
@@ -142,7 +145,10 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     private void bindHeaderPhoto(Session session, int headerWidth) {
         List<Speaker> speakers = session.getSpeakers();
         if (speakers != null && !speakers.isEmpty()) {
-            picasso.load(speakers.get(0).getPhoto()).resize(headerWidth, 0).into(photo);
+            String photo = speakers.get(0).getPhoto();
+            if (!TextUtils.isEmpty(photo)) {
+                picasso.load(photo).resize(headerWidth, 0).into(this.photo);
+            }
         }
     }
 

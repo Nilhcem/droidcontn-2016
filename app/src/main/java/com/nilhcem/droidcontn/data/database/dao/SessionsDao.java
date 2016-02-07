@@ -1,9 +1,11 @@
 package com.nilhcem.droidcontn.data.database.dao;
 
+import com.nilhcem.droidcontn.data.database.model.SelectedSession;
 import com.nilhcem.droidcontn.data.database.model.Session;
 import com.squareup.sqlbrite.BriteDatabase;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -37,5 +39,13 @@ public class SessionsDao {
         } finally {
             transaction.end();
         }
+    }
+
+    public Observable<List<Session>> getSelectedSessions() {
+        String query = String.format(Locale.US, "SELECT * FROM %s INNER JOIN %s ON %s.%s=%s.%s",
+                Session.TABLE, SelectedSession.TABLE, Session.TABLE, Session.ID, SelectedSession.TABLE, SelectedSession.SESSION_ID);
+        return database.createQuery(Session.TABLE, query)
+                .mapToList(Session.MAPPER)
+                .first();
     }
 }

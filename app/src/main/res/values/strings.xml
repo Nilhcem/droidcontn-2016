@@ -50,4 +50,7 @@
     <string name="settings_about_conf_title">Droidcon Tunisia</string>
     <string name="settings_about_sources_title">Source code</string>
     <string name="settings_about_developer_title">Homemade by </string>
+
+    <!-- Sessions reminder -->
+    <string name="reminder_about_to_start">Session %1$s is about to start!</string>
 </resources>

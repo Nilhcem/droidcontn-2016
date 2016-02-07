@@ -38,5 +38,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.drawer.DrawerActivity"/>
         </activity>
+
+        <receiver android:name=".service.reminder.ReminderReceiver" />
     </application>
 </manifest>

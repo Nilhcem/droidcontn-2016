@@ -3,6 +3,7 @@ package com.nilhcem.droidcontn.ui.sessions.details;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,7 +44,9 @@ public class SessionDetailsSpeaker extends LinearLayout {
     }
 
     private void bind(Speaker speaker, Picasso picasso) {
-        picasso.load(speaker.getPhoto()).transform(new CircleTransformation()).into(photo);
+        if (!TextUtils.isEmpty(speaker.getPhoto())) {
+            picasso.load(speaker.getPhoto()).transform(new CircleTransformation()).into(photo);
+        }
         name.setText(speaker.getName());
         title.setText(speaker.getTitle());
     }
