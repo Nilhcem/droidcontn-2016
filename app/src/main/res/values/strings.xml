@@ -42,6 +42,9 @@
     <string name="venue_convention_content">Integrated within the Medina Mediterranean, the Medina Convention Center offers a full range of rooms equipped with modern audiovisual equipment, making it the ideal please for events, conferences, seminars, incentives…\n\nThe Convention Center Medina offers a wide selection of spaces: 6000m² of workspace, exhibition space, amphitheaters, sub-commission rooms, etc.</string>
 
     <!-- Settings -->
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notify_about_my_sessions">Notify me about selected sessions</string>
+    <string name="settings_notify_about_my_sessions_description">Display a notification when selected sessions are about to begin</string>
     <string name="settings_about">About</string>
     <string name="settings_about_version">Version</string>
     <string name="settings_about_conf_title">Droidcon Tunisia</string>

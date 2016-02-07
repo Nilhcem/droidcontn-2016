@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Settings -->
+    <string name="settings_notify_key" translatable="false">notify_sessions</string>
     <string name="settings_version_key" translatable="false">app_version</string>
     <string name="settings_conf_key" translatable="false">conference_link</string>
     <string name="settings_github_key" translatable="false">github_link</string>

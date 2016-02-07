@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/settings_notifications">
+        <CheckBoxPreference
+            android:icon="@null"
+            android:key="@string/settings_notify_key"
+            android:summary="@string/settings_notify_about_my_sessions_description"
+            android:title="@string/settings_notify_about_my_sessions"/>
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_about">
         <Preference
             android:key="@string/settings_conf_key"
