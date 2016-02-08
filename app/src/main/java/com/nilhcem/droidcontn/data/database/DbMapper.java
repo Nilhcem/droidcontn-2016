@@ -4,15 +4,19 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.nilhcem.droidcontn.core.moshi.LocalDateTimeAdapter;
+import com.nilhcem.droidcontn.data.app.model.Room;
 import com.nilhcem.droidcontn.data.database.model.Session;
 import com.nilhcem.droidcontn.data.database.model.Speaker;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 
+import org.threeten.bp.LocalDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -88,5 +92,37 @@ public class DbMapper {
             }
         }
         return result;
+    }
+
+    public List<com.nilhcem.droidcontn.data.app.model.Session> toAppSessions(@NonNull List<Session> from, @NonNull Map<Integer, com.nilhcem.droidcontn.data.app.model.Speaker> speakersMap) {
+        List<com.nilhcem.droidcontn.data.app.model.Session> sessions = new ArrayList<>(from.size());
+        for (Session session : from) {
+            LocalDateTime fromTime = localDateTimeAdapter.fromText(session.startAt);
+            sessions.add(new com.nilhcem.droidcontn.data.app.model.Session(
+                    session.id, Room.getFromId(session.roomId).name, getSpeakersList(deserialize(session.speakersIds), speakersMap),
+                    session.title, session.description, fromTime, fromTime.plusMinutes(session.duration)));
+        }
+        return sessions;
+    }
+
+    private static List<com.nilhcem.droidcontn.data.app.model.Speaker> getSpeakersList(@Nullable List<Integer> from, @NonNull Map<Integer, com.nilhcem.droidcontn.data.app.model.Speaker> speakersMap) {
+        List<com.nilhcem.droidcontn.data.app.model.Speaker> speakers = null;
+        if (from != null) {
+            speakers = new ArrayList<>(from.size());
+            for (Integer speakerId : from) {
+                speakers.add(speakersMap.get(speakerId));
+            }
+        }
+        return speakers;
+    }
+
+    public List<com.nilhcem.droidcontn.data.app.model.Speaker> toAppSpeakers(@NonNull List<Speaker> from) {
+        List<com.nilhcem.droidcontn.data.app.model.Speaker> speakers = new ArrayList<>(from.size());
+        for (Speaker speaker : from) {
+            speakers.add(new com.nilhcem.droidcontn.data.app.model.Speaker(speaker.id,
+                    speaker.name, speaker.title, speaker.bio, speaker.website, speaker.twitter,
+                    speaker.github, speaker.photo));
+        }
+        return speakers;
     }
 }

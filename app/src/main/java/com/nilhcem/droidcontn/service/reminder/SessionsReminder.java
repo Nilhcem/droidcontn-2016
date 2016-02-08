@@ -9,9 +9,11 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.app.model.Room;
+import com.nilhcem.droidcontn.data.app.AppMapper;
 import com.nilhcem.droidcontn.data.app.model.Session;
+import com.nilhcem.droidcontn.data.database.DbMapper;
 import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
+import com.nilhcem.droidcontn.data.database.dao.SpeakersDao;
 import com.nilhcem.droidcontn.utils.App;
 
 import org.threeten.bp.LocalDateTime;
@@ -21,6 +23,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import rx.Observable;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
@@ -29,13 +32,17 @@ public class SessionsReminder {
 
     private final Context context;
     private final SessionsDao sessionsDao;
+    private final SpeakersDao speakerDao;
+    private final DbMapper dbMapper;
     private final SharedPreferences preferences;
     private final AlarmManager alarmManager;
 
     @Inject
-    public SessionsReminder(Application app, SessionsDao sessionsDao, SharedPreferences preferences) {
+    public SessionsReminder(Application app, SessionsDao sessionsDao, SpeakersDao speakersDao, DbMapper dbMapper, SharedPreferences preferences) {
         this.context = app;
         this.sessionsDao = sessionsDao;
+        this.speakerDao = speakersDao;
+        this.dbMapper = dbMapper;
         this.preferences = preferences;
         alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
     }
@@ -45,25 +52,11 @@ public class SessionsReminder {
     }
 
     public void enableSessionReminder() {
-        sessionsDao.getSelectedSessions()
-                .flatMap(Observable::from)
-                .map(session -> new Session(session.id, Room.getFromId(session.roomId).name, null, session.title, session.description, LocalDateTime.now().plusMinutes(5), LocalDateTime.now().plusHours(1)))
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.computation())
-                .subscribe(this::addSessionReminder, error -> {
-                    Timber.e(error, "Error enabling session reminder");
-                });
+        getSessions(this::addSessionReminder);
     }
 
     public void disableSessionReminder() {
-        sessionsDao.getSelectedSessions()
-                .flatMap(Observable::from)
-                .map(session -> new Session(session.id, Room.getFromId(session.roomId).name, null, session.title, session.description, LocalDateTime.now().plusMinutes(5), LocalDateTime.now().plusHours(1)))
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.computation())
-                .subscribe(this::removeSessionReminder, error -> {
-                    Timber.e(error, "Error enabling session reminder");
-                });
+        getSessions(this::removeSessionReminder);
     }
 
     public void addSessionReminder(@NonNull Session session) {
@@ -76,7 +69,7 @@ public class SessionsReminder {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime sessionStartTime = session.getFromTime().minusMinutes(3);
         if (!sessionStartTime.isAfter(now)) {
-            Timber.w("No setting reminder for passed session");
+            Timber.w("Do not set reminder for passed session");
             return;
         }
         Timber.d("Setting reminder on %s", sessionStartTime);
@@ -84,11 +77,26 @@ public class SessionsReminder {
     }
 
     public void removeSessionReminder(@NonNull Session session) {
+        Timber.d("Cancelling reminder on %s", session.getFromTime().minusMinutes(3));
         alarmManager.cancel(createSessionReminderIntent(session));
     }
 
     private PendingIntent createSessionReminderIntent(@NonNull Session session) {
         Intent intent = ReminderReceiver.createReceiverIntent(context, session);
         return PendingIntent.getBroadcast(context, session.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    private void getSessions(Action1<? super Session> onNext) {
+        speakerDao.getSpeakers()
+                .map(dbMapper::toNetworkSpeaker)
+                .map(AppMapper::speakersToMap)
+                .subscribe(speakersMap -> {
+                    sessionsDao.getSelectedSessions()
+                            .map(sessions -> dbMapper.toAppSessions(sessions, speakersMap))
+                            .flatMap(Observable::from)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(Schedulers.computation())
+                            .subscribe(onNext, throwable -> Timber.e(throwable, "Error getting sessions"));
+                });
     }
 }
