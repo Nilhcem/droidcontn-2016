@@ -9,11 +9,8 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.app.AppMapper;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.database.DbMapper;
 import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
-import com.nilhcem.droidcontn.data.database.dao.SpeakersDao;
 import com.nilhcem.droidcontn.utils.App;
 
 import org.threeten.bp.LocalDateTime;
@@ -32,19 +29,13 @@ public class SessionsReminder {
 
     private final Context context;
     private final SessionsDao sessionsDao;
-    private final SpeakersDao speakerDao;
-    private final AppMapper appMapper;
-    private final DbMapper dbMapper;
     private final SharedPreferences preferences;
     private final AlarmManager alarmManager;
 
     @Inject
-    public SessionsReminder(Application app, SessionsDao sessionsDao, SpeakersDao speakersDao, AppMapper appMapper, DbMapper dbMapper, SharedPreferences preferences) {
+    public SessionsReminder(Application app, SessionsDao sessionsDao, SharedPreferences preferences) {
         this.context = app;
         this.sessionsDao = sessionsDao;
-        this.speakerDao = speakersDao;
-        this.appMapper = appMapper;
-        this.dbMapper = dbMapper;
         this.preferences = preferences;
         alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
     }
@@ -89,16 +80,10 @@ public class SessionsReminder {
     }
 
     private void performOnSelectedSessions(Action1<? super Session> onNext) {
-        speakerDao.getSpeakers()
-                .map(appMapper::speakersToMap)
+        sessionsDao.getSelectedSessions()
+                .flatMap(Observable::from)
                 .subscribeOn(Schedulers.io())
-                .subscribe(speakersMap -> {
-                    sessionsDao.getSelectedSessions()
-                            .map(sessions -> dbMapper.toAppSessions(sessions, speakersMap))
-                            .flatMap(Observable::from)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(Schedulers.computation())
-                            .subscribe(onNext, throwable -> Timber.e(throwable, "Error getting sessions"));
-                });
+                .observeOn(Schedulers.computation())
+                .subscribe(onNext, throwable -> Timber.e(throwable, "Error getting sessions"));
     }
 }

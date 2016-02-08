@@ -28,14 +28,6 @@ public class SessionsDao {
         this.speakersDao = speakersDao;
     }
 
-    public Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSessions() {
-        return Observable.zip(
-                database.createQuery(Session.TABLE, "SELECT * FROM " + Session.TABLE)
-                        .mapToList(Session.MAPPER).first(),
-                speakersDao.getSpeakersMap(),
-                dbMapper::toAppSessions);
-    }
-
     public void saveSessions(List<com.nilhcem.droidcontn.data.app.model.Session> toSave) {
         Preconditions.checkNotOnMainThread();
 
@@ -51,11 +43,20 @@ public class SessionsDao {
         }
     }
 
-    public Observable<List<Session>> getSelectedSessions() {
+    public Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSessions() {
+        return getSessions("SELECT * FROM " + Session.TABLE);
+    }
+
+    public Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSelectedSessions() {
         String query = String.format(Locale.US, "SELECT * FROM %s INNER JOIN %s ON %s.%s=%s.%s",
                 Session.TABLE, SelectedSession.TABLE, Session.TABLE, Session.ID, SelectedSession.TABLE, SelectedSession.SESSION_ID);
-        return database.createQuery(Session.TABLE, query)
-                .mapToList(Session.MAPPER)
-                .first();
+        return getSessions(query);
+    }
+
+    private Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSessions(String query) {
+        return Observable.zip(
+                database.createQuery(Session.TABLE, query).mapToList(Session.MAPPER).first(),
+                speakersDao.getSpeakersMap(),
+                dbMapper::toAppSessions);
     }
 }
