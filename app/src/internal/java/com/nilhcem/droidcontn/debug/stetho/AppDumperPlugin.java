@@ -2,8 +2,10 @@ package com.nilhcem.droidcontn.debug.stetho;
 
 import android.annotation.TargetApi;
 import android.app.Application;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 
 import com.facebook.stetho.dumpapp.DumpException;
@@ -14,6 +16,7 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
+import com.nilhcem.droidcontn.receiver.BootReceiver;
 import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiver;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.utils.App;
@@ -57,6 +60,9 @@ public class AppDumperPlugin implements DumperPlugin {
             case "appInfo":
                 displayAppInfo(writer);
                 break;
+            case "bootReceiver":
+                displayBootReceiverState(writer);
+                break;
             case "endpoint":
                 changeEndpoint(writer, args);
                 break;
@@ -81,6 +87,31 @@ public class AppDumperPlugin implements DumperPlugin {
 
     private void displayAppInfo(PrintStream writer) {
         writer.println(context.getString(R.string.app_name) + " " + App.getVersion());
+    }
+
+    private void displayBootReceiverState(PrintStream writer) {
+        ComponentName componentName = new ComponentName(context, BootReceiver.class);
+        PackageManager pm = context.getPackageManager();
+
+        writer.print("Boot receiver state: ");
+        int state = pm.getComponentEnabledSetting(componentName);
+        switch (state) {
+            case PackageManager.COMPONENT_ENABLED_STATE_DEFAULT:
+                writer.println("default");
+                break;
+            case PackageManager.COMPONENT_ENABLED_STATE_ENABLED:
+                writer.println("enabled");
+                break;
+            case PackageManager.COMPONENT_ENABLED_STATE_DISABLED:
+                writer.println("disabled");
+                break;
+            case PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER:
+                writer.println("disabled by user");
+                break;
+            default:
+                writer.println(state);
+                break;
+        }
     }
 
     private void changeEndpoint(PrintStream writer, List<String> args) {
@@ -129,6 +160,7 @@ public class AppDumperPlugin implements DumperPlugin {
         writer.println("arg:");
         writer.println("* alarmManager next: Display next alarm");
         writer.println("* appInfo: Display current app build info");
+        writer.println("* bootReceiver: Display boot receiver state");
         writer.println("* endpoint get: Display current api endpoint");
         writer.println("* endpoint set (PROD|MOCK|\"https?://<url>\"): Change api endpoint");
         writer.println("* reminder test: Test a notification reminder");
