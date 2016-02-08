@@ -2,6 +2,7 @@ package com.nilhcem.droidcontn.data.database.dao;
 
 import com.nilhcem.droidcontn.data.database.DbMapper;
 import com.nilhcem.droidcontn.data.database.model.Speaker;
+import com.nilhcem.droidcontn.utils.Preconditions;
 import com.squareup.sqlbrite.BriteDatabase;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public class SpeakersDao {
     }
 
     public Observable<List<com.nilhcem.droidcontn.data.app.model.Speaker>> getSpeakers() {
+        Preconditions.checkNotOnMainThread();
+
         return database.createQuery(Speaker.TABLE, "SELECT * FROM " + Speaker.TABLE)
                 .mapToList(Speaker.MAPPER)
                 .first()
@@ -31,6 +34,8 @@ public class SpeakersDao {
     }
 
     public void saveSpeakers(List<com.nilhcem.droidcontn.data.app.model.Speaker> toSave) {
+        Preconditions.checkNotOnMainThread();
+
         BriteDatabase.Transaction transaction = database.newTransaction();
         try {
             database.delete(Speaker.TABLE, null);
