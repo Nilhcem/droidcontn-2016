@@ -1,5 +1,9 @@
 package com.nilhcem.droidcontn.utils;
 
+import android.os.Looper;
+
+import com.nilhcem.droidcontn.BuildConfig;
+
 /**
  * Preconditions inspired by
  * https://github.com/google/guava/blob/master/guava/src/com/google/common/base/Preconditions.java
@@ -20,5 +24,25 @@ public final class Preconditions {
         if (!expression) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public static void checkOnMainThread() {
+        if (BuildConfig.DEBUG) {
+            if (!isOnMainThread()) {
+                throw new IllegalStateException("This method should be called from the main thread");
+            }
+        }
+    }
+
+    public static void checkNotOnMainThread() {
+        if (BuildConfig.DEBUG) {
+            if (isOnMainThread()) {
+                throw new IllegalStateException("This method must not be called on the main thread");
+            }
+        }
+    }
+
+    private static boolean isOnMainThread() {
+        return Thread.currentThread() == Looper.getMainLooper().getThread();
     }
 }
