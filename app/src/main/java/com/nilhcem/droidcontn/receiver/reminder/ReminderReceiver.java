@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.NotificationCompat;
 
 import com.nilhcem.droidcontn.R;
@@ -34,8 +35,10 @@ public class ReminderReceiver extends BroadcastReceiver {
     }
 
     private void showNotification(Context context, Session session) {
-        Intent sessionIntent = SessionDetailsActivity.createIntent(context, session);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, session.getId(), sessionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = TaskStackBuilder.create(context)
+                .addParentStack(SessionDetailsActivity.class)
+                .addNextIntent(SessionDetailsActivity.createIntent(context, session))
+                .getPendingIntent(session.getId(), PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
