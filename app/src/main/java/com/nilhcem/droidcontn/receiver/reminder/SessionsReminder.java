@@ -89,7 +89,7 @@ public class SessionsReminder {
     }
 
     private void performOnSelectedSessions(Action1<? super Session> onNext) {
-        Schedulers.io().createWorker().schedule(() -> speakerDao.getSpeakers()
+        speakerDao.getSpeakers()
                 .map(appMapper::speakersToMap)
                 .subscribeOn(Schedulers.io())
                 .subscribe(speakersMap -> {
@@ -99,6 +99,6 @@ public class SessionsReminder {
                             .subscribeOn(Schedulers.io())
                             .observeOn(Schedulers.computation())
                             .subscribe(onNext, throwable -> Timber.e(throwable, "Error getting sessions"));
-                }));
+                });
     }
 }

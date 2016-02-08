@@ -1,5 +1,7 @@
 package com.nilhcem.droidcontn.data.app.model;
 
+import android.support.annotation.NonNull;
+
 public enum Room {
 
     NONE(0, ""),
@@ -17,6 +19,15 @@ public enum Room {
     public static Room getFromId(int id) {
         for (Room room : Room.values()) {
             if (room.id == id) {
+                return room;
+            }
+        }
+        return NONE;
+    }
+
+    public static Room getFromName(@NonNull String name) {
+        for (Room room : Room.values()) {
+            if (name.equals(room.name)) {
                 return room;
             }
         }

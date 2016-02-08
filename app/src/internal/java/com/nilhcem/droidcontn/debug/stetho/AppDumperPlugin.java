@@ -14,7 +14,6 @@ import com.facebook.stetho.dumpapp.DumperPlugin;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.AppMapper;
-import com.nilhcem.droidcontn.data.database.DbMapper;
 import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
 import com.nilhcem.droidcontn.data.database.dao.SpeakersDao;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
@@ -39,16 +38,14 @@ public class AppDumperPlugin implements DumperPlugin {
     private final Context context;
     private final ApiEndpoint endpoint;
     private final AppMapper appMapper;
-    private final DbMapper dbMapper;
     private final SessionsDao sessionsDao;
     private final SpeakersDao speakerDao;
 
     @Inject
-    public AppDumperPlugin(Application app, ApiEndpoint endpoint, AppMapper appMapper, DbMapper dbMapper, SessionsDao sessionsDao, SpeakersDao speakersDao) {
+    public AppDumperPlugin(Application app, ApiEndpoint endpoint, AppMapper appMapper, SessionsDao sessionsDao, SpeakersDao speakersDao) {
         this.context = app;
         this.endpoint = endpoint;
         this.appMapper = appMapper;
-        this.dbMapper = dbMapper;
         this.sessionsDao = sessionsDao;
         this.speakerDao = speakersDao;
     }
@@ -162,7 +159,6 @@ public class AppDumperPlugin implements DumperPlugin {
                     .map(appMapper::speakersToMap)
                     .subscribe(speakersMap -> {
                         sessionsDao.getSessions()
-                                .map(sessions -> dbMapper.toAppSessions(sessions, speakersMap))
                                 .flatMap(Observable::from)
                                 .filter(session -> session.getSpeakers() != null)
                                 .first()

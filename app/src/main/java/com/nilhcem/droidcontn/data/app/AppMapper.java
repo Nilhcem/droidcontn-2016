@@ -45,6 +45,17 @@ public class AppMapper {
         return speakers;
     }
 
+    public List<Integer> toSpeakersIds(@Nullable List<Speaker> speakers) {
+        List<Integer> ids = null;
+        if (speakers != null) {
+            ids = new ArrayList<>(speakers.size());
+            for (Speaker speaker : speakers) {
+                ids.add(speaker.getId());
+            }
+        }
+        return ids;
+    }
+
     public Schedule toSchedule(@NonNull List<Session> sessions) {
         // Map and sort Session per start date
         Collections.sort(sessions, (lhs, rhs) -> lhs.getFromTime().compareTo(rhs.getFromTime()));

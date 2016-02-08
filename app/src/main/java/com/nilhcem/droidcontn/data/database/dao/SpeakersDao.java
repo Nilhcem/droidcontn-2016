@@ -1,11 +1,13 @@
 package com.nilhcem.droidcontn.data.database.dao;
 
+import com.nilhcem.droidcontn.data.app.AppMapper;
 import com.nilhcem.droidcontn.data.database.DbMapper;
 import com.nilhcem.droidcontn.data.database.model.Speaker;
 import com.nilhcem.droidcontn.utils.Preconditions;
 import com.squareup.sqlbrite.BriteDatabase;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -17,16 +19,20 @@ public class SpeakersDao {
 
     private final BriteDatabase database;
     private final DbMapper dbMapper;
+    private final AppMapper appMapper;
 
     @Inject
-    public SpeakersDao(BriteDatabase database, DbMapper dbMapper) {
+    public SpeakersDao(BriteDatabase database, DbMapper dbMapper, AppMapper appMapper) {
         this.database = database;
         this.dbMapper = dbMapper;
+        this.appMapper = appMapper;
+    }
+
+    public Observable<Map<Integer, com.nilhcem.droidcontn.data.app.model.Speaker>> getSpeakersMap() {
+        return getSpeakers().map(appMapper::speakersToMap);
     }
 
     public Observable<List<com.nilhcem.droidcontn.data.app.model.Speaker>> getSpeakers() {
-        Preconditions.checkNotOnMainThread();
-
         return database.createQuery(Speaker.TABLE, "SELECT * FROM " + Speaker.TABLE)
                 .mapToList(Speaker.MAPPER)
                 .first()
