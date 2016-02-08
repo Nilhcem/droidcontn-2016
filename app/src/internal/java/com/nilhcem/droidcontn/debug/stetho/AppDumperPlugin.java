@@ -13,8 +13,10 @@ import com.facebook.stetho.dumpapp.DumperContext;
 import com.facebook.stetho.dumpapp.DumperPlugin;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.app.model.Speaker;
+import com.nilhcem.droidcontn.data.app.AppMapper;
+import com.nilhcem.droidcontn.data.database.DbMapper;
+import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
+import com.nilhcem.droidcontn.data.database.dao.SpeakersDao;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
 import com.nilhcem.droidcontn.receiver.BootReceiver;
 import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiver;
@@ -22,24 +24,33 @@ import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Threads;
 
-import org.threeten.bp.LocalDateTime;
-
 import java.io.PrintStream;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
 
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
 public class AppDumperPlugin implements DumperPlugin {
 
     private final Context context;
     private final ApiEndpoint endpoint;
+    private final AppMapper appMapper;
+    private final DbMapper dbMapper;
+    private final SessionsDao sessionsDao;
+    private final SpeakersDao speakerDao;
 
     @Inject
-    public AppDumperPlugin(Application app, ApiEndpoint endpoint) {
+    public AppDumperPlugin(Application app, ApiEndpoint endpoint, AppMapper appMapper, DbMapper dbMapper, SessionsDao sessionsDao, SpeakersDao speakersDao) {
         this.context = app;
         this.endpoint = endpoint;
+        this.appMapper = appMapper;
+        this.dbMapper = dbMapper;
+        this.sessionsDao = sessionsDao;
+        this.speakerDao = speakersDao;
     }
 
     @Override
@@ -147,10 +158,21 @@ public class AppDumperPlugin implements DumperPlugin {
         if (args.size() != 1) {
             doUsage(writer);
         } else if (args.get(0).equals("test")) {
-            List<Speaker> speakers = Arrays.asList(new Speaker(42, "Nilhcem", "Developer", "Procrastinator", "nilhcem.com", "Nilhcem", "Nilhcem", ""));
-            LocalDateTime now = LocalDateTime.now();
-            Session session = new Session(42, "Room #1", speakers, "The 2016 Android Developer Toolbox", "Boring stuff", now.plusMinutes(3), now.plusHours(1));
-            new ReminderReceiver().onReceive(context, ReminderReceiver.createReceiverIntent(context, session));
+            speakerDao.getSpeakers()
+                    .map(dbMapper::toAppSpeakers)
+                    .map(appMapper::speakersToMap)
+                    .subscribe(speakersMap -> {
+                        sessionsDao.getSessions()
+                                .map(sessions -> dbMapper.toAppSessions(sessions, speakersMap))
+                                .flatMap(Observable::from)
+                                .filter(session -> session.getSpeakers() != null)
+                                .first()
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(session -> {
+                                    new ReminderReceiver().onReceive(context, ReminderReceiver.createReceiverIntent(context, session));
+                                });
+                    });
         }
     }
 
