@@ -1,7 +1,6 @@
 package com.nilhcem.droidcontn.debug.stetho;
 
 import android.annotation.TargetApi;
-import android.app.AlarmManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;

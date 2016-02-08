@@ -104,8 +104,7 @@ public class DataProvider {
         service.loadSessions()
                 .subscribe(networkSessions -> {
                     subscriber.onNext(networkSessions);
-                    sessionsDao.saveSessions(
-                            dbMapper.fromNetworkSessions(networkSessions));
+                    sessionsDao.saveSessions(dbMapper.fromNetworkSessions(networkSessions));
                 }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
     }
 }
