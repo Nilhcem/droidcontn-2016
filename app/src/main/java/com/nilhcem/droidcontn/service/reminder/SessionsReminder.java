@@ -33,15 +33,17 @@ public class SessionsReminder {
     private final Context context;
     private final SessionsDao sessionsDao;
     private final SpeakersDao speakerDao;
+    private final AppMapper appMapper;
     private final DbMapper dbMapper;
     private final SharedPreferences preferences;
     private final AlarmManager alarmManager;
 
     @Inject
-    public SessionsReminder(Application app, SessionsDao sessionsDao, SpeakersDao speakersDao, DbMapper dbMapper, SharedPreferences preferences) {
+    public SessionsReminder(Application app, SessionsDao sessionsDao, SpeakersDao speakersDao, AppMapper appMapper, DbMapper dbMapper, SharedPreferences preferences) {
         this.context = app;
         this.sessionsDao = sessionsDao;
         this.speakerDao = speakersDao;
+        this.appMapper = appMapper;
         this.dbMapper = dbMapper;
         this.preferences = preferences;
         alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -88,8 +90,8 @@ public class SessionsReminder {
 
     private void getSessions(Action1<? super Session> onNext) {
         speakerDao.getSpeakers()
-                .map(dbMapper::toNetworkSpeaker)
-                .map(AppMapper::speakersToMap)
+                .map(dbMapper::toAppSpeakers)
+                .map(appMapper::speakersToMap)
                 .subscribe(speakersMap -> {
                     sessionsDao.getSelectedSessions()
                             .map(sessions -> dbMapper.toAppSessions(sessions, speakersMap))

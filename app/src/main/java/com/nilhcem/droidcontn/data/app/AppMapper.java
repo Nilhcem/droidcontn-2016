@@ -3,13 +3,11 @@ package com.nilhcem.droidcontn.data.app;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.nilhcem.droidcontn.data.app.model.Room;
 import com.nilhcem.droidcontn.data.app.model.Schedule;
 import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
-import com.nilhcem.droidcontn.utils.Preconditions;
 
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.LocalDateTime;
@@ -20,56 +18,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 public class AppMapper {
 
-    private AppMapper() {
-        throw new UnsupportedOperationException();
+    @Inject
+    public AppMapper() {
     }
 
-    public static Map<Integer, Speaker> speakersToMap(@NonNull List<com.nilhcem.droidcontn.data.network.model.Speaker> from) {
-        List<Speaker> speakers = mapSpeakers(from);
-        Map<Integer, Speaker> map = new HashMap<>(speakers.size());
-        for (Speaker speaker : speakers) {
+    public Map<Integer, Speaker> speakersToMap(@NonNull List<Speaker> from) {
+        Map<Integer, Speaker> map = new HashMap<>(from.size());
+        for (Speaker speaker : from) {
             map.put(speaker.getId(), speaker);
         }
         return map;
     }
 
-    public static List<Speaker> mapSpeakers(@NonNull List<com.nilhcem.droidcontn.data.network.model.Speaker> from) {
-        List<Speaker> speakers = new ArrayList<>(from.size());
-        for (com.nilhcem.droidcontn.data.network.model.Speaker speaker : from) {
-            speakers.add(new Speaker(speaker.getId(), speaker.getName(), speaker.getTitle(),
-                    speaker.getBio(), speaker.getWebsite(), speaker.getTwitter(),
-                    speaker.getGithub(), speaker.getPhoto()));
-        }
-        return speakers;
-    }
-
-    public static Schedule toSchedule(@NonNull List<com.nilhcem.droidcontn.data.network.model.Session> fromSession, @NonNull Map<Integer, Speaker> speakersMap) {
-        // Map and sort Session per start date
-        Preconditions.checkArgument(!fromSession.isEmpty());
-        List<Session> sessions = mapSessions(fromSession, speakersMap);
-        Collections.sort(sessions, (lhs, rhs) -> lhs.getFromTime().compareTo(rhs.getFromTime()));
-
-        // Gather Sessions per ScheduleSlot
-        List<ScheduleSlot> scheduleSlots = mapToScheduleSlots(sessions);
-
-        // Gather ScheduleSlots per ScheduleDays
-        return mapToScheduleDays(scheduleSlots);
-    }
-
-    private static List<Session> mapSessions(@NonNull List<com.nilhcem.droidcontn.data.network.model.Session> from, @NonNull Map<Integer, Speaker> speakersMap) {
-        List<Session> sessions = new ArrayList<>(from.size());
-        for (com.nilhcem.droidcontn.data.network.model.Session session : from) {
-            sessions.add(new Session(session.getId(), Room.getFromId(session.getRoomId()).name,
-                    mapSpeakerIds(session.getSpeakersId(), speakersMap),
-                    session.getTitle(), session.getDescription(),
-                    session.getStartAt(), session.getStartAt().plusMinutes(session.getDuration())));
-        }
-        return sessions;
-    }
-
-    private static List<Speaker> mapSpeakerIds(@Nullable List<Integer> speakerIds, @NonNull Map<Integer, Speaker> speakersMap) {
+    public List<Speaker> toSpeakersList(@Nullable List<Integer> speakerIds, @NonNull Map<Integer, Speaker> speakersMap) {
         List<Speaker> speakers = null;
         if (speakerIds != null) {
             speakers = new ArrayList<>(speakerIds.size());
@@ -80,7 +45,18 @@ public class AppMapper {
         return speakers;
     }
 
-    private static List<ScheduleSlot> mapToScheduleSlots(@NonNull List<Session> sortedSessions) {
+    public Schedule toSchedule(@NonNull List<Session> sessions) {
+        // Map and sort Session per start date
+        Collections.sort(sessions, (lhs, rhs) -> lhs.getFromTime().compareTo(rhs.getFromTime()));
+
+        // Gather Sessions per ScheduleSlot
+        List<ScheduleSlot> scheduleSlots = mapToScheduleSlots(sessions);
+
+        // Gather ScheduleSlots per ScheduleDays
+        return mapToScheduleDays(scheduleSlots);
+    }
+
+    private List<ScheduleSlot> mapToScheduleSlots(@NonNull List<Session> sortedSessions) {
         List<ScheduleSlot> slots = new ArrayList<>();
 
         LocalDateTime previousTime = null;
@@ -111,7 +87,7 @@ public class AppMapper {
         return slots;
     }
 
-    private static Schedule mapToScheduleDays(@NonNull List<ScheduleSlot> scheduleSlots) {
+    private Schedule mapToScheduleDays(@NonNull List<ScheduleSlot> scheduleSlots) {
         Schedule schedule = new Schedule();
 
         LocalDate previousDay = null;

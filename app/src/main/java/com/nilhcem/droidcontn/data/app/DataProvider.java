@@ -1,14 +1,17 @@
 package com.nilhcem.droidcontn.data.app;
 
 import com.nilhcem.droidcontn.data.app.model.Schedule;
+import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.database.DbMapper;
 import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
 import com.nilhcem.droidcontn.data.database.dao.SpeakersDao;
 import com.nilhcem.droidcontn.data.network.DroidconService;
+import com.nilhcem.droidcontn.data.network.NetworkMapper;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,15 +22,19 @@ import rx.Subscriber;
 @Singleton
 public class DataProvider {
 
+    private final AppMapper appMapper;
     private final DbMapper dbMapper;
+    private final NetworkMapper networkMapper;
     private final DroidconService service;
     private final SpeakersDao speakersDao;
     private final SessionsDao sessionsDao;
     private final SelectedSessionsDao selectedSessionsDao;
 
     @Inject
-    public DataProvider(DbMapper dbMapper, DroidconService service, SpeakersDao speakersDao, SessionsDao sessionsDao, SelectedSessionsDao selectedSessionsDao) {
+    public DataProvider(AppMapper appMapper, DbMapper dbMapper, NetworkMapper networkMapper, DroidconService service, SpeakersDao speakersDao, SessionsDao sessionsDao, SelectedSessionsDao selectedSessionsDao) {
+        this.appMapper = appMapper;
         this.dbMapper = dbMapper;
+        this.networkMapper = networkMapper;
         this.service = service;
         this.speakersDao = speakersDao;
         this.sessionsDao = sessionsDao;
@@ -36,13 +43,16 @@ public class DataProvider {
 
     public Observable<Schedule> getSchedule() {
         selectedSessionsDao.init();
-        return Observable.combineLatest(getSpeakers(), getSessions(), (speakers, sessions) ->
-                AppMapper.toSchedule(sessions, AppMapper.speakersToMap(speakers)));
+        return Observable.combineLatest(getSpeakers(), getSessions(), (speakers, sessions) -> {
+            List<Speaker> appSpeakers = networkMapper.toAppSpeakers(speakers);
+            Map<Integer, Speaker> speakersMap = appMapper.speakersToMap(appSpeakers);
+            List<Session> appSessions = networkMapper.toAppSessions(sessions, speakersMap);
+            return appMapper.toSchedule(appSessions);
+        });
     }
 
     public Observable<List<Speaker>> getSpeakerList() {
-        return getSpeakers()
-                .map(AppMapper::mapSpeakers);
+        return getSpeakers().map(networkMapper::toAppSpeakers);
     }
 
     private Observable<List<com.nilhcem.droidcontn.data.network.model.Speaker>> getSpeakers() {
@@ -67,7 +77,8 @@ public class DataProvider {
         service.loadSpeakers()
                 .subscribe(networkSpeakers -> {
                     subscriber.onNext(networkSpeakers);
-                    speakersDao.saveSpeakers(dbMapper.fromNetworkSpeakers(networkSpeakers));
+                    speakersDao.saveSpeakers(dbMapper.fromAppSpeakers(
+                            networkMapper.toAppSpeakers(networkSpeakers)));
                 }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
     }
 
@@ -93,7 +104,8 @@ public class DataProvider {
         service.loadSessions()
                 .subscribe(networkSessions -> {
                     subscriber.onNext(networkSessions);
-                    sessionsDao.saveSessions(dbMapper.fromNetworkSessions(networkSessions));
+                    sessionsDao.saveSessions(
+                            dbMapper.fromNetworkSessions(networkSessions));
                 }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
     }
 }
