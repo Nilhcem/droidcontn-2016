@@ -1,5 +1,6 @@
 package com.nilhcem.droidcontn.core.dagger;
 
+import com.nilhcem.droidcontn.receiver.BootReceiver;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.ui.schedule.day.ScheduleDayFragment;
 import com.nilhcem.droidcontn.ui.schedule.pager.SchedulePagerFragment;
@@ -29,4 +30,6 @@ public interface AppGraph {
     void inject(SpeakerDetailsDialogFragment fragment);
 
     void inject(SettingsFragment fragment);
+
+    void inject(BootReceiver receiver);
 }

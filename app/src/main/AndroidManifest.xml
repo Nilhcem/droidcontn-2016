@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".DroidconApp"
@@ -39,6 +40,14 @@
                 android:value=".ui.drawer.DrawerActivity"/>
         </activity>
 
-        <receiver android:name=".receiver.reminder.ReminderReceiver" />
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.reminder.ReminderReceiver"/>
     </application>
 </manifest>

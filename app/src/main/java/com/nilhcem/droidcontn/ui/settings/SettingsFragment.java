@@ -45,7 +45,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
 
     private void initPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
-        presenter = new SettingsPresenter(this, sessionsReminder);
+        presenter = new SettingsPresenter(getContext(), this, sessionsReminder);
         presenter.onCreate();
     }
 
