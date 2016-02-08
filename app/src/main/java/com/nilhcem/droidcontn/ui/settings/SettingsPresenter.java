@@ -1,6 +1,6 @@
 package com.nilhcem.droidcontn.ui.settings;
 
-import com.nilhcem.droidcontn.service.reminder.SessionsReminder;
+import com.nilhcem.droidcontn.receiver.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.ui.BasePresenter;
 import com.nilhcem.droidcontn.utils.App;
 

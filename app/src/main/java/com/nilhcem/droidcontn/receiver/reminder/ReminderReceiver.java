@@ -1,4 +1,4 @@
-package com.nilhcem.droidcontn.service.reminder;
+package com.nilhcem.droidcontn.receiver.reminder;
 
 import android.app.Notification;
 import android.app.NotificationManager;

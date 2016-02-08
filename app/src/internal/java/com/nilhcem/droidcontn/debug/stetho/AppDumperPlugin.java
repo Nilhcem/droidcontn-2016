@@ -14,7 +14,7 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
-import com.nilhcem.droidcontn.service.reminder.ReminderReceiver;
+import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiver;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Threads;

@@ -21,7 +21,7 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
-import com.nilhcem.droidcontn.service.reminder.SessionsReminder;
+import com.nilhcem.droidcontn.receiver.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
 import com.nilhcem.droidcontn.utils.Animations;

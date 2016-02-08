@@ -8,7 +8,7 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.service.reminder.SessionsReminder;
+import com.nilhcem.droidcontn.receiver.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.utils.Intents;
 
 import javax.inject.Inject;

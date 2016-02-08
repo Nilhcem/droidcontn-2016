@@ -39,6 +39,6 @@
                 android:value=".ui.drawer.DrawerActivity"/>
         </activity>
 
-        <receiver android:name=".service.reminder.ReminderReceiver" />
+        <receiver android:name=".receiver.reminder.ReminderReceiver" />
     </application>
 </manifest>
