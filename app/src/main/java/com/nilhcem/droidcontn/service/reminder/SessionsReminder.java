@@ -54,11 +54,11 @@ public class SessionsReminder {
     }
 
     public void enableSessionReminder() {
-        getSessions(this::addSessionReminder);
+        performOnSelectedSessions(this::addSessionReminder);
     }
 
     public void disableSessionReminder() {
-        getSessions(this::removeSessionReminder);
+        performOnSelectedSessions(this::removeSessionReminder);
     }
 
     public void addSessionReminder(@NonNull Session session) {
@@ -88,7 +88,7 @@ public class SessionsReminder {
         return PendingIntent.getBroadcast(context, session.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    private void getSessions(Action1<? super Session> onNext) {
+    private void performOnSelectedSessions(Action1<? super Session> onNext) {
         speakerDao.getSpeakers()
                 .map(dbMapper::toAppSpeakers)
                 .map(appMapper::speakersToMap)
