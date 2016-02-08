@@ -1,17 +1,16 @@
 package com.nilhcem.droidcontn.ui.sessions.list;
 
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.core.picasso.CircleTransformation;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
+import com.nilhcem.droidcontn.utils.App;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
 
 import butterknife.Bind;
 
@@ -30,9 +29,9 @@ public class SessionsListEntry extends BaseViewHolder {
     }
 
     public void bindSession(Session session) {
-        List<Speaker> speakers = session.getSpeakers();
-        if (speakers != null && !speakers.isEmpty()) {
-            picasso.load(speakers.get(0).getPhoto()).transform(new CircleTransformation()).into(photo);
+        String url = App.getPhotoUrl(session);
+        if (!TextUtils.isEmpty(url)) {
+            picasso.load(url).transform(new CircleTransformation()).into(photo);
         }
 
         title.setText(session.getTitle());

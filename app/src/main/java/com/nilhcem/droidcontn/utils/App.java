@@ -3,9 +3,13 @@ package com.nilhcem.droidcontn.utils;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.os.Build;
+import android.support.annotation.Nullable;
 
 import com.nilhcem.droidcontn.BuildConfig;
+import com.nilhcem.droidcontn.data.app.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
 
+import java.util.List;
 import java.util.Locale;
 
 public final class App {
@@ -32,5 +36,17 @@ public final class App {
         } else {
             alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAtMillis, operation);
         }
+    }
+
+    @Nullable
+    public static String getPhotoUrl(@Nullable Session session) {
+        String photoUrl = null;
+        if (session != null) {
+            List<Speaker> speakers = session.getSpeakers();
+            if (speakers != null && !speakers.isEmpty()) {
+                photoUrl = speakers.get(0).getPhoto();
+            }
+        }
+        return photoUrl;
     }
 }

@@ -3,6 +3,7 @@ package com.nilhcem.droidcontn.ui.schedule.day;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -15,6 +16,7 @@ import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.core.picasso.CircleTransformation;
 import com.nilhcem.droidcontn.ui.core.recyclerview.BaseViewHolder;
+import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Views;
 import com.squareup.picasso.Picasso;
 
@@ -89,9 +91,9 @@ public class ScheduleDayEntry extends BaseViewHolder {
         slotContainer.setForeground(selectableItemBackground);
         slotContainer.setOnClickListener(v -> listener.onSelectedSessionClicked(session));
 
-        List<Speaker> speakers = session.getSpeakers();
-        if (speakers != null && ! speakers.isEmpty()) {
-            picasso.load(speakers.get(0).getPhoto()).transform(new CircleTransformation()).into(slotImage);
+        String url = App.getPhotoUrl(session);
+        if (!TextUtils.isEmpty(url)) {
+            picasso.load(url).transform(new CircleTransformation()).into(slotImage);
         }
         slotImage.setVisibility(View.VISIBLE);
         bindTime(slot);

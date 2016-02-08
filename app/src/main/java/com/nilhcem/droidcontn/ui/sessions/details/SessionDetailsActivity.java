@@ -25,6 +25,7 @@ import com.nilhcem.droidcontn.receiver.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
 import com.nilhcem.droidcontn.utils.Animations;
+import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Strings;
 import com.nilhcem.droidcontn.utils.Views;
 import com.squareup.picasso.Picasso;
@@ -143,12 +144,9 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     }
 
     private void bindHeaderPhoto(Session session, int headerWidth) {
-        List<Speaker> speakers = session.getSpeakers();
-        if (speakers != null && !speakers.isEmpty()) {
-            String photo = speakers.get(0).getPhoto();
-            if (!TextUtils.isEmpty(photo)) {
-                picasso.load(photo).resize(headerWidth, 0).into(this.photo);
-            }
+        String url = App.getPhotoUrl(session);
+        if (!TextUtils.isEmpty(url)) {
+            picasso.load(url).resize(headerWidth, 0).into(photo);
         }
     }
 

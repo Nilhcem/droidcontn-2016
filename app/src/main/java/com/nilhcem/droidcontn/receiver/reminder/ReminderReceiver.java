@@ -6,14 +6,19 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.NotificationCompat;
+import android.text.TextUtils;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
+import com.nilhcem.droidcontn.utils.App;
+import com.nilhcem.droidcontn.utils.Downloader;
 import com.nilhcem.droidcontn.utils.Preconditions;
 
+import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
 public class ReminderReceiver extends BroadcastReceiver {
@@ -35,21 +40,33 @@ public class ReminderReceiver extends BroadcastReceiver {
     }
 
     private void showNotification(Context context, Session session) {
-        PendingIntent pendingIntent = TaskStackBuilder.create(context)
-                .addParentStack(SessionDetailsActivity.class)
-                .addNextIntent(SessionDetailsActivity.createIntent(context, session))
-                .getPendingIntent(session.getId(), PendingIntent.FLAG_UPDATE_CURRENT);
+        Schedulers.io().createWorker().schedule(() -> {
+            PendingIntent pendingIntent = TaskStackBuilder.create(context)
+                    .addParentStack(SessionDetailsActivity.class)
+                    .addNextIntent(SessionDetailsActivity.createIntent(context, session))
+                    .getPendingIntent(session.getId(), PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Notification notification = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(context.getString(R.string.app_name))
-                .setContentText(context.getString(R.string.reminder_about_to_start, session.getTitle()))
-                .setContentIntent(pendingIntent)
-                .setDefaults(Notification.DEFAULT_ALL)
-                .setAutoCancel(true)
-                .build();
+            android.support.v4.app.NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentTitle(context.getString(R.string.app_name))
+                    .setContentText(context.getString(R.string.reminder_about_to_start, session.getTitle()))
+                    .setContentIntent(pendingIntent)
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setAutoCancel(true);
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(session.getId(), notification);
+            String url = App.getPhotoUrl(session);
+            if (!TextUtils.isEmpty(url)) {
+                Bitmap bitmap = Downloader.downloadBitmap(url);
+                if (bitmap != null) {
+                    builder.extend(new NotificationCompat.WearableExtender()
+                            .setHintHideIcon(true)
+                            .setBackground(bitmap));
+                }
+            }
+
+            Notification notification = builder.build();
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(session.getId(), notification);
+        });
     }
 }
