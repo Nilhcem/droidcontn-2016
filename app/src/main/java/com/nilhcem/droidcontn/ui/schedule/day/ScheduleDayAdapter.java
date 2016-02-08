@@ -3,9 +3,9 @@ package com.nilhcem.droidcontn.ui.schedule.day;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.nilhcem.droidcontn.data.app.SelectedSessionsMemory;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.squareup.picasso.Picasso;
 
 import org.threeten.bp.LocalDateTime;
@@ -15,13 +15,13 @@ import java.util.List;
 public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
 
     private final List<ScheduleSlot> slots;
-    private final SelectedSessionsDao dao;
+    private final SelectedSessionsMemory selectedSessionsMemory;
     private final Picasso picasso;
     private final ScheduleDayEntry.OnSessionClickListener listener;
 
-    public ScheduleDayAdapter(List<ScheduleSlot> slots, SelectedSessionsDao dao, Picasso picasso, ScheduleDayEntry.OnSessionClickListener listener) {
+    public ScheduleDayAdapter(List<ScheduleSlot> slots, SelectedSessionsMemory selectedSessionsMemory, Picasso picasso, ScheduleDayEntry.OnSessionClickListener listener) {
         this.slots = slots;
-        this.dao = dao;
+        this.selectedSessionsMemory = selectedSessionsMemory;
         this.picasso = picasso;
         this.listener = listener;
     }
@@ -60,7 +60,7 @@ public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
 
     private Session findSelectedSession(LocalDateTime slotTime, List<Session> slotSessions) {
         Session selectedSession = null;
-        Integer selectedSessionId = dao.get(slotTime);
+        Integer selectedSessionId = selectedSessionsMemory.get(slotTime);
 
         if (selectedSessionId != null) {
             for (Session session : slotSessions) {

@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.app.SelectedSessionsMemory;
 import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
 import com.nilhcem.droidcontn.ui.BaseFragment;
 import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
 import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
@@ -30,7 +30,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     private static final String ARG_SCHEDULE_DAY = "scheduleDay";
 
     @Inject Picasso picasso;
-    @Inject SelectedSessionsDao dao;
+    @Inject SelectedSessionsMemory selectedSessionsMemory;
 
     @Bind(R.id.schedule_day_recyclerview) RecyclerView recyclerView;
 
@@ -58,7 +58,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     @Override
     public void initSlotsList(List<ScheduleSlot> slots) {
-        adapter = new ScheduleDayAdapter(slots, dao, picasso, this);
+        adapter = new ScheduleDayAdapter(slots, selectedSessionsMemory, picasso, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);

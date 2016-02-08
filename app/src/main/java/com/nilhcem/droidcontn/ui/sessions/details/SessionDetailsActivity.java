@@ -20,7 +20,7 @@ import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.app.model.Speaker;
-import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
+import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
 import com.nilhcem.droidcontn.receiver.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 import com.nilhcem.droidcontn.ui.speakers.details.SpeakerDetailsDialogFragment;
@@ -44,8 +44,8 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     private static final String EXTRA_SESSION = "session";
 
     @Inject Picasso picasso;
+    @Inject SessionsDao sessionsDao;
     @Inject SessionsReminder sessionsReminder;
-    @Inject SelectedSessionsDao selectedSessionsDao;
 
     @Bind(R.id.session_details_layout) View layout;
     @Bind(R.id.session_details_toolbar) Toolbar toolbar;
@@ -68,7 +68,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     protected SessionDetailsPresenter newPresenter() {
         DroidconApp.get(this).component().inject(this);
         Session session = getIntent().getParcelableExtra(EXTRA_SESSION);
-        return new SessionDetailsPresenter(this, session, selectedSessionsDao, sessionsReminder);
+        return new SessionDetailsPresenter(this, session, sessionsDao, sessionsReminder);
     }
 
     @Override

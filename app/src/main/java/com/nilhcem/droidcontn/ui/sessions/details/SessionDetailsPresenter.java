@@ -4,17 +4,21 @@ import android.os.Bundle;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
-import com.nilhcem.droidcontn.data.database.dao.SelectedSessionsDao;
+import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
 import com.nilhcem.droidcontn.receiver.reminder.SessionsReminder;
 import com.nilhcem.droidcontn.ui.BaseActivityPresenter;
+
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+import timber.log.Timber;
 
 public class SessionDetailsPresenter extends BaseActivityPresenter<SessionDetailsView> {
 
     private final Session session;
-    private final SelectedSessionsDao sessionsDao;
+    private final SessionsDao sessionsDao;
     private final SessionsReminder sessionsReminder;
 
-    public SessionDetailsPresenter(SessionDetailsView view, Session session, SelectedSessionsDao sessionsDao, SessionsReminder sessionsReminder) {
+    public SessionDetailsPresenter(SessionDetailsView view, Session session, SessionsDao sessionsDao, SessionsReminder sessionsReminder) {
         super(view);
         this.session = session;
         this.sessionsDao = sessionsDao;
@@ -25,20 +29,27 @@ public class SessionDetailsPresenter extends BaseActivityPresenter<SessionDetail
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         view.bindSessionDetails(session);
-        view.updateFabButton(sessionsDao.isSelected(session), false);
+        sessionsDao.isSelected(session)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(isSelected -> view.updateFabButton(isSelected, false),
+                        throwable -> Timber.e(throwable, "Error getting selected session state"));
     }
 
     public void onFloatingActionButtonClicked() {
-        boolean sessionSelected = sessionsDao.isSelected(session);
-        if (sessionSelected) {
-            sessionsDao.unselect(session);
-            sessionsReminder.removeSessionReminder(session);
-            view.showSnackbarMessage(R.string.session_details_removed);
-        } else {
-            sessionsDao.select(session);
-            sessionsReminder.addSessionReminder(session);
-            view.showSnackbarMessage(R.string.session_details_added);
-        }
-        view.updateFabButton(!sessionSelected, true);
+        sessionsDao.toggleSelectedState(session)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(isSelected -> {
+                            if (isSelected) {
+                                sessionsReminder.removeSessionReminder(session);
+                                view.showSnackbarMessage(R.string.session_details_removed);
+                            } else {
+                                sessionsReminder.addSessionReminder(session);
+                                view.showSnackbarMessage(R.string.session_details_added);
+                            }
+                            view.updateFabButton(!isSelected, true);
+                        },
+                        throwable -> Timber.e(throwable, "Error getting selected session state"));
     }
 }

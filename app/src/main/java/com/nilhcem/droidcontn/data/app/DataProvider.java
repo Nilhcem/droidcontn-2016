@@ -35,6 +35,7 @@ public class DataProvider {
     }
 
     public Observable<Schedule> getSchedule() {
+        sessionsDao.initSelectedSessionsMemory();
         return getSessions().map(appMapper::toSchedule);
     }
 
