@@ -29,8 +29,6 @@ public class SessionsDao {
     }
 
     public Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSessions() {
-        Preconditions.checkNotOnMainThread();
-
         return Observable.zip(
                 database.createQuery(Session.TABLE, "SELECT * FROM " + Session.TABLE)
                         .mapToList(Session.MAPPER).first(),
@@ -39,6 +37,8 @@ public class SessionsDao {
     }
 
     public void saveSessions(List<com.nilhcem.droidcontn.data.app.model.Session> toSave) {
+        Preconditions.checkNotOnMainThread();
+
         BriteDatabase.Transaction transaction = database.newTransaction();
         try {
             database.delete(Session.TABLE, null);
