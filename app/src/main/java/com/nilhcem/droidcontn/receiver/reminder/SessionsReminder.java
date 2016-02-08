@@ -90,7 +90,6 @@ public class SessionsReminder {
 
     private void performOnSelectedSessions(Action1<? super Session> onNext) {
         speakerDao.getSpeakers()
-                .map(dbMapper::toAppSpeakers)
                 .map(appMapper::speakersToMap)
                 .subscribe(speakersMap -> {
                     sessionsDao.getSelectedSessions()

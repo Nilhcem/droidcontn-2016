@@ -23,7 +23,7 @@ public class SpeakersListPresenter extends BaseFragmentPresenter<SpeakersListVie
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        speakersSubscription = dataProvider.getSpeakerList()
+        speakersSubscription = dataProvider.getSpeakers()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this.view::displaySpeakers, this.view::displayLoadingError);

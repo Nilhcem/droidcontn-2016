@@ -159,7 +159,6 @@ public class AppDumperPlugin implements DumperPlugin {
             doUsage(writer);
         } else if (args.get(0).equals("test")) {
             speakerDao.getSpeakers()
-                    .map(dbMapper::toAppSpeakers)
                     .map(appMapper::speakersToMap)
                     .subscribe(speakersMap -> {
                         sessionsDao.getSessions()

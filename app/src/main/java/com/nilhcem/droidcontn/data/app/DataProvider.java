@@ -44,41 +44,33 @@ public class DataProvider {
     public Observable<Schedule> getSchedule() {
         selectedSessionsDao.init();
         return Observable.combineLatest(getSpeakers(), getSessions(), (speakers, sessions) -> {
-            List<Speaker> appSpeakers = networkMapper.toAppSpeakers(speakers);
-            Map<Integer, Speaker> speakersMap = appMapper.speakersToMap(appSpeakers);
+            Map<Integer, Speaker> speakersMap = appMapper.speakersToMap(speakers);
             List<Session> appSessions = networkMapper.toAppSessions(sessions, speakersMap);
             return appMapper.toSchedule(appSessions);
         });
     }
 
-    public Observable<List<Speaker>> getSpeakerList() {
-        return getSpeakers().map(networkMapper::toAppSpeakers);
+    public Observable<List<Speaker>> getSpeakers() {
+        return Observable.create(subscriber -> speakersDao.getSpeakers()
+                .subscribe(speakers -> {
+                    if (speakers.isEmpty()) {
+                        // TODO: get from embedded JSON
+                    } else {
+                        subscriber.onNext(speakers);
+                    }
+
+                    if (!subscriber.isUnsubscribed()) {
+                        getSpeakersFromNetwork(subscriber);
+                    }
+                }, subscriber::onError));
     }
 
-    private Observable<List<com.nilhcem.droidcontn.data.network.model.Speaker>> getSpeakers() {
-        return Observable.create(subscriber -> {
-            speakersDao.getSpeakers()
-                    .map(dbMapper::toNetworkSpeaker)
-                    .subscribe(dbSpeakers -> {
-                        if (dbSpeakers.isEmpty()) {
-                            // TODO: get from embedded json
-                        } else {
-                            subscriber.onNext(dbSpeakers);
-                        }
-
-                        if (!subscriber.isUnsubscribed()) {
-                            getSpeakersFromNetwork(subscriber);
-                        }
-                    }, subscriber::onError);
-        });
-    }
-
-    private void getSpeakersFromNetwork(Subscriber<? super List<com.nilhcem.droidcontn.data.network.model.Speaker>> subscriber) {
+    private void getSpeakersFromNetwork(Subscriber<? super List<Speaker>> subscriber) {
         service.loadSpeakers()
-                .subscribe(networkSpeakers -> {
-                    subscriber.onNext(networkSpeakers);
-                    speakersDao.saveSpeakers(dbMapper.fromAppSpeakers(
-                            networkMapper.toAppSpeakers(networkSpeakers)));
+                .map(networkMapper::toAppSpeakers)
+                .subscribe(speakers -> {
+                    subscriber.onNext(speakers);
+                    speakersDao.saveSpeakers(speakers);
                 }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
     }
 

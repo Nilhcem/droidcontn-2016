@@ -47,18 +47,13 @@ public class DbMapper {
         return sessions;
     }
 
-    public List<Speaker> fromAppSpeakers(@Nullable List<com.nilhcem.droidcontn.data.app.model.Speaker> from) {
-        List<Speaker> speakers = null;
-
-        if (from != null) {
-            speakers = new ArrayList<>(from.size());
-            for (com.nilhcem.droidcontn.data.app.model.Speaker speaker : from) {
-                speakers.add(new Speaker(speaker.getId(), speaker.getName(), speaker.getTitle(),
-                        speaker.getBio(), speaker.getWebsite(), speaker.getTwitter(),
-                        speaker.getGithub(), speaker.getPhoto()));
-            }
+    public Speaker fromAppSpeaker(@Nullable com.nilhcem.droidcontn.data.app.model.Speaker from) {
+        if (from == null) {
+            return null;
         }
-        return speakers;
+
+        return new Speaker(from.getId(), from.getName(), from.getTitle(), from.getBio(),
+                from.getWebsite(), from.getTwitter(), from.getGithub(), from.getPhoto());
     }
 
     public List<com.nilhcem.droidcontn.data.app.model.Speaker> toAppSpeakers(@Nullable List<Speaker> from) {
