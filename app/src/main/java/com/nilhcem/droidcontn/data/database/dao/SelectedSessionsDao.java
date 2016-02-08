@@ -23,7 +23,7 @@ public class SelectedSessionsDao {
     private final LocalDateTimeAdapter adapter;
 
     // Format: [Slot Time][Session Id]
-    private Map<LocalDateTime, Integer> sessions;
+    private Map<LocalDateTime, Integer> sessions = new HashMap<>();
 
     @Inject
     public SelectedSessionsDao(BriteDatabase database, LocalDateTimeAdapter adapter) {
