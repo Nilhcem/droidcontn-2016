@@ -49,7 +49,7 @@ public class ReminderReceiver extends BroadcastReceiver {
             android.support.v4.app.NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setContentTitle(context.getString(R.string.app_name))
-                    .setContentText(context.getString(R.string.reminder_about_to_start, session.getTitle()))
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reminder_about_to_start, session.getTitle())))
                     .setContentIntent(pendingIntent)
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setAutoCancel(true);
@@ -58,9 +58,7 @@ public class ReminderReceiver extends BroadcastReceiver {
             if (!TextUtils.isEmpty(url)) {
                 Bitmap bitmap = Downloader.downloadBitmap(url);
                 if (bitmap != null) {
-                    builder.extend(new NotificationCompat.WearableExtender()
-                            .setHintHideIcon(true)
-                            .setBackground(bitmap));
+                    builder.setLargeIcon(bitmap);
                 }
             }
 
