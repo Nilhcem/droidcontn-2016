@@ -46,21 +46,19 @@ public class DataProvider {
     }
 
     private Observable<List<com.nilhcem.droidcontn.data.network.model.Speaker>> getSpeakers() {
-        return Observable.create(subscriber -> {
-            speakersDao.getSpeakers()
-                    .map(dbMapper::toNetworkSpeaker)
-                    .subscribe(dbSpeakers -> {
-                        if (dbSpeakers.isEmpty()) {
-                            // TODO: get from embedded json
-                        } else {
-                            subscriber.onNext(dbSpeakers);
-                        }
+        return Observable.create(subscriber -> speakersDao.getSpeakers()
+                .map(dbMapper::toNetworkSpeaker)
+                .subscribe(dbSpeakers -> {
+                    if (dbSpeakers.isEmpty()) {
+                        // TODO: get from embedded json
+                    } else {
+                        subscriber.onNext(dbSpeakers);
+                    }
 
-                        if (!subscriber.isUnsubscribed()) {
-                            getSpeakersFromNetwork(subscriber);
-                        }
-                    }, subscriber::onError);
-        });
+                    if (!subscriber.isUnsubscribed()) {
+                        getSpeakersFromNetwork(subscriber);
+                    }
+                }, subscriber::onError));
     }
 
     private void getSpeakersFromNetwork(Subscriber<? super List<com.nilhcem.droidcontn.data.network.model.Speaker>> subscriber) {
