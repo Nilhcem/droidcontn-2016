@@ -71,7 +71,7 @@ public class SessionsReminder {
 
     public void removeSessionReminder(@NonNull Session session) {
         Timber.d("Cancelling reminder on %s", session.getFromTime().minusMinutes(3));
-        alarmManager.cancel(createSessionReminderIntent(session));
+        createSessionReminderIntent(session).cancel();
     }
 
     private PendingIntent createSessionReminderIntent(@NonNull Session session) {

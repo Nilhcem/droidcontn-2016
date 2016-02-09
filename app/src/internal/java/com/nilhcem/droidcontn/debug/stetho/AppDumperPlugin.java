@@ -2,6 +2,7 @@ package com.nilhcem.droidcontn.debug.stetho;
 
 import android.annotation.TargetApi;
 import android.app.Application;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -13,15 +14,15 @@ import com.facebook.stetho.dumpapp.DumperContext;
 import com.facebook.stetho.dumpapp.DumperPlugin;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nilhcem.droidcontn.R;
-import com.nilhcem.droidcontn.data.app.AppMapper;
 import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
-import com.nilhcem.droidcontn.data.database.dao.SpeakersDao;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
 import com.nilhcem.droidcontn.receiver.BootReceiver;
 import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiver;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Threads;
+
+import org.threeten.bp.format.DateTimeFormatter;
 
 import java.io.PrintStream;
 import java.util.List;
@@ -37,17 +38,13 @@ public class AppDumperPlugin implements DumperPlugin {
 
     private final Context context;
     private final ApiEndpoint endpoint;
-    private final AppMapper appMapper;
     private final SessionsDao sessionsDao;
-    private final SpeakersDao speakerDao;
 
     @Inject
-    public AppDumperPlugin(Application app, ApiEndpoint endpoint, AppMapper appMapper, SessionsDao sessionsDao, SpeakersDao speakersDao) {
+    public AppDumperPlugin(Application app, ApiEndpoint endpoint, SessionsDao sessionsDao) {
         this.context = app;
         this.endpoint = endpoint;
-        this.appMapper = appMapper;
         this.sessionsDao = sessionsDao;
-        this.speakerDao = speakersDao;
     }
 
     @Override
@@ -62,8 +59,8 @@ public class AppDumperPlugin implements DumperPlugin {
         String commandName = (args.isEmpty()) ? "" : args.remove(0);
 
         switch (commandName) {
-            case "alarmManager":
-                doAlarmManager(writer, args);
+            case "alarms":
+                displayAlarms(writer);
                 break;
             case "appInfo":
                 displayAppInfo(writer);
@@ -84,13 +81,25 @@ public class AppDumperPlugin implements DumperPlugin {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private void doAlarmManager(PrintStream writer, List<String> args) {
-        if (args.size() != 1) {
-            doUsage(writer);
-        } else if (args.get(0).equals("next")) {
-            //TODO: http://stackoverflow.com/questions/4556670/how-to-check-if-alarmmanager-already-has-an-alarm-set
-            //TODO: http://stackoverflow.com/questions/6522792/get-list-of-active-pendingintents-in-alarmmanager
-        }
+    private void displayAlarms(PrintStream writer) {
+        sessionsDao.getSessions()
+                .flatMap(Observable::from)
+                .map(session -> {
+                    Intent intent = ReminderReceiver.createReceiverIntent(context, session);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, session.getId(), intent, PendingIntent.FLAG_NO_CREATE);
+                    if (broadcast != null) {
+                        return String.format(Locale.US, "%s - Session(id=%d, title=%s)", session.getFromTime().format(DateTimeFormatter.ISO_DATE_TIME), session.getId(), session.getTitle());
+                    }
+                    return null;
+                })
+                .filter(id -> id != null)
+                .toList()
+                .subscribe(activeAlarms -> {
+                    writer.println(Integer.toString(activeAlarms.size()) + " active alarm(s)");
+                    for (String activeAlarm : activeAlarms) {
+                        writer.println(activeAlarm);
+                    }
+                });
     }
 
     private void displayAppInfo(PrintStream writer) {
@@ -155,18 +164,14 @@ public class AppDumperPlugin implements DumperPlugin {
         if (args.size() != 1) {
             doUsage(writer);
         } else if (args.get(0).equals("test")) {
-            speakerDao.getSpeakers()
-                    .map(appMapper::speakersToMap)
-                    .subscribe(speakersMap -> {
-                        sessionsDao.getSessions()
-                                .flatMap(Observable::from)
-                                .filter(session -> session.getSpeakers() != null)
-                                .first()
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(session -> {
-                                    new ReminderReceiver().onReceive(context, ReminderReceiver.createReceiverIntent(context, session));
-                                });
+            sessionsDao.getSessions()
+                    .flatMap(Observable::from)
+                    .filter(session -> session.getSpeakers() != null)
+                    .first()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(session -> {
+                        new ReminderReceiver().onReceive(context, ReminderReceiver.createReceiverIntent(context, session));
                     });
         }
     }
@@ -175,7 +180,7 @@ public class AppDumperPlugin implements DumperPlugin {
         writer.println("usage: dumpapp [arg]");
         writer.println();
         writer.println("arg:");
-        writer.println("* alarmManager next: Display next alarm");
+        writer.println("* alarms: Display AlarmManager active alarms");
         writer.println("* appInfo: Display current app build info");
         writer.println("* bootReceiver: Display boot receiver state");
         writer.println("* endpoint get: Display current api endpoint");

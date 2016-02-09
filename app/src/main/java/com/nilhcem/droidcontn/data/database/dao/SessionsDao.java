@@ -47,8 +47,8 @@ public class SessionsDao {
     }
 
     public Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSelectedSessions() {
-        String query = String.format(Locale.US, "SELECT * FROM %s INNER JOIN %s ON %s.%s=%s.%s",
-                Session.TABLE, SelectedSession.TABLE, Session.TABLE, Session.ID, SelectedSession.TABLE, SelectedSession.SESSION_ID);
+        String query = String.format(Locale.US, "SELECT %s.* FROM %s INNER JOIN %s ON %s.%s=%s.%s",
+                Session.TABLE, Session.TABLE, SelectedSession.TABLE, Session.TABLE, Session.ID, SelectedSession.TABLE, SelectedSession.SESSION_ID);
         return getSessions(query);
     }
 
