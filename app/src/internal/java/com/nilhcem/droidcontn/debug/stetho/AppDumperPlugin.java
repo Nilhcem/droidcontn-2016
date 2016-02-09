@@ -31,8 +31,6 @@ import java.util.Locale;
 import javax.inject.Inject;
 
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class AppDumperPlugin implements DumperPlugin {
 
@@ -71,8 +69,8 @@ public class AppDumperPlugin implements DumperPlugin {
             case "endpoint":
                 changeEndpoint(writer, args);
                 break;
-            case "reminder":
-                doReminder(writer, args);
+            case "notif":
+                displayNotificationReminder();
                 break;
             default:
                 doUsage(writer);
@@ -144,7 +142,6 @@ public class AppDumperPlugin implements DumperPlugin {
                         doUsage(writer);
                     } else {
                         String arg = args.get(1);
-
                         try {
                             ApiEndpoint endpoint = ApiEndpoint.valueOf(arg.toUpperCase(Locale.US));
                             ApiEndpoint.persist(context, endpoint);
@@ -160,20 +157,15 @@ public class AppDumperPlugin implements DumperPlugin {
         }
     }
 
-    private void doReminder(PrintStream writer, List<String> args) {
-        if (args.size() != 1) {
-            doUsage(writer);
-        } else if (args.get(0).equals("test")) {
-            sessionsDao.getSessions()
-                    .flatMap(Observable::from)
-                    .filter(session -> session.getSpeakers() != null)
-                    .first()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(session -> {
-                        new ReminderReceiver().onReceive(context, ReminderReceiver.createReceiverIntent(context, session));
-                    });
-        }
+    private void displayNotificationReminder() {
+        sessionsDao.getSessions()
+                .flatMap(Observable::from)
+                .filter(session -> session.getSpeakers() != null)
+                .first()
+                .subscribe(session -> {
+                    Intent intent = ReminderReceiver.createReceiverIntent(context, session);
+                    new ReminderReceiver().onReceive(context, intent);
+                });
     }
 
     private void doUsage(PrintStream writer) {
@@ -185,7 +177,7 @@ public class AppDumperPlugin implements DumperPlugin {
         writer.println("* bootReceiver: Display boot receiver state");
         writer.println("* endpoint get: Display current api endpoint");
         writer.println("* endpoint set (PROD|MOCK|\"https?://<url>\"): Change api endpoint");
-        writer.println("* reminder test: Test a notification reminder");
+        writer.println("* notif: Test a notification reminder");
     }
 
     private void restartApp(PrintStream writer) {
