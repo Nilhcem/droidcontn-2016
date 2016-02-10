@@ -31,14 +31,14 @@ public class SpeakerDetailsDialogFragment extends AppCompatDialogFragment {
 
     @Inject Picasso picasso;
 
-    @Bind(R.id.speakers_details_name) TextView name;
-    @Bind(R.id.speakers_details_title) TextView title;
-    @Bind(R.id.speakers_details_bio) TextView bio;
-    @Bind(R.id.speakers_details_photo) ImageView photo;
-    @Bind(R.id.speakers_details_links_container) ViewGroup linksContainer;
-    @Bind(R.id.speakers_details_twitter) ImageView twitter;
-    @Bind(R.id.speakers_details_github) ImageView github;
-    @Bind(R.id.speakers_details_website) ImageView website;
+    @Bind(R.id.speaker_details_name) TextView name;
+    @Bind(R.id.speaker_details_title) TextView title;
+    @Bind(R.id.speaker_details_bio) TextView bio;
+    @Bind(R.id.speaker_details_photo) ImageView photo;
+    @Bind(R.id.speaker_details_links_container) ViewGroup linksContainer;
+    @Bind(R.id.speaker_details_twitter) ImageView twitter;
+    @Bind(R.id.speaker_detail_github) ImageView github;
+    @Bind(R.id.speaker_details_website) ImageView website;
 
     private static final String EXTRA_SPEAKER = "speaker";
 
@@ -59,12 +59,12 @@ public class SpeakerDetailsDialogFragment extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         @SuppressLint("InflateParams")
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.speakers_details, null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.speaker_details, null);
         ButterKnife.bind(this, view);
         bindSpeaker(getArguments().getParcelable(EXTRA_SPEAKER));
         return new AlertDialog.Builder(getContext())
                 .setView(view)
-                .setPositiveButton(R.string.speakers_details_hide, (dialog, which) -> dismiss())
+                .setPositiveButton(R.string.speaker_details_hide, (dialog, which) -> dismiss())
                 .create();
     }
 

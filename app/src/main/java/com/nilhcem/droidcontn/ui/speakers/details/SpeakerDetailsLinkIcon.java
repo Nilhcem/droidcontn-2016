@@ -9,13 +9,13 @@ import android.widget.ImageView;
 
 import com.nilhcem.droidcontn.R;
 
-public class SpeakersDetailsLinkIcon extends ImageView {
+public class SpeakerDetailsLinkIcon extends ImageView {
 
     private final int defaultColor;
     private final int pressedColor;
     private Rect rect;
 
-    public SpeakersDetailsLinkIcon(Context context, AttributeSet attrs) {
+    public SpeakerDetailsLinkIcon(Context context, AttributeSet attrs) {
         super(context, attrs);
         pressedColor = ContextCompat.getColor(context, R.color.primary_text);
         defaultColor = ContextCompat.getColor(context, android.R.color.white);

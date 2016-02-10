@@ -30,8 +30,8 @@
         <item quantity="other">Speakers</item>
     </plurals>
 
-    <!-- Speakers details -->
-    <string name="speakers_details_hide">Hide</string>
+    <!-- Speaker details -->
+    <string name="speaker_details_hide">Hide</string>
 
     <!-- Venue -->
     <string name="venue_see_location">Locate on map</string>
