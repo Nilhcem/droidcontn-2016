@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/speaker_details_photo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/speaker_details_image"
+            android:layout_height="@dimen/speaker_details_image"
             android:src="@color/primary_dark"/>
 
         <LinearLayout
