@@ -17,6 +17,9 @@ public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Frag
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = newPresenter();
+        if (presenter != null) {
+            presenter.onCreate(savedInstanceState);
+        }
     }
 
     @Override
@@ -33,6 +36,14 @@ public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Frag
         super.onResume();
         if (presenter != null) {
             presenter.onResume();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (presenter != null) {
+            presenter.onSaveInstanceState(outState);
         }
     }
 

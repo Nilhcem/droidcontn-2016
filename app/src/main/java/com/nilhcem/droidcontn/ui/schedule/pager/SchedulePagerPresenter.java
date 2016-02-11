@@ -5,8 +5,10 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.nilhcem.droidcontn.data.app.DataProvider;
+import com.nilhcem.droidcontn.data.app.model.Schedule;
 import com.nilhcem.droidcontn.ui.BaseFragmentPresenter;
 
+import icepick.State;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -16,6 +18,8 @@ public class SchedulePagerPresenter extends BaseFragmentPresenter<SchedulePagerV
     private final DataProvider dataProvider;
     private Subscription scheduleSubscription;
 
+    @State Schedule schedule;
+
     public SchedulePagerPresenter(SchedulePagerView view, DataProvider dataProvider) {
         super(view);
         this.dataProvider = dataProvider;
@@ -23,15 +27,24 @@ public class SchedulePagerPresenter extends BaseFragmentPresenter<SchedulePagerV
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        scheduleSubscription = dataProvider.getSchedule()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this.view::displaySchedule, this.view::displayLoadingError);
+        if (schedule == null) {
+            scheduleSubscription = dataProvider.getSchedule()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(scheduleDays -> {
+                        schedule = scheduleDays;
+                        this.view.displaySchedule(schedule);
+                    }, this.view::displayLoadingError);
+        } else {
+            this.view.displaySchedule(schedule);
+        }
     }
 
     @Override
     public void onDestroyView() {
-        scheduleSubscription.unsubscribe();
+        if (scheduleSubscription != null) {
+            scheduleSubscription.unsubscribe();
+        }
         super.onDestroyView();
     }
 }

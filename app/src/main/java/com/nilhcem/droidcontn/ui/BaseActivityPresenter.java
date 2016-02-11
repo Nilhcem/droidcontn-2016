@@ -1,6 +1,7 @@
 package com.nilhcem.droidcontn.ui;
 
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.IdRes;
 
 import icepick.Icepick;
@@ -15,10 +16,12 @@ public abstract class BaseActivityPresenter<V> extends BasePresenter<V> {
         // Nothing to do by default
     }
 
+    @CallSuper
     public void onSaveInstanceState(Bundle outState) {
         Icepick.saveInstanceState(this, outState);
     }
 
+    @CallSuper
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         Icepick.restoreInstanceState(this, savedInstanceState);
     }
