@@ -54,6 +54,7 @@ android {
             shrinkResources true
 
             proguardFile rootProject.file('settings/proguard/butterknife.pro')
+            proguardFile rootProject.file('settings/proguard/fragmentargs.pro')
             proguardFile rootProject.file('settings/proguard/icepick.pro')
             proguardFile rootProject.file('settings/proguard/lombok.pro')
             proguardFile rootProject.file('settings/proguard/okhttp3.pro')
@@ -97,6 +98,7 @@ android {
 }
 
 ext.daggerVersion = '2.0.2'
+ext.fragmentargsVersion = '3.0.1'
 ext.icepickVersion = '3.1.0'
 ext.okhttpVersion = '3.1.0'
 ext.retrofitVersion = '2.0.0-beta4'
@@ -135,6 +137,9 @@ dependencies {
 
     compile "frankiesardo:icepick:$icepickVersion"
     provided "frankiesardo:icepick-processor:$icepickVersion"
+
+    compile "com.hannesdorfmann.fragmentargs:annotation:$fragmentargsVersion"
+    apt "com.hannesdorfmann.fragmentargs:processor:$fragmentargsVersion"
 
     compile 'com.squareup.sqlbrite:sqlbrite:0.5.0'
 

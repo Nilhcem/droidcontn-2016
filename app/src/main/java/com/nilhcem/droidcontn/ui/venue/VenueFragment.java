@@ -26,10 +26,6 @@ public class VenueFragment extends BaseFragment {
     private static final float PHOTO_RATIO = 0.404f;
     private static final String COORDINATES_URI = "geo:36.369198,10.534286?q=" + Uri.encode("Medina Yasmine Hammamet, Tunisia");
 
-    public static VenueFragment newInstance() {
-        return new VenueFragment();
-    }
-
     @Override
     protected BaseFragmentPresenter newPresenter() {
         return null;

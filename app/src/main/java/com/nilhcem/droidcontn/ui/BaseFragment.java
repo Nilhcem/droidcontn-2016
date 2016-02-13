@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import com.hannesdorfmann.fragmentargs.FragmentArgs;
+
 import butterknife.ButterKnife;
 
 public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Fragment {
@@ -16,6 +18,7 @@ public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Frag
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FragmentArgs.inject(this);
         presenter = newPresenter();
         if (presenter != null) {
             presenter.onCreate(savedInstanceState);

@@ -21,10 +21,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     private CheckBoxPreference notifySessions;
     private Preference appVersion;
 
-    public static SettingsFragment newInstance() {
-        return new SettingsFragment();
-    }
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         bindPreferences();

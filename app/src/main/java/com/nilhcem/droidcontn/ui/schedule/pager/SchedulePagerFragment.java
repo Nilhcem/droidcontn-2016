@@ -27,10 +27,6 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
     @Bind(R.id.schedule_loading) ProgressBar loading;
     @Bind(R.id.schedule_viewpager) ViewPager viewPager;
 
-    public static SchedulePagerFragment newInstance() {
-        return new SchedulePagerFragment();
-    }
-
     @Override
     protected SchedulePagerPresenter newPresenter() {
         DroidconApp.get(getContext()).component().inject(this);

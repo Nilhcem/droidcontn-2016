@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hannesdorfmann.fragmentargs.annotation.Arg;
+import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.SelectedSessionsMemory;
@@ -25,9 +27,10 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 
+@FragmentWithArgs
 public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> implements ScheduleDayView, ScheduleDayEntry.OnSessionClickListener {
 
-    private static final String ARG_SCHEDULE_DAY = "scheduleDay";
+    @Arg ScheduleDay scheduleDay;
 
     @Inject Picasso picasso;
     @Inject SelectedSessionsMemory selectedSessionsMemory;
@@ -36,18 +39,9 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     private ScheduleDayAdapter adapter;
 
-    public static ScheduleDayFragment newInstance(ScheduleDay scheduleDay) {
-        Bundle args = new Bundle();
-        args.putParcelable(ARG_SCHEDULE_DAY, scheduleDay);
-        ScheduleDayFragment fragment = new ScheduleDayFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     protected ScheduleDayPresenter newPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
-        ScheduleDay scheduleDay = getArguments().getParcelable(ARG_SCHEDULE_DAY);
         return new ScheduleDayPresenter(this, scheduleDay);
     }
 

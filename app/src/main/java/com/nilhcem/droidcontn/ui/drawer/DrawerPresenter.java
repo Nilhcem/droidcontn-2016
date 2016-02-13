@@ -39,19 +39,19 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
     public void onNavigationItemSelected(@IdRes int itemId) {
         switch (itemId) {
             case R.id.drawer_nav_schedule:
-                view.showFragment(SchedulePagerFragment.newInstance());
+                view.showFragment(new SchedulePagerFragment());
                 toolbarTitle = R.string.drawer_nav_schedule;
                 break;
             case R.id.drawer_nav_speakers:
-                view.showFragment(SpeakersListFragment.newInstance());
+                view.showFragment(new SpeakersListFragment());
                 toolbarTitle = R.string.drawer_nav_speakers;
                 break;
             case R.id.drawer_nav_venue:
-                view.showFragment(VenueFragment.newInstance());
+                view.showFragment(new VenueFragment());
                 toolbarTitle = R.string.drawer_nav_venue;
                 break;
             case R.id.drawer_nav_settings:
-                view.showFragment(SettingsFragment.newInstance());
+                view.showFragment(new SettingsFragment());
                 toolbarTitle = R.string.drawer_nav_settings;
                 break;
             default:

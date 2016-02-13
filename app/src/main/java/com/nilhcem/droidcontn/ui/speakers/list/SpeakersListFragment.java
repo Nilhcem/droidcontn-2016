@@ -34,10 +34,6 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
 
     private SpeakersListAdapter adapter;
 
-    public static SpeakersListFragment newInstance() {
-        return new SpeakersListFragment();
-    }
-
     @Override
     protected SpeakersListPresenter newPresenter() {
         DroidconApp.get(getContext()).component().inject(this);
