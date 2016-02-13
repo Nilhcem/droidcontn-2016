@@ -8,11 +8,14 @@ import com.nilhcem.droidcontn.data.app.model.Room;
 import com.nilhcem.droidcontn.data.network.model.Session;
 import com.nilhcem.droidcontn.data.network.model.Speaker;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+
+import java8.util.stream.Collectors;
+
+import static java8.util.stream.StreamSupport.stream;
 
 public class NetworkMapper {
 
@@ -24,34 +27,27 @@ public class NetworkMapper {
     }
 
     public List<com.nilhcem.droidcontn.data.app.model.Speaker> toAppSpeakers(@Nullable List<Speaker> from) {
-        List<com.nilhcem.droidcontn.data.app.model.Speaker> speakers = null;
-
-        if (from != null) {
-            speakers = new ArrayList<>(from.size());
-            for (Speaker speaker : from) {
-                speakers.add(new com.nilhcem.droidcontn.data.app.model.Speaker(
-                        speaker.getId(), speaker.getName(), speaker.getTitle(),
-                        speaker.getBio(), speaker.getWebsite(), speaker.getTwitter(),
-                        speaker.getGithub(), speaker.getPhoto()));
-            }
+        if (from == null) {
+            return null;
         }
-        return speakers;
+
+        return stream(from).map(speaker -> new com.nilhcem.droidcontn.data.app.model.Speaker(
+                speaker.getId(), speaker.getName(), speaker.getTitle(),
+                speaker.getBio(), speaker.getWebsite(), speaker.getTwitter(),
+                speaker.getGithub(), speaker.getPhoto())
+        ).collect(Collectors.toList());
     }
 
     public List<com.nilhcem.droidcontn.data.app.model.Session> toAppSessions(@Nullable List<Session> from, @NonNull Map<Integer, com.nilhcem.droidcontn.data.app.model.Speaker> speakersMap) {
-        List<com.nilhcem.droidcontn.data.app.model.Session> sessions = null;
-
-        if (from != null) {
-            sessions = new ArrayList<>(from.size());
-
-            for (Session session : from) {
-                sessions.add(new com.nilhcem.droidcontn.data.app.model.Session(session.getId(),
-                        Room.getFromId(session.getRoomId()).name,
-                        appMapper.toSpeakersList(session.getSpeakersId(), speakersMap),
-                        session.getTitle(), session.getDescription(),
-                        session.getStartAt(), session.getStartAt().plusMinutes(session.getDuration())));
-            }
+        if (from == null) {
+            return null;
         }
-        return sessions;
+
+        return stream(from).map(session -> new com.nilhcem.droidcontn.data.app.model.Session(session.getId(),
+                Room.getFromId(session.getRoomId()).name,
+                appMapper.toSpeakersList(session.getSpeakersId(), speakersMap),
+                session.getTitle(), session.getDescription(),
+                session.getStartAt(), session.getStartAt().plusMinutes(session.getDuration()))
+        ).collect(Collectors.toList());
     }
 }

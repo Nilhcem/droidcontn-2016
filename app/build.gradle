@@ -112,6 +112,8 @@ dependencies {
 
     provided 'org.projectlombok:lombok:1.16.6'
 
+    compile 'net.sourceforge.streamsupport:streamsupport:1.4.2'
+
     compile "com.google.dagger:dagger:$daggerVersion"
     apt "com.google.dagger:dagger-compiler:$daggerVersion"
 

@@ -16,13 +16,15 @@ import org.threeten.bp.LocalDateTime;
 import org.threeten.bp.temporal.ChronoUnit;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 
+import java8.util.stream.Collectors;
 import timber.log.Timber;
+
+import static java8.util.stream.StreamSupport.stream;
 
 public class DbMapper {
 
@@ -38,14 +40,12 @@ public class DbMapper {
     }
 
     public List<com.nilhcem.droidcontn.data.app.model.Session> toAppSessions(@NonNull List<Session> from, @NonNull Map<Integer, com.nilhcem.droidcontn.data.app.model.Speaker> speakersMap) {
-        List<com.nilhcem.droidcontn.data.app.model.Session> sessions = new ArrayList<>(from.size());
-        for (Session session : from) {
+        return stream(from).map(session -> {
             LocalDateTime fromTime = localDateTimeAdapter.fromText(session.startAt);
-            sessions.add(new com.nilhcem.droidcontn.data.app.model.Session(
-                    session.id, Room.getFromId(session.roomId).name, appMapper.toSpeakersList(deserialize(session.speakersIds), speakersMap),
-                    session.title, session.description, fromTime, fromTime.plusMinutes(session.duration)));
-        }
-        return sessions;
+            return new com.nilhcem.droidcontn.data.app.model.Session(session.id, Room.getFromId(session.roomId).name,
+                    appMapper.toSpeakersList(deserialize(session.speakersIds), speakersMap),
+                    session.title, session.description, fromTime, fromTime.plusMinutes(session.duration));
+        }).collect(Collectors.toList());
     }
 
     public Session fromAppSession(@Nullable com.nilhcem.droidcontn.data.app.model.Session from) {
@@ -69,17 +69,14 @@ public class DbMapper {
     }
 
     public List<com.nilhcem.droidcontn.data.app.model.Speaker> toAppSpeakers(@Nullable List<Speaker> from) {
-        List<com.nilhcem.droidcontn.data.app.model.Speaker> speakers = null;
-
-        if (from != null) {
-            speakers = new ArrayList<>(from.size());
-            for (Speaker speaker : from) {
-                speakers.add(new com.nilhcem.droidcontn.data.app.model.Speaker(speaker.id,
-                        speaker.name, speaker.title, speaker.bio, speaker.website, speaker.twitter,
-                        speaker.github, speaker.photo));
-            }
+        if (from == null) {
+            return null;
         }
-        return speakers;
+
+        return stream(from).map(speaker -> new com.nilhcem.droidcontn.data.app.model.Speaker(speaker.id,
+                speaker.name, speaker.title, speaker.bio, speaker.website, speaker.twitter,
+                speaker.github, speaker.photo)
+        ).collect(Collectors.toList());
     }
 
     private String serialize(@Nullable List<Integer> toSerialize) {

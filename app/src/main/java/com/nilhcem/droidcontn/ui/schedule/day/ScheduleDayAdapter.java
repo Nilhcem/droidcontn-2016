@@ -12,6 +12,8 @@ import org.threeten.bp.LocalDateTime;
 
 import java.util.List;
 
+import static java8.util.stream.StreamSupport.stream;
+
 public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
 
     private final List<ScheduleSlot> slots;
@@ -59,17 +61,13 @@ public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
     }
 
     private Session findSelectedSession(LocalDateTime slotTime, List<Session> slotSessions) {
-        Session selectedSession = null;
         Integer selectedSessionId = selectedSessionsMemory.get(slotTime);
-
-        if (selectedSessionId != null) {
-            for (Session session : slotSessions) {
-                if (session.getId() == selectedSessionId) {
-                    selectedSession = session;
-                    break;
-                }
-            }
+        if (selectedSessionId == null) {
+            return null;
         }
-        return selectedSession;
+
+        return stream(slotSessions)
+                .filter(session -> session.getId() == selectedSessionId)
+                .findFirst().orElse(null);
     }
 }

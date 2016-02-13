@@ -29,7 +29,7 @@ public abstract class BaseFragmentPresenter<V> extends BasePresenter<V> {
     }
 
     public void onResume() {
-
+        // Nothing to do by default
     }
 
     @CallSuper

@@ -14,11 +14,14 @@ import org.threeten.bp.LocalDateTime;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+
+import java8.util.stream.Collectors;
+
+import static java8.util.stream.StreamSupport.stream;
 
 public class AppMapper {
 
@@ -27,33 +30,21 @@ public class AppMapper {
     }
 
     public Map<Integer, Speaker> speakersToMap(@NonNull List<Speaker> from) {
-        Map<Integer, Speaker> map = new HashMap<>(from.size());
-        for (Speaker speaker : from) {
-            map.put(speaker.getId(), speaker);
-        }
-        return map;
+        return stream(from).collect(Collectors.toMap(Speaker::getId, speaker -> speaker));
     }
 
     public List<Speaker> toSpeakersList(@Nullable List<Integer> speakerIds, @NonNull Map<Integer, Speaker> speakersMap) {
-        List<Speaker> speakers = null;
-        if (speakerIds != null) {
-            speakers = new ArrayList<>(speakerIds.size());
-            for (Integer speakerId : speakerIds) {
-                speakers.add(speakersMap.get(speakerId));
-            }
+        if (speakerIds == null) {
+            return null;
         }
-        return speakers;
+        return stream(speakerIds).map(speakersMap::get).collect(Collectors.toList());
     }
 
     public List<Integer> toSpeakersIds(@Nullable List<Speaker> speakers) {
-        List<Integer> ids = null;
-        if (speakers != null) {
-            ids = new ArrayList<>(speakers.size());
-            for (Speaker speaker : speakers) {
-                ids.add(speaker.getId());
-            }
+        if (speakers == null) {
+            return null;
         }
-        return ids;
+        return stream(speakers).map(Speaker::getId).collect(Collectors.toList());
     }
 
     public Schedule toSchedule(@NonNull List<Session> sessions) {
