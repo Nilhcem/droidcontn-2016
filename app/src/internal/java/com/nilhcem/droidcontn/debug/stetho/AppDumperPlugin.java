@@ -18,6 +18,7 @@ import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
 import com.nilhcem.droidcontn.receiver.BootReceiver;
 import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiver;
+import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiverIntentBuilder;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Threads;
@@ -83,7 +84,7 @@ public class AppDumperPlugin implements DumperPlugin {
         sessionsDao.getSessions()
                 .flatMap(Observable::from)
                 .map(session -> {
-                    Intent intent = ReminderReceiver.createReceiverIntent(context, session);
+                    Intent intent = new ReminderReceiverIntentBuilder(session).build(context);
                     PendingIntent broadcast = PendingIntent.getBroadcast(context, session.getId(), intent, PendingIntent.FLAG_NO_CREATE);
                     if (broadcast != null) {
                         return String.format(Locale.US, "%s - Session(id=%d, title=%s)", session.getFromTime().format(DateTimeFormatter.ISO_DATE_TIME), session.getId(), session.getTitle());
@@ -163,7 +164,7 @@ public class AppDumperPlugin implements DumperPlugin {
                 .filter(session -> session.getSpeakers() != null)
                 .first()
                 .subscribe(session -> {
-                    Intent intent = ReminderReceiver.createReceiverIntent(context, session);
+                    Intent intent = new ReminderReceiverIntentBuilder(session).build(context);
                     new ReminderReceiver().onReceive(context, intent);
                 });
     }

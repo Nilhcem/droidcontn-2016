@@ -20,22 +20,19 @@ import com.nilhcem.droidcontn.utils.Downloader;
 import com.nilhcem.droidcontn.utils.Preconditions;
 
 import rx.schedulers.Schedulers;
+import se.emilsjolander.intentbuilder.Extra;
+import se.emilsjolander.intentbuilder.IntentBuilder;
 import timber.log.Timber;
 
+@IntentBuilder
 public class ReminderReceiver extends BroadcastReceiver {
 
-    private static final String EXTRA_SESSION = "session";
-
-    public static Intent createReceiverIntent(Context context, Session session) {
-        Intent intent = new Intent(context, ReminderReceiver.class);
-        intent.putExtra(EXTRA_SESSION, session);
-        return intent;
-    }
+    @Extra Session session;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         Timber.d("Received session reminder");
-        Session session = intent.getParcelableExtra(EXTRA_SESSION);
+        ReminderReceiverIntentBuilder.inject(intent, this);
         Preconditions.checkArgument(session != null);
         showNotification(context, session);
     }

@@ -75,7 +75,7 @@ public class SessionsReminder {
     }
 
     private PendingIntent createSessionReminderIntent(@NonNull Session session) {
-        Intent intent = ReminderReceiver.createReceiverIntent(context, session);
+        Intent intent = new ReminderReceiverIntentBuilder(session).build(context);
         return PendingIntent.getBroadcast(context, session.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
