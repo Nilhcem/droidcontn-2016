@@ -32,6 +32,7 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     @Bind(R.id.speakers_list_loading) ProgressBar loading;
     @Bind(R.id.speakers_list_recyclerview) RecyclerView recyclerView;
 
+    private Snackbar errorSnackbar;
     private SpeakersListAdapter adapter;
 
     @Override
@@ -60,6 +61,14 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     }
 
     @Override
+    public void onDestroyView() {
+        if (errorSnackbar != null) {
+            errorSnackbar.dismiss();
+        }
+        super.onDestroyView();
+    }
+
+    @Override
     public void displaySpeakers(List<Speaker> speakers) {
         adapter.setSpeakers(speakers);
         loading.setVisibility(View.GONE);
@@ -67,9 +76,11 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
     }
 
     @Override
-    public void displayLoadingError(Throwable error) {
+    public void displayLoadingError() {
         loading.setVisibility(View.GONE);
-        Snackbar.make(loading, error.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+        errorSnackbar = Snackbar.make(loading, R.string.connection_error, Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.connection_error_retry, v -> presenter.reloadData());
+        errorSnackbar.show();
     }
 
     @Override

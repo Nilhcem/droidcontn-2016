@@ -6,5 +6,5 @@ public interface SchedulePagerView {
 
     void displaySchedule(Schedule schedule);
 
-    void displayLoadingError(Throwable error);
+    void displayLoadingError();
 }

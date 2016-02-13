@@ -15,6 +15,7 @@ import javax.inject.Singleton;
 
 import rx.Observable;
 import rx.Subscriber;
+import timber.log.Timber;
 
 @Singleton
 public class DataProvider {
@@ -41,15 +42,14 @@ public class DataProvider {
 
     public Observable<List<Speaker>> getSpeakers() {
         return Observable.create(subscriber -> speakersDao.getSpeakers().subscribe(speakers -> {
-            if (speakers.isEmpty()) {
-                // TODO: get from embedded JSON
-            } else {
+            if (!speakers.isEmpty()) {
                 subscriber.onNext(speakers);
             }
 
             if (!subscriber.isUnsubscribed()) {
                 getSpeakersFromNetwork(subscriber);
             }
+            subscriber.onCompleted();
         }, subscriber::onError));
     }
 
@@ -59,20 +59,19 @@ public class DataProvider {
                 .subscribe(speakers -> {
                     subscriber.onNext(speakers);
                     speakersDao.saveSpeakers(speakers);
-                }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
+                }, throwable -> Timber.e(throwable, "Error getting speakers from network"));
     }
 
     private Observable<List<Session>> getSessions() {
         return Observable.create(subscriber -> sessionsDao.getSessions().subscribe(sessions -> {
-            if (sessions.isEmpty()) {
-                // TODO: get from embedded json
-            } else {
+            if (!sessions.isEmpty()) {
                 subscriber.onNext(sessions);
             }
 
             if (!subscriber.isUnsubscribed()) {
                 getSessionsFromNetwork(subscriber);
             }
+            subscriber.onCompleted();
         }, subscriber::onError));
     }
 
@@ -84,6 +83,6 @@ public class DataProvider {
                 .subscribe(sessions -> {
                     subscriber.onNext(sessions);
                     sessionsDao.saveSessions(sessions);
-                }, throwable -> subscriber.onCompleted(), subscriber::onCompleted);
+                }, throwable -> Timber.e(throwable, "Error getting sessions from network"));
     }
 }

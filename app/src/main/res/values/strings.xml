@@ -3,6 +3,10 @@
     <!-- Core -->
     <string name="core_app_name">Droidcon Tunisia 2016</string>
 
+    <!-- Connection error -->
+    <string name="connection_error">Connection error</string>
+    <string name="connection_error_retry">Retry</string>
+
     <!-- Drawer Activity -->
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
@@ -49,7 +53,7 @@
     <string name="settings_about_version">Version</string>
     <string name="settings_about_conf_title">Droidcon Tunisia</string>
     <string name="settings_about_sources_title">Source code</string>
-    <string name="settings_about_developer_title">Homemade by </string>
+    <string name="settings_about_developer_title">Homemade by</string>
 
     <!-- Sessions reminder -->
     <string name="reminder_about_to_start">Session %1$s is about to start!</string>

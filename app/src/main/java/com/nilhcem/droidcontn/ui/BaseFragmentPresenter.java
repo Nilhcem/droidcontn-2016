@@ -24,11 +24,15 @@ public abstract class BaseFragmentPresenter<V> extends BasePresenter<V> {
         // Nothing to do by default
     }
 
-    public void onDestroyView() {
+    public void onStart() {
         // Nothing to do by default
     }
 
     public void onResume() {
+        // Nothing to do by default
+    }
+
+    public void onStop() {
         // Nothing to do by default
     }
 

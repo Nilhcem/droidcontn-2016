@@ -8,7 +8,7 @@ public interface SpeakersListView {
 
     void displaySpeakers(List<Speaker> speakers);
 
-    void displayLoadingError(Throwable error);
+    void displayLoadingError();
 
     void showSpeakerDetails(Speaker speaker);
 }

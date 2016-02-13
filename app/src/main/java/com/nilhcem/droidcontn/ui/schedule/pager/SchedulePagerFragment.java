@@ -27,6 +27,8 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
     @Bind(R.id.schedule_loading) ProgressBar loading;
     @Bind(R.id.schedule_viewpager) ViewPager viewPager;
 
+    private Snackbar errorSnackbar;
+
     @Override
     protected SchedulePagerPresenter newPresenter() {
         return new SchedulePagerPresenter(this, dataProvider);
@@ -44,6 +46,14 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
     }
 
     @Override
+    public void onDestroyView() {
+        if (errorSnackbar != null) {
+            errorSnackbar.dismiss();
+        }
+        super.onDestroyView();
+    }
+
+    @Override
     public void displaySchedule(Schedule schedule) {
         viewPager.setAdapter(new SchedulePagerAdapter(getContext(), getChildFragmentManager(), schedule));
         if (schedule.size() > 1) {
@@ -55,8 +65,10 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
     }
 
     @Override
-    public void displayLoadingError(Throwable error) {
+    public void displayLoadingError() {
         loading.setVisibility(View.GONE);
-        Snackbar.make(loading, error.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+        errorSnackbar = Snackbar.make(loading, R.string.connection_error, Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.connection_error_retry, v -> presenter.reloadData());
+        errorSnackbar.show();
     }
 }

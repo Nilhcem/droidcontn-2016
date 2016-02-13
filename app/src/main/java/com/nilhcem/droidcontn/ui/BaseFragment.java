@@ -35,6 +35,14 @@ public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Frag
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        if (presenter != null) {
+            presenter.onStart();
+        }
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         if (presenter != null) {
@@ -51,10 +59,15 @@ public abstract class BaseFragment<P extends BaseFragmentPresenter> extends Frag
     }
 
     @Override
-    public void onDestroyView() {
+    public void onStop() {
         if (presenter != null) {
-            presenter.onDestroyView();
+            presenter.onStop();
         }
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroyView() {
         ButterKnife.unbind(this);
         super.onDestroyView();
     }
