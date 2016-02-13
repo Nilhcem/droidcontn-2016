@@ -25,6 +25,7 @@ public class DataProvider {
     private final DroidconService service;
     private final SpeakersDao speakersDao;
     private final SessionsDao sessionsDao;
+    private final DataProviderCache cache;
 
     @Inject
     public DataProvider(AppMapper appMapper, NetworkMapper networkMapper, DroidconService service, SpeakersDao speakersDao, SessionsDao sessionsDao) {
@@ -33,6 +34,7 @@ public class DataProvider {
         this.service = service;
         this.speakersDao = speakersDao;
         this.sessionsDao = sessionsDao;
+        this.cache = new DataProviderCache();
     }
 
     public Observable<Schedule> getSchedule() {
@@ -54,12 +56,18 @@ public class DataProvider {
     }
 
     private void getSpeakersFromNetwork(Subscriber<? super List<Speaker>> subscriber) {
-        service.loadSpeakers()
-                .map(networkMapper::toAppSpeakers)
-                .subscribe(speakers -> {
-                    subscriber.onNext(speakers);
-                    speakersDao.saveSpeakers(speakers);
-                }, throwable -> Timber.e(throwable, "Error getting speakers from network"));
+        List<Speaker> fromCache = cache.getSpeakers();
+        if (fromCache == null) {
+            service.loadSpeakers()
+                    .map(networkMapper::toAppSpeakers)
+                    .subscribe(speakers -> {
+                        subscriber.onNext(speakers);
+                        speakersDao.saveSpeakers(speakers);
+                        cache.saveSpeakers(speakers);
+                    }, throwable -> Timber.e(throwable, "Error getting speakers from network"));
+        } else {
+            subscriber.onNext(fromCache);
+        }
     }
 
     private Observable<List<Session>> getSessions() {
@@ -76,13 +84,19 @@ public class DataProvider {
     }
 
     private void getSessionsFromNetwork(Subscriber<? super List<Session>> subscriber) {
-        Observable.zip(
-                service.loadSessions(),
-                getSpeakers().last().map(appMapper::speakersToMap),
-                networkMapper::toAppSessions)
-                .subscribe(sessions -> {
-                    subscriber.onNext(sessions);
-                    sessionsDao.saveSessions(sessions);
-                }, throwable -> Timber.e(throwable, "Error getting sessions from network"));
+        List<Session> fromCache = cache.getSessions();
+        if (fromCache == null) {
+            Observable.zip(
+                    service.loadSessions(),
+                    getSpeakers().last().map(appMapper::speakersToMap),
+                    networkMapper::toAppSessions)
+                    .subscribe(sessions -> {
+                        subscriber.onNext(sessions);
+                        sessionsDao.saveSessions(sessions);
+                        cache.saveSessions(sessions);
+                    }, throwable -> Timber.e(throwable, "Error getting sessions from network"));
+        } else {
+            subscriber.onNext(fromCache);
+        }
     }
 }
