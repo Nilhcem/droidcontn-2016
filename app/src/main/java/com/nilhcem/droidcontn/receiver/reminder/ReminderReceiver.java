@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
+import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivityIntentBuilder;
 import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Downloader;
 import com.nilhcem.droidcontn.utils.Preconditions;
@@ -43,7 +44,7 @@ public class ReminderReceiver extends BroadcastReceiver {
         Schedulers.io().createWorker().schedule(() -> {
             PendingIntent pendingIntent = TaskStackBuilder.create(context)
                     .addParentStack(SessionDetailsActivity.class)
-                    .addNextIntent(SessionDetailsActivity.createIntent(context, session))
+                    .addNextIntent(new SessionDetailsActivityIntentBuilder(session).build(context))
                     .getPendingIntent(session.getId(), PendingIntent.FLAG_UPDATE_CURRENT);
 
             android.support.v4.app.NotificationCompat.Builder builder = new NotificationCompat.Builder(context)

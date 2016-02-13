@@ -17,8 +17,8 @@ import com.nilhcem.droidcontn.data.app.model.ScheduleDay;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.ui.BaseFragment;
-import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
-import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivity;
+import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivityIntentBuilder;
+import com.nilhcem.droidcontn.ui.sessions.list.SessionsListActivityIntentBuilder;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -41,8 +41,13 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     @Override
     protected ScheduleDayPresenter newPresenter() {
-        DroidconApp.get(getContext()).component().inject(this);
         return new ScheduleDayPresenter(this, scheduleDay);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        DroidconApp.get(getContext()).component().inject(this);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -65,11 +70,11 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     @Override
     public void onFreeSlotClicked(ScheduleSlot slot) {
-        startActivity(SessionsListActivity.createIntent(getContext(), slot));
+        startActivity(new SessionsListActivityIntentBuilder(slot).build(getContext()));
     }
 
     @Override
     public void onSelectedSessionClicked(Session session) {
-        startActivity(SessionDetailsActivity.createIntent(getContext(), session));
+        startActivity(new SessionDetailsActivityIntentBuilder(session).build(getContext()));
     }
 }

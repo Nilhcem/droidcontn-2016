@@ -36,8 +36,13 @@ public class SpeakersListFragment extends BaseFragment<SpeakersListPresenter> im
 
     @Override
     protected SpeakersListPresenter newPresenter() {
-        DroidconApp.get(getContext()).component().inject(this);
         return new SpeakersListPresenter(this, dataProvider);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        DroidconApp.get(getContext()).component().inject(this);
+        super.onCreate(savedInstanceState);
     }
 
     @Override

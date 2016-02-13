@@ -1,9 +1,6 @@
 package com.nilhcem.droidcontn.ui.sessions.details;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -38,10 +35,13 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import se.emilsjolander.intentbuilder.Extra;
+import se.emilsjolander.intentbuilder.IntentBuilder;
 
+@IntentBuilder
 public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter> implements SessionDetailsView {
 
-    private static final String EXTRA_SESSION = "session";
+    @Extra Session session;
 
     @Inject Picasso picasso;
     @Inject SessionsDao sessionsDao;
@@ -59,23 +59,18 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Bind(R.id.session_details_speakers_container) ViewGroup speakersContainer;
     @Bind(R.id.session_details_fab) FloatingActionButton fab;
 
-    public static Intent createIntent(@NonNull Context context, @NonNull Session session) {
-        return new Intent(context, SessionDetailsActivity.class)
-                .putExtra(EXTRA_SESSION, session);
-    }
-
     @Override
     protected SessionDetailsPresenter newPresenter() {
-        DroidconApp.get(this).component().inject(this);
-        Session session = getIntent().getParcelableExtra(EXTRA_SESSION);
         return new SessionDetailsPresenter(this, session, sessionsDao, sessionsReminder);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        DroidconApp.get(this).component().inject(this);
+        SessionDetailsActivityIntentBuilder.inject(getIntent(), this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.session_details);
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -100,6 +100,7 @@ android {
 ext.daggerVersion = '2.0.2'
 ext.fragmentargsVersion = '3.0.1'
 ext.icepickVersion = '3.1.0'
+ext.intentbuilderVersion = '0.14.0'
 ext.okhttpVersion = '3.1.0'
 ext.retrofitVersion = '2.0.0-beta4'
 ext.stethoVersion = '1.3.0'
@@ -137,6 +138,9 @@ dependencies {
 
     compile "frankiesardo:icepick:$icepickVersion"
     provided "frankiesardo:icepick-processor:$icepickVersion"
+
+    compile "se.emilsjolander:intentbuilder-api:$intentbuilderVersion"
+    apt "se.emilsjolander:intentbuilder-compiler:$intentbuilderVersion"
 
     compile "com.hannesdorfmann.fragmentargs:annotation:$fragmentargsVersion"
     apt "com.hannesdorfmann.fragmentargs:processor:$fragmentargsVersion"

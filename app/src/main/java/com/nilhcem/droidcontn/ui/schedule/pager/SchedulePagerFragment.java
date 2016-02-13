@@ -29,8 +29,13 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
 
     @Override
     protected SchedulePagerPresenter newPresenter() {
-        DroidconApp.get(getContext()).component().inject(this);
         return new SchedulePagerPresenter(this, dataProvider);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        DroidconApp.get(getContext()).component().inject(this);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
