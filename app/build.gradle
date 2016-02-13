@@ -62,6 +62,7 @@ android {
             proguardFile rootProject.file('settings/proguard/retrofit2.pro')
             proguardFile rootProject.file('settings/proguard/retrolambda.pro')
             proguardFile rootProject.file('settings/proguard/rx-java.pro')
+            proguardFile rootProject.file('settings/proguard/streamsupport.pro')
             proguardFile rootProject.file('settings/proguard/support-design.pro')
             proguardFile rootProject.file('settings/proguard/support-v4.pro')
             proguardFile rootProject.file('settings/proguard/support-v7-appcompat.pro')
