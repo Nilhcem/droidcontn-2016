@@ -114,6 +114,7 @@ dependencies {
     compile "com.android.support:preference-v14:$supportVersion"
     compile "com.android.support:cardview-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
+    compile "com.android.support:customtabs:$supportVersion"
 
     provided 'org.projectlombok:lombok:1.16.6'
 

@@ -107,6 +107,6 @@ public class SpeakerDetailsDialogFragment extends AppCompatDialogFragment {
     }
 
     private void openLink(String url) {
-        Intents.startExternalUrl(getContext(), url);
+        Intents.startExternalUrl(getActivity(), url);
     }
 }
