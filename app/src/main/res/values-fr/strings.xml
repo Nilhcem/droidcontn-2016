@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core -->
+    <string name="core_app_name">Droidcon Tunisie 2016</string>
+
+    <!-- Connection error -->
+    <string name="connection_error">Erreur de connexion</string>
+    <string name="connection_error_retry">Réessayer</string>
+
+    <!-- Drawer Activity -->
+    <string name="drawer_open">Ouvrir le menu de navigation</string>
+    <string name="drawer_close">Fermer le menu de navigation</string>
+    <string name="drawer_header_headline">Droidcon Tunisie</string>
+    <string name="drawer_header_subheadline">5/6 Mars 2016</string>
+    <string name="drawer_nav_agenda">Les sessions</string>
+    <string name="drawer_nav_schedule">Mon agenda</string>
+    <string name="drawer_nav_speakers">Orateurs</string>
+    <string name="drawer_nav_venue">Le lieu</string>
+    <string name="drawer_nav_settings">Paramètres</string>
+
+    <!-- Schedule -->
+    <string name="schedule_browse_sessions">Parcourir les sessions</string>
+    <string name="schedule_browse_sessions_title_pattern">%1$s, %2$s</string>
+    <string name="schedule_pager_day_pattern">EEEE dd</string>
+    <string name="schedule_speakers_separator">", "</string>
+    <string name="schedule_day_entry_session_time_format">%1$s - %2$s (%3$dmins)</string>
+
+    <!-- Session details -->
+    <string name="session_details_talk_info">%1$s, %2$s - %3$s\n%4$s</string>
+    <string name="session_details_talk_info_date_pattern">dd MMM YYYY</string>
+    <string name="session_details_description">Description</string>
+    <string name="session_details_added">Ajouté à mon agenda</string>
+    <string name="session_details_removed">Supprimé de mon agenda</string>
+    <plurals name="session_details_speakers">
+        <item quantity="one">Orateur</item>
+        <item quantity="other">Orateurs</item>
+    </plurals>
+
+    <!-- Speaker details -->
+    <string name="speaker_details_hide">Fermer</string>
+
+    <!-- Venue -->
+    <string name="venue_see_location">Voir sur la carte</string>
+    <string name="venue_see_location_error">Erreur lors de l\'ouverture de la carte.\nAvez-vous bien Google Maps installé sur votre appareil ?</string>
+    <string name="venue_medina_title">Medina Mediterranea Venue</string>
+    <string name="venue_medina_content">In the heart of the seaside resort Yasmine Hammamet, 656 feet (200 meters) from the seashore, Medina Mediterranea is one magic city dedicated to culture and leisure on over more than 25 acres.\nA real open-sky museum, Medina was established in homage of the Arab-Andalusia culture, referring many times over to the Mediterranean architecture ; all built according to ancestral techniques combining traditional charm with the comfort of the 21st century.\n\nSurrounded by authentic medieval ramparts, we discover it behind the majestic doors with evocative names such as Damas and Mehdia giving homage to the Mediterranean civilization. The maze of alleys, the abundance of the domes, patios and alcoves will take you from Algier to Ispahan, from Cordova or Sidi Bou Said to Fes…</string>
+    <string name="venue_convention_title">Medina Convention Center</string>
+    <string name="venue_convention_content">Integrated within the Medina Mediterranean, the Medina Convention Center offers a full range of rooms equipped with modern audiovisual equipment, making it the ideal please for events, conferences, seminars, incentives…\n\nThe Convention Center Medina offers a wide selection of spaces: 6000m² of workspace, exhibition space, amphitheaters, sub-commission rooms, etc.</string>
+
+    <!-- Settings -->
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notify_about_my_sessions">M\'alerter lorsqu\'une session commence</string>
+    <string name="settings_notify_about_my_sessions_description">Affiche une notification lorsqu\'une session sélectionnée est prête à commencer</string>
+    <string name="settings_about">À propos</string>
+    <string name="settings_about_version">Version</string>
+    <string name="settings_about_conf_title">Droidcon Tunisie</string>
+    <string name="settings_about_sources_title">Code source</string>
+    <string name="settings_about_developer_title">Fait maison par</string>
+
+    <!-- Sessions reminder -->
+    <string name="reminder_about_to_start">La session %1$s va commencer !</string>
+</resources>
