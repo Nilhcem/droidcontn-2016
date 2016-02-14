@@ -15,10 +15,11 @@
         android:layout_marginTop="18dp"
         android:src="@drawable/drawer_header_ic"/>
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
         android:paddingTop="16dp"
         android:text="@string/drawer_header_headline"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"

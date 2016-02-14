@@ -49,6 +49,7 @@
         <item name="android:layout_marginLeft">@dimen/activity_margin</item>
         <item name="android:layout_marginRight">@dimen/activity_margin</item>
         <item name="android:paddingLeft">@dimen/activity_margin</item>
+        <item name="android:paddingStart">@dimen/activity_margin</item>
     </style>
 
     <!-- Speaker details -->

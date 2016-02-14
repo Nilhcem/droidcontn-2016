@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:textColor="@color/secondary_text"
         android:textSize="14sp"
         tools:text="Gautier Nilhcem"/>

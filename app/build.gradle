@@ -36,7 +36,7 @@ android {
 
         minSdkVersion 15
         targetSdkVersion 23
-        resConfigs 'en'
+        resConfigs 'en','fr','ar'
 
         buildConfigField 'String', 'GIT_SHA', "\"${gitSha}\""
         buildConfigField 'String', 'API_ENDPOINT', "\"https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/api/\""
@@ -149,6 +149,8 @@ dependencies {
     compile 'com.squareup.sqlbrite:sqlbrite:0.5.0'
 
     compile 'com.jakewharton.threetenabp:threetenabp:1.0.3'
+
+    compile 'klogi.com:rtlviewpager:1.0.0'
 
     internalCompile 'jp.wasabeef:takt:1.0.2'
     internalCompile 'com.jakewharton:process-phoenix:1.0.2'
