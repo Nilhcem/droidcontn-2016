@@ -17,6 +17,7 @@
             android:id="@+id/speaker_details_photo"
             android:layout_width="@dimen/speaker_details_image"
             android:layout_height="@dimen/speaker_details_image"
+            android:contentDescription="@null"
             android:src="@color/primary_dark"/>
 
         <LinearLayout
