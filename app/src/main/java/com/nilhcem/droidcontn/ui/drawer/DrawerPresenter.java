@@ -6,7 +6,7 @@ import android.support.annotation.StringRes;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.ui.BaseActivityPresenter;
-import com.nilhcem.droidcontn.ui.schedule.pager.SchedulePagerFragment;
+import com.nilhcem.droidcontn.ui.schedule.pager.SchedulePagerFragmentBuilder;
 import com.nilhcem.droidcontn.ui.settings.SettingsFragment;
 import com.nilhcem.droidcontn.ui.speakers.list.SpeakersListFragment;
 import com.nilhcem.droidcontn.ui.venue.VenueFragment;
@@ -25,7 +25,7 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            onNavigationItemSelected(R.id.drawer_nav_schedule);
+            onNavigationItemSelected(R.id.drawer_nav_agenda);
         }
     }
 
@@ -38,8 +38,12 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
     @Override
     public void onNavigationItemSelected(@IdRes int itemId) {
         switch (itemId) {
+            case R.id.drawer_nav_agenda:
+                view.showFragment(new SchedulePagerFragmentBuilder(true).build());
+                toolbarTitle = R.string.drawer_nav_agenda;
+                break;
             case R.id.drawer_nav_schedule:
-                view.showFragment(new SchedulePagerFragment());
+                view.showFragment(new SchedulePagerFragmentBuilder(false).build());
                 toolbarTitle = R.string.drawer_nav_schedule;
                 break;
             case R.id.drawer_nav_speakers:
@@ -67,9 +71,10 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
         if (view.isNavigationDrawerOpen()) {
             view.closeNavigationDrawer();
             return true;
-        } else if (toolbarTitle != R.string.drawer_nav_schedule) {
-            onNavigationItemSelected(R.id.drawer_nav_schedule);
-            view.selectFirstDrawerEntry();
+        } else if (toolbarTitle != R.string.drawer_nav_agenda) {
+            int firstItem = R.id.drawer_nav_agenda;
+            onNavigationItemSelected(firstItem);
+            view.selectDrawerMenuItem(firstItem);
             return true;
         }
         return false;

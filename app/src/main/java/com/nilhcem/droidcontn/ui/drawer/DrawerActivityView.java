@@ -1,5 +1,6 @@
 package com.nilhcem.droidcontn.ui.drawer;
 
+import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 
@@ -13,7 +14,7 @@ public interface DrawerActivityView {
 
     void showFragment(Fragment fragment);
 
-    void selectFirstDrawerEntry();
+    void selectDrawerMenuItem(@IdRes int id);
 
     void hideTabLayout();
 }

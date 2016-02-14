@@ -56,7 +56,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         breakCard.setVisibility(View.GONE);
         sessionCard.setVisibility(View.GONE);
 
-        bindTime(slot);
+        bindTime(slot, true);
         browseCard.setVisibility(View.VISIBLE);
         browseCard.setOnClickListener(v -> listener.onFreeSlotClicked(slot));
     }
@@ -65,16 +65,16 @@ public class ScheduleDayEntry extends BaseViewHolder {
         browseCard.setVisibility(View.GONE);
         sessionCard.setVisibility(View.GONE);
 
-        bindTime(slot);
+        bindTime(slot, true);
         breakCard.setVisibility(View.VISIBLE);
         breakText.setText(session.getTitle());
     }
 
-    public void bindSelectedSession(ScheduleSlot slot, Session session) {
+    public void bindSelectedSession(ScheduleSlot slot, Session session, boolean showTime) {
         breakCard.setVisibility(View.GONE);
         browseCard.setVisibility(View.GONE);
 
-        bindTime(slot);
+        bindTime(slot, showTime);
         sessionCard.setVisibility(View.VISIBLE);
         sessionTitle.setText(session.getTitle());
         sessionTime.setText(formatSessionTime(session));
@@ -88,9 +88,14 @@ public class ScheduleDayEntry extends BaseViewHolder {
         return time.format(formatter);
     }
 
-    private void bindTime(ScheduleSlot slot) {
-        String timeStr = formatTime(slot.getTime());
-        time.setText(timeStr);
+    private void bindTime(ScheduleSlot slot, boolean showTime) {
+        if (showTime) {
+            String timeStr = formatTime(slot.getTime());
+            time.setVisibility(View.VISIBLE);
+            time.setText(timeStr);
+        } else {
+            time.setVisibility(View.INVISIBLE);
+        }
     }
 
     private String formatSessionTime(Session session) {

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.hannesdorfmann.fragmentargs.annotation.Arg;
+import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.DataProvider;
@@ -20,7 +22,10 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 
+@FragmentWithArgs
 public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> implements SchedulePagerView {
+
+    @Arg boolean allSessions;
 
     @Inject DataProvider dataProvider;
 
@@ -55,7 +60,7 @@ public class SchedulePagerFragment extends BaseFragment<SchedulePagerPresenter> 
 
     @Override
     public void displaySchedule(Schedule schedule) {
-        viewPager.setAdapter(new SchedulePagerAdapter(getContext(), getChildFragmentManager(), schedule));
+        viewPager.setAdapter(new SchedulePagerAdapter(getContext(), getChildFragmentManager(), schedule, allSessions));
         if (schedule.size() > 1) {
             ((DrawerActivity) getActivity()).setupTabLayoutWithViewPager(viewPager);
         }

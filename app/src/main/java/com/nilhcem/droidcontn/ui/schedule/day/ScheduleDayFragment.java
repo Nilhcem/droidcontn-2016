@@ -30,6 +30,7 @@ import butterknife.Bind;
 @FragmentWithArgs
 public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> implements ScheduleDayView, ScheduleDayEntry.OnSessionClickListener {
 
+    @Arg boolean allSessions;
     @Arg ScheduleDay scheduleDay;
 
     @Inject Picasso picasso;
@@ -37,7 +38,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     @Bind(R.id.schedule_day_recyclerview) RecyclerView recyclerView;
 
-    private ScheduleDayAdapter adapter;
+    private RecyclerView.Adapter<ScheduleDayEntry> adapter;
 
     @Override
     protected ScheduleDayPresenter newPresenter() {
@@ -57,7 +58,11 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
 
     @Override
     public void initSlotsList(List<ScheduleSlot> slots) {
-        adapter = new ScheduleDayAdapter(slots, selectedSessionsMemory, picasso, this);
+        if (allSessions) {
+            adapter = new ScheduleDayFragmentAdapterAllSessions(slots, picasso, this);
+        } else {
+            adapter = new ScheduleDayFragmentAdapterMySessions(slots, selectedSessionsMemory, picasso, this);
+        }
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);

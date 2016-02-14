@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.Schedule;
-import com.nilhcem.droidcontn.ui.schedule.day.ScheduleDayFragment;
 import com.nilhcem.droidcontn.ui.schedule.day.ScheduleDayFragmentBuilder;
 
 import org.threeten.bp.format.DateTimeFormatter;
@@ -18,16 +17,18 @@ public class SchedulePagerAdapter extends FragmentPagerAdapter {
 
     private final Schedule schedule;
     private final String dayPattern;
+    private final boolean allSessions;
 
-    public SchedulePagerAdapter(Context context, FragmentManager fm, Schedule schedule) {
+    public SchedulePagerAdapter(Context context, FragmentManager fm, Schedule schedule, boolean allSessions) {
         super(fm);
         this.schedule = schedule;
+        this.allSessions = allSessions;
         dayPattern = context.getString(R.string.schedule_pager_day_pattern);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return new ScheduleDayFragmentBuilder(schedule.get(position)).build();
+        return new ScheduleDayFragmentBuilder(allSessions, schedule.get(position)).build();
     }
 
     @Override

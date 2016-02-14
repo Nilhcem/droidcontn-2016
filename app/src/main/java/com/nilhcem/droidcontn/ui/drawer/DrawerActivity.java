@@ -1,6 +1,7 @@
 package com.nilhcem.droidcontn.ui.drawer;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -69,8 +70,8 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
     }
 
     @Override
-    public void selectFirstDrawerEntry() {
-        navigationView.setCheckedItem(R.id.drawer_nav_schedule);
+    public void selectDrawerMenuItem(@IdRes int id) {
+        navigationView.setCheckedItem(id);
     }
 
     @Override

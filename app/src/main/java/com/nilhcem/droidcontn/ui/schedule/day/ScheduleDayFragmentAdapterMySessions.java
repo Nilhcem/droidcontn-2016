@@ -14,14 +14,14 @@ import java.util.List;
 
 import static java8.util.stream.StreamSupport.stream;
 
-public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
+public class ScheduleDayFragmentAdapterMySessions extends RecyclerView.Adapter<ScheduleDayEntry> {
 
     private final List<ScheduleSlot> slots;
     private final SelectedSessionsMemory selectedSessionsMemory;
     private final Picasso picasso;
     private final ScheduleDayEntry.OnSessionClickListener listener;
 
-    public ScheduleDayAdapter(List<ScheduleSlot> slots, SelectedSessionsMemory selectedSessionsMemory, Picasso picasso, ScheduleDayEntry.OnSessionClickListener listener) {
+    public ScheduleDayFragmentAdapterMySessions(List<ScheduleSlot> slots, SelectedSessionsMemory selectedSessionsMemory, Picasso picasso, ScheduleDayEntry.OnSessionClickListener listener) {
         this.slots = slots;
         this.selectedSessionsMemory = selectedSessionsMemory;
         this.picasso = picasso;
@@ -47,11 +47,11 @@ public class ScheduleDayAdapter extends RecyclerView.Adapter<ScheduleDayEntry> {
                 if (session.getSpeakers() == null) {
                     holder.bindBreakSlot(slot, session);
                 } else {
-                    holder.bindSelectedSession(slot, session);
+                    holder.bindSelectedSession(slot, session, true);
                 }
             }
         } else {
-            holder.bindSelectedSession(slot, selectedSession);
+            holder.bindSelectedSession(slot, selectedSession, true);
         }
     }
 
