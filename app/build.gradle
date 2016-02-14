@@ -68,6 +68,7 @@ android {
             proguardFile rootProject.file('settings/proguard/support-v4.pro')
             proguardFile rootProject.file('settings/proguard/support-v7-appcompat.pro')
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
 
