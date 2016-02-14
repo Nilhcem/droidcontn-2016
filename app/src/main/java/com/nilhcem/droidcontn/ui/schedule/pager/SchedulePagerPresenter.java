@@ -1,5 +1,9 @@
 package com.nilhcem.droidcontn.ui.schedule.pager;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
+
 import com.nilhcem.droidcontn.data.app.DataProvider;
 import com.nilhcem.droidcontn.data.app.model.Schedule;
 import com.nilhcem.droidcontn.ui.BaseFragmentPresenter;
@@ -23,8 +27,8 @@ public class SchedulePagerPresenter extends BaseFragmentPresenter<SchedulePagerV
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         if (schedule == null) {
             loadData();
         } else {
