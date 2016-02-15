@@ -1,6 +1,7 @@
 package com.nilhcem.droidcontn.debug.stetho;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Application;
 import android.app.PendingIntent;
 import android.content.ComponentName;
@@ -12,20 +13,25 @@ import android.os.Build;
 import com.facebook.stetho.dumpapp.DumpException;
 import com.facebook.stetho.dumpapp.DumperContext;
 import com.facebook.stetho.dumpapp.DumperPlugin;
+import com.google.gson.GsonBuilder;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.data.database.dao.SessionsDao;
 import com.nilhcem.droidcontn.data.network.ApiEndpoint;
+import com.nilhcem.droidcontn.debug.lifecycle.ActivityProvider;
 import com.nilhcem.droidcontn.receiver.BootReceiver;
 import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiver;
 import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiverIntentBuilder;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
+import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
 import com.nilhcem.droidcontn.utils.App;
 import com.nilhcem.droidcontn.utils.Threads;
 
 import org.threeten.bp.format.DateTimeFormatter;
 
 import java.io.PrintStream;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Locale;
 
@@ -38,12 +44,14 @@ public class AppDumperPlugin implements DumperPlugin {
     private final Context context;
     private final ApiEndpoint endpoint;
     private final SessionsDao sessionsDao;
+    private final ActivityProvider activityProvider;
 
     @Inject
-    public AppDumperPlugin(Application app, ApiEndpoint endpoint, SessionsDao sessionsDao) {
+    public AppDumperPlugin(Application app, ApiEndpoint endpoint, SessionsDao sessionsDao, ActivityProvider activityProvider) {
         this.context = app;
         this.endpoint = endpoint;
         this.sessionsDao = sessionsDao;
+        this.activityProvider = activityProvider;
     }
 
     @Override
@@ -66,6 +74,9 @@ public class AppDumperPlugin implements DumperPlugin {
                 break;
             case "bootReceiver":
                 displayBootReceiverState(writer);
+                break;
+            case "currentSession":
+                displayCurrentSessionData(writer);
                 break;
             case "endpoint":
                 changeEndpoint(writer, args);
@@ -130,6 +141,23 @@ public class AppDumperPlugin implements DumperPlugin {
         }
     }
 
+    private void displayCurrentSessionData(PrintStream writer) {
+        Activity activity = activityProvider.getCurrentActivity();
+        if (activity instanceof SessionDetailsActivity) {
+            try {
+                // Use reflection to access private "session" field
+                Field field = SessionDetailsActivity.class.getDeclaredField("session");
+                field.setAccessible(true);
+                Session session = (Session) field.get(activity);
+                writer.println(new GsonBuilder().setPrettyPrinting().create().toJson(session));
+            } catch (Exception e) {
+                writer.println(e.getMessage());
+            }
+        } else {
+            writer.println("SessionDetailsActivity not visible");
+        }
+    }
+
     private void changeEndpoint(PrintStream writer, List<String> args) {
         if (args.size() < 1) {
             doUsage(writer);
@@ -176,6 +204,7 @@ public class AppDumperPlugin implements DumperPlugin {
         writer.println("* alarms: Display AlarmManager active alarms");
         writer.println("* appInfo: Display current app build info");
         writer.println("* bootReceiver: Display boot receiver state");
+        writer.println("* currentSession: Display current session data");
         writer.println("* endpoint get: Display current api endpoint");
         writer.println("* endpoint set (PROD|MOCK|\"https?://<url>\"): Change api endpoint");
         writer.println("* notif: Test a notification reminder");

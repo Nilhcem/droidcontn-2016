@@ -3,6 +3,7 @@ package com.nilhcem.droidcontn;
 import android.os.Build;
 
 import com.nilhcem.droidcontn.core.dagger.AppComponent;
+import com.nilhcem.droidcontn.debug.lifecycle.ActivityProvider;
 import com.nilhcem.droidcontn.debug.stetho.StethoInitializer;
 
 import javax.inject.Inject;
@@ -18,6 +19,7 @@ public class InternalDroidconApp extends DroidconApp {
     private static final boolean DISPLAY_FPS = false;
 
     @Inject StethoInitializer stetho;
+    @Inject ActivityProvider activityProvider;
 
     @Override
     public void onCreate() {
@@ -25,8 +27,8 @@ public class InternalDroidconApp extends DroidconApp {
         AppComponent.Initializer.init(this).inject(this);
         displayFps(true);
         stetho.init();
+        activityProvider.init(this);
     }
-
 
     @Override
     public void onTerminate() {
