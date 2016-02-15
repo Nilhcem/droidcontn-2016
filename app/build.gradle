@@ -36,7 +36,7 @@ android {
 
         minSdkVersion 15
         targetSdkVersion 23
-        resConfigs 'en','fr','ar'
+        resConfigs 'en', 'fr', 'ar'
 
         buildConfigField 'String', 'GIT_SHA', "\"${gitSha}\""
         buildConfigField 'String', 'API_ENDPOINT', "\"https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/api/\""
@@ -163,6 +163,7 @@ dependencies {
     internalCompile("com.facebook.stetho:stetho-timber:$stethoVersion") {
         exclude group: 'com.jakewharton.timber'
     }
+    internalCompile "com.facebook.stetho:stetho-js-rhino:$stethoVersion"
     internalCompile 'com.google.code.gson:gson:2.6.1'
 
     testCompile 'junit:junit:4.12'
