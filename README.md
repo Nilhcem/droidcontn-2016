@@ -12,6 +12,13 @@ Sample app for the "2016 Android Developer Toolbox" talk at droidcon tunisia
 * Receive a notification when selected sessions are about to begin
 
 
+## Development Environment
+
+This project uses Java 8, Retrolambda, and Lombok.
+
+Don't forget to install the Java 8 JDK, and the lombok plugin for your IDE before trying to build it.
+
+
 ## Run Unit Tests
 
 ```bash
