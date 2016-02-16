@@ -26,9 +26,9 @@ public class SelectedSessionsMemory {
         return selectedSessions.get(slotTime);
     }
 
-    public void toggleSessionState(com.nilhcem.droidcontn.data.app.model.Session session, boolean isSelected) {
+    public void toggleSessionState(com.nilhcem.droidcontn.data.app.model.Session session, boolean insert) {
         selectedSessions.remove(session.getFromTime());
-        if (!isSelected) {
+        if (insert) {
             selectedSessions.put(session.getFromTime(), session.getId());
         }
     }

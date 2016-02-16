@@ -52,6 +52,29 @@ public class SessionsDao {
         return getSessions(query);
     }
 
+    public Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSelectedSessions(LocalDateTime slotTime) {
+        String query = String.format(Locale.US, "SELECT %s.* FROM %s INNER JOIN %s ON %s.%s=%s.%s WHERE %s=?",
+                Session.TABLE, Session.TABLE, SelectedSession.TABLE, Session.TABLE, Session.ID, SelectedSession.TABLE, SelectedSession.SESSION_ID, SelectedSession.SLOT_TIME);
+        return getSessions(query, adapter.toText(slotTime));
+    }
+
+    public void toggleSelectedSessionState(com.nilhcem.droidcontn.data.app.model.Session session, boolean insert) {
+        Preconditions.checkNotOnMainThread();
+
+        String slotTime = adapter.toText(session.getFromTime());
+        BriteDatabase.Transaction transaction = database.newTransaction();
+        try {
+            database.delete(SelectedSession.TABLE, SelectedSession.SLOT_TIME + "=?", slotTime);
+            if (insert) {
+                database.insert(SelectedSession.TABLE, new SelectedSession.Builder().slotTime(slotTime).sessionId(session.getId()).build());
+            }
+            selectedSessionsMemory.toggleSessionState(session, insert);
+            transaction.markSuccessful();
+        } finally {
+            transaction.end();
+        }
+    }
+
     public void saveSessions(List<com.nilhcem.droidcontn.data.app.model.Session> toSave) {
         Preconditions.checkNotOnMainThread();
 
@@ -75,25 +98,6 @@ public class SessionsDao {
                 .map(it -> it > 0);
     }
 
-    public Observable<Boolean> toggleSelectedState(com.nilhcem.droidcontn.data.app.model.Session session) {
-        return isSelected(session)
-                .map(isSelected -> {
-                    String slotTime = adapter.toText(session.getFromTime());
-                    BriteDatabase.Transaction transaction = database.newTransaction();
-                    try {
-                        database.delete(SelectedSession.TABLE, SelectedSession.SLOT_TIME + "=?", slotTime);
-                        if (!isSelected) {
-                            database.insert(SelectedSession.TABLE, new SelectedSession.Builder().slotTime(slotTime).sessionId(session.getId()).build());
-                        }
-                        selectedSessionsMemory.toggleSessionState(session, isSelected);
-                        transaction.markSuccessful();
-                    } finally {
-                        transaction.end();
-                    }
-                    return isSelected;
-                });
-    }
-
     public void initSelectedSessionsMemory() {
         database.createQuery(SelectedSession.TABLE, "SELECT * FROM " + SelectedSession.TABLE)
                 .mapToList(SelectedSession.MAPPER)
@@ -110,9 +114,9 @@ public class SessionsDao {
                 .subscribe(selectedSessionsMemory::setSelectedSessions);
     }
 
-    private Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSessions(String query) {
+    private Observable<List<com.nilhcem.droidcontn.data.app.model.Session>> getSessions(String query, String... args) {
         return Observable.zip(
-                database.createQuery(Session.TABLE, query).mapToList(Session.MAPPER).first(),
+                database.createQuery(Session.TABLE, query, args).mapToList(Session.MAPPER).first(),
                 speakersDao.getSpeakersMap(),
                 dbMapper::toAppSessions);
     }

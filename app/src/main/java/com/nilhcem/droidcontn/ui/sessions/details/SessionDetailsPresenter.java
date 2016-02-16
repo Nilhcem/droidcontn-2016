@@ -37,19 +37,31 @@ public class SessionDetailsPresenter extends BaseActivityPresenter<SessionDetail
     }
 
     public void onFloatingActionButtonClicked() {
-        sessionsDao.toggleSelectedState(session)
+        sessionsDao.getSelectedSessions(session.getFromTime())
+                .map(sessions -> {
+                    boolean shouldInsert = true;
+                    for (Session session : sessions) {
+                        sessionsReminder.removeSessionReminder(session);
+                        if (session.getId() == this.session.getId()) {
+                            shouldInsert = false;
+                        }
+                    }
+
+                    if (shouldInsert) {
+                        sessionsReminder.addSessionReminder(session);
+                    }
+                    sessionsDao.toggleSelectedSessionState(this.session, shouldInsert);
+                    return shouldInsert;
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(isSelected -> {
-                            if (isSelected) {
-                                sessionsReminder.removeSessionReminder(session);
-                                view.showSnackbarMessage(R.string.session_details_removed);
-                            } else {
-                                sessionsReminder.addSessionReminder(session);
-                                view.showSnackbarMessage(R.string.session_details_added);
-                            }
-                            view.updateFabButton(!isSelected, true);
-                        },
-                        throwable -> Timber.e(throwable, "Error getting selected session state"));
+                .subscribe(shouldInsert -> {
+                    if (shouldInsert) {
+                        view.showSnackbarMessage(R.string.session_details_added);
+                    } else {
+                        view.showSnackbarMessage(R.string.session_details_removed);
+                    }
+                    view.updateFabButton(shouldInsert, true);
+                }, throwable -> Timber.e(throwable, "Error getting selected session state"));
     }
 }
