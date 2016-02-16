@@ -2,6 +2,16 @@
 
 Sample app for the "2016 Android Developer Toolbox" talk at droidcon tunisia
 
+## Features
+
+![droidcontn2016 Android screenshots][]
+
+* See all sessions
+* Manage your schedule
+* Consult speakers information
+* Receive a notification when selected sessions are about to begin
+
+
 ## Run Unit Tests
 
 ```bash
@@ -23,10 +33,29 @@ You can then access it through:
 http://localhost:8990/
 ```
 
+
 ## Acknowledgements
 
-This project took some inspiration from the amazing work done for the [Droidcon PL 2015 mobile app][], the [Google I/O app][], and the [Droidkaigi2016 app][]
+This project took some inspiration from the amazing work done for the [Droidcon PL 2015 mobile app][], the [Google I/O app][], and the [DroidKaigi 2016 app][]
 
+
+## License
+
+```
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+[droidcontn2016 Android screenshots]: https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/screenshots/screenshots.jpg
 [Droidcon PL 2015 mobile app]: https://github.com/droidconpl/droidcon-2015-mobile-app
 [Google I/O app]: https://github.com/google/iosched
-[Droidkaigi2016 app]: https://github.com/konifar/droidkaigi2016/
+[DroidKaigi 2016 app]: https://github.com/konifar/droidkaigi2016/
