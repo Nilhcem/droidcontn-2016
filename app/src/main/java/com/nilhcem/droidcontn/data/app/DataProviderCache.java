@@ -13,10 +13,10 @@ public class DataProviderCache {
 
     private static final long CACHE_DURATION_MN = 10;
 
-    private List<Session> sessions;
-    private LocalDateTime sessionsFetchedTime;
-    private List<Speaker> speakers;
-    private LocalDateTime speakersFetchedTime;
+    List<Session> sessions;
+    LocalDateTime sessionsFetchedTime;
+    List<Speaker> speakers;
+    LocalDateTime speakersFetchedTime;
 
     public List<Session> getSessions() {
         if (sessionsFetchedTime != null && sessionsFetchedTime.plusMinutes(CACHE_DURATION_MN).isAfter(LocalDateTime.now())) {
