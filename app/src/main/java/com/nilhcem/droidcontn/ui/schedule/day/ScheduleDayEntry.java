@@ -1,6 +1,7 @@
 package com.nilhcem.droidcontn.ui.schedule.day;
 
 import android.support.v7.widget.CardView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
 
     @Bind(R.id.schedule_day_entry_break_card) CardView breakCard;
     @Bind(R.id.schedule_day_entry_break_text) TextView breakText;
+    @Bind(R.id.schedule_day_entry_break_room) TextView breakRoom;
 
     @Bind(R.id.schedule_day_entry_browse_card) CardView browseCard;
 
@@ -68,6 +70,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         bindTime(slot, showTime);
         breakCard.setVisibility(View.VISIBLE);
         breakText.setText(session.getTitle());
+        bindRoom(session, breakRoom);
     }
 
     public void bindSelectedSession(ScheduleSlot slot, Session session, boolean showTime) {
@@ -78,7 +81,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         sessionCard.setVisibility(View.VISIBLE);
         sessionTitle.setText(session.getTitle());
         sessionTime.setText(formatSessionTime(session));
-        sessionRoom.setText(session.getRoom());
+        bindRoom(session, sessionRoom);
         bindSessionSpeakers(session);
         sessionCard.setOnClickListener(v -> listener.onSelectedSessionClicked(session));
     }
@@ -104,6 +107,16 @@ public class ScheduleDayEntry extends BaseViewHolder {
         long minutes = ChronoUnit.MINUTES.between(fromTime, toTime);
         return itemView.getContext().getString(R.string.schedule_day_entry_session_time_format,
                 formatTime(fromTime), formatTime(toTime), minutes);
+    }
+
+    private void bindRoom(Session session, TextView view) {
+        String room = session.getRoom();
+        if (TextUtils.isEmpty(room)) {
+            view.setVisibility(View.GONE);
+        } else {
+            view.setText(room);
+            view.setVisibility(View.VISIBLE);
+        }
     }
 
     private void bindSessionSpeakers(Session session) {
