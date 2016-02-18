@@ -38,7 +38,7 @@ public class ScheduleDayFragmentAdapterAllSessions extends RecyclerView.Adapter<
         ScheduleSlot slot = pair.second;
 
         if (session.getSpeakers() == null) {
-            holder.bindBreakSlot(slot, session);
+            holder.bindBreakSlot(slot, session, shouldShowTime(slot, position));
         } else {
             holder.bindSelectedSession(slot, session, shouldShowTime(slot, position));
         }

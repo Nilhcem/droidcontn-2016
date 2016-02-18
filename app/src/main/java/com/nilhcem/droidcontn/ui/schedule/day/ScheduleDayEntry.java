@@ -61,11 +61,11 @@ public class ScheduleDayEntry extends BaseViewHolder {
         browseCard.setOnClickListener(v -> listener.onFreeSlotClicked(slot));
     }
 
-    public void bindBreakSlot(ScheduleSlot slot, Session session) {
+    public void bindBreakSlot(ScheduleSlot slot, Session session, boolean showTime) {
         browseCard.setVisibility(View.GONE);
         sessionCard.setVisibility(View.GONE);
 
-        bindTime(slot, true);
+        bindTime(slot, showTime);
         breakCard.setVisibility(View.VISIBLE);
         breakText.setText(session.getTitle());
     }
