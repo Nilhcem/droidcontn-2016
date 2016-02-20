@@ -6,8 +6,10 @@ import android.content.Context;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.nilhcem.droidcontn.core.dagger.AppComponent;
 
+import hugo.weaving.DebugLog;
 import timber.log.Timber;
 
+@DebugLog
 public class DroidconApp extends Application {
 
     private AppComponent component;
