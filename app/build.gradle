@@ -49,6 +49,15 @@ android {
             debuggable true
             signingConfig signingConfigs.debug
         }
+        unittest {
+            // This build type is mostly a hack to make Robolectric 3.0 work with buildvariants
+            // having their own resources values and applicationIdSuffixes
+            // We had error messages such as (event when specifying @Config(packageName=...):
+            // "android.content.res.Resources$NotFoundException: no such label com.my.app:string/app_name"
+            // Idea here is to have a debug build with no applicationIdSuffix.
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled true
             shrinkResources true
