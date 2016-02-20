@@ -35,6 +35,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
 
     @Bind(R.id.schedule_day_entry_break_card) CardView breakCard;
     @Bind(R.id.schedule_day_entry_break_text) TextView breakText;
+    @Bind(R.id.schedule_day_entry_break_time) TextView breakTime;
     @Bind(R.id.schedule_day_entry_break_room) TextView breakRoom;
 
     @Bind(R.id.schedule_day_entry_browse_card) CardView browseCard;
@@ -70,6 +71,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         bindTime(slot, showTime);
         breakCard.setVisibility(View.VISIBLE);
         breakText.setText(session.getTitle());
+        breakTime.setText(formatSessionTime(session));
         bindRoom(session, breakRoom);
     }
 
