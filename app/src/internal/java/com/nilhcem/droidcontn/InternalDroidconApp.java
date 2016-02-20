@@ -2,6 +2,7 @@ package com.nilhcem.droidcontn;
 
 import android.os.Build;
 
+import com.frogermcs.dagger2metrics.Dagger2Metrics;
 import com.nilhcem.droidcontn.core.dagger.AppComponent;
 import com.nilhcem.droidcontn.debug.lifecycle.ActivityProvider;
 import com.nilhcem.droidcontn.debug.stetho.StethoInitializer;
@@ -18,6 +19,11 @@ public class InternalDroidconApp extends DroidconApp {
      */
     private static final boolean DISPLAY_FPS = false;
 
+    /**
+     * Change it manually when you want to enable Dagger 2 metrics
+     */
+    private static final boolean ENABLE_DAGGER2_METRICS = false;
+
     @Inject StethoInitializer stetho;
     @Inject ActivityProvider activityProvider;
 
@@ -26,6 +32,7 @@ public class InternalDroidconApp extends DroidconApp {
         super.onCreate();
         AppComponent.Initializer.init(this).inject(this);
         displayFps(true);
+        initDagger2Metrics();
         stetho.init();
         activityProvider.init(this);
     }
@@ -43,6 +50,12 @@ public class InternalDroidconApp extends DroidconApp {
             } else {
                 Takt.finish();
             }
+        }
+    }
+
+    private void initDagger2Metrics() {
+        if (ENABLE_DAGGER2_METRICS) {
+            Dagger2Metrics.enableCapturing(this);
         }
     }
 }
