@@ -223,4 +223,31 @@
 	"twitter": "azzenovic",
 	"github": "azzenovic",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Azzen-Abidi.jpg"
+}, {
+	"id": 26,
+	"name": "Mohamed Ali Chelbi",
+	"title": "Unity3D Game Developer & Co-Founder chez Gamepad Tribe",
+	"bio": null,
+	"website": null,
+	"twitter": "microshlaft",
+	"github": null,
+	"photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/33b/1bcce22.jpg"
+}, {
+	"id": 27,
+	"name": "Benneji Slim",
+	"title": "Game designer",
+	"bio": null,
+	"website": "https://www.artstation.com/artist/slimbenneji",
+	"twitter": null,
+	"github": null,
+	"photo": "https://cdn0.artstation.com/p/assets/images/images/001/767/292/smaller_square/slim-benneji-bot-sketch-render-final.jpg"
+}, {
+	"id": 28,
+	"name": "Lokmane Sahraoui",
+	"title": "Speaker at GDG Blida",
+	"bio": null,
+	"website": null,
+	"twitter": "sahraouilok",
+	"github": "lokmansahraoui",
+	"photo": "https://pbs.twimg.com/profile_images/585947481768271874/Nfh4-a6G_400x400.jpg"
 }]

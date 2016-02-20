@@ -83,9 +83,9 @@
 	"startAt": "2016-03-05 14:00",
 	"duration": 50,
 	"roomId": 5,
-	"speakersId": null,
+	"speakersId": [26],
 	"title": "Procedural Game Environment Creation",
-	"description": "Mohamed Ali Chelbi, Gamepad Tribe"
+	"description": null
 }, {
 	"id": 12,
 	"startAt": "2016-03-05 15:00",
@@ -115,9 +115,9 @@
 	"startAt": "2016-03-05 15:00",
 	"duration": 50,
 	"roomId": 5,
-	"speakersId": null,
+	"speakersId": [27],
 	"title": "Game design",
-	"description": "Benneji Slim, TGD"
+	"description": null
 }, {
 	"id": 16,
 	"startAt": "2016-03-05 16:00",
@@ -179,9 +179,9 @@
 	"startAt": "2016-03-05 17:00",
 	"duration": 50,
 	"roomId": 5,
-	"speakersId": null,
+	"speakersId": [28],
 	"title": "What's New in Material Design?",
-	"description": "Sahraoui Lokmane, GDG Blida"
+	"description": null
 }, {
 	"id": 24,
 	"startAt": "2016-03-06 08:00",
