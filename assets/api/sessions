@@ -204,7 +204,7 @@
 	"duration": 40,
 	"roomId": 1,
 	"speakersId": [22],
-	"title": "",
+	"title": "[Not Announced Yet]",
 	"description": null
 }, {
 	"id": 27,
@@ -291,7 +291,7 @@
 	"startAt": "2016-03-06 16:00",
 	"duration": 50,
 	"roomId": 3,
-	"speakersId": [29],
+	"speakersId": [5],
 	"title": "Android Auto : Rolling Droid Gather No Moss",
 	"description": "Android Auto is a new horizon for Android. Android everywhere and now in your car. Android Auto has a cool background story and is really a game changer in our lives. Also it should be there pretty quickly. Manufacturer like Ford announced that every 2017 models will be equipped.This is an exhaustive overview of what is going to be the in-car experience with Android Auto and how your app is going to take advantage of it. Also we will see a real world (aka. prod) usecase of Android Auto integration."
 }, {
