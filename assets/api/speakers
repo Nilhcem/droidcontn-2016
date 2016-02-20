@@ -36,13 +36,13 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/avatar-home-500px.jpg"
 }, {
 	"id": 5,
-	"name": "Paresh Mayani",
-	"title": "Technical Lead, Android @ LetsNurture India",
-	"bio": "Paresh is a mobile application developer with 5 years of apps development experience, has been working on android application development since Cupcake. Currently he works at LetsNurture, India as Technical Lead (Android) in Enterprise mobile solutions department. He is a frequent speaker at conferences such as Android Developer Days (Droidcon Ankara), DevFest and NitroDroid, on topics ranging from android development best practices, Android BLE. He has been actively leading Google Developers Group in Ahmedabad since last 4 years. He is very active in supporting Android developers community in India and worldwide be it through his tech blog TechnoTalkative (published >150 articles) or through StackOverflow (holder of >60,000 reputation).",
-	"website": "http://www.technotalkative.com/",
-	"twitter": "pareshmayani",
-	"github": "PareshMayani",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Paresh-Mayani.jpeg"
+	"name": "Damien Cavaillès",
+	"title": "Founder at jeCherCheUnDev.fr",
+	"bio": "Développeur Android depuis 6 ans, j’ai attrapé ce virus en école d’ingénieur, à peu près en même temps que celui des Startups. Depuis j’ai lancé 3 superbes projets qui ont été de beaux échecs. J’ai bossé en SSII, en agence mobile et dans une startup (Tripndrive). Aujourd’hui, j’accompagne des Startups sur leurs problématiques de go-to-market où le mobile est clé. J’ai lancé jeChercheUnDev.fr pour faciliter le freelancing pour les développeurs et je rassemble des gens fantastiques autour de Startup On Rails, un programme intensif pour les Startups.",
+	"website": "https://www.freelancer.com/u/Saifelhak.html",
+	"twitter": "TheDamfr",
+	"github": "TheDamfr",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Damien-Cavaill%C3%A8s.jpg"
 }, {
 	"id": 6,
 	"name": "Adnen Hamdouni",
@@ -72,13 +72,13 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/I%C3%B1aki-Villar.jpg"
 }, {
 	"id": 9,
-	"name": "Collin Raddatz",
-	"title": "PEY GmbH, CTO",
-	"bio": "M.Sc. at University Augsburg with focus on multi-agent systems. Software Engineer at 1&1 AG, Software Engineer Lead at Capgemini. Co-founder and CTO at PEY GmbH",
-	"website": null,
-	"twitter": "col_rad",
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Collin-Raddatz-700x700.jpg"
+	"name": "Saif Elhak Awainia",
+	"title": "Embedded systems consultant",
+	"bio": "Saif is an embedded and mobile apps freelancer, holding a M. Sc degree in embedded systems he used to develop and integrate solutions in the field of Automotive, embedded, IoT and Cross platform Apps for customers around the world, in November 2015 he participated in Ultrahack event organized in Finland (part of the biggest hackathon in Europe), Saif was rewarded by the Finnish patent office and a UI automotive company during the Ultrahack.\nHe used to work on Qt as main framework for desktop and mobile application development since Qt 4.8 days, active member at Qt Forum, participating in open source projects in Github, he would be happy sharing with other coders and geeks about Android related knowledge.",
+	"website": "https://www.freelancer.com/u/Saifelhak.html",
+	"twitter": null,
+	"github": "kornava",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Saif-Elhak-Awainia.jpg"
 }, {
 	"id": 10,
 	"name": "Enrique López Mañas",
@@ -189,13 +189,13 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Oussema-Bouthouri-700x700.jpg"
 }, {
 	"id": 22,
-	"name": "Prajyot Mainkar",
-	"title": "Androcid, director",
-	"bio": "Director at Androcid Media Pvt. Ltd, an app engineering firm based out of India. He is the manager of Google’s Developer Group – GAUG ( Goa Android users Group), which is one of the oldest GDGs in Goa. He is an android developer himself and has spoken at several conferences including Droidcon India, Droidcon Greece, Android Developer Days- Turkey, Silicon India Mobile Conference and many more. Prajyot has been active in the Android community and been assisting Android developers build new, compelling and well-received apps.",
-	"website": "http://www.androcid.com/",
-	"twitter": "prajyotm",
+	"name": "Carlos E. Jiménez-Gómez",
+	"title": "Chair, IEEE Government",
+	"bio": "MSc. on Information and Knowledge Society (research master thesis on eGovernment Interoperability), Postgraduate degree on Information Systems Management, and Computer Engineer. His main interests include e-Justice, open & smart government or interoperability. He has been civil servant of the Spanish Ministry of Justice since 1991; nowadays he is specialized in eGovernment, and he forms part of the team in charge of the e-Justice project of the Autonomous Government of Catalonia, Spain, project awarded in Spain in 2010, 2011 and 2012. He is as well an independent consultant. He has carried out international training, research and consulting work",
+	"website": "https://about.me/estratic",
+	"twitter": "estratic",
 	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Prajyot-Mainkar.jpg"
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Carlos-E.-Jimenez.png"
 }, {
 	"id": 23,
 	"name": "Walid Sultan Midani",
@@ -223,40 +223,4 @@
 	"twitter": "azzenovic",
 	"github": "azzenovic",
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Azzen-Abidi.jpg"
-}, {
-	"id": 26,
-	"name": "Carlos E. Jiménez-Gómez",
-	"title": "Chair, IEEE Government",
-	"bio": "MSc. on Information and Knowledge Society (research master thesis on eGovernment Interoperability), Postgraduate degree on Information Systems Management, and Computer Engineer. His main interests include e-Justice, open & smart government or interoperability. He has been civil servant of the Spanish Ministry of Justice since 1991; nowadays he is specialized in eGovernment, and he forms part of the team in charge of the e-Justice project of the Autonomous Government of Catalonia, Spain, project awarded in Spain in 2010, 2011 and 2012. He is as well an independent consultant. He has carried out international training, research and consulting work",
-	"website": "https://about.me/estratic",
-	"twitter": "estratic",
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Carlos-E.-Jimenez.png"
-}, {
-	"id": 27,
-	"name": "Saif Elhak Awainia",
-	"title": "Embedded systems consultant",
-	"bio": "Saif is an embedded and mobile apps freelancer, holding a M. Sc degree in embedded systems he used to develop and integrate solutions in the field of Automotive, embedded, IoT and Cross platform Apps for customers around the world, in November 2015 he participated in Ultrahack event organized in Finland (part of the biggest hackathon in Europe), Saif was rewarded by the Finnish patent office and a UI automotive company during the Ultrahack.\nHe used to work on Qt as main framework for desktop and mobile application development since Qt 4.8 days, active member at Qt Forum, participating in open source projects in Github, he would be happy sharing with other coders and geeks about Android related knowledge.",
-	"website": "https://www.freelancer.com/u/Saifelhak.html",
-	"twitter": null,
-	"github": "kornava",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Saif-Elhak-Awainia.jpg"
-}, {
-	"id": 28,
-	"name": "Jose Ugia Gonzalez",
-	"title": "Errand’s Boy @ LOCK8, Co-Founder & Head of Tech @ Momenta, Google Developer Expert",
-	"bio": "Entrepreneur with more than 10 years of fun in tech, product and business development. Passionate about building things and putting them out there. Author, wanna-be social entrepreneur and always free for long beer conversations.",
-	"website": "http://ugia.io",
-	"twitter": "jl_ugia",
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Jose-Ugia-Gonzalez.jpg"
-}, {
-	"id": 29,
-	"name": "Damien Cavaillès",
-	"title": "Founder at jeCherCheUnDev.fr",
-	"bio": "Développeur Android depuis 6 ans, j’ai attrapé ce virus en école d’ingénieur, à peu près en même temps que celui des Startups. Depuis j’ai lancé 3 superbes projets qui ont été de beaux échecs. J’ai bossé en SSII, en agence mobile et dans une startup (Tripndrive). Aujourd’hui, j’accompagne des Startups sur leurs problématiques de go-to-market où le mobile est clé. J’ai lancé jeChercheUnDev.fr pour faciliter le freelancing pour les développeurs et je rassemble des gens fantastiques autour de Startup On Rails, un programme intensif pour les Startups.",
-	"website": "https://www.freelancer.com/u/Saifelhak.html",
-	"twitter": "TheDamfr",
-	"github": "TheDamfr",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Damien-Cavaill%C3%A8s.jpg"
 }]
