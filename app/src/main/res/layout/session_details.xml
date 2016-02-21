@@ -82,11 +82,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_margin"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/session_details_description_header"
                 style="@style/Session.Details.Category"
-                android:layout_marginTop="@dimen/activity_margin"
                 android:text="@string/session_details_description"/>
 
             <TextView

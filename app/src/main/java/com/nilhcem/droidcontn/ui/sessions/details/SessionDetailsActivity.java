@@ -54,6 +54,7 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     @Bind(R.id.session_details_header) ViewGroup header;
     @Bind(R.id.session_details_title) TextView title;
     @Bind(R.id.session_details_info) TextView talkInfo;
+    @Bind(R.id.session_details_description_header) View descriptionHeader;
     @Bind(R.id.session_details_description) TextView description;
     @Bind(R.id.session_details_speakers_title) TextView speakersTitle;
     @Bind(R.id.session_details_speakers_container) ViewGroup speakersContainer;
@@ -80,7 +81,14 @@ public class SessionDetailsActivity extends BaseActivity<SessionDetailsPresenter
     public void bindSessionDetails(Session session) {
         title.setText(session.getTitle());
         bindTalkInfo(session);
-        description.setText(session.getDescription());
+        if (TextUtils.isEmpty(session.getDescription())) {
+            descriptionHeader.setVisibility(View.GONE);
+            description.setVisibility(View.GONE);
+        } else {
+            descriptionHeader.setVisibility(View.VISIBLE);
+            description.setVisibility(View.VISIBLE);
+            description.setText(session.getDescription());
+        }
 
         header.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override

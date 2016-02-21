@@ -38,7 +38,7 @@
         <item name="android:paddingLeft">@dimen/activity_margin</item>
         <item name="android:paddingRight">@dimen/activity_margin</item>
         <item name="android:textColor">?attr/colorPrimaryDark</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -51,6 +51,7 @@
         <item name="android:layout_marginRight">@dimen/activity_margin</item>
         <item name="android:paddingLeft">@dimen/activity_margin</item>
         <item name="android:paddingStart">@dimen/activity_margin</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
     <!-- Speaker details -->
