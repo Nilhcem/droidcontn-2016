@@ -2,6 +2,9 @@
 
 Sample app for the "2016 Android Developer Toolbox" talk at droidcon tunisia
 
+[<img src="https://dply.me/bc1bx1/button/large" alt="Try it on your device via DeployGate">](https://dply.me/bc1bx1#install)
+
+
 ## Features
 
 ![droidcontn2016 Android screenshots][]
