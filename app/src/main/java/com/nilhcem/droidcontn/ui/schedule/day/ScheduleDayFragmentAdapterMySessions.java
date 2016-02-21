@@ -47,11 +47,11 @@ public class ScheduleDayFragmentAdapterMySessions extends RecyclerView.Adapter<S
                 if (session.getSpeakers() == null) {
                     holder.bindBreakSlot(slot, session, true);
                 } else {
-                    holder.bindSelectedSession(slot, session, true);
+                    holder.bindSelectedSession(slot, session, true, selectedSessionsMemory.isSelected(session));
                 }
             }
         } else {
-            holder.bindSelectedSession(slot, selectedSession, true);
+            holder.bindSelectedSession(slot, selectedSession, true, selectedSessionsMemory.isSelected(selectedSession));
         }
     }
 

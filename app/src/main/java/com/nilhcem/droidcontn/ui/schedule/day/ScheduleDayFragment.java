@@ -59,7 +59,7 @@ public class ScheduleDayFragment extends BaseFragment<ScheduleDayPresenter> impl
     @Override
     public void initSlotsList(List<ScheduleSlot> slots) {
         if (allSessions) {
-            adapter = new ScheduleDayFragmentAdapterAllSessions(slots, picasso, this);
+            adapter = new ScheduleDayFragmentAdapterAllSessions(slots, picasso, selectedSessionsMemory, this);
         } else {
             adapter = new ScheduleDayFragmentAdapterMySessions(slots, selectedSessionsMemory, picasso, this);
         }

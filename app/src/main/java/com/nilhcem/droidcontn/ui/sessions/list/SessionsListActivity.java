@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.nilhcem.droidcontn.DroidconApp;
 import com.nilhcem.droidcontn.R;
+import com.nilhcem.droidcontn.data.app.SelectedSessionsMemory;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.nilhcem.droidcontn.ui.BaseActivity;
@@ -26,6 +27,7 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
     @Extra ScheduleSlot slot;
 
     @Inject Picasso picasso;
+    @Inject SelectedSessionsMemory selectedSessionsMemory;
 
     @Bind(R.id.sessions_list_recyclerview) RecyclerView recyclerView;
 
@@ -51,7 +53,7 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
 
     @Override
     public void initSessionsList(List<Session> sessions) {
-        SessionsListAdapter adapter = new SessionsListAdapter(sessions, picasso, this);
+        SessionsListAdapter adapter = new SessionsListAdapter(sessions, picasso, selectedSessionsMemory, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);

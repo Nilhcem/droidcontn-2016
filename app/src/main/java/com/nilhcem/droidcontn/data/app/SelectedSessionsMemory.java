@@ -1,5 +1,7 @@
 package com.nilhcem.droidcontn.data.app;
 
+import com.nilhcem.droidcontn.data.app.model.Session;
+
 import org.threeten.bp.LocalDateTime;
 
 import java.util.Map;
@@ -15,6 +17,11 @@ public class SelectedSessionsMemory {
 
     @Inject
     public SelectedSessionsMemory() {
+    }
+
+    public boolean isSelected(Session session) {
+        Integer sessionId = selectedSessions.get(session.getFromTime());
+        return sessionId != null && session.getId() == sessionId;
     }
 
     public void setSelectedSessions(Map<LocalDateTime, Integer> selectedSessions) {

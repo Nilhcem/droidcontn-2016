@@ -1,7 +1,6 @@
 package com.nilhcem.droidcontn.ui.sessions.list;
 
 import android.content.Context;
-import android.os.Bundle;
 
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
@@ -25,8 +24,8 @@ public class SessionsListPresenter extends BaseActivityPresenter<SessionsListVie
     }
 
     @Override
-    public void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
+    public void onResume() {
+        super.onResume();
         this.view.initSessionsList(slot.getSessions());
     }
 

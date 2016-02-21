@@ -4,6 +4,7 @@ import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.nilhcem.droidcontn.data.app.SelectedSessionsMemory;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.squareup.picasso.Picasso;
@@ -18,11 +19,13 @@ public class ScheduleDayFragmentAdapterAllSessions extends RecyclerView.Adapter<
 
     private final List<Pair<Session, ScheduleSlot>> sessions;
     private final Picasso picasso;
+    private final SelectedSessionsMemory selectedSessionsMemory;
     private final ScheduleDayEntry.OnSessionClickListener listener;
 
-    public ScheduleDayFragmentAdapterAllSessions(List<ScheduleSlot> slots, Picasso picasso, ScheduleDayEntry.OnSessionClickListener listener) {
+    public ScheduleDayFragmentAdapterAllSessions(List<ScheduleSlot> slots, Picasso picasso, SelectedSessionsMemory selectedSessionsMemory, ScheduleDayEntry.OnSessionClickListener listener) {
         sessions = toSessionsSlotsPair(slots);
         this.picasso = picasso;
+        this.selectedSessionsMemory = selectedSessionsMemory;
         this.listener = listener;
     }
 
@@ -40,7 +43,7 @@ public class ScheduleDayFragmentAdapterAllSessions extends RecyclerView.Adapter<
         if (session.getSpeakers() == null) {
             holder.bindBreakSlot(slot, session, shouldShowTime(slot, position));
         } else {
-            holder.bindSelectedSession(slot, session, shouldShowTime(slot, position));
+            holder.bindSelectedSession(slot, session, shouldShowTime(slot, position), selectedSessionsMemory.isSelected(session));
         }
     }
 

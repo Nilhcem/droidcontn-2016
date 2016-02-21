@@ -16,6 +16,10 @@ public abstract class BaseActivityPresenter<V> extends BasePresenter<V> {
         // Nothing to do by default
     }
 
+    public void onResume() {
+        // Nothing to do by default
+    }
+
     @CallSuper
     public void onSaveInstanceState(Bundle outState) {
         Icepick.saveInstanceState(this, outState);

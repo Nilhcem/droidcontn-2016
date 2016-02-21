@@ -1,5 +1,6 @@
 package com.nilhcem.droidcontn.ui.sessions.list;
 
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ public class SessionsListEntry extends BaseViewHolder {
 
     @Bind(R.id.sessions_list_entry_photo) ImageView photo;
     @Bind(R.id.sessions_list_entry_title) TextView title;
+    @Bind(R.id.sessions_list_entry_selected_state) ImageView selectedState;
     @Bind(R.id.sessions_list_entry_room) TextView room;
     @Bind(R.id.sessions_list_entry_description) TextView description;
 
@@ -28,7 +30,7 @@ public class SessionsListEntry extends BaseViewHolder {
         this.picasso = picasso;
     }
 
-    public void bindSession(Session session) {
+    public void bindSession(Session session, boolean isSelected) {
         String url = App.getPhotoUrl(session);
         if (!TextUtils.isEmpty(url)) {
             picasso.load(url).transform(new CircleTransformation()).into(photo);
@@ -37,5 +39,8 @@ public class SessionsListEntry extends BaseViewHolder {
         title.setText(session.getTitle());
         room.setText(session.getRoom());
         description.setText(session.getDescription());
+
+        int selectedRes = isSelected ? R.drawable.sessions_list_entry_selected : R.drawable.sessions_list_entry_default;
+        selectedState.setImageDrawable(ContextCompat.getDrawable(selectedState.getContext(), selectedRes));
     }
 }

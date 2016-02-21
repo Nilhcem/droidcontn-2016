@@ -1,9 +1,11 @@
 package com.nilhcem.droidcontn.ui.schedule.day;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nilhcem.droidcontn.R;
@@ -44,6 +46,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
     @Bind(R.id.schedule_day_entry_session_title) TextView sessionTitle;
     @Bind(R.id.schedule_day_entry_session_time) TextView sessionTime;
     @Bind(R.id.schedule_day_entry_session_room) TextView sessionRoom;
+    @Bind(R.id.schedule_day_entry_session_selected_state) ImageView sessionSelectedState;
     @Bind(R.id.schedule_day_entry_slot_speakers) ViewGroup sessionSpeakers;
 
     private final Picasso picasso;
@@ -75,7 +78,7 @@ public class ScheduleDayEntry extends BaseViewHolder {
         bindRoom(session, breakRoom);
     }
 
-    public void bindSelectedSession(ScheduleSlot slot, Session session, boolean showTime) {
+    public void bindSelectedSession(ScheduleSlot slot, Session session, boolean showTime, boolean isSelected) {
         breakCard.setVisibility(View.GONE);
         browseCard.setVisibility(View.GONE);
 
@@ -85,6 +88,10 @@ public class ScheduleDayEntry extends BaseViewHolder {
         sessionTime.setText(formatSessionTime(session));
         bindRoom(session, sessionRoom);
         bindSessionSpeakers(session);
+
+        int selectedRes = isSelected ? R.drawable.sessions_list_selected : R.drawable.sessions_list_default;
+        sessionSelectedState.setImageDrawable(ContextCompat.getDrawable(sessionSelectedState.getContext(), selectedRes));
+
         sessionCard.setOnClickListener(v -> listener.onSelectedSessionClicked(session));
     }
 
