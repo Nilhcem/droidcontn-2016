@@ -23,6 +23,7 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.jakewharton.hugo'
 apply plugin: 'com.frogermcs.dagger2metrics'
+apply from: rootProject.file('settings/gradle/jacoco.gradle')
 apply from: rootProject.file('settings/gradle/sonarqube.gradle')
 
 def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
@@ -48,6 +49,7 @@ android {
         debug {
             versionNameSuffix '-dev'
             debuggable true
+            testCoverageEnabled true
             signingConfig signingConfigs.debug
         }
         release {
