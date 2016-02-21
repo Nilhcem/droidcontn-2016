@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.SystemClock;
 
 import com.facebook.stetho.dumpapp.DumpException;
 import com.facebook.stetho.dumpapp.DumperContext;
@@ -26,7 +27,6 @@ import com.nilhcem.droidcontn.receiver.reminder.ReminderReceiverIntentBuilder;
 import com.nilhcem.droidcontn.ui.drawer.DrawerActivity;
 import com.nilhcem.droidcontn.ui.sessions.details.SessionDetailsActivity;
 import com.nilhcem.droidcontn.utils.App;
-import com.nilhcem.droidcontn.utils.Threads;
 
 import org.threeten.bp.format.DateTimeFormatter;
 
@@ -215,7 +215,7 @@ public class AppDumperPlugin implements DumperPlugin {
 
         // Restart app after a few delay to make sure stetho can print the previous message.
         new Thread(() -> {
-            Threads.silentSleep(500);
+            SystemClock.sleep(500);
             ProcessPhoenix.triggerRebirth(context, new Intent(context, DrawerActivity.class));
         }).start();
     }
