@@ -23,7 +23,7 @@ public class DatabaseModule {
     }
 
     @Provides @Singleton SqlBrite provideSqlBrite() {
-        return SqlBrite.create(message -> Timber.tag(TAG).v(message));
+        return SqlBrite.create(Timber.tag(TAG)::v);
     }
 
     @Provides @Singleton BriteDatabase provideBriteDatabase(SqlBrite sqlBrite, SQLiteOpenHelper helper) {
