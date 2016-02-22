@@ -23,7 +23,7 @@ public class ScheduleDayTest {
     @Test
     public void should_restore_from_parcelable() {
         // Given
-        LocalDate day = LocalDate.of(1985, 05, 15);
+        LocalDate day = LocalDate.of(1985, 5, 15);
         List<ScheduleSlot> slots = Arrays.asList(new ScheduleSlot(null, null));
         ScheduleDay scheduleDay = new ScheduleDay(day, slots);
 
