@@ -7,7 +7,7 @@ public class PreconditionsTest {
     @Test
     public void should_do_nothing_when_argument_is_valid() {
         // Given
-        boolean argument = 1 == 1;
+        boolean argument = true;
 
         // When
         Preconditions.checkArgument(argument);
@@ -16,7 +16,7 @@ public class PreconditionsTest {
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_IllegalArgumentException_when_argument_is_invalid() {
         // Given
-        boolean argument = 1 != 1;
+        boolean argument = false;
 
         // When
         Preconditions.checkArgument(argument);
