@@ -54,16 +54,15 @@ public abstract class BaseActivity<P extends BaseActivityPresenter> extends AppC
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent upIntent = NavUtils.getParentActivityIntent(this);
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
-                    NavUtils.navigateUpFromSameTask(this);
-                } else {
-                    onBackPressed();
-                }
+        if (item.getItemId() == android.R.id.home) {
+            Intent upIntent = NavUtils.getParentActivityIntent(this);
+            if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
                 NavUtils.navigateUpFromSameTask(this);
-                return true;
+            } else {
+                onBackPressed();
+            }
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
