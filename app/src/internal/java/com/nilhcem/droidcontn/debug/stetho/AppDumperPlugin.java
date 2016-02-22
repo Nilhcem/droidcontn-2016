@@ -63,7 +63,7 @@ public class AppDumperPlugin implements DumperPlugin {
     public void dump(DumperContext dumpContext) throws DumpException {
         final PrintStream writer = dumpContext.getStdout();
         List<String> args = dumpContext.getArgsAsList();
-        String commandName = (args.isEmpty()) ? "" : args.remove(0);
+        String commandName = args.isEmpty() ? "" : args.remove(0);
 
         switch (commandName) {
             case "alarms":
