@@ -1,8 +1,13 @@
 package com.nilhcem.droidcontn.utils;
 
 import com.nilhcem.droidcontn.BuildConfig;
+import com.nilhcem.droidcontn.data.app.model.Session;
+import com.nilhcem.droidcontn.data.app.model.Speaker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.TruthJUnit.assume;
@@ -47,5 +52,37 @@ public class AppTest {
 
         // Then
         assertThat(version).isEqualTo(expected);
+    }
+
+    @Test
+    public void should_return_null_photourl_when_giving_invalid_data() {
+        // Given
+        Session session1 = null;
+        Session session2 = new Session(3, "room1", null, "title", "description", null, null);
+        Session session3 = new Session(3, "room1", new ArrayList<>(), "title", "description", null, null);
+
+        // When
+        String result1 = App.getPhotoUrl(session1);
+        String result2 = App.getPhotoUrl(session2);
+        String result3 = App.getPhotoUrl(session3);
+
+        // Then
+        assertThat(result1).isNull();
+        assertThat(result2).isNull();
+        assertThat(result3).isNull();
+    }
+
+    @Test
+    public void should_return_photo_url_of_first_speaker() {
+        // Given
+        Speaker speaker1 = new Speaker(1, null, null, null, null, null, null, "photo1");
+        Speaker speaker2 = new Speaker(2, null, null, null, null, null, null, "photo2");
+        Session session = new Session(1, null, Arrays.asList(speaker1, speaker2), null, null, null, null);
+
+        // When
+        String photoUrl = App.getPhotoUrl(session);
+
+        // Then
+        assertThat(photoUrl).isEqualTo("photo1");
     }
 }

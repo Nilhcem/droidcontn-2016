@@ -26,14 +26,6 @@ public final class Preconditions {
         }
     }
 
-    public static void checkOnMainThread() {
-        if (BuildConfig.DEBUG) {
-            if (!isOnMainThread()) {
-                throw new IllegalStateException("This method should be called from the main thread");
-            }
-        }
-    }
-
     public static void checkNotOnMainThread() {
         if (BuildConfig.DEBUG) {
             if (isOnMainThread()) {
