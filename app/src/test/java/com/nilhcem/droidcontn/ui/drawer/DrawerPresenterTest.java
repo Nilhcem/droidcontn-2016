@@ -2,7 +2,6 @@ package com.nilhcem.droidcontn.ui.drawer;
 
 import android.os.Build;
 
-import com.google.common.truth.Truth;
 import com.nilhcem.droidcontn.BuildConfig;
 import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.ui.schedule.pager.SchedulePagerFragment;
@@ -110,5 +109,17 @@ public class DrawerPresenterTest {
         assertThat(result).isFalse();
         verify(view, never()).selectDrawerMenuItem(R.id.drawer_nav_agenda);
         verify(view, never()).closeNavigationDrawer();
+    }
+
+    @Test
+    public void should_restore_toolbar_title_when_state_changes() {
+        // Given
+        presenter.toolbarTitle = R.string.drawer_nav_speakers;
+
+        // When
+        presenter.onRestoreInstanceState(null);
+
+        // Then
+        verify(view).updateToolbarTitle(R.string.drawer_nav_speakers);
     }
 }
