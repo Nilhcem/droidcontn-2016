@@ -1,12 +1,12 @@
 package com.nilhcem.droidcontn.core.rxjava;
 
 
+import java.util.concurrent.TimeUnit;
+
 import rx.Scheduler;
 import rx.plugins.RxJavaPlugins;
 import rx.plugins.RxJavaSchedulersHook;
 import rx.schedulers.TestScheduler;
-
-import java.util.concurrent.TimeUnit;
 
 public class TestSchedulerProxy {
 
@@ -33,7 +33,7 @@ public class TestSchedulerProxy {
             });
         } catch (IllegalStateException e) {
             throw new IllegalStateException("Schedulers class already initialized. " +
-                    "Ensure you always use the TestSchedulerProxy in unit tests.");
+                    "Ensure you always use the TestSchedulerProxy in unit tests.", e);
         }
     }
 
