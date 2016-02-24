@@ -16,6 +16,7 @@ import icepick.State;
 public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
 
     @State @StringRes int toolbarTitle;
+    @State @IdRes int selectedItemId;
 
     public DrawerPresenter(DrawerActivityView view) {
         super(view);
@@ -37,32 +38,36 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
 
     @Override
     public void onNavigationItemSelected(@IdRes int itemId) {
-        switch (itemId) {
-            case R.id.drawer_nav_agenda:
-                view.showFragment(new SchedulePagerFragmentBuilder(true).build());
-                toolbarTitle = R.string.drawer_nav_agenda;
-                break;
-            case R.id.drawer_nav_schedule:
-                view.showFragment(new SchedulePagerFragmentBuilder(false).build());
-                toolbarTitle = R.string.drawer_nav_schedule;
-                break;
-            case R.id.drawer_nav_speakers:
-                view.showFragment(new SpeakersListFragment());
-                toolbarTitle = R.string.drawer_nav_speakers;
-                break;
-            case R.id.drawer_nav_venue:
-                view.showFragment(new VenueFragment());
-                toolbarTitle = R.string.drawer_nav_venue;
-                break;
-            case R.id.drawer_nav_settings:
-                view.showFragment(new SettingsFragment());
-                toolbarTitle = R.string.drawer_nav_settings;
-                break;
-            default:
-                throw new IllegalArgumentException();
+        if (itemId != selectedItemId) {
+            switch (itemId) {
+                case R.id.drawer_nav_agenda:
+                    view.showFragment(new SchedulePagerFragmentBuilder(true).build());
+                    toolbarTitle = R.string.drawer_nav_agenda;
+                    break;
+                case R.id.drawer_nav_schedule:
+                    view.showFragment(new SchedulePagerFragmentBuilder(false).build());
+                    toolbarTitle = R.string.drawer_nav_schedule;
+                    break;
+                case R.id.drawer_nav_speakers:
+                    view.showFragment(new SpeakersListFragment());
+                    toolbarTitle = R.string.drawer_nav_speakers;
+                    break;
+                case R.id.drawer_nav_venue:
+                    view.showFragment(new VenueFragment());
+                    toolbarTitle = R.string.drawer_nav_venue;
+                    break;
+                case R.id.drawer_nav_settings:
+                    view.showFragment(new SettingsFragment());
+                    toolbarTitle = R.string.drawer_nav_settings;
+                    break;
+                default:
+                    throw new IllegalArgumentException();
+            }
+            view.hideTabLayout();
+            view.updateToolbarTitle(toolbarTitle);
+
+            selectedItemId = itemId;
         }
-        view.hideTabLayout();
-        view.updateToolbarTitle(toolbarTitle);
         view.closeNavigationDrawer();
     }
 
