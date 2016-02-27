@@ -297,33 +297,6 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/11028226_450334128454294_1176935732_o-600x323.jpg"
 }, {
 	"id": 34,
-	"name": "Paresh Mayani",
-	"title": "Technical Lead, Android @ LetsNurture India",
-	"bio": "Paresh is a mobile application developer with 5 years of apps development experience, has been working on android application development since Cupcake. Currently he works at LetsNurture, India as Technical Lead (Android) in Enterprise mobile solutions department. He is a frequent speaker at conferences such as Android Developer Days (Droidcon Ankara), DevFest and NitroDroid, on topics ranging from android development best practices, Android BLE. He has been actively leading Google Developers Group in Ahmedabad since last 4 years. He is very active in supporting Android developers community in India and worldwide be it through his tech blog TechnoTalkative (published >150 articles) or through StackOverflow (holder of >60,000 reputation).",
-	"website": "http://www.technotalkative.com/",
-	"twitter": "pareshmayani",
-	"github": "PareshMayani",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Paresh-Mayani.jpeg"
-}, {
-	"id": 35,
-	"name": "Prajyot Mainkar",
-	"title": "Androcid, director",
-	"bio": "Director at Androcid Media Pvt. Ltd, an app engineering firm based out of India. He is the manager of Google’s Developer Group – GAUG ( Goa Android users Group), which is one of the oldest GDGs in Goa. He is an android developer himself and has spoken at several conferences including Droidcon India, Droidcon Greece, Android Developer Days- Turkey, Silicon India Mobile Conference and many more. Prajyot has been active in the Android community and been assisting Android developers build new, compelling and well-received apps.",
-	"website": "http://www.androcid.com/",
-	"twitter": "prajyotm",
-	"github": "prajyotm",
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Prajyot-Mainkar.jpg"
-}, {
-	"id": 36,
-	"name": "Jose Ugia Gonzalez",
-	"title": "Errand’s Boy @ LOCK8, Co-Founder & Head of Tech @ Momenta, Google Developer Expert",
-	"bio": "Entrepreneur with more than 10 years of fun in tech, product and business development. Passionate about building things and putting them out there. Author, wanna-be social entrepreneur and always free for long beer conversations.",
-	"website": "https://plus.google.com/+JoseLuisUgiaGonzalez",
-	"twitter": "jl_ugia",
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Jose-Ugia-Gonzalez.jpg"
-}, {
-	"id": 37,
 	"name": "Brahim Hadriche",
 	"title": "TGD (Tunisian Game Developer)",
 	"bio": null,

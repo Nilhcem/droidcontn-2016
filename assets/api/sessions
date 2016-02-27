@@ -91,7 +91,7 @@
 	"startAt": "2016-03-05 14:00",
 	"duration": 50,
 	"roomId": 6,
-	"speakersId": [37],
+	"speakersId": [34],
 	"title": "Unity for Android : Tips and tricks to consider before submitting to the Google Play Store",
 	"description": null
 }, {
