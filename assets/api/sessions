@@ -187,7 +187,7 @@
 	"startAt": "2016-03-05 16:00",
 	"duration": 50,
 	"roomId": 6,
-	"speakersId": [38],
+	"speakersId": [32],
 	"title": "Speed up game developement in Unity",
 	"description": null
 }, {

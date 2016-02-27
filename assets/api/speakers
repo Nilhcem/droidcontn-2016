@@ -279,21 +279,21 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Afifa-El-Almi.jpg"
 }, {
 	"id": 32,
-	"name": "Nader Rahman",
-	"title": "Intel Innovator, Mobile Software engineers & Associate professors, Esprit",
-	"bio": "Software engineer specialized in mobile development, Associate Professor/researcher at ESPRIT School of Engineering, Tunis, Tunisia, Mr. Nader Rahman has won several national and international challenge as the 1st prize of the Samsung Tunisia Challenge 2013, Microsoft DevComp 2013, WIP JAM Mobile World Congress 2014. Nader also an active member of ESPRIT Mobile Association …), he participated as a trainer or Speaker in several events like Droidcon 2014 and 2015, the GDG DevFest, BlackBerry JAM Tunis 2013…), several Tunisian communities such as (BBDevTunisia)",
+	"name": "Walid Alouani",
+	"title": "Game Developer",
+	"bio": null,
 	"website": null,
-	"twitter": "nadirrahman",
+	"twitter": null,
 	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Nader-Rahman.png"
+	"photo": "https://media.licdn.com/media/p/1/005/064/1ff/0e69f01.jpg"
 }, {
 	"id": 33,
 	"name": "Zayen Chagra & Nader Rahman",
 	"title": "Mobile Software engineers & Associate professors, Esprit",
 	"bio": "Both software engineers specialized in mobile development, Zayen and Nader started their career as associate professors at ESPRIT. They belong to ESPRIT Mobile research team, having as a vocation to teach, mentor and coach mobile development to student engineers and they are both Intel Innovators",
-	"website": null,
+	"website": "https://twitter.com/nadirrahman",
 	"twitter": "zayenchagra",
-	"github": "zayenCh",
+	"github": null,
 	"photo": "http://www.droidcon.tn/wp-content/uploads/11028226_450334128454294_1176935732_o-600x323.jpg"
 }, {
 	"id": 34,
@@ -331,13 +331,4 @@
 	"twitter": null,
 	"github": null,
 	"photo": "https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1476431_818038971652876_1720050766659231812_n.jpg?oh=1723e533056b901bc45b458cb7e21ad1&oe=576F6F26"
-}, {
-	"id": 38,
-	"name": "Walid Alouani",
-	"title": "Game Developer",
-	"bio": null,
-	"website": null,
-	"twitter": null,
-	"github": null,
-	"photo": "https://media.licdn.com/media/p/1/005/064/1ff/0e69f01.jpg"
 }]
