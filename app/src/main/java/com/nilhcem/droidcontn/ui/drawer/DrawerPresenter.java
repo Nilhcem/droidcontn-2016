@@ -26,7 +26,7 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            onNavigationItemSelected(R.id.drawer_nav_agenda);
+            onNavigationItemSelected(R.id.drawer_nav_schedule);
         }
     }
 
@@ -40,13 +40,13 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
     public void onNavigationItemSelected(@IdRes int itemId) {
         if (itemId != selectedItemId) {
             switch (itemId) {
-                case R.id.drawer_nav_agenda:
-                    view.showFragment(new SchedulePagerFragmentBuilder(true).build());
-                    toolbarTitle = R.string.drawer_nav_agenda;
-                    break;
                 case R.id.drawer_nav_schedule:
                     view.showFragment(new SchedulePagerFragmentBuilder(false).build());
                     toolbarTitle = R.string.drawer_nav_schedule;
+                    break;
+                case R.id.drawer_nav_agenda:
+                    view.showFragment(new SchedulePagerFragmentBuilder(true).build());
+                    toolbarTitle = R.string.drawer_nav_agenda;
                     break;
                 case R.id.drawer_nav_speakers:
                     view.showFragment(new SpeakersListFragment());
@@ -76,8 +76,8 @@ public class DrawerPresenter extends BaseActivityPresenter<DrawerActivityView> {
         if (view.isNavigationDrawerOpen()) {
             view.closeNavigationDrawer();
             return true;
-        } else if (toolbarTitle != R.string.drawer_nav_agenda) {
-            int firstItem = R.id.drawer_nav_agenda;
+        } else if (toolbarTitle != R.string.drawer_nav_schedule) {
+            int firstItem = R.id.drawer_nav_schedule;
             onNavigationItemSelected(firstItem);
             view.selectDrawerMenuItem(firstItem);
             return true;

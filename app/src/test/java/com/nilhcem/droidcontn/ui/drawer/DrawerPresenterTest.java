@@ -82,7 +82,7 @@ public class DrawerPresenterTest {
     }
 
     @Test
-    public void should_go_back_to_agenda_when_pressing_back_while_navigation_drawer_is_already_closed_and_category_is_not_agenda() {
+    public void should_go_back_to_agenda_when_pressing_back_while_navigation_drawer_is_already_closed_and_category_is_not_schedule() {
         // Given
         presenter.toolbarTitle = R.string.drawer_nav_speakers;
         when(view.isNavigationDrawerOpen()).thenReturn(false);
@@ -92,14 +92,14 @@ public class DrawerPresenterTest {
 
         // Then
         assertThat(result).isTrue();
-        verify(view).selectDrawerMenuItem(R.id.drawer_nav_agenda);
+        verify(view).selectDrawerMenuItem(R.id.drawer_nav_schedule);
         verify(view, times(1)).closeNavigationDrawer();
     }
 
     @Test
-    public void should_go_back_when_pressing_back_while_navigation_drawer_is_already_closed_and_category_is_agenda() {
+    public void should_go_back_when_pressing_back_while_navigation_drawer_is_already_closed_and_category_is_schedule() {
         // Given
-        presenter.toolbarTitle = R.string.drawer_nav_agenda;
+        presenter.toolbarTitle = R.string.drawer_nav_schedule;
         when(view.isNavigationDrawerOpen()).thenReturn(false);
 
         // When
@@ -107,7 +107,7 @@ public class DrawerPresenterTest {
 
         // Then
         assertThat(result).isFalse();
-        verify(view, never()).selectDrawerMenuItem(R.id.drawer_nav_agenda);
+        verify(view, never()).selectDrawerMenuItem(R.id.drawer_nav_schedule);
         verify(view, never()).closeNavigationDrawer();
     }
 
