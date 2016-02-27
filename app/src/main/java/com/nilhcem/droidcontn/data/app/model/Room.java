@@ -9,7 +9,10 @@ public enum Room {
     AMPH_CESAR(2, "Amph césar"),
     CESAR_1(3, "César 1"),
     OLIVIER(4, "Olivier"),
-    CESAR_2(5, "César 2");
+    CESAR_2(5, "César 2 (Workshops)"),
+    ROOM_1_GAMING(6, "Room 1 (Gaming)"),
+    ROOM_1_INTEL(7, "Room 1 (Intel)"),
+    ROOM_3(8, "Room 3");
 
     public final int id;
     public final String name;

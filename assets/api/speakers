@@ -225,13 +225,13 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Azzen-Abidi.jpg"
 }, {
 	"id": 26,
-	"name": "Mohamed Ali Chelbi",
-	"title": "Unity3D Game Developer & Co-Founder chez Gamepad Tribe",
+	"name": "Haythem EL MIR",
+	"title": "Technical Manager at Positive Technologies",
 	"bio": null,
 	"website": null,
-	"twitter": "microshlaft",
+	"twitter": "elmirhaythem",
 	"github": null,
-	"photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/010/33b/1bcce22.jpg"
+	"photo": "https://media.licdn.com/media/p/5/000/21a/2dd/085eda8.jpg"
 }, {
 	"id": 27,
 	"name": "Benneji Slim",
@@ -250,4 +250,94 @@
 	"twitter": "sahraouilok",
 	"github": "lokmansahraoui",
 	"photo": "https://pbs.twimg.com/profile_images/585947481768271874/Nfh4-a6G_400x400.jpg"
+}, {
+	"id": 29,
+	"name": "Malek Chtiwi",
+	"title": "Hadrum, Technical Lead",
+	"bio": "I’m a senior software & web developer since my early age, development is running in my blood. I’m also passionate by discovering and adventure in many new Tech trends like the cryptocurrencies",
+	"website": "http://www.codicode.com/",
+	"twitter": "ChtiwiMalek",
+	"github": "Codicode",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Malek-Chtiwi.jpg"
+}, {
+	"id": 30,
+	"name": "Chourouk Hjaiej",
+	"title": "DX Technical Evangelist Intern at Microsoft",
+	"bio": "DX Technical evangelist intern is her work at Microsoft, Azure is her deep passion, coffee is her fuel and travel is her lifestyle. Chourouk gets her software engineering degree from the National Institute of Applied Sciences and Technologies(INSAT). She was a Microsoft rockstar of her campus since she was among the most active Microsoft Student Partners since 2013. Actually, Chourouk works closely with ISVs, developers, startups, and students to drive interest for Microsoft platforms and building Windows, Azure and Office 365 apps. Please, feel free to visit her website : http://hjaiejchourouk.com/",
+	"website": "http://hjaiejchourouk.com/",
+	"twitter": "chouroukhj",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Chourouk-Hjaiej.jpg"
+}, {
+	"id": 31,
+	"name": "Afifa El Almi",
+	"title": "Enseignante, INSAT",
+	"bio": "Diplômée de l’université de Paris II et Paris III. Enseignante à l’INSAT depuis 1996. Consultante en entrepreneuriat et Mentor forsa. Experte dans l’accompagnement des jeunes promoteurs et dans l’ingénierie de développement de contenus. Conseillère APEC auprès des PME. Conférencière afin de promouvoir l’entrepreneuriat auprès des jeunes à Tunis et dans les régions intérieures. Participation dans plusieurs programmes dont : Souk-at-tanmia, Tari9i Académie, Microsoft -Bizpark, Intileq, Total startupper, ONUDI, HP-LIFE, Thiti, entrepreneuriat solidaire – ministère de l’emploi…",
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Afifa-El-Almi.jpg"
+}, {
+	"id": 32,
+	"name": "Nader Rahman",
+	"title": "Intel Innovator, Mobile Software engineers & Associate professors, Esprit",
+	"bio": "Software engineer specialized in mobile development, Associate Professor/researcher at ESPRIT School of Engineering, Tunis, Tunisia, Mr. Nader Rahman has won several national and international challenge as the 1st prize of the Samsung Tunisia Challenge 2013, Microsoft DevComp 2013, WIP JAM Mobile World Congress 2014. Nader also an active member of ESPRIT Mobile Association …), he participated as a trainer or Speaker in several events like Droidcon 2014 and 2015, the GDG DevFest, BlackBerry JAM Tunis 2013…), several Tunisian communities such as (BBDevTunisia)",
+	"website": null,
+	"twitter": "nadirrahman",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Nader-Rahman.png"
+}, {
+	"id": 33,
+	"name": "Zayen Chagra & Nader Rahman",
+	"title": "Mobile Software engineers & Associate professors, Esprit",
+	"bio": "Both software engineers specialized in mobile development, Zayen and Nader started their career as associate professors at ESPRIT. They belong to ESPRIT Mobile research team, having as a vocation to teach, mentor and coach mobile development to student engineers and they are both Intel Innovators",
+	"website": null,
+	"twitter": "zayenchagra",
+	"github": "zayenCh",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/11028226_450334128454294_1176935732_o-600x323.jpg"
+}, {
+	"id": 34,
+	"name": "Paresh Mayani",
+	"title": "Technical Lead, Android @ LetsNurture India",
+	"bio": "Paresh is a mobile application developer with 5 years of apps development experience, has been working on android application development since Cupcake. Currently he works at LetsNurture, India as Technical Lead (Android) in Enterprise mobile solutions department. He is a frequent speaker at conferences such as Android Developer Days (Droidcon Ankara), DevFest and NitroDroid, on topics ranging from android development best practices, Android BLE. He has been actively leading Google Developers Group in Ahmedabad since last 4 years. He is very active in supporting Android developers community in India and worldwide be it through his tech blog TechnoTalkative (published >150 articles) or through StackOverflow (holder of >60,000 reputation).",
+	"website": "http://www.technotalkative.com/",
+	"twitter": "pareshmayani",
+	"github": "PareshMayani",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Paresh-Mayani.jpeg"
+}, {
+	"id": 35,
+	"name": "Prajyot Mainkar",
+	"title": "Androcid, director",
+	"bio": "Director at Androcid Media Pvt. Ltd, an app engineering firm based out of India. He is the manager of Google’s Developer Group – GAUG ( Goa Android users Group), which is one of the oldest GDGs in Goa. He is an android developer himself and has spoken at several conferences including Droidcon India, Droidcon Greece, Android Developer Days- Turkey, Silicon India Mobile Conference and many more. Prajyot has been active in the Android community and been assisting Android developers build new, compelling and well-received apps.",
+	"website": "http://www.androcid.com/",
+	"twitter": "prajyotm",
+	"github": "prajyotm",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Prajyot-Mainkar.jpg"
+}, {
+	"id": 36,
+	"name": "Jose Ugia Gonzalez",
+	"title": "Errand’s Boy @ LOCK8, Co-Founder & Head of Tech @ Momenta, Google Developer Expert",
+	"bio": "Entrepreneur with more than 10 years of fun in tech, product and business development. Passionate about building things and putting them out there. Author, wanna-be social entrepreneur and always free for long beer conversations.",
+	"website": "https://plus.google.com/+JoseLuisUgiaGonzalez",
+	"twitter": "jl_ugia",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Jose-Ugia-Gonzalez.jpg"
+}, {
+	"id": 37,
+	"name": "Brahim Hadriche",
+	"title": "TGD (Tunisian Game Developer)",
+	"bio": null,
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1476431_818038971652876_1720050766659231812_n.jpg?oh=1723e533056b901bc45b458cb7e21ad1&oe=576F6F26"
+}, {
+	"id": 38,
+	"name": "Walid Alouani",
+	"title": "Game Developer",
+	"bio": null,
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "https://media.licdn.com/media/p/1/005/064/1ff/0e69f01.jpg"
 }]
