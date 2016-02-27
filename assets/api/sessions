@@ -381,7 +381,7 @@
 	"roomId": 7,
 	"speakersId": [33],
 	"title": "Intel RealSENSE",
-	"description": "This part is about the new revolution in camera made by INTEL after the acquisition of “ZiiLabs” 3D Tech from Creative in 2012.<br /><br />The talk includes demos of RealSense 3D depth-sensing cameras shown to the world through through several ingenious demos and open to developers through Perceptual ComputingSDK replaced by RealSense SDK in 2013.<br /><br />Multiple scenarios of use will be shown and explained as the possibilites of measuring distance, adjustment of photos without using the “focus”, holographic navigation, object detection with high precision and the possibility ot add other layer to the photo."
+	"description": "This part is about the new revolution in camera made by INTEL after the acquisition of “ZiiLabs” 3D Tech from Creative in 2012.\n\nThe talk includes demos of RealSense 3D depth-sensing cameras shown to the world through through several ingenious demos and open to developers through Perceptual ComputingSDK replaced by RealSense SDK in 2013.\n\nMultiple scenarios of use will be shown and explained as the possibilites of measuring distance, adjustment of photos without using the “focus”, holographic navigation, object detection with high precision and the possibility ot add other layer to the photo."
 }, {
 	"id": 49,
 	"startAt": "2016-03-06 17:00",
