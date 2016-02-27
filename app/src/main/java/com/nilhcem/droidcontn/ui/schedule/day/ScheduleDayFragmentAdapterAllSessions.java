@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.nilhcem.droidcontn.data.app.SelectedSessionsMemory;
+import com.nilhcem.droidcontn.data.app.model.Room;
 import com.nilhcem.droidcontn.data.app.model.ScheduleSlot;
 import com.nilhcem.droidcontn.data.app.model.Session;
 import com.squareup.picasso.Picasso;
@@ -40,7 +41,7 @@ public class ScheduleDayFragmentAdapterAllSessions extends RecyclerView.Adapter<
         Session session = pair.first;
         ScheduleSlot slot = pair.second;
 
-        if (session.getSpeakers() == null) {
+        if (session.getRoom().equals(Room.NONE.name)) {
             holder.bindBreakSlot(slot, session, shouldShowTime(slot, position));
         } else {
             holder.bindSelectedSession(slot, session, shouldShowTime(slot, position), selectedSessionsMemory.isSelected(session));

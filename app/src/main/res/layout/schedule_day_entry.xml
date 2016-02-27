@@ -68,17 +68,6 @@
                     android:textColor="@color/secondary_text"
                     android:textSize="13sp"
                     tools:text="@string/schedule_day_entry_session_time_format"/>
-
-                <TextView
-                    android:id="@+id/schedule_day_entry_break_room"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/schedule_day_entry_room_bg"
-                    android:padding="4dp"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="13sp"
-                    tools:text="Room #2"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
