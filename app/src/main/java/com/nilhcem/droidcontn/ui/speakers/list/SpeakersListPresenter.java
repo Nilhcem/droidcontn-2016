@@ -5,6 +5,7 @@ import com.nilhcem.droidcontn.data.app.model.Speaker;
 import com.nilhcem.droidcontn.ui.BaseFragmentPresenter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import icepick.State;
 import rx.Subscription;
@@ -48,6 +49,12 @@ public class SpeakersListPresenter extends BaseFragmentPresenter<SpeakersListVie
 
     private void loadData() {
         speakersSubscription = dataProvider.getSpeakers()
+                .map(speakers -> {
+                    if (speakers != null) {
+                        Collections.shuffle(speakers);
+                    }
+                    return speakers;
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(speakers -> {
