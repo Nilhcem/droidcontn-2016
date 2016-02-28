@@ -74,7 +74,7 @@ public class AppMapperTest {
     @Test
     public void should_convert_sessions_list_into_schedule() {
         // Given
-        LocalDateTime slot1 = LocalDateTime.of(2016, 03, 15, 8, 10);
+        LocalDateTime slot1 = LocalDateTime.of(2016, 3, 15, 8, 10);
         LocalDateTime slot2 = slot1.plusHours(1);
         LocalDateTime slot3 = slot2.plusHours(1);
         LocalDateTime slot4 = slot1.plusDays(1);
