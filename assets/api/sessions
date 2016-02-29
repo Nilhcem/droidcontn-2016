@@ -93,7 +93,7 @@
 	"roomId": 6,
 	"speakersId": [34],
 	"title": "Unity for Android : Tips and tricks to consider before submitting to the Google Play Store",
-	"description": null
+	"description": "Creating a game is one thing, and exporting it to the Google Play Store is another matter. This workshop covers some of the performance issues you might encounter when creating your mobile game with unity, Things to handle before exporting, profiling and debugging the game to take down the bottlenecks, and other tips and tricks to to have your game ready for publishing. In this workshop, we will see how to apply these tricks on your game inside the Unity editor."
 }, {
 	"id": 13,
 	"startAt": "2016-03-05 14:00",
@@ -141,7 +141,7 @@
 	"roomId": 6,
 	"speakersId": [27],
 	"title": "Game design",
-	"description": null
+	"description": "Are you a mobile-game developer? Artist? Or maybe just a big fan of game design? Well, this workshop is made for you.\nLet me ask one more question: Did you ever wish you could create visually-rich games and spectacular graphic-design in your mobile-game? It seems like an impossible dream -for the enhancement of the graphical aspects of the game is often extremely costly in size and physical resources-, but I am here to show that dreams do come true.\nWhat we’ll cover in this workshop is various techniques that would allow you to enhance your mobile games -whether you’re using Unreal Engine, Unity, Lumberyard or other game-engines.\nTechniques that would allow you to design the high-quality graphics and animations we’re used to on PC and console platforms, and make them available for mobile devices."
 }, {
 	"id": 19,
 	"startAt": "2016-03-05 15:00",
@@ -188,8 +188,8 @@
 	"duration": 50,
 	"roomId": 6,
 	"speakersId": [32],
-	"title": "Speed up game developement in Unity",
-	"description": null
+	"title": "Speed up game development in Unity",
+	"description": "We will talk about how to create a custom inspector that you can use in a lot of different projects.\n\nWith the custom inspector you can make complex behavior easy and then pass it on to your teammates, you can put all the complex functionality under the hood and let the people implement your code.\n\nMake a custom inspector that can help you to develop games faster:\n\n- Use buttons, sliders and other options to make your custom inspector.\n- Learn how to manipulate multiple game objects with the editors attached and edit them.\n- Learn to implement the code that is used to make the Unity editor itself.\n\nIf you want to assist to this session you will need to have a good understanding of C# and at least a small understanding of then Unity GUI scripting."
 }, {
 	"id": 25,
 	"startAt": "2016-03-05 16:00",
