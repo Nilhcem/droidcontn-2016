@@ -11,10 +11,10 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.threeten.bp.LocalDate;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static com.google.common.truth.Truth.assertThat;
+import static java.util.Collections.singletonList;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
@@ -24,7 +24,7 @@ public class ScheduleDayTest {
     public void should_restore_from_parcelable() {
         // Given
         LocalDate day = LocalDate.of(1985, 5, 15);
-        List<ScheduleSlot> slots = Arrays.asList(new ScheduleSlot(null, null));
+        List<ScheduleSlot> slots = singletonList(new ScheduleSlot(null, null));
         ScheduleDay scheduleDay = new ScheduleDay(day, slots);
 
         // When

@@ -19,12 +19,12 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.threeten.bp.LocalDateTime;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static com.google.common.truth.Truth.assertThat;
+import static java.util.Collections.singletonList;
 import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricGradleTestRunner.class)
@@ -49,7 +49,7 @@ public class DbMapperTest {
         // Given
         when(adapter.fromText("now")).thenReturn(now);
         com.nilhcem.droidcontn.data.database.model.Session session = new com.nilhcem.droidcontn.data.database.model.Session(2, "now", 10, 3, "[1]", "title", "description");
-        List<com.nilhcem.droidcontn.data.database.model.Session> sessions = Arrays.asList(session);
+        List<com.nilhcem.droidcontn.data.database.model.Session> sessions = singletonList(session);
         Map<Integer, Speaker> speakersMap = new HashMap<>();
         Speaker speaker = new Speaker(1, "name", null, null, null, null, null, null);
         speakersMap.put(1, speaker);
@@ -69,7 +69,7 @@ public class DbMapperTest {
     @Test
     public void should_convert_app_session_to_db_session() {
         // Given
-        List<Speaker> speakers = Arrays.asList(new Speaker(7, null, null, null, null, null, null, null));
+        List<Speaker> speakers = singletonList(new Speaker(7, null, null, null, null, null, null, null));
         Session session = new Session(11, Room.CESAR_1.name, speakers, "title", "description", now, now.plusMinutes(45));
 
         // When
@@ -106,10 +106,9 @@ public class DbMapperTest {
     public void should_convert_db_speakers_to_app_speakers() {
         // Given
         com.nilhcem.droidcontn.data.database.model.Speaker speaker = new com.nilhcem.droidcontn.data.database.model.Speaker(58, "nilh", "dev", "bio", "nilhcem.com", "Nilhcem", "nilhcem", "photo");
-        List<com.nilhcem.droidcontn.data.database.model.Speaker> speakers = Arrays.asList(speaker);
 
         // When
-        List<Speaker> result = dbMapper.toAppSpeakers(speakers);
+        List<Speaker> result = dbMapper.toAppSpeakers(singletonList(speaker));
 
         // Then
         assertThat(result).hasSize(1);

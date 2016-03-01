@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.google.common.truth.Truth.assertThat;
+import static java.util.Collections.singletonList;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
@@ -78,11 +79,11 @@ public class AppMapperTest {
         LocalDateTime slot2 = slot1.plusHours(1);
         LocalDateTime slot3 = slot2.plusHours(1);
         LocalDateTime slot4 = slot1.plusDays(1);
-        Session session1 = new Session(1, "room1", Arrays.asList(speaker1), "title1", "desc1", slot1, slot1.plusHours(1));
-        Session session2 = new Session(2, "room2", Arrays.asList(speaker2), "title2", "desc2", slot1, slot1.plusHours(1));
-        Session session3 = new Session(3, "room1", Arrays.asList(speaker3), "title3", "desc3", slot2, slot2.plusHours(1));
-        Session session4 = new Session(4, "room1", Arrays.asList(speaker4), "title4", "desc4", slot3, slot3.plusHours(1));
-        Session session5 = new Session(5, "room1", Arrays.asList(speaker5), "title5", "desc5", slot4, slot4.plusHours(1));
+        Session session1 = new Session(1, "room1", singletonList(speaker1), "title1", "desc1", slot1, slot1.plusHours(1));
+        Session session2 = new Session(2, "room2", singletonList(speaker2), "title2", "desc2", slot1, slot1.plusHours(1));
+        Session session3 = new Session(3, "room1", singletonList(speaker3), "title3", "desc3", slot2, slot2.plusHours(1));
+        Session session4 = new Session(4, "room1", singletonList(speaker4), "title4", "desc4", slot3, slot3.plusHours(1));
+        Session session5 = new Session(5, "room1", singletonList(speaker5), "title5", "desc5", slot4, slot4.plusHours(1));
 
         // When
         Schedule result = appMapper.toSchedule(Arrays.asList(session1, session2, session3, session4, session5));

@@ -11,10 +11,10 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.threeten.bp.LocalDateTime;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static com.google.common.truth.Truth.assertThat;
+import static java.util.Collections.singletonList;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
@@ -23,7 +23,7 @@ public class SessionTest {
     @Test
     public void should_restore_from_parcelable() {
         // Given
-        List<Speaker> speakers = Arrays.asList(new Speaker(1, null, null, null, null, null, null, null));
+        List<Speaker> speakers = singletonList(new Speaker(1, null, null, null, null, null, null, null));
         LocalDateTime fromTime = LocalDateTime.now().minusDays(1);
         LocalDateTime toTime = fromTime.plusMinutes(45);
         Session session = new Session(42, "ROOM1", speakers, "TITLE", "DESCRIPTION", fromTime, toTime);

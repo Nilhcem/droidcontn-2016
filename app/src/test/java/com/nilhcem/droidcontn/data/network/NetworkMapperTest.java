@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.google.common.truth.Truth.assertThat;
+import static java.util.Collections.singletonList;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
@@ -62,12 +63,12 @@ public class NetworkMapperTest {
     public void should_convert_network_sessions_to_app_sessions() {
         // Given
         LocalDateTime startAt = LocalDateTime.now();
-        Session session = new Session(1, startAt, 20, Room.CESAR_1.id, Arrays.asList(10), "title", "description");
+        Session session = new Session(1, startAt, 20, Room.CESAR_1.id, singletonList(10), "title", "description");
         Map<Integer, com.nilhcem.droidcontn.data.app.model.Speaker> speakersMap = new HashMap<>();
         speakersMap.put(10, new com.nilhcem.droidcontn.data.app.model.Speaker(10, "ten", null, null, null, null, null, null));
 
         // When
-        List<com.nilhcem.droidcontn.data.app.model.Session> result = networkMapper.toAppSessions(Arrays.asList(session), speakersMap);
+        List<com.nilhcem.droidcontn.data.app.model.Session> result = networkMapper.toAppSessions(singletonList(session), speakersMap);
 
         // Then
         assertThat(result).hasSize(1);
