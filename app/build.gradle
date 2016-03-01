@@ -39,7 +39,7 @@ android {
 
         minSdkVersion 15
         targetSdkVersion 23
-        resConfigs 'en', 'fr', 'ar'
+        resConfigs 'en', 'fr'
 
         buildConfigField 'String', 'GIT_SHA', "\"${gitSha}\""
         buildConfigField 'String', 'API_ENDPOINT', "\"https://raw.githubusercontent.com/Nilhcem/droidcontn-2016/master/assets/api/\""
