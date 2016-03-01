@@ -46,6 +46,12 @@ public class SessionsListActivity extends BaseActivity<SessionsListPresenter> im
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
+    @Override
     public void initToobar(String title) {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(title);
