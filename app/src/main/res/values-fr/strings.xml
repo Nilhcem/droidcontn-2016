@@ -22,7 +22,6 @@
     <string name="schedule_browse_sessions">Parcourir les sessions</string>
     <string name="schedule_browse_sessions_title_pattern">%1$s, %2$s</string>
     <string name="schedule_pager_day_pattern">EEEE dd</string>
-    <string name="schedule_speakers_separator">", "</string>
     <string name="schedule_day_entry_session_time_format">%1$s - %2$s (%3$dmins)</string>
 
     <!-- Session details -->
