@@ -25,14 +25,14 @@ import static org.mockito.Mockito.verify;
 public class ScheduleDayPresenterTest {
 
     @Mock ScheduleDayView view;
-    private ScheduleDay scheduleDay;
+
     private ScheduleDayPresenter presenter;
     private List<ScheduleSlot> slots = new ArrayList<>();
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        scheduleDay = new ScheduleDay(LocalDate.now(), slots);
+        ScheduleDay scheduleDay = new ScheduleDay(LocalDate.now(), slots);
         presenter = new ScheduleDayPresenter(view, scheduleDay);
     }
 
