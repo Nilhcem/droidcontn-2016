@@ -17,7 +17,6 @@ import com.nilhcem.droidcontn.R;
 import com.nilhcem.droidcontn.ui.BaseActivity;
 
 import butterknife.Bind;
-import lombok.val;
 
 public class DrawerActivity extends BaseActivity<DrawerPresenter> implements DrawerActivityView {
 
@@ -25,6 +24,8 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
     @Bind(R.id.tab_layout) TabLayout tabLayout;
     @Bind(R.id.drawer_layout) DrawerLayout drawer;
     @Bind(R.id.drawer_navigation) NavigationView navigationView;
+
+    private ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected DrawerPresenter newPresenter() {
@@ -37,14 +38,20 @@ public class DrawerActivity extends BaseActivity<DrawerPresenter> implements Dra
         setContentView(R.layout.drawer);
         setSupportActionBar(toolbar);
 
-        val toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
+        drawer.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(item -> {
             presenter.onNavigationItemSelected(item.getItemId());
             return true;
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        drawer.removeDrawerListener(actionBarDrawerToggle);
+        super.onDestroy();
     }
 
     @Override
