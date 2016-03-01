@@ -14,7 +14,7 @@ import javax.inject.Singleton;
 @Singleton
 public class LocalDateTimeAdapter {
 
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.US);
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.US);
 
     @Inject
     public LocalDateTimeAdapter() {

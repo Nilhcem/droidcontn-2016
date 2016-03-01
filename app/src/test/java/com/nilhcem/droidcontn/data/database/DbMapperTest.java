@@ -31,10 +31,10 @@ import static org.mockito.Mockito.when;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 public class DbMapperTest {
 
-    private Moshi moshi = new Moshi.Builder().build();
-    private AppMapper appMapper = new AppMapper();
     private DbMapper dbMapper;
-    private LocalDateTime now = LocalDateTime.now();
+    private final Moshi moshi = new Moshi.Builder().build();
+    private final AppMapper appMapper = new AppMapper();
+    private final LocalDateTime now = LocalDateTime.now();
 
     @Mock LocalDateTimeAdapter adapter;
 

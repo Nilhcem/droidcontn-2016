@@ -31,8 +31,8 @@ public class SchedulePagerPresenterTest {
     @Mock SchedulePagerView view;
     @Mock DataProvider dataProvider;
 
-    private TestSchedulerProxy schedulerProxy = TestSchedulerProxy.get();
     private SchedulePagerPresenter presenter;
+    private final TestSchedulerProxy schedulerProxy = TestSchedulerProxy.get();
 
     @Before
     public void setup() {

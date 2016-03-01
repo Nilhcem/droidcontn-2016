@@ -21,15 +21,15 @@ import static com.google.common.truth.Truth.assertThat;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 public class DataProviderCacheTest {
 
-    private DataProviderCache cache = new DataProviderCache();
+    private final DataProviderCache cache = new DataProviderCache();
 
-    private Session session1 = new Session(1, null, null, null, null, null, null);
-    private Session session2 = new Session(2, null, null, null, null, null, null);
-    private List<Session> sessions = Arrays.asList(session1, session2);
+    private final Session session1 = new Session(1, null, null, null, null, null, null);
+    private final Session session2 = new Session(2, null, null, null, null, null, null);
+    private final List<Session> sessions = Arrays.asList(session1, session2);
 
-    private Speaker speaker1 = new Speaker(1, null, null, null, null, null, null, null);
-    private Speaker speaker2 = new Speaker(1, null, null, null, null, null, null, null);
-    private List<Speaker> speakers = Arrays.asList(speaker1, speaker2);
+    private final Speaker speaker1 = new Speaker(1, null, null, null, null, null, null, null);
+    private final Speaker speaker2 = new Speaker(1, null, null, null, null, null, null, null);
+    private final List<Speaker> speakers = Arrays.asList(speaker1, speaker2);
 
     @Test
     public void should_save_sessions_in_memory_keeping_save_time() {

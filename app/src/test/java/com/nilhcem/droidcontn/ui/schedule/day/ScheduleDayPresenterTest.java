@@ -27,7 +27,7 @@ public class ScheduleDayPresenterTest {
     @Mock ScheduleDayView view;
 
     private ScheduleDayPresenter presenter;
-    private List<ScheduleSlot> slots = new ArrayList<>();
+    private final List<ScheduleSlot> slots = new ArrayList<>();
 
     @Before
     public void setup() {

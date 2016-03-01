@@ -25,8 +25,8 @@ import static com.google.common.truth.Truth.assertThat;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 public class NetworkMapperTest {
 
-    private AppMapper appMapper = new AppMapper();
-    private NetworkMapper networkMapper = new NetworkMapper(appMapper);
+    private final AppMapper appMapper = new AppMapper();
+    private final NetworkMapper networkMapper = new NetworkMapper(appMapper);
 
     @Test
     public void should_convert_network_speakers_to_app_speakers() {

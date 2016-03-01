@@ -23,13 +23,13 @@ import static com.google.common.truth.Truth.assertThat;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 public class AppMapperTest {
 
-    private AppMapper appMapper = new AppMapper();
-    private Speaker speaker1 = new Speaker(10, "Gautier", null, null, null, null, null, null);
-    private Speaker speaker2 = new Speaker(20, "Mounir", null, null, null, null, null, null);
-    private Speaker speaker3 = new Speaker(30, "Thomas", null, null, null, null, null, null);
-    private Speaker speaker4 = new Speaker(40, "Arnaud", null, null, null, null, null, null);
-    private Speaker speaker5 = new Speaker(50, "Jérémie", null, null, null, null, null, null);
-    private List<Speaker> speakers = Arrays.asList(speaker1, speaker2, speaker3, speaker4, speaker5);
+    private final AppMapper appMapper = new AppMapper();
+    private final Speaker speaker1 = new Speaker(10, "Gautier", null, null, null, null, null, null);
+    private final Speaker speaker2 = new Speaker(20, "Mounir", null, null, null, null, null, null);
+    private final Speaker speaker3 = new Speaker(30, "Thomas", null, null, null, null, null, null);
+    private final Speaker speaker4 = new Speaker(40, "Arnaud", null, null, null, null, null, null);
+    private final Speaker speaker5 = new Speaker(50, "Jérémie", null, null, null, null, null, null);
+    private final List<Speaker> speakers = Arrays.asList(speaker1, speaker2, speaker3, speaker4, speaker5);
 
     @Test
     public void should_create_map_of_speakers_with_id_as_speakerId_and_value_as_speaker() {

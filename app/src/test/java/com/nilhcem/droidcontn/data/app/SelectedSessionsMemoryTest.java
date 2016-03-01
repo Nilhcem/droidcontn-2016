@@ -20,7 +20,7 @@ import static com.google.common.truth.Truth.assertThat;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 public class SelectedSessionsMemoryTest {
 
-    private SelectedSessionsMemory memory = new SelectedSessionsMemory();
+    private final SelectedSessionsMemory memory = new SelectedSessionsMemory();
 
     @Test
     public void should_set_selected_sessions() {
