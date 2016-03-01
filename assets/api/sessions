@@ -149,7 +149,7 @@
 	"roomId": 8,
 	"speakersId": [29],
 	"title": "[APTBEF] Magic of the Blockchain",
-	"description": "Talk detail is loading about Blockchain"
+	"description": "The Blockchain technology is the new trend, everybody is joining and hundreds of related applications, technologies, projects and initiatives are launching every month.\n\nMy talk ‘Magic of the Blockchain’, Will dive into how the blockchain works, how transactions and bitcoins are created. I will also talk about Altchains, Sidechains, Smart contracts… and how all this will revolutionize our financial system."
 }, {
 	"id": 20,
 	"startAt": "2016-03-05 16:00",
@@ -221,7 +221,7 @@
 	"roomId": 4,
 	"speakersId": [1],
 	"title": "Offline-first web and mobile apps with Polymer and Vaadin Elements",
-	"description": null
+	"description": "Vaadin is a framework and set of web components for rapid development of highly interactive HTML5-based web applications. This presentation will give a quick intro to a three core concepts that are the base of Vaadin Components: WebComponents, Polymer, and Offline First apps. You will learn how to develop an Offline First web and mobile apps using Polymer, and how to integrate it with a Java backend using the power of Vaadin."
 }, {
 	"id": 29,
 	"startAt": "2016-03-05 17:00",
