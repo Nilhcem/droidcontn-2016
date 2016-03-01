@@ -34,8 +34,8 @@ android {
 
     defaultConfig {
         applicationId 'com.nilhcem.droidcontn'
-        versionCode 1
-        versionName '1.0'
+        versionCode 2
+        versionName '1.1'
 
         minSdkVersion 15
         targetSdkVersion 23
