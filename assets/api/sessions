@@ -275,8 +275,8 @@
 	"startAt": "2016-03-06 12:00",
 	"duration": 40,
 	"roomId": 1,
-	"speakersId": null,
-	"title": "Keynote Microsoft",
+	"speakersId": [35],
+	"title": "The Internet of Things (IoT) is here today in the devices, sensors, cloud services, and data your business uses. Microsoft delivers a flexible cloud-based approach that enables enterprises to capitalize on IoT by gathering, storing, and processing data centrally. When centrally connecting distributed LoB assets, the edge of an enterprise’s infrastructure can be redefined, and the breadth of the Microsoft data platform can be harnessed. Learn about Microsoft’s position on IoT, and the technology and services being delivered from Microsoft to help you create the Internet of Your Things.",
 	"description": null
 }, {
 	"id": 36,

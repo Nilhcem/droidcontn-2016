@@ -304,4 +304,13 @@
 	"twitter": null,
 	"github": null,
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Brahim-Hadrich-666x960.jpg"
+}, {
+	"id": 35,
+	"name": "Mohamed Yamama",
+	"title": "Technical Expert – Developer Experience, Microsoft MEA HQ",
+	"bio": "Technical Expert for Microsoft Middle East and Africa (MEA) HQ. Over the past 4 years, he has been promoting Microsoft Platforms to MEA developers focusing on Windows, IoT, Machine Learning, and Azure. He worked with different partners on landing IoT and Machine Learning projects. Yamama is a Microsoft Certified Professional (MCP) for Developing Microsoft Azure Solutions. He holds a Bachelor degree in Computer Science from the American University in Cairo.",
+	"website": null,
+	"twitter": "m_yamama",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Mohamed-Yamama-e1456920903861.jpg"
 }]
