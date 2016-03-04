@@ -312,7 +312,7 @@
 	"description": null
 }, {
 	"id": 40,
-	"startAt": "2016-03-05 14:00",
+	"startAt": "2016-03-06 14:00",
 	"duration": 50,
 	"roomId": 3,
 	"speakersId": [12],
@@ -320,7 +320,7 @@
 	"description": "The NativeScript framework comes equipped with a platform-agnostic abstraction layer that allows you to call Native APIs without the need to learn iOS, Android, and Windows Phone APIs; we call it the NativeScript Modules Layer.\n\nNativeScript is extremely extensible, so you are never limited to what you get out of the box—”the sky is the limit”, and in some cases not even that.\n\nIn this session you’ll see how to use a NativeScript Module, and most importantly, you will learn how simple it is to build one. We’ll finish with something more challenging: a NativeScript Module that uses 3rd-party native components.\n\nYou can expect real life examples, cool ideas, and some apps that could save your life if you are ever lost at sea."
 }, {
 	"id": 41,
-	"startAt": "2016-03-05 14:00",
+	"startAt": "2016-03-06 14:00",
 	"duration": 50,
 	"roomId": 4,
 	"speakersId": [6, 2],
