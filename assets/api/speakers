@@ -190,12 +190,12 @@
 }, {
 	"id": 22,
 	"name": "Carlos E. Jiménez-Gómez",
-	"title": "Chair, IEEE Government",
-	"bio": "MSc. on Information and Knowledge Society (research master thesis on eGovernment Interoperability), Postgraduate degree on Information Systems Management, and Computer Engineer. His main interests include e-Justice, open & smart government or interoperability. He has been civil servant of the Spanish Ministry of Justice since 1991; nowadays he is specialized in eGovernment, and he forms part of the team in charge of the e-Justice project of the Autonomous Government of Catalonia, Spain, project awarded in Spain in 2010, 2011 and 2012. He is as well an independent consultant. He has carried out international training, research and consulting work",
+	"title": "Distinguished Lecturer, IEEE Society on Social Implications of Technology",
+	"bio": "Carlos E. Jiménez-Gómez (@estratic) is a Computer Engineer with a MSc. on Information and Knowledge Society, and Postgraduate degree on Information Systems Management. Carlos has participated in Governments’ innovative and strategic projects, such as the International Collaborative Mechanism on Public Software for the Latin-American countries, the Brazilian e-Government Interoperability Guide, the e-Government Interoperability Framework for the Ibero–American countries, or the Catalan e-Justice system, project that has been several times awarded in Spain. As researcher, his latest research work on ICT and openness in Judiciary it was recently presented within the Stanford University’s CGCP panel, at the Open Government Partnership Summit 2015, and it is pioneer at world level. As IEEE volunteer, he founded and chaired until 2015 the IEEE CS e-Government STC and he was appointed by IEEE Smart Cities Committee as speaker for the 2014 ITU/UNESCO Forum on Smart Sustainable Cities. Nowadays at local level, he is coordinating the Smart Cities group within the IEEE Spain Section –where he is Head of New Initiatives- and, at international level, he is member of the IEEE Computer Society STC Executive Committee. He is Distinguished Lecturer of both IEEE Computer Society, and IEEE Society on Social Implications of Technology. In 2005, he was awarded by United Nations with the “Online Volunteer of the Year” Award.",
 	"website": "https://about.me/estratic",
 	"twitter": "estratic",
 	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/Carlos-E.-Jimenez.png"
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Carlos-E-Jimenez.jpg"
 }, {
 	"id": 23,
 	"name": "Walid Sultan Midani",
@@ -244,8 +244,8 @@
 }, {
 	"id": 28,
 	"name": "Lokmane Sahraoui",
-	"title": "Speaker at GDG Blida",
-	"bio": null,
+	"title": "Speaker/GDG Blida, Messaging Engineer/Djezzy.",
+	"bio": "I can say shortly that I'm an android developer freshly graduated from Blida’s University as a Software Engineer, working for now as a Messaging Engineer at a telecom company (Djezzy) and doing what i love the most among with it, following my passion as public speaker and and acoustic guitarist.",
 	"website": null,
 	"twitter": "sahraouilok",
 	"github": "lokmansahraoui",
@@ -313,4 +313,49 @@
 	"twitter": "m_yamama",
 	"github": null,
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Mohamed-Yamama-e1456920903861.jpg"
+}, {
+	"id": 36,
+	"name": "Slim Regaieg, Chaima Attia",
+	"title": "Développeurs mobiles",
+	"bio": "Développeurs mobiles et aiment former les enfants en développement mobile. Ils ont eu plusieurs expérience en atelier Scartch pour les élèves.",
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/App-Inventor.png"
+}, {
+	"id": 37,
+	"name": "Fares Zekri",
+	"title": "Partner Account Manager, Microsoft",
+	"bio": "A self-critical person who sets high standards for himself and others and consistently drives for improvements. Has shown abilities to apply deep insight and analytical skills to dissect complex situations into simple actionable plans. Able to connect with people, build credibility and earn trust. A proven track record of championing customer and partner issues to resolution and building healthy long term win-win relationships. A good representative of my company with abilities to listen, understand and identify potential solutions, able to articulate well the value and impact my company brings to customers and partners.",
+	"website": null,
+	"twitter": "fareszekri",
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Fares-Zekri.png"
+}, {
+	"id": 38,
+	"name": "Adel Kassah",
+	"title": "Teacher",
+	"bio": "A computer science teacher in middle school in Tunisia. I am animating after school club",
+	"website": null,
+	"twitter": "adelkassah",
+	"github": "adeltunisia",
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Adel-Kassah.png"
+}, {
+	"id": 39,
+	"name": "Samia Chelbi",
+	"title": "Responsable Etudes et Développement de l’Ecole NetInfo, Présidente Association Tunisienne des Technologies Créatives- CréaTec",
+	"bio": "Étudie la faisabilité de nouveaux programmes de formation, Prépare les calendriers de formations, Prépare les programmes de formation, fait le suivi pédagogique, développe le réseau de partenariat. Maître Technologue en Ingénierie Logiciel.",
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/Samia-Chalbi.png"
+}, {
+	"id": 40,
+	"name": "Slim Regaieg, Chaima Attia, Amina Khalfaoui, Rania Rhim",
+	"title": "Développeurs mobiles",
+	"bio": "Développeurs mobiles et aiment former les enfants en développement mobile. Ils ont eu plusieurs expérience en atelier Scartch pour les élèves.",
+	"website": null,
+	"twitter": null,
+	"github": null,
+	"photo": "http://www.droidcon.tn/wp-content/uploads/scratch.png"
 }]
