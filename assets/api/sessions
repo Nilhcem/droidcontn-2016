@@ -264,7 +264,7 @@
 	"description": null
 }, {
 	"id": 34,
-	"startAt": "2016-03-06 09:45",
+	"startAt": "2016-03-06 09:00",
 	"duration": 45,
 	"roomId": 1,
 	"speakersId": [10],
@@ -272,7 +272,7 @@
 	"description": "Developing a functional application is the first step, doing it securely is the second and effective one. Do you prevent hackers of going into your source code? How can you prevent Man in the Middle attacks in your application? Do you know how easy is to make code injections in an already existing application?\n\nThis talk with explore some of the common attacks an Android application can suffer, and it will introduce measures to mitigate the risk. If you are worried about how to cover the weak point of your application, come to this talk!"
 }, {
 	"id": 35,
-	"startAt": "2016-03-06 10:30",
+	"startAt": "2016-03-06 09:45",
 	"duration": 45,
 	"roomId": 1,
 	"speakersId": [24],
@@ -280,7 +280,7 @@
 	"description": "As app developers, we want to focus on making our apps better. It is easy to delay thinking about security. But exploits are now targeting developers, for example, XCodeGhost had a massive impact. The F-Droid free developer tools make a secure process vastly easier, and with little change to your workflow, while providing automated uploading to Google Play and F-Droid when posting new apps, releases, their descriptions, and the translations.\n\nThere are also many things that can make it hard to get apps to users. Google Play is blocked in some places, regional app stores are often cesspools of malware. The internet can be disabled or even just plain expensive. People turn to getting apps from websites, email, bluetooth, SD Cards, or any other method they can figure out. In China, the internet is ubiquitous but heavily filtered and monitored; but “collateral freedom” techniques have proven effective. In Vietnam, swapping apps with Bluetooth is widespread. In Cuba, people get apps via mesh networks and by buying “La Paquete”. These techniques work in many places, but none work in all, and it is very difficult to keep track of them all. This requires users, developers, companies, and organizations to be fluent in many technical details in order to effectively get and distribute mobile apps and media around the world.\n\nF-Droid includes all these techniques in system that is easy for developers to plug into. we are focused on providing a simple, smooth user experience, with three use cases in mind:\n- The end user gets a familiar app store experience, regardless of the complexity behind it all\n- The developer is in control of a simple set of commands that automate the entire distribution workflow for easily making highly secure builds, then getting apps out through all possible channels, including Google Play\n- Non-technical organizations and people can use these tools to publish curated collections of apps and media, without getting caught up in the technical details of the whole process."
 }, {
 	"id": 36,
-	"startAt": "2016-03-06 11:15",
+	"startAt": "2016-03-06 10:30",
 	"duration": 45,
 	"roomId": 1,
 	"speakersId": [18],
@@ -288,7 +288,7 @@
 	"description": "High-quality software is important for tech companies. It is getting challenged because hundreds of engineers are working on the shared big code base. Unit testing, automation testing and static analysis are very helpful to create error-free code. Static analysis is a technique to detect software errors by analyzing existing codes without running. However, there are pitfalls which cannot be detected by existing tools. Some pitfalls could be related with company coding standards or how to use third-party libraries. For example, string resources should be sorted alphabetically by a string key. In this talk, we suggest a way to avoid those pitfalls collaboratively by utilizing Android custom lint, which is a one of static analysis tool. With Android custom lint, developers easily avoid pitfalls with a nice explanation such as which line and why."
 }, {
 	"id": 37,
-	"startAt": "2016-03-06 12:00",
+	"startAt": "2016-03-06 11:15",
 	"duration": 45,
 	"roomId": 1,
 	"speakersId": [12],
@@ -296,7 +296,7 @@
 	"description": "NativeScript is a free and open source JavaScript framework for building native iOS, Android, and (soon) Windows Phone apps. But I know what you’re thinking: another way of building apps? What makes NativeScript special? Here are a few cool things:\n\n– Direct access to native APIs—no plugins required. Want to create a file on Android? Run new java.io.File()—in JavaScript!\n– Completely native performance through the use of a JavaScript bridge natively available on all three mobile platforms.\n– Cross-platform libraries for common use cases. Need to call a JSON API? Run http.getJSON\n– Style native apps using CSS. Yep, that’s actually a thing.\n\nCurious about how it all works? Come learn! Architectures will be explained; apps will be built; and fun will be had by all."
 }, {
 	"id": 38,
-	"startAt": "2016-03-06 12:45",
+	"startAt": "2016-03-06 12:00",
 	"duration": 45,
 	"roomId": 3,
 	"speakersId": [8],
@@ -304,8 +304,8 @@
 	"description": "Testing in the Android Platform used to be hard, but not now.\nThe Android Testing Support Library provides an extensive framework for testing Android apps. In this talk we will go through the main features like the new instrumentation test runner. Then we will cover Espresso and advanced topics like espresso-intents and idling resources. Finally we will see UI Automator, testing framework suitable for cross-app functional UI testing across system and installed apps"
 }, {
 	"id": 39,
-	"startAt": "2016-03-06 13:50",
-	"duration": 55,
+	"startAt": "2016-03-06 12:45",
+	"duration": 125,
 	"roomId": 0,
 	"speakersId": null,
 	"title": "Lunch Time",
