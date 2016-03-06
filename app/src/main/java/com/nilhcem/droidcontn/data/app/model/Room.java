@@ -12,7 +12,8 @@ public enum Room {
     CESAR_4(5, "César 4 (Workshops)"),
     CESAR_6_GAMING(6, "César 6 (Gaming)"),
     CESAR_6_INTEL(7, "César 6 (Intel)"),
-    CESAR_3(8, "César 3");
+    CESAR_3(8, "César 3"),
+    CESAR_2(9, "César 2");
 
     public final int id;
     public final String name;
