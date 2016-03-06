@@ -41,70 +41,70 @@
 }, {
 	"id": 6,
 	"startAt": "2016-03-05 11:00",
-	"duration": 40,
+	"duration": 90,
 	"roomId": 1,
 	"speakersId": null,
 	"title": "Discussion Panel: Innovation Limit in Tunisia",
 	"description": null
 }, {
 	"id": 7,
-	"startAt": "2016-03-05 11:45",
-	"duration": 30,
-	"roomId": 1,
-	"speakersId": [22],
-	"title": "\"Open Government\" to \"Smart Governance\": a Strategic view of the Back Office",
-	"description": "Open Government initiatives without a strategic view are only isolated initiatives that won’t have the desired impact. Usually we are hearing about participation and other principles related to open government, but we are not usually hearing about its elements linked to the back office. In the back office, information systems, processes, and institutional collaboration will be key. From this view, interoperability of Apps and services will be a key characteristic in order to guarantee the best software, that will mean better software options to choose. Thus, It is needed to think of the future of technologies in organizations, and how standards in public software like mobile Apps could allow to interact with different systems, not only in organizations, but also related to citizen’s devices. In this speech it will be shown an strategic view of the Open Government from the back office, mainly in the context of the Smart Cities."
-}, {
-	"id": 8,
-	"startAt": "2016-03-05 12:20",
-	"duration": 30,
-	"roomId": 1,
-	"speakersId": [35],
-	"title": "Create the Internet of Your Things: The Microsoft Vision for IoT",
-	"description": "The Internet of Things (IoT) is here today in the devices, sensors, cloud services, and data your business uses. Microsoft delivers a flexible cloud-based approach that enables enterprises to capitalize on IoT by gathering, storing, and processing data centrally. When centrally connecting distributed LoB assets, the edge of an enterprise’s infrastructure can be redefined, and the breadth of the Microsoft data platform can be harnessed. Learn about Microsoft’s position on IoT, and the technology and services being delivered from Microsoft to help you create the Internet of Your Things."
-}, {
-	"id": 9,
-	"startAt": "2016-03-05 12:50",
-	"duration": 70,
+	"startAt": "2016-03-05 12:40",
+	"duration": 80,
 	"roomId": 0,
 	"speakersId": null,
 	"title": "Lunch Time",
 	"description": null
 }, {
-	"id": 10,
-	"startAt": "2016-03-05 14:00",
-	"duration": 50,
-	"roomId": 2,
-	"speakersId": [13],
-	"title": "Let’s your users share your App with Friends: App Invites for Android",
-	"description": "Thinking about free marketing ? Want to give the opportunity to your user to share your app with their friends ? maybe you just need more downloads ? Not sure where to start? Android App Invite is one of the answer you were looking for.\nYou will learn more about app invite is all about and why you need to care about.\nThis talk will teach you exactly what you need to know to integrate app invite in your application.\nAt the end of this class, you will learn:\n-why you need app invite in your app\n-how to integrate app invite in your app\n-how to manage invites tracking using Google Analytics API"
-}, {
-	"id": 11,
-	"startAt": "2016-03-05 14:00",
+	"id": 8,
+	"startAt": "2016-03-05 14:30",
 	"duration": 50,
 	"roomId": 3,
 	"speakersId": [1],
 	"title": "AOSP – Hack your own Android ROM",
 	"description": "Enough with Android apps, now let’s build our own custom ROM! Ever wondered how to modify and compile the Android Open Source Project (AOSP)?\n\nWant to build you own custom app, or use it for an embedded device?\n\nHow to start, where to modify, how the work is done. This lecture is a hands on that will explain all the basics and how to continue on your own."
 }, {
-	"id": 12,
-	"startAt": "2016-03-05 14:00",
-	"duration": 50,
-	"roomId": 4,
-	"speakersId": [3],
-	"title": "Kick-off with Successful android Business apps",
-	"description": "Apps can do just about anything, but a mobile strategy is essential to determine how a mobile app could best serve your needs. Identify an issue or opportunity first, then think about how mobile may be able to solve it.\n\nWe all know that the Management is the most important elements of the success of major companies and entrepreneurial,and it represents a significant proportion in this path.\nThrough our tech-talk session, we will talk about the development of mobile applications under the concept of successful management mechanisms, also we’ll make lights on marketing strategy, and how can find the best revenue models for our mobile apps, also we have some of these topics. Here is what’s covered:\n– Build Your Personal Online Presence\n– Validate Your Idea\n– Choose Your Revenue Model\n– Choose The Right Name & Branding.\n– Start Marketing Within Your App\n– Build Your App’s Online Presence\n– Get Feedback\n– Localize\n– Do App Store Optimization\n– Get Your App Reviewed\n– Market Your App With Video\n– Do “Real-life” Marketing?\n– Cross-Promote Your App\n– Kill It On Launch Day!\n– Improve Engagement With Push Notifications\n– Choose The Right Promotion Campaigns\n– Measure, Improve & Keep On Marketing\n– Native vs Cross-Platform Development\n– Choose Your First Platform Wisely\n– Client Retention Secrets\n– Find a co-founder."
-}, {
-	"id": 13,
-	"startAt": "2016-03-05 14:00",
+	"id": 9,
+	"startAt": "2016-03-05 14:30",
 	"duration": 50,
 	"roomId": 5,
 	"speakersId": [24],
 	"title": "Deliver private, secure apps with ease",
 	"description": "Mobile phones have become central to our private lives, full of intimate messages, private pictures, and a huge amount of details of our personal lives. This private information can easily leak out in so many different ways, yet the user experience feels very private. When we look at our mobile screens, it feels like no one else can see what we are seeing unless we show them. Unfortunately, it is difficult for app developers to deliver on this implicit promise made to users.\n\nFor companies, we see that data about people can be very lucrative business. It is also increasingly apparent that having too much data about users can destroy your business if that information gets hacked and dumped onto the internet.\n\nBuilding apps that can securely contain private can be hard to do, but it does not have to be. Guardian Project’s central goal is to make it as easy as possible. We take cutting edge security research and bundle it up into free, easy to use libraries. These libraries make it very easy to protect precious data on the device and over the internet. These libraries use APIs that developers already know (e.g. android.database.*, java.io.*) so the ramp up time for developers is really fast. This workshop will give an overview of our suite of libraries, including SQLCipher-for-Android, private file stores, and hardened network connections. Then we will help you start incorporating them in your own apps, providing a wealth of examples including sample code, real world apps that use these libraries, and UI/UX patterns that work well."
 }, {
+	"id": 10,
+	"startAt": "2016-03-05 15:15",
+	"duration": 30,
+	"roomId": 1,
+	"speakersId": [22],
+	"title": "\"Open Government\" to \"Smart Governance\": a Strategic view of the Back Office",
+	"description": "Open Government initiatives without a strategic view are only isolated initiatives that won’t have the desired impact. Usually we are hearing about participation and other principles related to open government, but we are not usually hearing about its elements linked to the back office. In the back office, information systems, processes, and institutional collaboration will be key. From this view, interoperability of Apps and services will be a key characteristic in order to guarantee the best software, that will mean better software options to choose. Thus, It is needed to think of the future of technologies in organizations, and how standards in public software like mobile Apps could allow to interact with different systems, not only in organizations, but also related to citizen’s devices. In this speech it will be shown an strategic view of the Open Government from the back office, mainly in the context of the Smart Cities."
+}, {
+	"id": 11,
+	"startAt": "2016-03-05 15:45",
+	"duration": 50,
+	"roomId": 1,
+	"speakersId": [35],
+	"title": "Create the Internet of Your Things: The Microsoft Vision for IoT",
+	"description": "The Internet of Things (IoT) is here today in the devices, sensors, cloud services, and data your business uses. Microsoft delivers a flexible cloud-based approach that enables enterprises to capitalize on IoT by gathering, storing, and processing data centrally. When centrally connecting distributed LoB assets, the edge of an enterprise’s infrastructure can be redefined, and the breadth of the Microsoft data platform can be harnessed. Learn about Microsoft’s position on IoT, and the technology and services being delivered from Microsoft to help you create the Internet of Your Things."
+}, {
+	"id": 12,
+	"startAt": "2016-03-05 16:40",
+	"duration": 50,
+	"roomId": 2,
+	"speakersId": [13],
+	"title": "Let’s your users share your App with Friends: App Invites for Android",
+	"description": "Thinking about free marketing ? Want to give the opportunity to your user to share your app with their friends ? maybe you just need more downloads ? Not sure where to start? Android App Invite is one of the answer you were looking for.\nYou will learn more about app invite is all about and why you need to care about.\nThis talk will teach you exactly what you need to know to integrate app invite in your application.\nAt the end of this class, you will learn:\n-why you need app invite in your app\n-how to integrate app invite in your app\n-how to manage invites tracking using Google Analytics API"
+}, {
+	"id": 13,
+	"startAt": "2016-03-05 16:40",
+	"duration": 50,
+	"roomId": 4,
+	"speakersId": [3],
+	"title": "Kick-off with Successful android Business apps",
+	"description": "Apps can do just about anything, but a mobile strategy is essential to determine how a mobile app could best serve your needs. Identify an issue or opportunity first, then think about how mobile may be able to solve it.\n\nWe all know that the Management is the most important elements of the success of major companies and entrepreneurial,and it represents a significant proportion in this path.\nThrough our tech-talk session, we will talk about the development of mobile applications under the concept of successful management mechanisms, also we’ll make lights on marketing strategy, and how can find the best revenue models for our mobile apps, also we have some of these topics. Here is what’s covered:\n– Build Your Personal Online Presence\n– Validate Your Idea\n– Choose Your Revenue Model\n– Choose The Right Name & Branding.\n– Start Marketing Within Your App\n– Build Your App’s Online Presence\n– Get Feedback\n– Localize\n– Do App Store Optimization\n– Get Your App Reviewed\n– Market Your App With Video\n– Do “Real-life” Marketing?\n– Cross-Promote Your App\n– Kill It On Launch Day!\n– Improve Engagement With Push Notifications\n– Choose The Right Promotion Campaigns\n– Measure, Improve & Keep On Marketing\n– Native vs Cross-Platform Development\n– Choose Your First Platform Wisely\n– Client Retention Secrets\n– Find a co-founder."
+}, {
 	"id": 14,
-	"startAt": "2016-03-05 14:00",
+	"startAt": "2016-03-05 16:40",
 	"duration": 50,
 	"roomId": 6,
 	"speakersId": [34],
@@ -112,7 +112,7 @@
 	"description": "Creating a game is one thing, and exporting it to the Google Play Store is another matter. This workshop covers some of the performance issues you might encounter when creating your mobile game with unity, Things to handle before exporting, profiling and debugging the game to take down the bottlenecks, and other tips and tricks to to have your game ready for publishing. In this workshop, we will see how to apply these tricks on your game inside the Unity editor."
 }, {
 	"id": 15,
-	"startAt": "2016-03-05 14:00",
+	"startAt": "2016-03-05 16:40",
 	"duration": 50,
 	"roomId": 8,
 	"speakersId": [26],
@@ -120,7 +120,7 @@
 	"description": "Positive Technologies, ANCE, ANSI"
 }, {
 	"id": 16,
-	"startAt": "2016-03-05 15:00",
+	"startAt": "2016-03-05 17:35",
 	"duration": 50,
 	"roomId": 2,
 	"speakersId": [19],
@@ -128,7 +128,7 @@
 	"description": "The slogan ‘#PERFMATTERS’ by Colt McAnlis is one of the most important statements, which an Android developer should follow. A well performing application makes the difference between a nice looking application and one, which gets successful. You, as an Android developer, have the responsibility to delight your users, so they don’t feel how much work your application has to burden to fulfill the user’s needs. This session will show you some easy optimizations and how to avoid glitches in the application. A lot of developers would shout, that this is premature optimization. In contrary it is preventive. With a small amount of work while developing you can avoid a lot of pitfalls. You will hopefully have a better understanding of the underlying system afterwards. During the session some tools and frameworks will be presented for helping you to fulfill your mission."
 }, {
 	"id": 17,
-	"startAt": "2016-03-05 15:00",
+	"startAt": "2016-03-05 17:35",
 	"duration": 50,
 	"roomId": 3,
 	"speakersId": [35, 30, 37],
@@ -136,7 +136,7 @@
 	"description": "In the workshop, we will split in 4 groups, each having an IoT Kit and a mentor. The mentor will go through a step by step creation of an IoT environment and LAB setup"
 }, {
 	"id": 18,
-	"startAt": "2016-03-05 15:00",
+	"startAt": "2016-03-05 17:35",
 	"duration": 50,
 	"roomId": 4,
 	"speakersId": [4],
@@ -144,7 +144,7 @@
 	"description": "In almost every Android app project, you use a variety of libraries. This talk covers some of the most used libraries. While developing an Android app, you rely on loads of 3rd party libraries to make your life easier. Need persistence? No problem. Need to access a REST API? No problem. Need to handle images in your app? No problem. There’s a library for almost any common task that Android developers will face. In this talk, I will show examples of some of the most common Android libraries that are out there."
 }, {
 	"id": 19,
-	"startAt": "2016-03-05 15:00",
+	"startAt": "2016-03-05 17:35",
 	"duration": 50,
 	"roomId": 5,
 	"speakersId": [9],
@@ -152,7 +152,7 @@
 	"description": "Lately, Making native looking applications throughout cross-platform tools becomes a reality.\n\nDeploying to multiple platforms(roughly a dozen) and gaining the C++ performance in your application are not the only pros of the Qt cross-platform framework, you can take profit from a more reduced time to market, possible through the new Qt Quick module.\n\nWith the new Qt QML language, your most common app features are made in a record time, it even permit you to write your app entirely in a declarative language including easy to use animation, 3D and all the JavaScript power and simplicity, in the most simple way.\n\nYou can’t have a special application unless you have a powerful back-end, the 20 years old mature framework will help you make your app a distinctive and useful piece of software, the C++ methods from sensor management to image recognition are on your disposal to make the heavy treatments part.\n\nYou can always use your Java intimate snippets in consistency with the other parts of your Qt Android application.\n\nWhatever you’re an old school C++ programmer or newbie JS integrator, this talk will help you get started with the Qt tools and framework to make your android application."
 }, {
 	"id": 20,
-	"startAt": "2016-03-05 15:00",
+	"startAt": "2016-03-05 17:35",
 	"duration": 50,
 	"roomId": 6,
 	"speakersId": [27],
@@ -160,7 +160,7 @@
 	"description": "Are you a mobile-game developer? Artist? Or maybe just a big fan of game design? Well, this workshop is made for you.\nLet me ask one more question: Did you ever wish you could create visually-rich games and spectacular graphic-design in your mobile-game? It seems like an impossible dream -for the enhancement of the graphical aspects of the game is often extremely costly in size and physical resources-, but I am here to show that dreams do come true.\nWhat we’ll cover in this workshop is various techniques that would allow you to enhance your mobile games -whether you’re using Unreal Engine, Unity, Lumberyard or other game-engines.\nTechniques that would allow you to design the high-quality graphics and animations we’re used to on PC and console platforms, and make them available for mobile devices."
 }, {
 	"id": 21,
-	"startAt": "2016-03-05 15:00",
+	"startAt": "2016-03-05 17:35",
 	"duration": 50,
 	"roomId": 8,
 	"speakersId": [29],
@@ -168,7 +168,7 @@
 	"description": "The Blockchain technology is the new trend, everybody is joining and hundreds of related applications, technologies, projects and initiatives are launching every month.\n\nMy talk ‘Magic of the Blockchain’, Will dive into how the blockchain works, how transactions and bitcoins are created. I will also talk about Altchains, Sidechains, Smart contracts… and how all this will revolutionize our financial system."
 }, {
 	"id": 22,
-	"startAt": "2016-03-05 16:00",
+	"startAt": "2016-03-05 18:30",
 	"duration": 50,
 	"roomId": 2,
 	"speakersId": [5],
@@ -176,7 +176,7 @@
 	"description": "The door for the IoT world has been quickly opened by iBeacon. But this was a door slamming at your face each time you get to close of it. Eddystones are the new way to connect the physician world. They are the path to the nearable world. Eddystone allow you to connect your Android Apps with places and objects surrounding you. We will be also quickly speaking about brillo and what it means for the interaction between apps and IoT."
 }, {
 	"id": 23,
-	"startAt": "2016-03-05 16:00",
+	"startAt": "2016-03-05 18:30",
 	"duration": 50,
 	"roomId": 3,
 	"speakersId": [2, 6],
@@ -184,7 +184,7 @@
 	"description": "When you implement your app, you will find yourself implementing a lot of listeners and callbacks to manage all the communication stuff between your app components (activities, fragments, views….) and a lot of classes become difficult to read and maintain.\nTo avoid all the headache, we can enhance our app architecture by adopting an event based architecture. During this talk, we will present how this can be implemented and which open source libraries can we use to easily integrate such an architecture."
 }, {
 	"id": 24,
-	"startAt": "2016-03-05 16:00",
+	"startAt": "2016-03-05 18:30",
 	"duration": 50,
 	"roomId": 4,
 	"speakersId": [20],
@@ -192,7 +192,7 @@
 	"description": "This talk will introduce Xamarin Forms as a platform for building native cross platform mobile applications. It will cover the following three points:\n1. Pros and cons of Xamarin compared to HTML5 technologies especially Cordova and Ionic (performance, UX, development environment & costs).\n2. Demoing a Xamarin Forms application using C# and Visual Studio/Xamarin Studio (developing a sample application that contains the basic user controls).\n3. Xamarin communities (Xamarin MVP / Student Ambassador) and advantages (Xamarin University, Free licenses). At the end, attendees will be able to know the perfect cases to use Xamarin and when not to use it."
 }, {
 	"id": 25,
-	"startAt": "2016-03-05 16:00",
+	"startAt": "2016-03-05 18:30",
 	"duration": 50,
 	"roomId": 5,
 	"speakersId": [7],
@@ -200,7 +200,7 @@
 	"description": "A presentation on Bluetooth Low Energy (smart bluetooth) and a tutorial on developing Android application using BLE. than a workshop to develop an application with iBeacon"
 }, {
 	"id": 26,
-	"startAt": "2016-03-05 16:00",
+	"startAt": "2016-03-05 18:30",
 	"duration": 50,
 	"roomId": 6,
 	"speakersId": [32],
@@ -208,7 +208,7 @@
 	"description": "We will talk about how to create a custom inspector that you can use in a lot of different projects.\n\nWith the custom inspector you can make complex behavior easy and then pass it on to your teammates, you can put all the complex functionality under the hood and let the people implement your code.\n\nMake a custom inspector that can help you to develop games faster:\n\n- Use buttons, sliders and other options to make your custom inspector.\n- Learn how to manipulate multiple game objects with the editors attached and edit them.\n- Learn to implement the code that is used to make the Unity editor itself.\n\nIf you want to assist to this session you will need to have a good understanding of C# and at least a small understanding of then Unity GUI scripting."
 }, {
 	"id": 27,
-	"startAt": "2016-03-05 16:00",
+	"startAt": "2016-03-05 18:30",
 	"duration": 50,
 	"roomId": 8,
 	"speakersId": null,
@@ -216,7 +216,7 @@
 	"description": null
 }, {
 	"id": 28,
-	"startAt": "2016-03-05 17:00",
+	"startAt": "2016-03-05 19:25",
 	"duration": 50,
 	"roomId": 2,
 	"speakersId": [11],
@@ -224,7 +224,7 @@
 	"description": "Developing for Android has drastically changed over the last few years.\nWe now have a gigantic toolbox we can benefit from to improve our productivity and build better applications.\n\nDuring this presentation I will introduce some of the tools we use daily at happn, a multi-million users French dating application.\n\nI will talk about many tools that help us to:\n– Simulate a laggy/instable HTTP(s) connection\n– Interact with our application to analyze logs, views, and modify any data (inc. memory / shared preferences / database) in real time\n– Change our application’s backend server without recompiling\n– Better understand our technical debt\n– Create a REST mock server in a few seconds to anticipate the development of a feature when the backend is not developed yet\n– Measure the performance (cpu/memory) of our application\n– Decompile our application to better understand and analyze its security\n– Alter a server response and check whether the application behaves properly\n– and many more tips…"
 }, {
 	"id": 29,
-	"startAt": "2016-03-05 17:00",
+	"startAt": "2016-03-05 19:25",
 	"duration": 50,
 	"roomId": 3,
 	"speakersId": [23],
@@ -232,7 +232,7 @@
 	"description": "VR was the one of trending words of 2015. And it’s closely associated to gaming and new kind of experiences in gaming. Facebook is leading the industry through Oculus. But all the big manufacturers are working on their own headsets and glasses. So is it really the next big thing in the gaming industry ? How to be an early developer/adopter ? What is already working on VR ? What is already the big fails of VR ? Are the customers ready for VR ? Is there any opportunity for startups ? from emerging countries ? We ll try to discuss all this together based on facts numbers and some announcements."
 }, {
 	"id": 30,
-	"startAt": "2016-03-05 17:00",
+	"startAt": "2016-03-05 19:25",
 	"duration": 50,
 	"roomId": 4,
 	"speakersId": [1],
@@ -240,7 +240,7 @@
 	"description": "Vaadin is a framework and set of web components for rapid development of highly interactive HTML5-based web applications. This presentation will give a quick intro to a three core concepts that are the base of Vaadin Components: WebComponents, Polymer, and Offline First apps. You will learn how to develop an Offline First web and mobile apps using Polymer, and how to integrate it with a Java backend using the power of Vaadin."
 }, {
 	"id": 31,
-	"startAt": "2016-03-05 17:00",
+	"startAt": "2016-03-05 19:25",
 	"duration": 50,
 	"roomId": 5,
 	"speakersId": [28],
@@ -248,7 +248,7 @@
 	"description": "A full presentation about what is new in material design this year, where we will see everything that happened in the past google I/O’s Event, plus every single new feature made in with the new update of marshmallow’s OS, from the new guidelines, device metrics, and google design site put apart for best experience, to specializing everything at it’s own level. Also we will go through how android development has been improved highly and made easier for a lot of layouts that we used to suffer to make, as a very happy UI update, and the end we must not forget about material design awards, and material design inspiration, to do my duty of getting this material design update fulfilled if you honor me to step ahead with you in this year’s Droidcon."
 }, {
 	"id": 32,
-	"startAt": "2016-03-05 17:00",
+	"startAt": "2016-03-05 19:25",
 	"duration": 50,
 	"roomId": 8,
 	"speakersId": null,
