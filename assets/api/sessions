@@ -432,6 +432,14 @@
 	"description": "TOP 10 Security threats in Mobile Platforms\nin this talk we will focus on security checks for your mobile apps. If you are a Pentester or an organization which develops mobile apps, then this checklist is what you should consider as BaseLine for your mobile apps\nthis list is based on statistics for vulnerabilities in the field of mobile apps\nwe will be presenting the mobile threat model that this list is based on and also present secure mobile apps development guidelines with each threat or risk"
 }, {
 	"id": 55,
+	"startAt": "2016-03-06 17:00",
+	"duration": 50,
+	"roomId": 7,
+	"speakersId": null,
+	"title": "Pitching challenge droidcon Awards",
+	"description": null
+}, {
+	"id": 56,
 	"startAt": "2016-03-06 18:00",
 	"duration": 60,
 	"roomId": 0,
