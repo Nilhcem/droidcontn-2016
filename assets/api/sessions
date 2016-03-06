@@ -306,7 +306,7 @@
 	"id": 39,
 	"startAt": "2016-03-06 12:00",
 	"duration": 45,
-	"roomId": 3,
+	"roomId": 1,
 	"speakersId": [8],
 	"title": "State of Android Testing Support Library",
 	"description": "Testing in the Android Platform used to be hard, but not now.\nThe Android Testing Support Library provides an extensive framework for testing Android apps. In this talk we will go through the main features like the new instrumentation test runner. Then we will cover Espresso and advanced topics like espresso-intents and idling resources. Finally we will see UI Automator, testing framework suitable for cross-app functional UI testing across system and installed apps"
