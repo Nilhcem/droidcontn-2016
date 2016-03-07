@@ -315,13 +315,13 @@
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Mohamed-Yamama-e1456920903861.jpg"
 }, {
 	"id": 36,
-	"name": "Slim Regaieg, Chaima Attia",
+	"name": "Slim Regaieg, Chaima Attia, Amina Khalfaoui, Rania Rhim",
 	"title": "Développeurs mobiles",
 	"bio": "Développeurs mobiles et aiment former les enfants en développement mobile. Ils ont eu plusieurs expérience en atelier Scartch pour les élèves.",
 	"website": null,
 	"twitter": null,
 	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/App-Inventor.png"
+	"photo": "http://www.droidcon.tn/wp-content/uploads/scratch.png"
 }, {
 	"id": 37,
 	"name": "Fares Zekri",
@@ -349,13 +349,4 @@
 	"twitter": null,
 	"github": null,
 	"photo": "http://www.droidcon.tn/wp-content/uploads/Samia-Chalbi.png"
-}, {
-	"id": 40,
-	"name": "Slim Regaieg, Chaima Attia, Amina Khalfaoui, Rania Rhim",
-	"title": "Développeurs mobiles",
-	"bio": "Développeurs mobiles et aiment former les enfants en développement mobile. Ils ont eu plusieurs expérience en atelier Scartch pour les élèves.",
-	"website": null,
-	"twitter": null,
-	"github": null,
-	"photo": "http://www.droidcon.tn/wp-content/uploads/scratch.png"
 }]
