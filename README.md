@@ -1,4 +1,12 @@
-# Droidcon Tunisia 2016 Conference App
+# DEPRECATED - Are you sure this is the repo you really want to see?
+
+If you want the **latest**, up to date, source code for the 2016 Android Developer Toolbox sample project, checkout 
+the list of my repositories and choose the one from the conference you went to:
+
+[https://github.com/Nilhcem?tab=repositories](https://github.com/Nilhcem?tab=repositories)
+
+
+# Otherwise: droidcon Tunisia 2016 Conference App
 
 Sample app for the "2016 Android Developer Toolbox" talk at droidcon tunisia
 
